@@ -1,12 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sheng Ji</title>
+    <link rel="stylesheet" type="text/css" href="css/main-style.css">
+    <link rel="stylesheet" media="screen and (max-width: 700px)" href="css/mobile-style.css">
+    <title>80 Points</title>
 </head>
+
+<style></style>
+
 <body>
-    
+    <div id="front-page">
+        <div id="front-page-elements">
+            <div id="front-title">
+                <h1 id="front-title-text">80 Points</h1>
+            </div>
+            <div id="front-buttons-div">
+                <button id="front-button-create" class="front-button">
+                    <p id="front-button-create-text" class="front-button-text">create</p>
+                </button>
+                <button id="front-button-join" class="front-button">
+                    <p id="front-button-join-text" class="front-button-text">join</p>
+                </button>
+            </div>
+        </div>
+        <div id="icons">
+            <div id="mode-switch">
+                <div id="mode-switch-nob" onclick="mswitch()"></div>
+            </div>
+            <div class="front-icon">
+                <h1  class="front-icon-text">?</h1>
+            </div>
+            <div class="front-icon">
+                <h1 class="front-icon-text" id="setting-icon-text">⚙️</h1>
+            </div>
+
+        </div>
+    </div>
+    <script src="js/variables.js"></script>
+    <script src="js/button.js"></script>
+    <script src="js/script.js"></script>
 </body>
+
 </html>
