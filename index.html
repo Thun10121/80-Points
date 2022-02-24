@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/main-style.css">
+    <link rel="stylesheet" type="text/css" href="css/import.css">
+    <link rel="stylesheet" type="text/css" href="css/front.css">
+    <link rel="stylesheet" type="text/css" href="css/instructions.css">
     <link rel="stylesheet" media="screen and (max-width: 700px)" href="css/mobile-style.css">
     <title>80 Points</title>
 </head>
@@ -13,30 +15,97 @@
 
 <body>
     <div id="front-page">
+        <div id="front-background">
+            <img id="front-ld-corner"src="../photos/front-ld-corner.svg" alt="ld-corner">
+            <img id="front-lt-corner"src="../photos/front-lt-corner.svg" alt="lt-corner">
+            <img id="front-rd-corner"src="../photos/front-rd-corner.svg" alt="rd-corner">
+            <img id="front-rt-corner"src="../photos/front-rt-corner.svg" alt="rt-corner">
+        </div>
         <div id="front-page-elements">
             <div id="front-title">
-                <h1 id="front-title-text">80 Points</h1>
+                <div id="front-title-text" style="--i:1">8</div>
+                <div id="front-title-text" style="--i:2">0</div>
+                <div id="front-title-text" style="--i:3">-</div>
+                <div id="front-title-text" style="--i:5">P</div>
+                <div id="front-title-text" style="--i:6">O</div>
+                <div id="front-title-text" style="--i:7">I</div>
+                <div id="front-title-text" style="--i:8">N</div>
+                <div id="front-title-text" style="--i:9">T</div>
+                <div id="front-title-text" style="--i:10">S</div>
             </div>
             <div id="front-buttons-div">
-                <button id="front-button-create" class="front-button">
+                <button id="front-button-create" class="front-button" onclick="creat()">
                     <p id="front-button-create-text" class="front-button-text">create</p>
                 </button>
-                <button id="front-button-join" class="front-button">
+                <button id="front-button-join" class="front-button" onclick="join()">
                     <p id="front-button-join-text" class="front-button-text">join</p>
                 </button>
             </div>
         </div>
+        <div id="front-game">
+            <div class="front-game-div" id="front-game-random">
+                <p id="front-game-random-text">hi</p>
+            </div>
+            <div class="front-game-div" id="front-game-official">
+                <p id="front-game-official-text">bye</p>
+            </div>
+        </div>
         <div id="icons">
-            <div id="mode-switch">
-                <div id="mode-switch-nob" onclick="mswitch()"></div>
+            <div class="front-icon">
+                <h1 class="front-icon-text" onclick="instructions()">?</h1>
             </div>
             <div class="front-icon">
-                <h1  class="front-icon-text">?</h1>
+                <h1 class="front-icon-text" id="setting-icon-text">⚙</h1>
             </div>
-            <div class="front-icon">
-                <h1 class="front-icon-text" id="setting-icon-text">⚙️</h1>
+        </div>
+    </div>
+    <div id="instructions-page">
+        <div id="instructions-modal"></div>
+        <div id="instructions-content">
+            <div id="instructions-x-button" onclick="instructions()">
+                <div id="instructions-x-button-text">✖</div>
             </div>
-
+            <div id="instructions-content-title">
+            </div>
+            <div id="instructions-content-text">
+                <h2 id="instructions-content-subtitle">Basics</h2>
+                <p id="instructions-content-paragraph">
+                <h2 id="instructions-content-paragraph-subtitle">Teams</h2><br>
+                This is a two player vs two player game: a four player game. Your teammmate is going to be the
+                opposite player of you.
+                <br>
+                <h2 id="instructions-content-paragraph-subtitle">Goals</h2><br>
+                At the beginning of the game one team of two players will be determine as <b>on stage</b> and <b>off
+                    stage</b>. The percent <b>on stage team</b> is trying to prevent the <b>off stage team</b> from
+                earning points.
+                <h2 id="instructions-content-paragraph-subtitle">Points</h2><br>
+                Five of ♠️\♥\♣️\♢: 5 points <br>
+                Ten of ♠️\♥\♣️\♢: 10 points <br>
+                King of ♠️\♥\♣️\♢: 10 points <br>
+                </p>
+                <h2 id="instructions-content-subtitle">Drawing Cards</h2>
+                <p id="instructions-content-paragraph">
+                    In each game it will assigned a <b>main card</b>: assigned randomly or in order of
+                    2,3,4,5,6,7,8,9,10,J,Q,K,A. The <b>main card</b> is going to be the second biggest card: right
+                    under
+                    the
+                    jokers. Each player get 25 cards, 8 cards leftover. If you get a <b>main card</b> you become the
+                    <b>host</b> of the game. Hence, suit of the main card you have will be the <b>main suit</b>
+                    (your
+                    main card: 2♥ means main suit is ♥). If you multiple main cards in different suit, you can
+                    choose
+                    <b>main suit</b>. <b>The suit of the main card you choose must be a suit of one of the main
+                        cards
+                        you have. You can overthrow, the host if you have a pair of the <b>main card</b> in the
+                        <b>same
+                            suit</b> (ex: pair of 2♥). The main suit will be the superior suit and have higher value
+                        than all other three suits (ex main suit: ♥ hence, 2♥ > 2♣ or 2♦ or 2♠). At last, if a
+                        player
+                        get a pair of joker (pair of red jokers or black jokers) they can overthrow the previous
+                        player(s)
+                        being the host.
+                </p>
+            </div>
         </div>
     </div>
     <script src="js/variables.js"></script>

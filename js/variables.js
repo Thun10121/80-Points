@@ -8,4 +8,4 @@ let accent2 = "E6E6E6"
 let darkModeStatus = true;
 
 //!dimensions
-let modeSwitchWidth = "4vmin";
+let modeSwitchWidth = "3.5vmin";
