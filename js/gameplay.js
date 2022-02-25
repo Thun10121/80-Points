@@ -23,6 +23,7 @@ try{
     let randCards = [];
     let playerCards = [[], [], [], []];
     let dipai = [];
+    let eachRound = [];
 
     intial();
 
@@ -30,6 +31,10 @@ try{
         cardTypes.forEach(putCards); //calling for each type of the card call function PutCards
         randomCards(cards); // randomize
         console.log(randCards.join(" "));
+        for(let i = 0; i < 4; i++){
+            rand = Math.floor(Math.random() * 108);
+            eachRound[i] = randCards[rand];
+        }
         for (let i = 0; i < 4; i++)
             playerCards[i] = randCards.splice(0, 25);
         dipai = randCards;
@@ -50,9 +55,13 @@ try{
     }
 
     //♠ ♥ ♣ ♦
-    let zhuSuit = "♥";
-    let zhuNumber = "8";
-    findLargestCard("♣8", "♥10", "♥Q", "♥8");
+    rand = Math.floor(Math.random() * 4);
+    let zhuSuit = suits[rand];
+    rand = Math.floor(Math.random() * 13);
+    let zhuNumber = cardTypes[rand];
+    console.log("zhuSuit: " + zhuSuit + " " + "zhuNumber: " + zhuNumber);
+    console.log(eachRound.join(" "));
+    findLargestCard(eachRound[0], eachRound[1], eachRound[2], eachRound[3]);
 
     function cp(order, card){
         this.order = order;
