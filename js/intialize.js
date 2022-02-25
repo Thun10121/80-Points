@@ -12,6 +12,8 @@ diamonds: ♢
 ♠️♥♣️♢
 */
 
+//sup
+
 try {
 
     let points = [5, 10, 10];
