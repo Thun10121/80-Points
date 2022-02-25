@@ -5,11 +5,11 @@ ten: 10
 five: 5
 
 ?Suits:
-spades: ♠️
+spades: ♠
 hearts: ♥
-clovers: ♣️
-diamonds: ♢
-♠️♥♣️♢
+clovers: ♣
+diamonds: ♦
+♠ ♥ ♣ ♦
 */
 
 try {
@@ -50,7 +50,10 @@ try {
         }
     }
 
-    findLargestCard("♣K", "♦A", "♣7", "♠9");
+    //♠ ♥ ♣ ♦
+    let zhuSuit = "♥";
+    let zhuNumber = "8";
+    findLargestCard("♣8", "♥10", "♥Q", "♥8");
 
     function cp(order, card){
         this.order = order;
@@ -59,44 +62,78 @@ try {
 
     function findLargestCard(card1, card2, card3, card4){
         let result = 0;
-        let joker = false, rj = false, bj = false;
+        let zhu = false;
         let thisRound = [new cp(1, card1), new cp(2, card2), new cp(3, card3), new cp(4, card4)];
         let currSuit = card1.charAt(0);
-        for(let i = 0; i < 4; i++){
-            if(i > thisRound.length-1){
-                break;
-            }
-            if(thisRound[i].card != "BJoker" && thisRound[i].card != "RJoker"){
-                if(thisRound[i].card.charAt(0) != currSuit){
-                    thisRound.splice(i, 1);
-                    i--
-                }else{
-                    thisRound[i].card = thisRound[i].card.substring(1, thisRound[i].card.length);
-                }
-            }else{
-                joker = true;
+
+        for(let i = 0; i < thisRound.length; i++){
+            if(thisRound[i].card.charAt(0) == zhuSuit || thisRound[i].card.substring(1, thisRound[i].card.length) == zhuNumber){
+                zhu = true;
+            }else if(thisRound[i].card == "RJoker"){
+                zhu = true;
+                thisRound[i].card = "16";
+            }else if(thisRound[i].card == "BJoker"){
+                zhu = true;
+                thisRound[i].card = "15";
             }
         }
 
-        if(joker){
-            let temp = -1;
-            for(let i = 0; i < thisRound.length; i++){
-                if(thisRound[i].card == "RJoker"){
-                    rj = true;
-                    result = thisRound[i].order;
+        if(!zhu){ //all fupai
+            for(let i = 0; i < 4; i++){
+                if(i > thisRound.length-1){
                     break;
-                }else if(thisRound[i].card == "BJoker"){
-                    bj = true;
-                    if(temp == -1){
-                        temp = thisRound[i].order;
+                }
+                if(thisRound[i].card.charAt(0) != currSuit){
+                    thisRound.splice(i, 1);
+                    i--;
+                }else{
+                    thisRound[i].card = thisRound[i].card.substring(1, thisRound[i].card.length);
+                }
+            }
+            for(let i = 0; i < thisRound.length; i++){
+                for(let j = 0; j < cardTypes.length; j++){
+                    if(thisRound[i].card == cardTypes[j]){
+                        thisRound[i].card = j;
                     }
                 }
             }
-            if(bj && !rj){
-                result = temp;
-            }
-        }else{
             for(let i = 0; i < thisRound.length; i++){
+                for(let j = 0; j < thisRound.length-1; j++){
+                    if(thisRound[j].card < thisRound[j+1].card){
+                        let temp = thisRound[j+1];
+                        thisRound[j+1] = thisRound[j];
+                        thisRound[j] = temp;
+                    }
+                }
+            }
+            result = thisRound[0].order;
+        }else{ //zhupai is present
+            currSuit = zhuSuit;
+            for(let i = 0; i < 4; i++){
+                if(i > thisRound.length-1){
+                    break;
+                }
+                if(thisRound[i].card == "15" || thisRound[i].card == "16"){
+                    continue;
+                }
+                if(thisRound[i].card.charAt(0) != currSuit && thisRound[i].card.substring(1, thisRound[i].card.length) != zhuNumber){
+                    thisRound.splice(i, 1);
+                    i--;
+                }
+            }
+            for(let i = 0; i < thisRound.length; i++){
+                if(thisRound[i].card.substring(1, thisRound[i].card.length) == zhuNumber){
+                    if(thisRound[i].card.charAt(0) != zhuSuit){
+                        thisRound[i].card = "13";
+                    }else{
+                        thisRound[i].card = "14";
+                    }
+                    continue;
+                }
+                if(thisRound[i].card == "15" || thisRound[i].card == "16"){
+                    continue;
+                }
+                thisRound[i].card = thisRound[i].card.substring(1, thisRound[i].card.length)
                 for(let j = 0; j < cardTypes.length; j++){
                     if(thisRound[i].card == cardTypes[j]){
                         thisRound[i].card = j;
