@@ -44,7 +44,7 @@ function join() {
     </button>`;
 }
 
-function creat(){
+function create(){
     createButton.style.display = "none";
     joinButton.style.display = "none";
     frontPageElement.style.display = "none";
