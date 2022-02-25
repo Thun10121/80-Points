@@ -12,15 +12,13 @@ diamonds: ♢
 ♠️♥♣️♢
 */
 
-//sup
-
 try {
 
     let points = [5, 10, 10];
     //point values (in order): five,ten,king
 
     let cardTypes = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
-    let suits = ["♥", "♦", "♣", "♠"];
+    let suits = ["♠", "♥", "♣", "♦"];
     let cards = ["BJoker", "BJoker", "RJoker", "RJoker"];
     let rand;
     let randCards = [];
@@ -32,9 +30,8 @@ try {
         cardTypes.forEach(putCards);
         randomCards(cards);
         console.log(randCards);
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 4; i++)
             playerCards[i] = randCards.splice(0, 25);
-        }
     }
 
     function putCards(item) {
