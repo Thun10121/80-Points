@@ -23,31 +23,34 @@ try {
     let rand;
     let randCards = [];
     let playerCards = [[], [], [], []];
+    let dipai = [];
 
     intial();
 
     function intial() { // !whenever a game start
         cardTypes.forEach(putCards); //calling for each type of the card call function PutCards
-        randomCards(cards);// randomize
-        console.log(randCards);
+        randomCards(cards); // randomize
+        console.log(randCards.join(" "));
         for (let i = 0; i < 4; i++)
             playerCards[i] = randCards.splice(0, 25);
+        dipai = randCards;
     }
 
-    function putCards(item) {//for each card input push it 8 times, 2 per 4 suits
+    function putCards(item) { //for each card input push it 8 times, 2 per 4 suits
         for (let x = 0; x < 2; x++)
             for (let i = 0; i < 4; i++)
                 cards.push(suits[i] + item);
     }
 
-    function randomCards(c) {
-        while (c.length > 0) {
+    function randomCards(randArray) {
+        while (randArray.length > 0) {
             rand = Math.floor(Math.random() * (cards.length));
-            randCards.push(c[rand]);
-            c.splice(rand, 1); 
+            randCards.push(randArray[rand]);
+            randArray.splice(rand, 1); 
         }
     }
 
+    console.log(dipai);
 } catch (error) {
     console.log(error);
 }
