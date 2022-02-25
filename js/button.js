@@ -40,7 +40,7 @@ function join() {
     joinButton.style.display = "none";
     backButton.style.display = "flex";
     frontButtonDIV.innerHTML = `
-    <input id="front-join-input" class="front-button" type="number" placeholder="room code"></input>
+    <input id="front-join-input" class="front-button" type="number" placeholder="Room Code"></input>
     <button id="front-button-enter" class="front-button" onclick="enterCode()">
         <p id="front-button-enter-text" class="front-button-text">ENTER</p>
     </button>

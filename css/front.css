@@ -153,6 +153,8 @@ p {
     height: 6vmin;
     width: 20vmin;
     border-radius: .5vmin;
+    justify-content: center;
+    text-align: center;
     outline: none;
     border: none;
     transition: 1s;
@@ -164,8 +166,8 @@ p {
     color-stop(20%, rgb(1, 95, 23)), 
     color-stop(40%, rgb(1, 95, 23)), 
     to(rgb(1, 95, 23))); 
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    /* -webkit-text-fill-color: transparent; */
 }
 
 .front-button:hover {
@@ -219,8 +221,8 @@ p {
 }
 
 #front-join-input::placeholder {
-    color: var(--accent0);
-    opacity: .75;
+    color: var(--accent1);
+    opacity: 1;
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
 }
