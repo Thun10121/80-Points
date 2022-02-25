@@ -1,8 +1,8 @@
 /*
 ?Points:
-k: 10
-ten: 10
-five: 5
+5: 5
+10: 10
+K: 10
 
 ?Suits:
 spades: ♠
@@ -12,8 +12,7 @@ diamonds: ♦
 ♠ ♥ ♣ ♦
 */
 
-try {
-
+try{
     let points = [5, 10, 10];
     //point values (in order): five,ten,king
 
@@ -153,6 +152,6 @@ try {
         }
         console.log("largest card: person " + result);
     }
-} catch (error) {
+}catch(error){
     console.log(error);
 }
