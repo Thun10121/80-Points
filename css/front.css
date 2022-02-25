@@ -326,6 +326,7 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
     margin: 5vmin;
     width: 30vmin;
     height: 20vmin;
+    font-family: 'Roboto', sans-serif;
     background: var(--base4);
     border: .5vmin solid var(--accent1);
     border-radius: .5vmin;
