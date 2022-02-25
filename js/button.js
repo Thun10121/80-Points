@@ -3,6 +3,7 @@ let insContent = document.getElementById("instructions-content");
 let insModal = document.getElementById("instructions-modal");
 let createButton = document.getElementById("front-button-create");
 let joinButton = document.getElementById("front-button-join");
+let backButton = document.getElementById("front-button-back");
 let frontButtonDIV = document.getElementById("front-buttons-div");
 let frontPageElement = document.getElementById("front-page-elements");
 let frontGame = document.getElementById("front-game");
@@ -37,16 +38,36 @@ function instructions() {
 function join() {
     createButton.style.display = "none";
     joinButton.style.display = "none";
+    backButton.style.display = "flex";
     frontButtonDIV.innerHTML = `
     <input id="front-join-input" class="front-button" type="number" placeholder="room code"></input>
     <button id="front-button-enter" class="front-button" onclick="enterCode()">
-        <p id="front-button-enter-text" class="front-button-text">enter</p>
-    </button>`;
+        <p id="front-button-enter-text" class="front-button-text">ENTER</p>
+    </button>
+    <button id="front-button-back" class="front-button" onclick="back()">
+        <p id="front-button-back-text" class="front-button-text">BACK</p>
+    </button>
+    `;
 }
 
 function create(){
     createButton.style.display = "none";
     joinButton.style.display = "none";
+    backButton.style.display = "flex";
     frontPageElement.style.display = "none";
     frontGame.style.display = "flex";
+}
+
+function back(){
+    frontButtonDIV.innerHTML = `
+    <button id="front-button-create" class="front-button" onclick="create()">
+        <p id="front-button-create-text" class="front-button-text">CREATE</p>
+    </button>
+    <button id="front-button-join" class="front-button" onclick="join()">
+        <p id="front-button-join-text" class="front-button-text">JOIN</p>
+    </button>
+    `;
+    backButton.style.display = "none";
+    frontGame.style.display = "none";
+    frontPageElement.style.display = "flex";
 }
