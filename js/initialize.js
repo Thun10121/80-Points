@@ -26,15 +26,15 @@ try {
 
     intial();
 
-    function intial() {
-        cardTypes.forEach(putCards);
-        randomCards(cards);
+    function intial() { // !whenever a game start
+        cardTypes.forEach(putCards); //calling for each type of the card call function PutCards
+        randomCards(cards);// randomize
         console.log(randCards);
         for (let i = 0; i < 4; i++)
             playerCards[i] = randCards.splice(0, 25);
     }
 
-    function putCards(item) {
+    function putCards(item) {//for each card input push it 8 times, 2 per 4 suits
         for (let x = 0; x < 2; x++)
             for (let i = 0; i < 4; i++)
                 cards.push(suits[i] + item);
@@ -44,11 +44,10 @@ try {
         while (c.length > 0) {
             rand = Math.floor(Math.random() * (cards.length));
             randCards.push(c[rand]);
-            c.splice(rand, 1);
+            c.splice(rand, 1); 
         }
     }
 
-    console.log(cards.join(" "));
 } catch (error) {
     console.log(error);
 }
