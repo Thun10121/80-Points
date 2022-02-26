@@ -20,6 +20,7 @@ try{
     let randCards = [];
     let playerCards = [[], [], [], []];
     let dipai = [];
+    let dipaiPoints = 0;
     let points = 0;
 
     intial();
@@ -61,7 +62,16 @@ try{
     for(let i = 0; i < 4; i++){
         sortCards(playerCards[i]);
     }
+
     console.log(dipai);
+    for(let i = 0; i < dipai.length; i++){
+        if(dipai[i].substring(1, dipai[i].length) == "5"){
+            dipaiPoints += 5;
+        }else if(dipai[i].substring(1, dipai[i].length) == "10" || dipai[i].substring(1, dipai[i].length) == "K"){
+            dipaiPoints += 10;
+        }
+    }
+    console.log("Dipai Points: " + dipaiPoints);
 
     function sortCards(sorting){
         let afterSorted = [];
