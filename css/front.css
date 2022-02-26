@@ -523,9 +523,9 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
     -webkit-text-fill-color: transparent; */
 
     letter-spacing: .5vmin;
-    font-size: 1.8vmin;
-    color: #13a50e;
-    border-bottom: solid #13a50e .25vmin;
+    font-size: 2.6vmin;
+    color: var(--accent1);
+    border-bottom: solid var(--accent1) .25vmin;
 }
 
 #front-game-button-back-text:hover{
@@ -539,7 +539,7 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
     -webkit-text-fill-color: transparent; */
 
     letter-spacing: .5vmin;
-    font-size: 1.8vmin;
+    font-size: 2.8vmin;
     color: #09ff00;
     border-bottom: solid #09ff00 .25vmin;
 }
@@ -561,9 +561,9 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
 #front-button-back-text{
     transition: .5s;
     letter-spacing: .5vmin;
-    font-size: 1.8vmin;
-    color: #13a50e;
-    border-bottom: solid #13a50e .25vmin;
+    font-size: 2.6vmin;
+    color: var(--accent1);
+    border-bottom: solid var(--accent1) .25vmin;
 }
 
 #front-button-back:hover #front-button-back-text{
@@ -577,7 +577,7 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
     -webkit-text-fill-color: transparent; */
 
     letter-spacing: .5vmin;
-    font-size: 1.8vmin;
+    font-size: 2.8vmin;
     color: #09ff00;
     border-bottom: solid #09ff00 .25vmin;
 }
