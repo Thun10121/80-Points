@@ -13,9 +13,6 @@ diamonds: ♦
 */
 
 try{
-    let points = [5, 10, 10];
-    //point values (in order): five,ten,king
-
     let cardTypes = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
     let suits = ["♠", "♥", "♣", "♦"];
     let cards = ["BJoker", "BJoker", "RJoker", "RJoker"];
@@ -23,7 +20,7 @@ try{
     let randCards = [];
     let playerCards = [[], [], [], []];
     let dipai = [];
-    let eachRound = [];
+    let points = 0;
 
     intial();
 
@@ -31,10 +28,6 @@ try{
         cardTypes.forEach(putCards); //calling for each type of the card call function PutCards
         randomCards(cards); // randomize
         console.log(randCards.join(" "));
-        for(let i = 0; i < 4; i++){
-            rand = Math.floor(Math.random() * 108);
-            eachRound[i] = randCards[rand];
-        }
         for (let i = 0; i < 4; i++)
             playerCards[i] = randCards.splice(0, 25);
         dipai = randCards;
@@ -50,7 +43,7 @@ try{
         while (randArray.length > 0) {
             rand = Math.floor(Math.random() * (cards.length));
             randCards.push(randArray[rand]);
-            randArray.splice(rand, 1); 
+            randArray.splice(rand, 1);
         }
     }
 
@@ -59,9 +52,27 @@ try{
     let zhuSuit = suits[rand];
     rand = Math.floor(Math.random() * 13);
     let zhuNumber = cardTypes[rand];
+    rand = Math.floor(Math.random() * 2) + 1;
+    let zhuang1 = rand;
+    let zhuang2 = rand + 2;
     console.log("zhuSuit: " + zhuSuit + " " + "zhuNumber: " + zhuNumber);
-    console.log(eachRound.join(" "));
-    findLargestCard(eachRound[0], eachRound[1], eachRound[2], eachRound[3]);
+    console.log("Current zhuang: " + zhuang1 + " and " + zhuang2);
+    let largest = 0;
+    let thisRoundPoints = 0;
+
+    while(points < 80){
+        let card1 = prompt("Enter Card 1");
+        let card2 = prompt("Enter Card 2");
+        let card3 = prompt("Enter Card 3");
+        let card4 = prompt("Enter Card 4");
+        console.log(card1 + " " + card2 + " " + card3 + " " + card4);
+        findLargestCard(card1, card2, card3, card4);
+        if(largest != zhuang1 && largest != zhuang2){
+            points += thisRoundPoints;
+        }
+        console.log("Points caught: " + points);
+    }
+    console.log("Game Over");
 
     function cp(order, card){
         this.order = order;
@@ -73,8 +84,14 @@ try{
         let zhu = false;
         let thisRound = [new cp(1, card1), new cp(2, card2), new cp(3, card3), new cp(4, card4)];
         let currSuit = card1.charAt(0);
+        thisRoundPoints = 0;
 
         for(let i = 0; i < thisRound.length; i++){
+            if(thisRound[i].card.substring(1, thisRound[i].card.length) == "5"){
+                thisRoundPoints += 5;
+            }else if(thisRound[i].card.substring(1, thisRound[i].card.length) == "10" || thisRound[i].card.substring(1, thisRound[i].card.length) == "K"){
+                thisRoundPoints += 10;
+            }
             if(thisRound[i].card.charAt(0) == zhuSuit || thisRound[i].card.substring(1, thisRound[i].card.length) == zhuNumber){
                 zhu = true;
             }else if(thisRound[i].card == "RJoker"){
@@ -160,6 +177,7 @@ try{
             result = thisRound[0].order;
         }
         console.log("largest card: person " + result);
+        largest = result;
     }
 }catch(error){
     console.log(error);
