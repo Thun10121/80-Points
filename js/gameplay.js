@@ -27,7 +27,7 @@ try{
     function intial() { // !whenever a game start
         cardTypes.forEach(putCards); //calling for each type of the card call function PutCards
         randomCards(cards); // randomize
-        console.log(randCards.join(" "));
+        console.log("Whole Deck: " + randCards.join(" "));
         for (let i = 0; i < 4; i++)
             playerCards[i] = randCards.splice(0, 25);
         dipai = randCards;
@@ -67,6 +67,7 @@ try{
         let afterSorted = [];
         let playerZhuNumber = [];
         let playerZhuSuit = [];
+        let playerFuSuit = [[]];
         for(let i = 0; i < sorting.length; i++){
             if(i > sorting.length-1){
                 break;
@@ -107,6 +108,53 @@ try{
         playerZhuSuit = sortNumber(playerZhuSuit);
         for(let i = 0; i < playerZhuSuit.length; i++){
             afterSorted.push(playerZhuSuit[i]);
+        }
+
+        while(sorting.length > 0){
+            let thisSuit = sorting[0].substring(0, 1);
+            tempFuSuit = [];
+            for(let i = 0; i < sorting.length; i++){
+                if(i > sorting.length - 1){
+                    break;
+                }
+                if(sorting[i].substring(0, 1) == thisSuit){
+                    tempFuSuit.push(sorting[i]);
+                    sorting.splice(i, 1);
+                    i--;
+                }
+            }
+            tempFuSuit = sortNumber(tempFuSuit);
+            playerFuSuit.push(tempFuSuit);
+        }
+        playerFuSuit.shift();
+
+        for(let i = 0; i < playerFuSuit.length; i++){
+            if(playerFuSuit[i][0].substring(0, 1) == "♠"){
+                for(let j = 0; j < playerFuSuit[i].length; j++){
+                    afterSorted.push(playerFuSuit[i][j]);
+                }
+            }
+        }
+        for(let i = 0; i < playerFuSuit.length; i++){
+            if(playerFuSuit[i][0].substring(0, 1) == "♥"){
+                for(let j = 0; j < playerFuSuit[i].length; j++){
+                    afterSorted.push(playerFuSuit[i][j]);
+                }
+            }
+        }
+        for(let i = 0; i < playerFuSuit.length; i++){
+            if(playerFuSuit[i][0].substring(0, 1) == "♣"){
+                for(let j = 0; j < playerFuSuit[i].length; j++){
+                    afterSorted.push(playerFuSuit[i][j]);
+                }
+            }
+        }
+        for(let i = 0; i < playerFuSuit.length; i++){
+            if(playerFuSuit[i][0].substring(0, 1) == "♦"){
+                for(let j = 0; j < playerFuSuit[i].length; j++){
+                    afterSorted.push(playerFuSuit[i][j]);
+                }
+            }
         }
 
         sorting = afterSorted;
