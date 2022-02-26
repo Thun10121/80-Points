@@ -17,10 +17,10 @@
 <body>
     <div id="front-page">
         <div id="front-background">
-            <img id="front-ld-corner"src="photos/front-ld-corner.svg" alt="ld-corner">
-            <img id="front-lt-corner"src="photos/front-lt-corner.svg" alt="lt-corner">
-            <img id="front-rd-corner"src="photos/front-rd-corner.svg" alt="rd-corner">
-            <img id="front-rt-corner"src="photos/front-rt-corner.svg" alt="rt-corner">
+            <img id="front-ld-corner" src="photos/front-ld-corner.svg" alt="ld-corner">
+            <img id="front-lt-corner" src="photos/front-lt-corner.svg" alt="lt-corner">
+            <img id="front-rd-corner" src="photos/front-rd-corner.svg" alt="rd-corner">
+            <img id="front-rt-corner" src="photos/front-rt-corner.svg" alt="rt-corner">
         </div>
         <div id="front-page-elements">
             <div id="front-title">
@@ -45,71 +45,110 @@
         </div>
         <div id="front-game">
             <div id="front-game-content">
-                <div class="front-game-div" id="front-game-random">
-                    <p id="front-game-random-text">hi</p>
+                <div id="front-game-random-card">
+                    <div id="front-game-random-inner-card">
+                        <div class="front-game-div" id="front-game-random">
+                            <img id="front-game-div-background" src="photos/card-back.svg" alt="card back graphics">
+                            <p id="front-game-random-text">RANDOM</p>
+                        </div>
+                        <div class="front-game-div" id="front-game-random-back">
+                            <p id="front-game-random-text-back">RANDOM</p>
+                            <p id="front-game-random-text-content">For each round of the game a card with be randomly
+                                choosen to be the main card
+                            </p>
+                            <p id="front-game-random-click">click to create game</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="front-game-div" id="front-game-official">
-                    <p id="front-game-official-text">bye</p>
+                <div id="front-game-official-card">
+                    <div id="front-game-official-inner-card">
+                        <div class="front-game-div" id="front-game-official">
+                            <img id="front-game-div-background" src="photos/card-back.svg" alt="card back graphics">
+                            <p id="front-game-official-text">2 - A</p>
+                        </div>
+                        <div class="front-game-div" id="front-game-official-back">
+                            <p id="front-game-official-text-back">2 - A</p>
+                            <p id="front-game-official-text-content">The game will start with 2 as the main card
+                                then 3, 4,
+                                5...
+                                ending with A
+                            </p>
+                            <p id="front-game-official-click">click to create game</p>
+                        </div>
+                    </div>
+                </div>
+                <button id="front-game-button-back" class="front-button" onclick="back()">
+                    <p id="front-game-button-back-text">go back
+                    </p>
+                </button>
+            </div>
+            <div id="icons">
+                <div class="front-icon">
+                    <h1 class="front-icon-text" onclick="instructions()">?</h1>
+                </div>
+                <div class="front-icon">
+                    <h1 class="front-icon-text" id="setting-icon-text">⚙</h1>
                 </div>
             </div>
-            <button id="front-game-button-back" class="front-button" onclick="back()">
-                <p id="front-game-button-back-text" class="front-button-text">go back
-                </p>
-            </button>
         </div>
-        <div id="icons">
-            <div class="front-icon">
-                <h1 class="front-icon-text" onclick="instructions()">?</h1>
-            </div>
-            <div class="front-icon">
-                <h1 class="front-icon-text" id="setting-icon-text">⚙</h1>
+        <div id="instructions-page">
+            <div id="instructions-modal"></div>
+            <div id="instructions-content">
+                <div id="instructions-x-button" onclick="instructions()">
+                    <div id="instructions-x-button-text">✖</div>
+                </div>
+                <div id="instructions-content-title">
+                </div>
+                <div id="instructions-content-text">
+                    <h2 id="instructions-content-subtitle">Basics</h2>
+                    <p id="instructions-content-paragraph">
+                    <h2 id="instructions-content-paragraph-subtitle">Teams</h2><br>
+                    This is a four-person game. Your teammate will be the person sitting on the opposite side of
+                    you.
+                    <br>
+                    <h2 id="instructions-content-paragraph-subtitle">Goals</h2><br>
+                    For each game, there will be one team "<b>on the stage</b>" and the other "<b>off
+                        the stage</b>"". The goal of the <b>on-the-stage team</b> is to prevent the <b>off-the-stage
+                        team</b>
+                    from getting 80 points. Similarly, the <b>off-the-stage team</b> is trying to get at least 80
+                    points to
+                    win.
+                    <h2 id="instructions-content-paragraph-subtitle">Points</h2><br>
+                    Fives (5) of ♠/♥/♣/♦: 5 points <br>
+                    Tens (10) of ♠/♥/♣/♦: 10 points <br>
+                    Kings (K) of ♠/♥/♣/♦: 10 points <br>
+                    Since there are 2 decks of cards used in this game, each game has a maximum of 200 possible
+                    points. <br>
+                    </p>
+                    <h2 id="instructions-content-subtitle">Drawing Cards</h2>
+                    <p id="instructions-content-paragraph">
+                        In each game it will assigned a <b>main card</b>: assigned randomly or in order of
+                        2,3,4,5,6,7,8,9,10,J,Q,K,A. The <b>main card</b> is going to be the second biggest card:
+                        right
+                        under the jokers. Each player get 25 cards, 8 cards leftover. If you get a <b>main card</b>
+                        you
+                        become the
+                        <b>host</b> of the game. Hence, suit of the main card you have will be the <b>main suit</b>
+                        (your main card: ♥2 means main suit is ♥). If you multiple main cards in different suit, you
+                        can
+                        choose<b>main suit</b>. The suit of the main card you choose must be a suit of one of the
+                        main
+                        cards you have. You can overthrow, the host if you have a pair of the <b>main card</b> in
+                        the
+                        <b>same
+                            suit</b> (ex: pair of 2♥). The main suit will be the superior suit and have higher value
+                        than all other three suits (ex main suit: ♥ hence, 2♥ > 2♣ or 2♦ or 2♠). At last, if a
+                        player
+                        get a pair of joker (pair of red jokers or black jokers) they can overthrow the previous
+                        player(s)
+                        being the host.
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-    <div id="instructions-page">
-        <div id="instructions-modal"></div>
-        <div id="instructions-content">
-            <div id="instructions-x-button" onclick="instructions()">
-                <div id="instructions-x-button-text">✖</div>
-            </div>
-            <div id="instructions-content-title">
-            </div>
-            <div id="instructions-content-text">
-                <h2 id="instructions-content-subtitle">Basics</h2>
-                <p id="instructions-content-paragraph">
-                <h2 id="instructions-content-paragraph-subtitle">Teams</h2><br>
-                This is a four-person game. Your teammate will be the person sitting on the opposite side of you.
-                <br>
-                <h2 id="instructions-content-paragraph-subtitle">Goals</h2><br>
-                For each game, there will be one team "<b>on the stage</b>" and the other "<b>off
-                the stage</b>"". The goal of the <b>on-the-stage team</b> is to prevent the <b>off-the-stage team</b>
-                from getting 80 points. Similarly, the <b>off-the-stage team</b> is trying to get at least 80 points to win.
-                <h2 id="instructions-content-paragraph-subtitle">Points</h2><br>
-                Fives (5) of ♠/♥/♣/♦: 5 points <br>
-                Tens (10) of ♠/♥/♣/♦: 10 points <br>
-                Kings (K) of ♠/♥/♣/♦: 10 points <br>
-                Since there are 2 decks of cards used in this game, each game has a maximum of 200 possible points. <br>
-                </p>
-                <h2 id="instructions-content-subtitle">Drawing Cards</h2>
-                <p id="instructions-content-paragraph">
-                    In each game it will assigned a <b>main card</b>: assigned randomly or in order of
-                    2,3,4,5,6,7,8,9,10,J,Q,K,A. The <b>main card</b> is going to be the second biggest card: right
-                    under the jokers. Each player get 25 cards, 8 cards leftover. If you get a <b>main card</b> you become the
-                    <b>host</b> of the game. Hence, suit of the main card you have will be the <b>main suit</b>
-                    (your main card: ♥2 means main suit is ♥). If you multiple main cards in different suit, you can
-                    choose<b>main suit</b>. The suit of the main card you choose must be a suit of one of the main
-                    cards you have. You can overthrow, the host if you have a pair of the <b>main card</b> in the <b>same
-                    suit</b> (ex: pair of 2♥). The main suit will be the superior suit and have higher value
-                    than all other three suits (ex main suit: ♥ hence, 2♥ > 2♣ or 2♦ or 2♠). At last, if a player
-                    get a pair of joker (pair of red jokers or black jokers) they can overthrow the previous player(s)
-                    being the host.
-                </p>
-            </div>
-        </div>
-    </div>
-    <script src="js/variables.js"></script>
-    <script src="js/button.js"></script>
-    <script src="js/script.js"></script>
+        <script src="js/variables.js"></script>
+        <script src="js/button.js"></script>
+        <script src="js/script.js"></script>
 </body>
 
 </html>
