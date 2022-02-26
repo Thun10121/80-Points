@@ -35,13 +35,20 @@
                 <div id="front-title-text" style="--i:10">S</div>
             </div>
             <div id="front-buttons-div">
-                <button id="front-button-create" class="front-button" onclick="create()">
+                <div id="front-button-background-border">
+                    <button id="front-button-create" class="front-button" onclick="create()">
                     <p id="front-button-create-text" class="front-button-text">CREATE</p>
                 </button>
-                <button id="front-button-join" class="front-button" onclick="join()">
-                    <p id="front-button-join-text" class="front-button-text">JOIN</p>
-                </button>
+                </div>
+                <div id="front-button-background-border">
+                    <button id="front-button-join" class="front-button" onclick="join()">
+                        <p id="front-button-join-text" class="front-button-text">JOIN</p>
+                    </button>
+                </div>
             </div>
+            <button id="front-button-back" onclick="back()">
+                <p id="front-button-back-text"> go back </p>
+            </button>
         </div>
         <div id="front-game">
             <div id="front-game-content">
@@ -83,11 +90,16 @@
                 </button>
             </div>
             <div id="icons">
-                <div class="front-icon">
-                    <h1 class="front-icon-text" onclick="instructions()">?</h1>
+                <div id="front-icon-background-border">
+                    <div class="front-icon">
+                        <h1 class="front-icon-text" onclick="instructions()">?</h1>
+                    </div>
                 </div>
-                <div class="front-icon">
-                    <h1 class="front-icon-text" id="setting-icon-text">⚙</h1>
+                <div id="front-icon-background-border">
+                    <div class="front-icon">
+                            <h1 class="front-icon-text" id="setting-icon-text">⚙</h1>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
