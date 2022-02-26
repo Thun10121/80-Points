@@ -60,10 +60,11 @@ try{
     console.log("zhuSuit: " + zhuSuit + " " + "zhuNumber: " + zhuNumber);
 
     for(let i = 0; i < 4; i++){
-        sortCards(playerCards[i]);
+        playerCards[i] = sortCards(playerCards[i]);
+        console.log("Player " + (i + 1) + " cards: " + playerCards[i].join(" "));
     }
 
-    console.log(dipai);
+    console.log("Dipai: " + dipai.join(" "));
     for(let i = 0; i < dipai.length; i++){
         if(dipai[i].substring(1, dipai[i].length) == "5"){
             dipaiPoints += 5;
@@ -168,7 +169,7 @@ try{
         }
 
         sorting = afterSorted;
-        console.log(afterSorted);
+        return sorting;
     }
 
     function sortSuit(currCards){
