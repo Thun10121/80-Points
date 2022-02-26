@@ -60,7 +60,7 @@ try{
     let largest = 0;
     let thisRoundPoints = 0;
 
-    // while(true){
+    while(points < 80){
         let card1 = prompt("Enter Card 1");
         let card2 = prompt("Enter Card 2");
         let card3 = prompt("Enter Card 3");
@@ -71,10 +71,8 @@ try{
             points += thisRoundPoints;
         }
         console.log("Points caught: " + points);
-        // if(points > 80){
-        //     break;
-        // }
-    // }
+    }
+    console.log("Game Over");
 
     function cp(order, card){
         this.order = order;
