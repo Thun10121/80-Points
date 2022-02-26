@@ -3,10 +3,11 @@ let insContent = document.getElementById("instructions-content");
 let insModal = document.getElementById("instructions-modal");
 let createButton = document.getElementById("front-button-create");
 let joinButton = document.getElementById("front-button-join");
-let backButton = document.getElementById("front-button-back");
 let frontButtonDIV = document.getElementById("front-buttons-div");
 let frontPageElement = document.getElementById("front-page-elements");
-let frontGame = document.getElementById("front-game");
+let frontGame = document.getElementById("front-game-content");
+let backButton = document.getElementById("front-game-button-back");
+
 
 let insStatus = false;
 

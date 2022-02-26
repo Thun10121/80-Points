@@ -316,7 +316,7 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
     transform: translate(-50%, -50%);
     padding: 2vmin;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
     display: none;
 }
 
@@ -330,4 +330,20 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
     border: .5vmin solid var(--accent1);
     border-radius: .5vmin;
     padding: 1vmin;
+}
+
+#front-game-button-back{
+    background: none;
+    border: none;   
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#front-game-button-back-text{
+    border: none;
+    font-size: 2vmin;
+    color: color;
+    font-weight: 100;
 }
