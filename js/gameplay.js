@@ -21,7 +21,6 @@ try{
     let playerCards = [[], [], [], []];
     let dipai = [];
     let points = 0;
-    let game = true;
 
     intial();
 
@@ -53,14 +52,28 @@ try{
     let zhuSuit = suits[rand];
     rand = Math.floor(Math.random() * 13);
     let zhuNumber = cardTypes[rand];
+    rand = Math.floor(Math.random() * 2) + 1;
+    let zhuang1 = rand;
+    let zhuang2 = rand + 2;
     console.log("zhuSuit: " + zhuSuit + " " + "zhuNumber: " + zhuNumber);
-    // while(game){
+    console.log("Current zhuang: " + zhuang1 + " and " + zhuang2);
+    let largest = 0;
+    let thisRoundPoints = 0;
+
+    // while(true){
         let card1 = prompt("Enter Card 1");
         let card2 = prompt("Enter Card 2");
         let card3 = prompt("Enter Card 3");
         let card4 = prompt("Enter Card 4");
         console.log(card1 + " " + card2 + " " + card3 + " " + card4);
         findLargestCard(card1, card2, card3, card4);
+        if(largest != zhuang1 && largest != zhuang2){
+            points += thisRoundPoints;
+        }
+        console.log("Points caught: " + points);
+        // if(points > 80){
+        //     break;
+        // }
     // }
 
     function cp(order, card){
@@ -73,8 +86,14 @@ try{
         let zhu = false;
         let thisRound = [new cp(1, card1), new cp(2, card2), new cp(3, card3), new cp(4, card4)];
         let currSuit = card1.charAt(0);
+        thisRoundPoints = 0;
 
         for(let i = 0; i < thisRound.length; i++){
+            if(thisRound[i].card.substring(1, thisRound[i].card.length) == "5"){
+                thisRoundPoints += 5;
+            }else if(thisRound[i].card.substring(1, thisRound[i].card.length) == "10" || thisRound[i].card.substring(1, thisRound[i].card.length) == "K"){
+                thisRoundPoints += 10;
+            }
             if(thisRound[i].card.charAt(0) == zhuSuit || thisRound[i].card.substring(1, thisRound[i].card.length) == zhuNumber){
                 zhu = true;
             }else if(thisRound[i].card == "RJoker"){
@@ -160,6 +179,7 @@ try{
             result = thisRound[0].order;
         }
         console.log("largest card: person " + result);
+        largest = result;
     }
 }catch(error){
     console.log(error);
