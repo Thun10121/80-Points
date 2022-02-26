@@ -214,7 +214,7 @@ p {
 }
 
 #front-button-input-background-border{
-    padding: .5vmin;
+    padding: 0.5vmin;
     width: auto;
     height: auto;
     top: 50%;
@@ -229,7 +229,6 @@ p {
 
 
 #front-join-input {
-    
     height: 6vmin;
     width: 40vmin;
     text-align: center;
@@ -238,7 +237,7 @@ p {
     font-size: 2vmin;
     font-weight: bold;
     -moz-appearance: textfield;
-    letter-spacing: .75vmin;
+    letter-spacing: .5vmin;
     -webkit-text-stroke: .05vmin var(--base4);
     background-color: transparent;
     color: var(--base4);
