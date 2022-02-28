@@ -13,10 +13,6 @@ diamonds: ♦
 ♠ ♥ ♣ ♦
 */
 
-
-let content = document.getElementById("content");
-
-
 try{
     let content = document.getElementById("content");
 
@@ -31,12 +27,17 @@ try{
     let points = 0;
     let zhuSuit = "";
     let zhuNumber = "";
+    let afterSorted = [];
+    let playerZhuNumber = [];
+    let playerZhuSuit = [];
+    let playerFuSuit = [[]];
 
     intialize();
-    content.innerHTML += "Whole Deck: " + randCards.join(" ") + "<br><br>";
+    content.innerHTML += "Whole Deck: {" + randCards.join(", ") + "}<br><br>";
     
-    for (let i = 0; i < 4; i++)
+    for (let i = 0; i < 4; i++){
         playerCards[i] = randCards.splice(0, 25);
+    }
     dipai = randCards;
 
     function intialize() { // !whenever a game start
@@ -45,9 +46,11 @@ try{
     }
 
     function putCards(item) { //for each card input push it 8 times, 2 per 4 suits
-        for (let x = 0; x < 2; x++)
-            for (let i = 0; i < 4; i++)
+        for (let x = 0; x < 2; x++){
+            for (let i = 0; i < 4; i++){
                 cards.push(suits[i] + item);
+            }
+        }
     }
 
     function randomCards(randArray) {
@@ -74,7 +77,7 @@ try{
 
     for(let i = 0; i < 4; i++){
         playerCards[i] = sortCards(playerCards[i]);
-        content.innerHTML += "Player " + (i + 1) + " cards: " + playerCards[i].join(" ") + "<br>";
+        content.innerHTML += "Player " + (i + 1) + " cards: {" + playerCards[i].join(", ") + "}<br>";
     }
 
     for(let i = 0; i < dipai.length; i++){
@@ -83,13 +86,18 @@ try{
         }else if(dipai[i].substring(1, dipai[i].length) == "10" || dipai[i].substring(1, dipai[i].length) == "K"){
             dipaiPoints += 10;
         }
-    }
+    }    
+
+    content.innerHTML += `
+    <br>DiPai: {${dipai.join(", ")}}
+    <br>DiPai Points: ${dipaiPoints}
+    `;
 
     function sortCards(sorting){
-        let afterSorted = [];
-        let playerZhuNumber = [];
-        let playerZhuSuit = [];
-        let playerFuSuit = [[]];
+        afterSorted = [];
+        playerZhuNumber = [];
+        playerZhuSuit = [];
+        playerFuSuit = [[]];
         for(let i = 0; i < sorting.length; i++){
             if(i > sorting.length-1){
                 break;
@@ -357,11 +365,6 @@ try{
     //     console.log("largest card: person " + result);
     //     largest = result;
     // }
-
-    content.innerHTML += `
-    <br>DiPai: ${dipai.join(" ")}
-    <br>DiPai Points: ${dipaiPoints}
-    `;
 }catch(error){
     console.log(error);
 }
