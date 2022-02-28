@@ -13,7 +13,7 @@ diamonds: ♦
 */
 
 try{
-    let zhuContent = document.getElementById("content");
+    let content = document.getElementById("content");
 
     let cardTypes = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
     let suits = ["♠", "♥", "♣", "♦"];
@@ -27,15 +27,16 @@ try{
     let zhuSuit = "";
     let zhuNumber = "";
 
-    intial();
+    intialize();
+    content.innerHTML += "Whole Deck: " + randCards.join(" ") + "<br><br>";
+    
+    for (let i = 0; i < 4; i++)
+        playerCards[i] = randCards.splice(0, 25);
+    dipai = randCards;
 
-    function intial() { // !whenever a game start
+    function intialize() { // !whenever a game start
         cardTypes.forEach(putCards); //calling for each type of the card call function PutCards
         randomCards(cards); // randomize
-        console.log("Whole Deck: " + randCards.join(" "));
-        for (let i = 0; i < 4; i++)
-            playerCards[i] = randCards.splice(0, 25);
-        dipai = randCards;
     }
 
     function putCards(item) { //for each card input push it 8 times, 2 per 4 suits
@@ -61,14 +62,16 @@ try{
     zhuSuit = suits[rand];
     rand = Math.floor(Math.random() * 13);
     zhuNumber = cardTypes[rand];
-    console.log("zhuSuit: " + zhuSuit + " " + "zhuNumber: " + zhuNumber);
+    content.innerHTML += `
+    Main Suit: ${zhuSuit}
+    <br>Main Number: ${zhuNumber} <br><br>
+    `;
 
     for(let i = 0; i < 4; i++){
         playerCards[i] = sortCards(playerCards[i]);
-        console.log("Player " + (i + 1) + " cards: " + playerCards[i].join(" "));
+        content.innerHTML += "Player " + (i + 1) + " cards: " + playerCards[i].join(" ") + "<br>";
     }
 
-    console.log("Dipai: " + dipai.join(" "));
     for(let i = 0; i < dipai.length; i++){
         if(dipai[i].substring(1, dipai[i].length) == "5"){
             dipaiPoints += 5;
@@ -76,7 +79,6 @@ try{
             dipaiPoints += 10;
         }
     }
-    console.log("Dipai Points: " + dipaiPoints);
 
     function sortCards(sorting){
         let afterSorted = [];
@@ -351,7 +353,10 @@ try{
     //     largest = result;
     // }
 
-    zhuContent.innerHTML = "Main Suit: " + zhuSuit + "<br>Main Number: " + zhuNumber + "<br>DiPai: " + dipai.join(" ");
+    content.innerHTML += `
+    <br>DiPai: ${dipai.join(" ")}
+    <br>DiPai Points: ${dipaiPoints}
+    `;
 }catch(error){
     console.log(error);
 }
