@@ -78,3 +78,12 @@ function back(){
     frontGame.style.display = "none";
     frontPageElement.style.display = "flex";
 }
+
+function randomZhu(){
+    rand = Math.floor(Math.random() * 13);
+    zhuNumber = cardTypes[rand];
+}
+
+function inOrderZhu(){
+    zhuNumber = "2";
+}
