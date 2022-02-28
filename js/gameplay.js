@@ -13,15 +13,19 @@ diamonds: ♦
 */
 
 try{
+    let zhuContent = document.getElementById("content");
+
     let cardTypes = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
     let suits = ["♠", "♥", "♣", "♦"];
     let cards = ["BJoker", "BJoker", "RJoker", "RJoker"];
-    let rand;
+    let rand = 0;
     let randCards = [];
     let playerCards = [[], [], [], []];
     let dipai = [];
     let dipaiPoints = 0;
     let points = 0;
+    let zhuSuit = "";
+    let zhuNumber = "";
 
     intial();
 
@@ -54,9 +58,9 @@ try{
     }
 
     rand = Math.floor(Math.random() * 4);
-    let zhuSuit = suits[rand];
+    zhuSuit = suits[rand];
     rand = Math.floor(Math.random() * 13);
-    let zhuNumber = cardTypes[rand];
+    zhuNumber = cardTypes[rand];
     console.log("zhuSuit: " + zhuSuit + " " + "zhuNumber: " + zhuNumber);
 
     for(let i = 0; i < 4; i++){
@@ -289,15 +293,15 @@ try{
     //                 }
     //             }
     //         }
-            // for(let i = 0; i < thisRound.length; i++){
-            //     for(let j = 0; j < thisRound.length-1; j++){
-            //         if(thisRound[j].card < thisRound[j+1].card){
-            //             let temp = thisRound[j+1];
-            //             thisRound[j+1] = thisRound[j];
-            //             thisRound[j] = temp;
-            //         }
-            //     }
-            // }
+    //         for(let i = 0; i < thisRound.length; i++){
+    //             for(let j = 0; j < thisRound.length-1; j++){
+    //                 if(thisRound[j].card < thisRound[j+1].card){
+    //                     let temp = thisRound[j+1];
+    //                     thisRound[j+1] = thisRound[j];
+    //                     thisRound[j] = temp;
+    //                 }
+    //             }
+    //         }
     //         result = thisRound[0].order;
     //     }else{ //zhupai is present
     //         currSuit = zhuSuit;
@@ -346,6 +350,8 @@ try{
     //     console.log("largest card: person " + result);
     //     largest = result;
     // }
+
+    zhuContent.innerHTML = "Main Suit: " + zhuSuit + "<br>Main Number: " + zhuNumber + "<br>DiPai: " + dipai.join(" ");
 }catch(error){
     console.log(error);
 }
