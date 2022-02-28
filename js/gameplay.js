@@ -1,3 +1,4 @@
+
 /*
 ?Points:
 5: 5
@@ -11,6 +12,10 @@ clovers: ♣
 diamonds: ♦
 ♠ ♥ ♣ ♦
 */
+
+
+let content = document.getElementById("content");
+
 
 try{
     let cardTypes = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
@@ -346,6 +351,8 @@ try{
     //     console.log("largest card: person " + result);
     //     largest = result;
     // }
+
+    content.innerHTML = zhuSuit;
 }catch(error){
     console.log(error);
 }
