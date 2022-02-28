@@ -1,3 +1,4 @@
+
 /*
 ?Points:
 5: 5
@@ -11,6 +12,10 @@ clovers: ♣
 diamonds: ♦
 ♠ ♥ ♣ ♦
 */
+
+
+let content = document.getElementById("content");
+
 
 try{
     let content = document.getElementById("content");
