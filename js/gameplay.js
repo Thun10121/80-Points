@@ -90,10 +90,10 @@ try {
         }
     }    
 
-    content.innerHTML += `
-    <br>DiPai: {${dipai.join(", ")}}
-    <br>DiPai Points: ${dipaiPoints}
-    `;
+    // content.innerHTML += `
+    // <br>DiPai: {${dipai.join(", ")}}
+    // <br>DiPai Points: ${dipaiPoints}
+    // `;
 
     function sortCards(sorting){
         afterSorted = [];
