@@ -89,7 +89,7 @@ try {
             dipaiPoints += 10;
         }
     }    
-
+    //TODO
     // content.innerHTML += `
     // <br>DiPai: {${dipai.join(", ")}}
     // <br>DiPai Points: ${dipaiPoints}
