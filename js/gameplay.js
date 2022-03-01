@@ -28,12 +28,17 @@ try {
     let points = 0;
     let zhuSuit = "";
     let zhuNumber = "";
+    let afterSorted = [];
+    let playerZhuNumber = [];
+    let playerZhuSuit = [];
+    let playerFuSuit = [[]];
 
     intialize();
     //TODO content.innerHTML += "Whole Deck: " + randCards.join(" ") + "<br><br>";
 
-    for (let i = 0; i < 4; i++)
+    for (let i = 0; i < 4; i++){
         playerCards[i] = randCards.splice(0, 25);
+    }
     dipai = randCards;
 
     function intialize() { // !whenever a game start
@@ -42,9 +47,11 @@ try {
     }
 
     function putCards(item) { //for each card input push it 8 times, 2 per 4 suits
-        for (let x = 0; x < 2; x++)
-            for (let i = 0; i < 4; i++)
+        for (let x = 0; x < 2; x++){
+            for (let i = 0; i < 4; i++){
                 cards.push(suits[i] + item);
+            }
+        }
     }
 
     function randomCards(randArray) {
@@ -81,15 +88,20 @@ try {
         } else if (dipai[i].substring(1, dipai[i].length) == "10" || dipai[i].substring(1, dipai[i].length) == "K") {
             dipaiPoints += 10;
         }
-    }
+    }    
 
-    function sortCards(sorting) {
-        let afterSorted = [];
-        let playerZhuNumber = [];
-        let playerZhuSuit = [];
-        let playerFuSuit = [[]];
-        for (let i = 0; i < sorting.length; i++) {
-            if (i > sorting.length - 1) {
+    content.innerHTML += `
+    <br>DiPai: {${dipai.join(", ")}}
+    <br>DiPai Points: ${dipaiPoints}
+    `;
+
+    function sortCards(sorting){
+        afterSorted = [];
+        playerZhuNumber = [];
+        playerZhuSuit = [];
+        playerFuSuit = [[]];
+        for(let i = 0; i < sorting.length; i++){
+            if(i > sorting.length-1){
                 break;
             }
             if (sorting[i] == "RJoker") {
