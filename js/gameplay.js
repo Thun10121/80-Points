@@ -89,11 +89,11 @@ try {
             dipaiPoints += 10;
         }
     }    
-
-    content.innerHTML += `
-    <br>DiPai: {${dipai.join(", ")}}
-    <br>DiPai Points: ${dipaiPoints}
-    `;
+    //TODO
+    // content.innerHTML += `
+    // <br>DiPai: {${dipai.join(", ")}}
+    // <br>DiPai Points: ${dipaiPoints}
+    // `;
 
     function sortCards(sorting){
         afterSorted = [];
