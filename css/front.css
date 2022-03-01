@@ -22,7 +22,7 @@
 
 body {
     overflow: hidden;
-    background: rgb(230, 230, 230);
+    background: var(--base4);
     background: radial-gradient(circle at center bottom, var(--base4) 20%, var(--base1) 100%);
 }
 
@@ -294,9 +294,12 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
     margin-right: 2vmin;
     transition: 10ms;
     border-radius: 50%;
+    justify-content: center;
+    display: flex;
 }
 
 .front-icon {
+    display: flex;
     height: var(--icon-h);
     width: var(--icon-w);
     border-radius: 50%;
@@ -314,7 +317,7 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
     font-family: 'Roboto', sans-serif;
     margin: 0;
     font-size: calc(var(--icon-h)*2 /3);
-    color: var(--base1);
+    color: var(--base4);
     text-align: center;
     line-height: var(--icon-h);
     transition: .5s;

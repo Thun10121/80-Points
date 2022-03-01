@@ -13,13 +13,10 @@ diamonds: ♦
 ♠ ♥ ♣ ♦
 */
 
-
-let content = document.getElementById("content");
-
-
-try{
+try {
+    let zhuSuitDiv = document.getElementById("zhuSuit");
+    let zhuCardDiv = document.getElementById("zhuCard");
     let content = document.getElementById("content");
-
     let cardTypes = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
     let suits = ["♠", "♥", "♣", "♦"];
     let cards = ["BJoker", "BJoker", "RJoker", "RJoker"];
@@ -33,8 +30,8 @@ try{
     let zhuNumber = "";
 
     intialize();
-    content.innerHTML += "Whole Deck: " + randCards.join(" ") + "<br><br>";
-    
+    //TODO content.innerHTML += "Whole Deck: " + randCards.join(" ") + "<br><br>";
+
     for (let i = 0; i < 4; i++)
         playerCards[i] = randCards.splice(0, 25);
     dipai = randCards;
@@ -57,8 +54,8 @@ try{
             randArray.splice(rand, 1);
         }
     }
-    
-    function cp(order, card){
+
+    function cp(order, card) {
         this.order = order;
         this.card = card;
     }
@@ -67,79 +64,80 @@ try{
     zhuSuit = suits[rand];
     rand = Math.floor(Math.random() * 13);
     zhuNumber = cardTypes[rand];
-    content.innerHTML += `
-    Main Suit: ${zhuSuit}
-    <br>Main Number: ${zhuNumber} <br><br>
-    `;
+    // TODO
+    // content.innerHTML += `
+    // Main Suit: ${zhuSuit}
+    // <br>Main Number: ${zhuNumber} <br><br>
+    // `;
 
-    for(let i = 0; i < 4; i++){
+    for (let i = 0; i < 4; i++) {
         playerCards[i] = sortCards(playerCards[i]);
-        content.innerHTML += "Player " + (i + 1) + " cards: " + playerCards[i].join(" ") + "<br>";
+        //TODO content.innerHTML += "Player " + (i + 1) + " cards: " + playerCards[i].join(" ") + "<br>";
     }
 
-    for(let i = 0; i < dipai.length; i++){
-        if(dipai[i].substring(1, dipai[i].length) == "5"){
+    for (let i = 0; i < dipai.length; i++) {
+        if (dipai[i].substring(1, dipai[i].length) == "5") {
             dipaiPoints += 5;
-        }else if(dipai[i].substring(1, dipai[i].length) == "10" || dipai[i].substring(1, dipai[i].length) == "K"){
+        } else if (dipai[i].substring(1, dipai[i].length) == "10" || dipai[i].substring(1, dipai[i].length) == "K") {
             dipaiPoints += 10;
         }
     }
 
-    function sortCards(sorting){
+    function sortCards(sorting) {
         let afterSorted = [];
         let playerZhuNumber = [];
         let playerZhuSuit = [];
         let playerFuSuit = [[]];
-        for(let i = 0; i < sorting.length; i++){
-            if(i > sorting.length-1){
+        for (let i = 0; i < sorting.length; i++) {
+            if (i > sorting.length - 1) {
                 break;
             }
-            if(sorting[i] == "RJoker"){
+            if (sorting[i] == "RJoker") {
                 afterSorted.unshift(sorting[i]);
                 sorting.splice(i, 1);
                 i--;
-            }else if(sorting[i] == "BJoker"){
+            } else if (sorting[i] == "BJoker") {
                 afterSorted.push(sorting[i]);
                 sorting.splice(i, 1);
                 i--;
-            }else if(sorting[i].substring(1, sorting[i].length) == zhuNumber){
+            } else if (sorting[i].substring(1, sorting[i].length) == zhuNumber) {
                 playerZhuNumber.push(sorting[i]);
                 sorting.splice(i, 1);
                 i--;
-            }else if(sorting[i].substring(0, 1) == zhuSuit){
+            } else if (sorting[i].substring(0, 1) == zhuSuit) {
                 playerZhuSuit.push(sorting[i]);
                 sorting.splice(i, 1);
                 i--;
             }
         }
-        for(let i = 0; i < playerZhuNumber.length; i++){
-            if(i > playerZhuNumber.length-1){
+        for (let i = 0; i < playerZhuNumber.length; i++) {
+            if (i > playerZhuNumber.length - 1) {
                 break;
             }
-            if(playerZhuNumber[i].charAt(0) == zhuSuit){
+            if (playerZhuNumber[i].charAt(0) == zhuSuit) {
                 afterSorted.push(playerZhuNumber[i]);
                 playerZhuNumber.splice(i, 1);
                 i--;
             }
         }
         playerZhuNumber = sortSuit(playerZhuNumber);
-        for(let i = 0; i < playerZhuNumber.length; i++){
+        for (let i = 0; i < playerZhuNumber.length; i++) {
             afterSorted.push(playerZhuNumber[i]);
         }
 
         playerZhuSuit = sortNumber(playerZhuSuit);
-        for(let i = 0; i < playerZhuSuit.length; i++){
+        for (let i = 0; i < playerZhuSuit.length; i++) {
             afterSorted.push(playerZhuSuit[i]);
         }
 
-        while(sorting.length > 0){
+        while (sorting.length > 0) {
             let thisSuit = sorting[0].substring(0, 1);
             tempFuSuit = [];
-            for(let i = 0; i < sorting.length; i++){
-                if(i > sorting.length - 1){
+            for (let i = 0; i < sorting.length; i++) {
+                if (i > sorting.length - 1) {
                     break;
                 }
-                if(sorting[i].substring(0, 1) == thisSuit){
+                if (sorting[i].substring(0, 1) == thisSuit) {
                     tempFuSuit.push(sorting[i]);
                     sorting.splice(i, 1);
                     i--;
@@ -150,30 +148,30 @@ try{
         }
         playerFuSuit.shift();
 
-        for(let i = 0; i < playerFuSuit.length; i++){
-            if(playerFuSuit[i][0].substring(0, 1) == "♠"){
-                for(let j = 0; j < playerFuSuit[i].length; j++){
+        for (let i = 0; i < playerFuSuit.length; i++) {
+            if (playerFuSuit[i][0].substring(0, 1) == "♠") {
+                for (let j = 0; j < playerFuSuit[i].length; j++) {
                     afterSorted.push(playerFuSuit[i][j]);
                 }
             }
         }
-        for(let i = 0; i < playerFuSuit.length; i++){
-            if(playerFuSuit[i][0].substring(0, 1) == "♥"){
-                for(let j = 0; j < playerFuSuit[i].length; j++){
+        for (let i = 0; i < playerFuSuit.length; i++) {
+            if (playerFuSuit[i][0].substring(0, 1) == "♥") {
+                for (let j = 0; j < playerFuSuit[i].length; j++) {
                     afterSorted.push(playerFuSuit[i][j]);
                 }
             }
         }
-        for(let i = 0; i < playerFuSuit.length; i++){
-            if(playerFuSuit[i][0].substring(0, 1) == "♣"){
-                for(let j = 0; j < playerFuSuit[i].length; j++){
+        for (let i = 0; i < playerFuSuit.length; i++) {
+            if (playerFuSuit[i][0].substring(0, 1) == "♣") {
+                for (let j = 0; j < playerFuSuit[i].length; j++) {
                     afterSorted.push(playerFuSuit[i][j]);
                 }
             }
         }
-        for(let i = 0; i < playerFuSuit.length; i++){
-            if(playerFuSuit[i][0].substring(0, 1) == "♦"){
-                for(let j = 0; j < playerFuSuit[i].length; j++){
+        for (let i = 0; i < playerFuSuit.length; i++) {
+            if (playerFuSuit[i][0].substring(0, 1) == "♦") {
+                for (let j = 0; j < playerFuSuit[i].length; j++) {
                     afterSorted.push(playerFuSuit[i][j]);
                 }
             }
@@ -183,58 +181,59 @@ try{
         return sorting;
     }
 
-    function sortSuit(currCards){
+    function sortSuit(currCards) {
         let sortArr = currCards;
         currCards = [];
-        for(let i = 0; i < sortArr.length; i++){
-            if(sortArr[i].substring(0, 1) == "♠"){
+        for (let i = 0; i < sortArr.length; i++) {
+            if (sortArr[i].substring(0, 1) == "♠") {
                 currCards.push(sortArr[i]);
             }
         }
-        for(let i = 0; i < sortArr.length; i++){
-            if(sortArr[i].substring(0, 1) == "♥"){
+        for (let i = 0; i < sortArr.length; i++) {
+            if (sortArr[i].substring(0, 1) == "♥") {
                 currCards.push(sortArr[i]);
             }
         }
-        for(let i = 0; i < sortArr.length; i++){
-            if(sortArr[i].substring(0, 1) == "♣"){
+        for (let i = 0; i < sortArr.length; i++) {
+            if (sortArr[i].substring(0, 1) == "♣") {
                 currCards.push(sortArr[i]);
             }
         }
-        for(let i = 0; i < sortArr.length; i++){
-            if(sortArr[i].substring(0, 1) == "♦"){
+        for (let i = 0; i < sortArr.length; i++) {
+            if (sortArr[i].substring(0, 1) == "♦") {
                 currCards.push(sortArr[i]);
             }
         }
         return currCards;
     }
 
-    function sortNumber(currCards){
+    function sortNumber(currCards) {
         let sortArr = [];
         let currCopy = [];
-        for(let i = 0; i < currCards.length; i++){
-            for(let j = 0; j < cardTypes.length; j++){
-                if(currCards[i].substring(1, currCards[i].length) == cardTypes[j]){
+        for (let i = 0; i < currCards.length; i++) {
+            for (let j = 0; j < cardTypes.length; j++) {
+                if (currCards[i].substring(1, currCards[i].length) == cardTypes[j]) {
                     sortArr.push(new cp(i, j));
                     break;
                 }
             }
         }
-        for(let i = 0; i < sortArr.length; i++){
-            for(let j = 0; j < sortArr.length-1; j++){
-                if(sortArr[j].card < sortArr[j+1].card){
-                    let temp = sortArr[j+1];
-                    sortArr[j+1] = sortArr[j];
+        for (let i = 0; i < sortArr.length; i++) {
+            for (let j = 0; j < sortArr.length - 1; j++) {
+                if (sortArr[j].card < sortArr[j + 1].card) {
+                    let temp = sortArr[j + 1];
+                    sortArr[j + 1] = sortArr[j];
                     sortArr[j] = temp;
                 }
             }
         }
-        for(let i = 0; i < sortArr.length; i++){
+        for (let i = 0; i < sortArr.length; i++) {
             currCopy.push(currCards[sortArr[i].order]);
         }
         return currCopy;
     }
-
+    zhuSuitDiv.innerHTML = `Main Suit: ${zhuSuit}`;
+    zhuCardDiv.innerHTML = `Main Number: ${zhuNumber}`;
     //♠ ♥ ♣ ♦
     // rand = Math.floor(Math.random() * 2) + 1;
     // let zhuang1 = rand;
@@ -358,10 +357,12 @@ try{
     //     largest = result;
     // }
 
-    content.innerHTML += `
-    <br>DiPai: ${dipai.join(" ")}
-    <br>DiPai Points: ${dipaiPoints}
-    `;
-}catch(error){
+
+    //TODO
+    // content.innerHTML += `
+    // <br>DiPai: ${dipai.join(" ")}
+    // <br>DiPai Points: ${dipaiPoints}
+    // `;
+} catch (error) {
     console.log(error);
 }

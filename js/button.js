@@ -82,8 +82,10 @@ function back(){
 function randomZhu(){
     rand = Math.floor(Math.random() * 13);
     zhuNumber = cardTypes[rand];
+    document.location = "/html/game.html";
 }
 
 function inOrderZhu(){
     zhuNumber = "2";
+    document.location = "/html/game.html";
 }
