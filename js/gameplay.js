@@ -70,7 +70,7 @@ try {
     rand = Math.floor(Math.random() * 4);
     zhuSuit = suits[rand];
     rand = Math.floor(Math.random() * 13);
-    zhuNumber = cardTypes[rand];
+    zhuNumber = "3";
     console.log("zhuSuit: " + zhuSuit);
     console.log("zhuNumber: " + zhuNumber);
     // TODO
@@ -270,7 +270,7 @@ try {
     // }
     // console.log("Game Over");
     
-    findLargestCard("♠6 ♠6", "♠10 ♠10", "BJoker RJoker", "♠K ♠K");
+    findLargestCard("♠6 ♠6", "♠10 ♠10", "BJoker RJoker", "♥3 ♥3");
 
     function findLargestCard(card1, card2, card3, card4){
         let cardNum = 0;
@@ -425,12 +425,14 @@ try {
                     break;
                 }
                 if(twoCards[i].order != twoCards[i].card || twoCards[i].order.charAt(0) != currSuit){
-                    twoCards.splice(i, 1);
-                    thisRound.splice(i, 1);
-                    i--;
-                    continue;
+                    if(twoCards[i].order.substring(1, twoCards[i].order.length) != zhuNumber){
+                        twoCards.splice(i, 1);
+                        thisRound.splice(i, 1);
+                        i--;
+                        continue;
+                    }
                 }
-                if(twoCards[i].order.charAt(0) == zhuSuit || twoCards[i].order == "BJoker" || twoCards[i].order == "RJoker"){
+                if(twoCards[i].order.charAt(0) == zhuSuit || twoCards[i].order.substring(1, thisRound[i].order.length) == zhuNumber || twoCards[i].order == "BJoker" || twoCards[i].order == "RJoker"){
                     zhu = true;
                 }
             }
@@ -454,7 +456,58 @@ try {
                     }
                 }
                 result = thisRound[0].order;
+            }else{
+                currSuit = zhuSuit;
+
+                for(let i = 0; i < thisRound.length; i++){
+                    thisRound[i].card = thisRound[i].card.substring(0, thisRound[i].card.length/2);
+                    if(i > thisRound.length-1){
+                        break;
+                    }
+                    if(thisRound[i].card == "BJoker" || thisRound[i].card == "RJoker"){
+                        continue;
+                    }
+                    if(thisRound[i].card.charAt(0) != currSuit && thisRound[i].card.substring(1, thisRound[i].card.length) != zhuNumber){
+                        thisRound.splice(i, 1);
+                        i--;
+                    }
+                }
+                for(let i = 0; i < thisRound.length; i++){
+                    if(thisRound[i].card.substring(1, thisRound[i].card.length) == zhuNumber){
+                        if(thisRound[i].card.charAt(0) != zhuSuit){
+                            thisRound[i].card = "13";
+                        }else{
+                            thisRound[i].card = "14";
+                        }
+                        continue;
+                    }
+                    if(thisRound[i].card == "BJoker"){
+                        thisRound[i].card = "15";
+                        continue;
+                    }
+                    if(thisRound[i].card == "RJoker"){
+                        thisRound[i].card = "16";
+                        continue;
+                    }
+                    thisRound[i].card = thisRound[i].card.substring(1, thisRound[i].card.length)
+                    for(let j = 0; j < cardTypes.length; j++){
+                        if(thisRound[i].card == cardTypes[j]){
+                            thisRound[i].card = j;
+                        }
+                    }
+                }
+                for(let i = 0; i < thisRound.length; i++){
+                    for(let j = 0; j < thisRound.length-1; j++){
+                        if(thisRound[j].card < thisRound[j+1].card){
+                            let temp = thisRound[j+1];
+                            thisRound[j+1] = thisRound[j];
+                            thisRound[j] = temp;
+                        }
+                    }
+                }
+                result = thisRound[0].order;
             }
+            console.log("zhu: " + zhu);
             console.log("largest card: person " + result);
         }
     }
