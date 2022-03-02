@@ -73,11 +73,8 @@ try {
     zhuNumber = cardTypes[rand];
     console.log("zhuSuit: " + zhuSuit);
     console.log("zhuNumber: " + zhuNumber);
-    // TODO
-    // content.innerHTML += `
-    // Main Suit: ${zhuSuit}
-    // <br>Main Number: ${zhuNumber} <br><br>
-    // `;
+    zhuSuitDiv.innerHTML = `Main Suit: ${zhuSuit}`;
+    zhuCardDiv.innerHTML = `Main Number: ${zhuNumber}`;
 
     for (let i = 0; i < 4; i++) {
         playerCards[i] = sortCards(playerCards[i]);
@@ -246,15 +243,13 @@ try {
         }
         return currCopy;
     }
-    zhuSuitDiv.innerHTML = `Main Suit: ${zhuSuit}`;
-    zhuCardDiv.innerHTML = `Main Number: ${zhuNumber}`;
     
     //♠ ♥ ♣ ♦
     let card1, card2, card3, card4 = "";
     rand = Math.floor(Math.random() * 2) + 1;
     let zhuang1 = rand;
     let zhuang2 = rand + 2;
-    // content.innerHTML += "Current Zhuang: " + zhuang1 + " and " + zhuang2;
+    // TODO: content.innerHTML += "Current Zhuang: " + zhuang1 + " and " + zhuang2;
     console.log("Current Zhuang: " + zhuang1 + " and " + zhuang2);
     let largest = 0;
     let thisRoundPoints = 0;
@@ -425,7 +420,13 @@ try {
                 if(i > twoCards.length - 1){
                     break;
                 }
-                if(twoCards[i].order != twoCards[i].card || twoCards[i].order.charAt(0) != currSuit){
+                if(twoCards[i].order != twoCards[i].card){
+                    twoCards.splice(i, 1);
+                    thisRound.splice(i, 1);
+                    i--;
+                    continue;
+                }
+                if(twoCards[i].order.charAt(0) != currSuit){
                     if(twoCards[i].order.substring(1, twoCards[i].order.length) != zhuNumber){
                         twoCards.splice(i, 1);
                         thisRound.splice(i, 1);
@@ -437,10 +438,13 @@ try {
                     zhu = true;
                 }
             }
+            for(let i = 0; i < thisRound.length; i++){
+                thisRound[i].card = thisRound[i].card.substring(0, thisRound[i].card.length/2);
+            }
 
             if(!zhu){
                 for(let i = 0; i < thisRound.length; i++){
-                    thisRound[i].card = thisRound[i].card.substring(1, thisRound[i].card.length/2)
+                    thisRound[i].card = thisRound[i].card.substring(1, thisRound[i].card.length);
                     for(let j = 0; j < cardTypes.length; j++){
                         if(thisRound[i].card == cardTypes[j]){
                             thisRound[i].card = j;
@@ -461,7 +465,6 @@ try {
                 currSuit = zhuSuit;
 
                 for(let i = 0; i < thisRound.length; i++){
-                    thisRound[i].card = thisRound[i].card.substring(0, thisRound[i].card.length/2);
                     if(i > thisRound.length-1){
                         break;
                     }
@@ -509,7 +512,8 @@ try {
                 result = thisRound[0].order;
             }
         }
-        console.log("largest card: person " + result);
+        largest = result;
+        console.log("largest card: person " + largest);
     }
 
 
