@@ -70,7 +70,7 @@ try {
     rand = Math.floor(Math.random() * 4);
     zhuSuit = suits[rand];
     rand = Math.floor(Math.random() * 13);
-    zhuNumber = "3";
+    zhuNumber = cardTypes[rand];
     console.log("zhuSuit: " + zhuSuit);
     console.log("zhuNumber: " + zhuNumber);
     // TODO
@@ -250,30 +250,33 @@ try {
     zhuCardDiv.innerHTML = `Main Number: ${zhuNumber}`;
     
     //♠ ♥ ♣ ♦
+    let card1, card2, card3, card4 = "";
     rand = Math.floor(Math.random() * 2) + 1;
     let zhuang1 = rand;
     let zhuang2 = rand + 2;
-    content.innerHTML += "Current Zhuang: " + zhuang1 + " and " + zhuang2;
-    // let largest = 0;
-    // let thisRoundPoints = 0;
+    // content.innerHTML += "Current Zhuang: " + zhuang1 + " and " + zhuang2;
+    console.log("Current Zhuang: " + zhuang1 + " and " + zhuang2);
+    let largest = 0;
+    let thisRoundPoints = 0;
+    let cardNum = 0;
 
-    // while(points < 80){
-    //     let card1 = prompt("Enter Card 1");
-    //     let card2 = prompt("Enter Card 2");
-    //     let card3 = prompt("Enter Card 3");
-    //     let card4 = prompt("Enter Card 4");
-    //     console.log(card1 + " " + card2 + " " + card3 + " " + card4);
-    //     if(largest != zhuang1 && largest != zhuang2){
-    //         points += thisRoundPoints;
-    //     }
-    //     console.log("Points caught: " + points);
-    // }
-    // console.log("Game Over");
-    
-    findLargestCard("♠6 ♠6", "♠10 ♠10", "BJoker RJoker", "♥3 ♥3");
+    while(points < 80){
+        card1 = prompt("Enter Card 1");
+        card2 = prompt("Enter Card 2");
+        card3 = prompt("Enter Card 3");
+        card4 = prompt("Enter Card 4");
+        console.log(card1 + "\n" + card2 + "\n" + card3 + "\n" + card4);
+        findLargestCard(card1, card2, card3, card4);
+        if(largest != zhuang1 && largest != zhuang2){
+            points += thisRoundPoints;
+        }
+        console.log("Points caught: " + points);
+        console.log("Cards played in this round: " + cardNum);
+    }
+    console.log("Game Over");
 
     function findLargestCard(card1, card2, card3, card4){
-        let cardNum = 0;
+        cardNum = 0;
         let currSuit = card1.charAt(0);
         let result = 0;
         let zhu = false;
@@ -378,10 +381,9 @@ try {
                 }
                 result = thisRound[0].order;
             }
-            content.innerHTML += "<br>Largest Card: Person " + result;
+            // content.innerHTML += "<br>Largest Card: Person " + result;
             largest = result;
         }else if(cardNum == 2){//♠ ♥ ♣ ♦
-            console.log(card1 + "\n" + card2 + "\n" + card3 + "\n" + card4);
             thisRoundPoints = 0;
             let thisRound = [new cp(1, card1), new cp(2, card2), new cp(3, card3), new cp(4, card4)];
             let twoCards = [];
@@ -419,7 +421,6 @@ try {
                     thisRoundPoints += 10;
                 }
             }
-            console.log("Points in this round: " + thisRoundPoints);
             for(let i = 0; i < twoCards.length; i++){
                 if(i > twoCards.length - 1){
                     break;
@@ -507,9 +508,8 @@ try {
                 }
                 result = thisRound[0].order;
             }
-            console.log("zhu: " + zhu);
-            console.log("largest card: person " + result);
         }
+        console.log("largest card: person " + result);
     }
 
 
