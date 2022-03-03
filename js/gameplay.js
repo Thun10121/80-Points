@@ -271,13 +271,13 @@ try {
     console.log("Game Over");
 
     function findLargestCard(card1, card2, card3, card4){
-        cardNum = 0;
+        cardNum = 1;
         let currSuit = card1.charAt(0);
         let result = 0;
         let zhu = false;
 
         for(let i = 0; i < card1.length; i++){
-            if(card1[i] == "♠" || card1[i] == "♥" || card1[i] == "♣" || card1[i] == "♦"){
+            if(card1[i] == " "){
                 cardNum ++;
             }
         }
