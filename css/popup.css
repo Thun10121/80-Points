@@ -1,4 +1,4 @@
-#instructions-page {
+.popup {
     height: auto;
     width: auto;
     z-index: 2;
@@ -6,11 +6,11 @@
     display: none;
 }
 
-#instructions-page * {
+.popup * {
     color: white;
 }
 
-#instructions-modal {
+.popup-modal {
     position: fixed;
     left: 0;
     top: 0;
@@ -22,7 +22,7 @@
     transition: 750ms;
 }
 
-#instructions-content {
+.popup-content {
     width: 40vw;
     height: 70vh;
     position: fixed;
@@ -37,7 +37,7 @@
     transition: 750ms;
 }
 
-#instructions-x-button {
+.popip-x-button {
     position: absolute;
     right: 0;
     top: 0;
@@ -51,12 +51,12 @@
     justify-content: center;
 }
 
-#instructions-x-button:hover {
+.popup-x-button:hover {
     background-color: #232324;
     cursor: pointer;
 }
 
-#instructions-x-button-text {
+.popup-x-button-text {
     font-weight: 250;
     font-size: 3vmin;
     color: var(--base5);
@@ -64,7 +64,7 @@
     margin: 0;
 }
 
-#instruction-x-button:hover #instruction-x-button-text{
+.popup-x-button:hover .popup-x-button-text{
     color: var(--accent0);
 }
 

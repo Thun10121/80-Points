@@ -1,13 +1,13 @@
 :root {
-    --base1: #217E18;
     --base2: #A6A6A6;
     --base3: #5c5c5c;
-    --base4: #015f17;
     --base5: #232324;
     --accent0: #FFFFFF;
     --accent1: #FFDF01;
     --accent2: #E6E6E6;
     --accent3: #00AD11;
+    --base6: #015f17;
+    
     --icon-h: 5vmin;
     --icon-w: 5vmin;
     --icon-switch-w: 6vmin;
@@ -18,6 +18,23 @@
     --grad3: #BC8C1F;
     --grad4: #D9AD15;
     --grad5: #FCE186;
+
+
+    /**color schemes */
+
+    /*? black*/
+    --base4: rgb(25, 26, 25);
+    --base1: rgb(25, 26, 25);
+     
+    /*? white*/
+    /* --base4: rgb(235, 235, 235);
+    --base1: rgb(235, 235, 235); */
+
+    /*? green*/
+    /* --base1: #217E18;
+    --base4: #015f17; */
+
+
 }
 
 body {
@@ -185,10 +202,9 @@ p {
             color-stop(20%, rgb(231, 205, 59)),
             color-stop(40%, rgb(217, 173, 21)),
             to(rgb(252, 225, 134)));
-
 }
 
-.front-button:hover .front-button-text {
+#front-button-background-border:hover .front-button .front-button-text {
     color: var(--base4);
     -webkit-text-stroke: .125vmin var(--base4);
 }
@@ -277,6 +293,11 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
             to(rgb(252, 225, 134)));
 }
 
+#front-button-enter-background-border:hover #front-button-enter #front-button-enter-text{
+    background: var(--base4);
+    -webkit-background-clip: text;
+}
+
 #icons {
     position: absolute;
     display: flex;
@@ -359,7 +380,7 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
 
 .front-icon-background-border#log div h1 {
     font-size: 1.8vmin;
-    -webkit-text-stroke: .0313vmin;
+    -webkit-text-stroke: 0;
 }
 
 
@@ -549,13 +570,6 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
     letter-spacing: .25vmin;
     color: var(--accent1);
     -webkit-text-stroke: .0313vmin var(--accent1);
-    /*background: -webkit-gradient(linear, left top, right bottom, 
-        from(rgb(240, 215, 80)), 
-        color-stop(20%, rgb(231, 205, 59)), 
-        color-stop(40%, rgb(217, 173, 21)), 
-        to(rgb(252, 225, 134)));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
     font-family: 'Shippori Mincho B1', serif;
 }
 
@@ -567,15 +581,6 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
     font-size: 2vmin;
     color: var(--accent1);
     font-family: 'Shippori Mincho B1', serif;
-
-    /* -webkit-text-stroke: .05vmin transparent;
-    background: -webkit-gradient(linear, left top, right bottom, 
-        from(rgb(240, 215, 80)), 
-        color-stop(20%, rgb(231, 205, 59)), 
-        color-stop(40%, rgb(217, 173, 21)), 
-        to(rgb(252, 225, 134)));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
 }
 
 #front-game-button-back {
@@ -594,15 +599,6 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
     font-weight: 100;
     transition: 500ms;
     font-family: 'Gideon Roman', cursive;
-    /* -webkit-text-stroke: .05vmin transparent;
-    background: -webkit-gradient(linear, left top, right bottom, 
-        from(rgb(240, 215, 80)), 
-        color-stop(20%, rgb(231, 205, 59)), 
-        color-stop(40%, rgb(217, 173, 21)), 
-        to(rgb(252, 225, 134)));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
-
     letter-spacing: .5vmin;
     font-size: 2.6vmin;
     color: var(--accent1);
@@ -611,13 +607,6 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
 
 #front-game-button-back-text:hover {
     transform: scale(1.1);
-    /* background: -webkit-gradient(linear, left top, right bottom, 
-    from(rgb(231, 205, 59)), 
-    color-stop(40%, rgb(217, 173, 21)), 
-    color-stop(40%, rgb(252, 225, 134)),
-    to(rgb(240, 215, 80)));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
     font-family: 'Gideon Roman', cursive;
     letter-spacing: .5vmin;
     font-size: 2.8vmin;
@@ -650,14 +639,6 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
 
 #front-button-back:hover #front-button-back-text {
     transform: scale(1.1);
-    /* background: -webkit-gradient(linear, left top, right bottom, 
-    from(rgb(231, 205, 59)), 
-    color-stop(40%, rgb(217, 173, 21)), 
-    color-stop(40%, rgb(252, 225, 134)),
-    to(rgb(240, 215, 80)));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
-
     letter-spacing: .5vmin;
     font-size: 2.8vmin;
     color: #09ff00;

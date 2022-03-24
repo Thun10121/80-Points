@@ -1,6 +1,9 @@
 let ins = document.getElementById("instructions-page");
 let insContent = document.getElementById("instructions-content");
 let insModal = document.getElementById("instructions-modal");
+let set = document.getElementById("settings-page");
+let setContent = document.getElementById("settings-content");
+let setModal = document.getElementById("settings-modal");
 let createButton = document.getElementById("front-button-create");
 let joinButton = document.getElementById("front-button-join");
 let frontButtonDIV = document.getElementById("front-buttons-div");
@@ -9,6 +12,7 @@ let frontGame = document.getElementById("front-game-content");
 let backButton = document.getElementById("front-game-button-back");
 let joinBackButton = document.getElementById("front-button-back");
 
+let setStatus = false;
 let insStatus = false;
 
 function instructions() {
@@ -36,13 +40,38 @@ function instructions() {
     }
 }
 
+function settings() {
+    console.log(setStatus);
+    if (setStatus) {
+        setTimeout(function () {
+            setModal.style.opacity = "0";
+            setContent.style.opacity = "0";
+        }, 750);
+        setContent.style.display = 'none';
+        setModal.style.display = 'none';
+        set.style.display = 'none';
+        setStatus = false;
+    } else {
+        setContent.style.display = 'flex';
+        setModal.style.display = 'block';
+        set.style.display = 'flex';
+        setTimeout(function () {
+            setModal.style.opacity = ".75";
+        }, 10);
+        setTimeout(function () {
+            setContent.style.opacity = "1";
+        }, 100);
+        setStatus = true;
+    }
+}
+
 function join() {
     createButton.style.display = "none";
     joinButton.style.display = "none";
     joinBackButton.style.display = "flex";
     frontButtonDIV.innerHTML = `
     <div id="front-button-input-background-border">
-        <input id="front-join-input" class="front-button" type="number"  maxlength="10" placeholder="Room Code"></input>
+        <input id="front-join-input" class="front-button"  maxlength="10" placeholder="Room Code"></input>
     </div>
     <div id="front-button-enter-background-border">
         <button id="front-button-enter" class="front-button" onclick="enterCode()">
