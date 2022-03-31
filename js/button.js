@@ -1,9 +1,14 @@
+//!popups
 let ins = document.getElementById("instructions-page");
 let insContent = document.getElementById("instructions-content");
 let insModal = document.getElementById("instructions-modal");
 let set = document.getElementById("settings-page");
 let setContent = document.getElementById("settings-content");
 let setModal = document.getElementById("settings-modal");
+let log = document.getElementById("login-page");
+let logContent = document.getElementById("login-content");
+let logModal = document.getElementById("login-modal");
+
 let createButton = document.getElementById("front-button-create");
 let joinButton = document.getElementById("front-button-join");
 let frontButtonDIV = document.getElementById("front-buttons-div");
@@ -14,6 +19,7 @@ let joinBackButton = document.getElementById("front-button-back");
 
 let setStatus = false;
 let insStatus = false;
+let logStatus = false;
 
 function instructions() {
     console.log(insStatus);
@@ -65,8 +71,29 @@ function settings() {
     }
 }
 
-function login(){
-    
+function logins(){
+    console.log(logStatus);
+    if (logStatus) {
+        setTimeout(function () {
+            logModal.style.opacity = "0";
+            logContent.style.opacity = "0";
+        }, 750);
+        logContent.style.display = 'none';
+        logModal.style.display = 'none';
+        log.style.display = 'none';
+        logStatus = false;
+    } else {
+        logContent.style.display = 'flex';
+        logModal.style.display = 'block';
+        log.style.display = 'flex';
+        setTimeout(function () {
+            logModal.style.opacity = ".75";
+        }, 10);
+        setTimeout(function () {
+            logContent.style.opacity = "1";
+        }, 100);
+        logStatus = true;
+    }
 }
 
 function join() {
