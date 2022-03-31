@@ -65,6 +65,10 @@ function settings() {
     }
 }
 
+function login(){
+    
+}
+
 function join() {
     createButton.style.display = "none";
     joinButton.style.display = "none";

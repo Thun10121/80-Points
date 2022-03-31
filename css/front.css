@@ -7,7 +7,7 @@
     --accent2: #E6E6E6;
     --accent3: #00AD11;
     --base6: #015f17;
-    
+
     --icon-h: 5vmin;
     --icon-w: 5vmin;
     --icon-switch-w: 6vmin;
@@ -25,7 +25,7 @@
     /*? black*/
     --base4: rgb(25, 26, 25);
     --base1: rgb(25, 26, 25);
-     
+
     /*? white*/
     /* --base4: rgb(235, 235, 235);
     --base1: rgb(235, 235, 235); */
@@ -293,7 +293,7 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
             to(rgb(252, 225, 134)));
 }
 
-#front-button-enter-background-border:hover #front-button-enter #front-button-enter-text{
+#front-button-enter-background-border:hover #front-button-enter #front-button-enter-text {
     background: var(--base4);
     -webkit-background-clip: text;
 }
@@ -308,9 +308,24 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
     justify-content: center;
 }
 
-#icon-container{
+.front-icon-svg {
+    height: auto;
+    width: auto;
+    fill: -webkit-gradient(linear, left top, right bottom,
+            from(rgb(240, 215, 80)),
+            color-stop(20%, rgb(231, 205, 59)),
+            color-stop(40%, rgb(217, 173, 21)),
+            to(rgb(252, 225, 134)));
+}
+
+#icon-container {
     justify-content: center;
     display: flex;
+}
+
+.front-icon-svg {
+    transition: .5s;
+    fill: url(#gold);
 }
 
 .front-icon-background-border {
@@ -329,11 +344,11 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
     height: var(--icon-h);
     width: var(--icon-w);
     border-radius: 50%;
-    background: -webkit-gradient(linear, left top, right bottom,
+    /* background: -webkit-gradient(linear, left top, right bottom,
             from(rgb(240, 215, 80)),
             color-stop(20%, rgb(231, 205, 59)),
             color-stop(40%, rgb(217, 173, 21)),
-            to(rgb(252, 225, 134)));
+            to(rgb(252, 225, 134))); */
     display: flex;
     justify-content: center;
     transition: .5s;
@@ -353,25 +368,33 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
 }
 
 .front-icon-background-border:hover {
-    background: linear-gradient(to left,
-            rgb(231, 205, 59), rgb(231, 205, 59) 20%, rgb(217, 173, 21) 40%, rgb(240, 215, 80));
+    /* background: linear-gradient(to left,
+            rgb(231, 205, 59),
+            rgb(231, 205, 59) 20%,
+            rgb(217, 173, 21) 40%,
+            rgb(240, 215, 80)); */
 }
 
 .front-icon-background-border:hover .front-icon {
-    background: var(--base4);
+    /* background: var(--base4);
     cursor: pointer;
-    border-radius: 50%;
+    border-radius: 50%; */
+}
+
+.front-icon-background-border:hover .front-icon svg{
+    transform: scale(1.1);
+    fill: var(--accent3)
 }
 
 .front-icon-background-border:hover .front-icon * {
-    -webkit-text-stroke: .125vmin transparent;
+    /* -webkit-text-stroke: .125vmin transparent;
     background: -webkit-gradient(linear, left top, right bottom,
             from(rgb(240, 215, 80)),
             color-stop(20%, rgb(231, 205, 59)),
             color-stop(40%, rgb(217, 173, 21)),
             to(rgb(252, 225, 134)));
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent; */
 }
 
 #setting-icon-text {
