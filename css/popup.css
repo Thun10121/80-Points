@@ -16,7 +16,7 @@
     top: 0;
     height: 100vh;
     width: 100vw;
-    background-color: var(--base4);
+    background-color: black;
     opacity: 0;
     display: none;
     transition: 750ms;
@@ -29,15 +29,17 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background-color: var(--base5);
+    background-color: #000;
     padding: 5vmin;
     overflow-y: scroll;
+    overflow-x: hidden;
     opacity: 0;
     display: none;
     transition: 750ms;
+    border: 1px solid red;
 }
 
-.popip-x-button {
+.popup-x-button {
     position: absolute;
     right: 0;
     top: 0;
@@ -45,27 +47,18 @@
     width: 4vmin;
     height: 4vmin;
     border-radius: 50%;
-    border: solid #ffffff .25vmin;
-    background-color: var(--accent0);
     display: flex;
     justify-content: center;
 }
 
 .popup-x-button:hover {
-    background-color: #232324;
     cursor: pointer;
 }
 
-.popup-x-button-text {
-    font-weight: 250;
-    font-size: 3vmin;
-    color: var(--base5);
-    font-family: Roboto, Arial;
-    margin: 0;
-}
-
-.popup-x-button:hover .popup-x-button-text{
-    color: var(--accent0);
+.popup-x-button-icon {
+    fill: white;
+    height: 4vmin;
+    width: 4vmin;
 }
 
 #instructions-content-title {
@@ -79,4 +72,15 @@
 
 #instructions-content-paragraph {
     font-family: 'Roboto', sans-serif;
+}
+
+#login-content {
+    overflow-y: hidden;
+    border-radius: 1vmin;
+}
+
+#login-content h1 {
+    position: absolute;
+    text-align: center;
+    color: red;
 }

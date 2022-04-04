@@ -14,8 +14,10 @@ let joinButton = document.getElementById("front-button-join");
 let frontButtonDIV = document.getElementById("front-buttons-div");
 let frontPageElement = document.getElementById("front-page-elements");
 let frontGame = document.getElementById("front-game-content");
-let backButton = document.getElementById("front-game-button-back");
+// let backButton = document.getElementById("front-game-button-back");
 let joinBackButton = document.getElementById("front-button-back");
+
+let frontIcon = document.getElementById("icons");
 
 let setStatus = false;
 let insStatus = false;
@@ -115,9 +117,10 @@ function join() {
 function create(){
     createButton.style.display = "none";
     joinButton.style.display = "none";
-    backButton.style.display = "flex";
     frontPageElement.style.display = "none";
     frontGame.style.display = "flex";
+    frontIcon.style.display = "none";
+    console.log("hi");
 }
 
 function back(){
@@ -134,7 +137,6 @@ function back(){
     </div>
     `;
     joinBackButton.style.display = "none";
-    backButton.style.display = "none";
     frontGame.style.display = "none";
     frontPageElement.style.display = "flex";
 }
