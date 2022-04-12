@@ -2,9 +2,11 @@
 let ins = document.getElementById("instructions-page");
 let insContent = document.getElementById("instructions-content");
 let insModal = document.getElementById("instructions-modal");
+
 let set = document.getElementById("settings-page");
 let setContent = document.getElementById("settings-content");
 let setModal = document.getElementById("settings-modal");
+
 let log = document.getElementById("login-page");
 let logContent = document.getElementById("login-content");
 let logModal = document.getElementById("login-modal");
@@ -25,7 +27,6 @@ let insStatus = false;
 let logStatus = false;
 
 function instructions() {
-    console.log(insStatus);
     if (insStatus) {
         setTimeout(function () {
             insModal.style.opacity = "0";
@@ -50,7 +51,6 @@ function instructions() {
 }
 
 function settings() {
-    console.log(setStatus);
     if (setStatus) {
         setTimeout(function () {
             setModal.style.opacity = "0";
@@ -75,7 +75,6 @@ function settings() {
 }
 
 function logins(){
-    console.log(logStatus);
     if (logStatus) {
         setTimeout(function () {
             logModal.style.opacity = "0";

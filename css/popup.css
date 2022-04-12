@@ -31,7 +31,7 @@
     transform: translate(-50%, -50%);
     background-color: #000;
     padding: 5vmin;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
     opacity: 0;
     display: none;
