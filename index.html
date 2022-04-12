@@ -97,7 +97,7 @@
             <div id="icons">
                 <div id="icon-container">
                     <div class="front-icon-background-border" id="log">
-                        <div class="front-icon">
+                        <div class="front-icon" id="front-icon">
                             <!--!login icon-->
                             <svg class="front-icon-svg" id="login" xmlns="http://www.w3.org/2000/svg" height="24px"
                                 viewBox="0 0 24 24" width="24px" onclick="logins()">
@@ -151,13 +151,21 @@
                 <div id="bottom-bar">
                     <!--?bb = bottom bar-->
                     <!--!back-->
-                    <svg class="front-icon-svg bb-icon" id="home-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
-                        fill="#000000" onclick="back()">
+                    <svg class="bb-icon-svg" id="home-icon" xmlns="http://www.w3.org/2000/svg" height="24px"
+                        viewBox="0 0 24 24" width="24px" onclick="back()">
+                        <linearGradient id="gold1" x1="36.44" y1="51.18" x2="86.38" y2="30.25"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="0.34" stop-color="#f0d750" />
+                            <stop offset="0.56" stop-color="#e7cd3b" />
+                            <stop offset="0.72" stop-color="#bc8c1f" />
+                            <stop offset="0.82" stop-color="#d9ad15" />
+                            <stop offset="1" stop-color="#fce186" />
+                        </linearGradient>
                         <path d="M0 0h24v24H0V0z" fill="none" />
                         <path d="M12 5.69l5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z" />
                     </svg>
                     <!--!logout change icon, create js script for this-->
-                    <svg class="front-icon-svg bb-icon" id="login" xmlns="http://www.w3.org/2000/svg" height="24px"
+                    <svg class="bb-icon-svg" id="login" xmlns="http://www.w3.org/2000/svg" height="24px"
                         viewBox="0 0 24 24" width="24px" onclick="logins()">
                         <g>
                             <rect fill="none" height="24" width="24" />
@@ -172,14 +180,14 @@
                         <p>thundershadow</p>
                     </div>
                     <!--!help-->
-                    <svg class="front-icon-svg bb-icon" id="help-icon" xmlns="http://www.w3.org/2000/svg" height="24px"
+                    <svg class="bb-icon-svg" id="help-icon" xmlns="http://www.w3.org/2000/svg" height="24px"
                         viewBox="0 0 24 24" width="24px" onclick="instructions()">
                         <path d="M0 0h24v24H0V0z" fill="none" />
                         <path
                             d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z" />
                     </svg>
                     <!--!settings-->
-                    <svg class="front-icon-svg bb-icon" id="setting" xmlns="http://www.w3.org/2000/svg" height="24px"
+                    <svg class="bb-icon-svg" id="setting" xmlns="http://www.w3.org/2000/svg" height="24px"
                         viewBox="0 0 24 24" width="24px" onclick="settings()">
                         <path d="M0 0h24v24H0V0z" fill="none" />
                         <path

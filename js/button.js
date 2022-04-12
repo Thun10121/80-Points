@@ -17,7 +17,6 @@ let frontGame = document.getElementById("front-game-content");
 let joinBackButton = document.getElementById("front-button-back");
 
 let bottomBar = document.getElementById("bottom-bar-border");
-let bottomBarChild = document.getElementById("#bottom-bar").childNodes;
 
 let frontIcon = document.getElementById("icons");
 
@@ -123,10 +122,6 @@ function create(){
     frontGame.style.display = "flex";
     bottomBar.style.display= "flex";
     frontIcon.style.display = "none";
-    for(let i = 0; i < bottomBarChild.length; i++){
-        bottomBarChild[i].style.display = "flex";
-    }
-    console.log("hi");
 }
 
 function back(){
@@ -146,6 +141,7 @@ function back(){
     joinBackButton.style.display = "none";
     frontGame.style.display = "none";
     frontPageElement.style.display = "flex";
+    frontIcon.style.display = "flex";
 }
 
 function randomZhu(){

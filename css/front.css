@@ -43,8 +43,10 @@ body {
     background: var(--base4);
     background: radial-gradient(circle at center bottom, var(--base4) 20%, var(--base1) 100%);
     user-select: none;
-    -webkit-user-select: none; /*Safari*/
-    -moz-user-select: none; /*Firefox*/
+    -webkit-user-select: none;
+    /*Safari*/
+    -moz-user-select: none;
+    /*Firefox*/
 }
 
 ::-webkit-scrollbar {
@@ -330,16 +332,6 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
     justify-content: center;
 }
 
-.front-icon-svg {
-    height: auto;
-    width: auto;
-    fill: -webkit-gradient(linear, left top, right bottom,
-            from(rgb(240, 215, 80)),
-            color-stop(20%, rgb(231, 205, 59)),
-            color-stop(40%, rgb(217, 173, 21)),
-            to(rgb(252, 225, 134)));
-}
-
 #icon-container {
     justify-content: center;
     display: flex;
@@ -348,6 +340,8 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
 .front-icon-svg {
     transition: .5s;
     fill: url(#gold);
+    height: auto;
+    width: auto;
 }
 
 .front-icon-background-border {
@@ -466,9 +460,18 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
     -webkit-text-stroke: 0;
     text-align: center;
     transform: translateY(9vmin);
-    color: var(--accent1);
+    /* color: var(--accent1); */
+    -webkit-text-stroke: .0125vmin var(--accent1);
+    background: -webkit-gradient(linear, left top, right bottom,
+            from(rgb(240, 215, 80)),
+            color-stop(20%, rgb(231, 205, 59)),
+            color-stop(40%, rgb(217, 173, 21)),
+            to(rgb(252, 225, 134)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-weight: 550;
     padding: .25vmin;
+    letter-spacing: .125vmin;
 }
 
 #front-game {
@@ -695,13 +698,14 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
     left: 50%;
     transform: translateX(-50%);
     background: linear-gradient(to left,
-            rgb(231, 205, 59), 
-            rgb(231, 205, 59) 20%, 
-            rgb(217, 173, 21) 40%, 
+            rgb(231, 205, 59),
+            rgb(231, 205, 59) 20%,
+            rgb(217, 173, 21) 40%,
             rgb(240, 215, 80));
     padding: .5vmin;
-    border-radius: 50%;
     margin: 2vmin;
+    margin-bottom: 0;
+    border-radius: .5vmin;
 }
 
 #bottom-bar {
@@ -709,8 +713,8 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
     flex-direction: row;
     justify-content: center;
     background-color: var(--base4);
-    border-radius: 50%;
     padding: 1vmin;
+    border-radius: .5vmin;
 }
 
 #bb-login {
@@ -728,17 +732,28 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
     margin-right: auto;
 }
 
-#bb-login p{
+#bb-login p {
     margin: 0;
+    -webkit-text-stroke: .0125vmin var(--accent1);
+    background: -webkit-gradient(linear, left top, right bottom,
+            from(rgb(240, 215, 80)),
+            color-stop(20%, rgb(231, 205, 59)),
+            color-stop(40%, rgb(217, 173, 21)),
+            to(rgb(252, 225, 134)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: .125vmin;
 }
 
-.bb-icon {
+.bb-icon-svg {
+    transition: .5s;
+    fill: url(#gold1);
     height: 5vmin;
     width: 5vmin;
-    margin: auto 3vmin;
+    margin: auto 6vmin;
 }
 
-.bb-icon:hover{
+.bb-icon-svg:hover {
     transform: scale(1.2);
     fill: var(--accent3);
 }
