@@ -36,14 +36,15 @@
     /*? green*/
     /* --base1: #217E18;
     --base4: #015f17; */
-
-
 }
 
 body {
     overflow: hidden;
     background: var(--base4);
     background: radial-gradient(circle at center bottom, var(--base4) 20%, var(--base1) 100%);
+    user-select: none;
+    -webkit-user-select: none; /*Safari*/
+    -moz-user-select: none; /*Firefox*/
 }
 
 ::-webkit-scrollbar {
@@ -554,16 +555,16 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
     justify-content: center;
     flex-direction: row;
     background-color: #217E18;
-    width: 40vmin;
-    height: 70vmin;
+    width: var(--card-width);
+    height: var(--card-height);
     border-radius: 2vmin;
     box-shadow: 1vmin 1vmin 1vmin rgba(0, 0, 0, 0.459);
     margin: -1vmin;
 }
 
 #front-game-div-background {
-    width: 40vmin;
-    height: 60vmin;
+    width: var(--card-width);
+    height: var(--card-height);
     border-radius: 1vmin;
     opacity: .9;
 }
@@ -688,6 +689,7 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
 }
 
 #bottom-bar-border {
+    display: none;
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -719,8 +721,8 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
 }
 
 #bb-login img {
-    height: 10vmin;
-    width: 10vmin;
+    height: 8vmin;
+    width: 8vmin;
     border-radius: 50%;
     margin-left: auto;
     margin-right: auto;
@@ -733,5 +735,10 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
 .bb-icon {
     height: 5vmin;
     width: 5vmin;
-    margin: auto 2vmin;
+    margin: auto 3vmin;
+}
+
+.bb-icon:hover{
+    transform: scale(1.2);
+    fill: var(--accent3);
 }
