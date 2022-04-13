@@ -447,6 +447,13 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
     margin-left: 1vmin;
 }
 
+#front-login-pfp-border{
+    height: 8vmin;
+    width: 8vmin;
+    padding: .5vmin;
+    border-radius: 50%;
+}
+
 #front-login img {
     height: 8vmin;
     width: 8vmin;
