@@ -16,7 +16,6 @@ let joinButton = document.getElementById("front-button-join");
 let frontButtonDIV = document.getElementById("front-buttons-div");
 let frontPageElement = document.getElementById("front-page-elements");
 let frontGame = document.getElementById("front-game-content");
-let joinBackButton = document.getElementById("front-button-back");
 
 let bottomBar = document.getElementById("bottom-bar-border");
 
@@ -74,7 +73,7 @@ function settings() {
     }
 }
 
-function logins(){
+function logins() {
     if (logStatus) {
         setTimeout(function () {
             logModal.style.opacity = "0";
@@ -101,7 +100,6 @@ function logins(){
 function join() {
     createButton.style.display = "none";
     joinButton.style.display = "none";
-    joinBackButton.style.display = "flex";
     frontButtonDIV.innerHTML = `
     <div id="front-button-input-background-border" class="goldBK">
         <input id="front-join-input" class="front-button"  maxlength="10" placeholder="Room Code"></input>
@@ -111,19 +109,35 @@ function join() {
             <p id="front-button-enter-text" class="front-button-text goldText">ENTER</p>
         </button>
     </div>
+    <div id="front-button-home-background-border" class="goldBK">
+        <div id="front-button-home">
+            <svg id="front-button-home-svg" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24"
+                width="24px" onclick="back()">
+                <linearGradient id="gold1" x1="36.44" y1="51.18" x2="86.38" y2="30.25" gradientUnits="userSpaceOnUse">
+                    <stop offset="0.34" stop-color="#f0d750" />
+                    <stop offset="0.56" stop-color="#e7cd3b" />
+                    <stop offset="0.72" stop-color="#bc8c1f" />
+                    <stop offset="0.82" stop-color="#d9ad15" />
+                    <stop offset="1" stop-color="#fce186" />
+                </linearGradient>
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path d="M12 5.69l5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z" />
+            </svg>
+        </div>
+    </div>
     `;
 }
 
-function create(){
+function create() {
     createButton.style.display = "none";
     joinButton.style.display = "none";
     frontPageElement.style.display = "none";
     frontGame.style.display = "flex";
-    bottomBar.style.display= "flex";
+    bottomBar.style.display = "flex";
     frontIcon.style.display = "none";
 }
 
-function back(){
+function back() {
     frontButtonDIV.innerHTML = `
     <div id="front-button-background-border" class="goldBK">
         <button id="front-button-create" class="front-button" onclick="create()">
@@ -137,19 +151,18 @@ function back(){
     </div>
     `;
     bottomBar.style.display = "none";
-    joinBackButton.style.display = "none";
     frontGame.style.display = "none";
     frontPageElement.style.display = "flex";
     frontIcon.style.display = "flex";
 }
 
-function randomZhu(){
+function randomZhu() {
     rand = Math.floor(Math.random() * 13);
     zhuNumber = cardTypes[rand];
     document.location = "/html/game.html";
 }
 
-function inOrderZhu(){
+function inOrderZhu() {
     zhuNumber = "2";
     document.location = "/html/game.html";
 }

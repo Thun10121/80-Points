@@ -306,15 +306,14 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
     padding: .5vmin;
     transition: 10ms;
     border-radius: 1vmin;
-
 }
 
-#front-button-enter-background-border:hover {
+#front-button-enter-background-border:hover, #front-button-home-background-border:hover{
     background: transparent;
     transform: scale(.95);
 }
 
-#front-button-enter-background-border:hover #front-button-enter {
+#front-button-enter-background-border:hover #front-button-enter, #front-button-home-background-border:hover #front-button-home{
     transform: scale(1.1);
     cursor: pointer;
     background: -webkit-gradient(linear, left top, right bottom,
@@ -324,9 +323,48 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
             to(rgb(252, 225, 134)));
 }
 
+#front-button-home-background-border:hover #front-button-home{
+    transform: scale(1.2);
+}
+
 #front-button-enter-background-border:hover #front-button-enter #front-button-enter-text {
     background: var(--base4);
     -webkit-background-clip: text;
+}
+
+#front-button-home-background-border{
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 6vmin;
+    width: 6vmin;
+    padding: .5vmin;
+    justify-content: center;
+    border-radius: 1vmin;
+    transition: 1s;
+}
+
+#front-button-home{
+    height: 6vmin;
+    width: 6vmin;
+    background: var(--base4);
+    position: relative;
+    justify-content: center;
+    border-radius: 1vmin;
+    transition: 1s;
+}
+
+#front-button-home svg{
+    position: relative;
+    height: 4vmin;
+    width: 4vmin;
+    top: 50%;
+    fill: url(#gold1);
+    transform: translateY(-50%);
+}
+
+
+#front-button-home-background-border:hover #front-button-home #front-button-home-svg{
+    fill: var(--base4);
 }
 
 #icons {
