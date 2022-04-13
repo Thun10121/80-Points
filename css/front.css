@@ -94,11 +94,12 @@ p {
     z-index: -1;
 }
 
-#front-background img {
+#front-background svg {
     width: 40vmin;
     height: 40vmin;
     position: absolute;
     --cornermargin: -3vmin;
+    fill: url(#linear-gradient);
 }
 
 #front-lt-corner {
@@ -147,8 +148,6 @@ p {
     font-family: 'Turret Road', cursive;
     animation: 2s frontAnimation linear infinite;
     animation-delay: calc(.5s * var(--i));
-    /* -webkit-text-stroke-width: .25vmin; */
-    /* -webkit-text-stroke-color: var(--base3); */
 }
 
 @keyframes frontAnimation {
