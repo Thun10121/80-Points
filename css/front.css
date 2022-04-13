@@ -289,6 +289,7 @@ p {
     -webkit-text-stroke: .05vmin var(--base4);
     background-color: transparent;
     color: var(--base4);
+    text-transform: uppercase;
 }
 
 #front-join-input::placeholder {
