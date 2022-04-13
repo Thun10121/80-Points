@@ -103,12 +103,12 @@ function join() {
     joinButton.style.display = "none";
     joinBackButton.style.display = "flex";
     frontButtonDIV.innerHTML = `
-    <div id="front-button-input-background-border">
+    <div id="front-button-input-background-border" class="goldBK">
         <input id="front-join-input" class="front-button"  maxlength="10" placeholder="Room Code"></input>
     </div>
-    <div id="front-button-enter-background-border">
+    <div id="front-button-enter-background-border" class="goldBK">
         <button id="front-button-enter" class="front-button" onclick="enterCode()">
-            <p id="front-button-enter-text" class="front-button-text">ENTER</p>
+            <p id="front-button-enter-text" class="front-button-text goldText">ENTER</p>
         </button>
     </div>
     `;
@@ -125,14 +125,14 @@ function create(){
 
 function back(){
     frontButtonDIV.innerHTML = `
-    <div id="front-button-background-border">
+    <div id="front-button-background-border" class="goldBK">
         <button id="front-button-create" class="front-button" onclick="create()">
-        <p id="front-button-create-text" class="front-button-text">CREATE</p>
+        <p id="front-button-create-text" class="front-button-text goldText">CREATE</p>
     </button>
     </div>
-    <div id="front-button-background-border">
+    <div id="front-button-background-border" class="goldBK">
         <button id="front-button-join" class="front-button" onclick="join()">
-            <p id="front-button-join-text" class="front-button-text">JOIN</p>
+            <p id="front-button-join-text" class="front-button-text goldText">JOIN</p>
         </button>
     </div>
     `;

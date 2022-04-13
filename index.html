@@ -61,14 +61,14 @@
                 <div id="front-title-text" style="--i:10">S</div>
             </div>
             <div id="front-buttons-div">
-                <div id="front-button-background-border">
+                <div id="front-button-background-border" class="goldBK">
                     <button id="front-button-create" class="front-button" onclick="create()">
-                        <p id="front-button-create-text" class="front-button-text">CREATE</p>
+                        <p id="front-button-create-text" class="front-button-text goldText">CREATE</p>
                     </button>
                 </div>
-                <div id="front-button-background-border">
+                <div id="front-button-background-border" class="goldBK">
                     <button id="front-button-join" class="front-button" onclick="join()">
-                        <p id="front-button-join-text" class="front-button-text">JOIN</p>
+                        <p id="front-button-join-text" class="front-button-text goldText">JOIN</p>
                     </button>
                 </div>
             </div>
@@ -79,7 +79,7 @@
         <div id="front-game">
             <div id="front-game-content">
                 <div id="front-game-content-title">
-                    <h1 id="front-game-content-title-text">
+                    <h1 id="front-game-content-title-text" class="goldText">
                         SELECT A MODE
                     </h1>
                 </div>
@@ -87,16 +87,17 @@
                     <div id="front-game-random-card" onclick="randomZhu()">
                         <div id="front-game-random-inner-card">
                             <div class="front-game-div" id="front-game-random">
-                                <img id="front-game-div-background" src="photos/card-back.svg" alt="card back graphics">
-                                <p id="front-game-random-text">RANDOM</p>
+                                <img id="front-game-div-background" src="photos/card-backV2.svg"
+                                    alt="card back graphics">
+                                <p id="front-game-random-text" class="goldText">RANDOM</p>
                             </div>
                             <div class="front-game-div" id="front-game-random-back">
-                                <p id="front-game-random-text-back">RANDOM MODE</p>
-                                <p id="front-game-random-text-content">For each round of the game, a number with be
+                                <p id="front-game-random-text-back" class="goldText">RANDOM MODE</p>
+                                <p id="front-game-random-text-content" class="goldText">For each round of the game, a number with be
                                     <b>randomly</b>
                                     choosen to be the main card
                                 </p>
-                                <p id="front-game-random-click">click to create game</p>
+                                <p id="front-game-random-click" class="goldText">click to create game</p>
                             </div>
                         </div>
                     </div>
@@ -105,15 +106,16 @@
                     <div id="front-game-official-card" onclick="inOrderZhu()">
                         <div id="front-game-official-inner-card">
                             <div class="front-game-div" id="front-game-official">
-                                <img id="front-game-div-background" src="photos/card-back.svg" alt="card back graphics">
-                                <p id="front-game-official-text">2->A</p>
+                                <img id="front-game-div-background" src="photos/card-backV2.svg"
+                                    alt="card back graphics">
+                                <p id="front-game-official-text" class="goldText">2->A</p>
                             </div>
                             <div class="front-game-div" id="front-game-official-back">
-                                <p id="front-game-official-text-back">2->A MODE</p>
-                                <p id="front-game-official-text-content">The game will start with 2 as the main card,
+                                <p id="front-game-official-text-back" class="goldText">2->A MODE</p>
+                                <p id="front-game-official-text-content" class="goldText">The game will start with 2 as the main card,
                                     then <b>go up in order</b>: 3, 4, 5... eventually ending with A
                                 </p>
-                                <p id="front-game-official-click">click to create game</p>
+                                <p id="front-game-official-click" class="goldText">click to create game</p>
                             </div>
                         </div>
                     </div>
@@ -168,12 +170,12 @@
                         </div>
                     </div>
                 </div>
-                <div id="front-login">
+                <div id="front-login" class="goldBK">
                     <img src="photos/alien.jpg">
-                    <p id="username">thundershadow</p>
+                    <p id="username" class="goldText">thundershadow</p>
                 </div>
             </div>
-            <div id="bottom-bar-border">
+            <div id="bottom-bar-border" class="goldBK">
                 <div id="bottom-bar">
                     <!--?bb = bottom bar-->
                     <!--!back-->
@@ -202,8 +204,12 @@
                         </g>
                     </svg>
                     <div id="bb-login">
-                        <img src="photos/alien.jpg">
-                        <p>thundershadow</p>
+                        <div id="bb-login-content">
+                            <div id="bb-login-border" class="goldBK">
+                                <img src="photos/alien.jpg">
+                            </div>
+                            <p class="goldText">thundershadow</p>
+                        </div>
                     </div>
                     <!--!help-->
                     <svg class="bb-icon-svg" id="help-icon" xmlns="http://www.w3.org/2000/svg" height="24px"
