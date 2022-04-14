@@ -1,4 +1,3 @@
-
 /*
 ?Points:
 5: 5
@@ -36,7 +35,7 @@ try {
     intialize();
     //TODO content.innerHTML += "Whole Deck: " + randCards.join(" ") + "<br><br>";
 
-    for (let i = 0; i < 4; i++){
+    for (let i = 0; i < 4; i++) {
         playerCards[i] = randCards.splice(0, 25);
     }
     dipai = randCards;
@@ -47,8 +46,8 @@ try {
     }
 
     function putCards(item) { //for each card input push it 8 times, 2 per 4 suits
-        for (let x = 0; x < 2; x++){
-            for (let i = 0; i < 4; i++){
+        for (let x = 0; x < 2; x++) {
+            for (let i = 0; i < 4; i++) {
                 cards.push(suits[i] + item);
             }
         }
@@ -73,8 +72,8 @@ try {
     zhuNumber = cardTypes[rand];
     console.log("zhuSuit: " + zhuSuit);
     console.log("zhuNumber: " + zhuNumber);
-    zhuSuitDiv.innerHTML = `Main Suit: ${zhuSuit}`;
-    zhuCardDiv.innerHTML = `Main Number: ${zhuNumber}`;
+    // zhuSuitDiv.innerHTML = `Main Suit: ${zhuSuit}`; //!add back
+    // zhuCardDiv.innerHTML = `Main Number: ${zhuNumber}`; //! add back
 
     for (let i = 0; i < 4; i++) {
         playerCards[i] = sortCards(playerCards[i]);
@@ -87,20 +86,20 @@ try {
         } else if (dipai[i].substring(1, dipai[i].length) == "10" || dipai[i].substring(1, dipai[i].length) == "K") {
             dipaiPoints += 10;
         }
-    }    
+    }
     //TODO
     // content.innerHTML += `
     // <br>DiPai: {${dipai.join(", ")}}
     // <br>DiPai Points: ${dipaiPoints}
     // `;
 
-    function sortCards(sorting){
+    function sortCards(sorting) { //!sort each player cards
         afterSorted = [];
         playerZhuNumber = [];
         playerZhuSuit = [];
         playerFuSuit = [[]];
-        for(let i = 0; i < sorting.length; i++){
-            if(i > sorting.length-1){
+        for (let i = 0; i < sorting.length; i++) {
+            if (i > sorting.length - 1) {
                 break;
             }
             if (sorting[i] == "RJoker") {
@@ -192,7 +191,7 @@ try {
         return sorting;
     }
 
-    function sortSuit(currCards) {
+    function sortSuit(currCards) { //!sort each deck by suits
         let sortArr = currCards;
         currCards = [];
         for (let i = 0; i < sortArr.length; i++) {
@@ -218,7 +217,7 @@ try {
         return currCards;
     }
 
-    function sortNumber(currCards) {
+    function sortNumber(currCards) { //! 
         let sortArr = [];
         let currCopy = [];
         for (let i = 0; i < currCards.length; i++) {
@@ -243,7 +242,7 @@ try {
         }
         return currCopy;
     }
-    
+
     //♠ ♥ ♣ ♦
     let card1, card2, card3, card4 = "";
     rand = Math.floor(Math.random() * 2) + 1;
@@ -255,121 +254,121 @@ try {
     let thisRoundPoints = 0;
     let cardNum = 0;
 
-    while(points < 80){
-        card1 = prompt("Enter Card 1");
-        card2 = prompt("Enter Card 2");
-        card3 = prompt("Enter Card 3");
-        card4 = prompt("Enter Card 4");
-        console.log(card1 + "\n" + card2 + "\n" + card3 + "\n" + card4);
-        findLargestCard(card1, card2, card3, card4);
-        if(largest != zhuang1 && largest != zhuang2){
-            points += thisRoundPoints;
-        }
-        console.log("Points caught: " + points);
-        console.log("Cards played in this round: " + cardNum);
-    }
-    console.log("Game Over");
+    // while(points < 80){
+    //     card1 = prompt("Enter Card 1");
+    //     card2 = prompt("Enter Card 2");
+    //     card3 = prompt("Enter Card 3");
+    //     card4 = prompt("Enter Card 4");
+    //     console.log(card1 + "\n" + card2 + "\n" + card3 + "\n" + card4);
+    //     findLargestCard(card1, card2, card3, card4);
+    //     if(largest != zhuang1 && largest != zhuang2){
+    //         points += thisRoundPoints;
+    //     }
+    //     console.log("Points caught: " + points);
+    //     console.log("Cards played in this round: " + cardNum);
+    // }
+    // console.log("Game Over");
 
-    function findLargestCard(card1, card2, card3, card4){
+    function findLargestCard(card1, card2, card3, card4) {
         cardNum = 1;
         let currSuit = card1.charAt(0);
         let result = 0;
         let zhu = false;
 
-        for(let i = 0; i < card1.length; i++){
-            if(card1[i] == " "){
-                cardNum ++;
+        for (let i = 0; i < card1.length; i++) {
+            if (card1[i] == " ") {
+                cardNum++;
             }
         }
 
-        if(cardNum == 1){
+        if (cardNum == 1) {
             thisRoundPoints = 0;
             let thisRound = [new cp(1, card1), new cp(2, card2), new cp(3, card3), new cp(4, card4)];
-    
-            for(let i = 0; i < thisRound.length; i++){
-                if(thisRound[i].card.substring(1, thisRound[i].card.length) == "5"){
+
+            for (let i = 0; i < thisRound.length; i++) {
+                if (thisRound[i].card.substring(1, thisRound[i].card.length) == "5") {
                     thisRoundPoints += 5;
-                }else if(thisRound[i].card.substring(1, thisRound[i].card.length) == "10" || thisRound[i].card.substring(1, thisRound[i].card.length) == "K"){
+                } else if (thisRound[i].card.substring(1, thisRound[i].card.length) == "10" || thisRound[i].card.substring(1, thisRound[i].card.length) == "K") {
                     thisRoundPoints += 10;
                 }
-                if(thisRound[i].card.charAt(0) == zhuSuit || thisRound[i].card.substring(1, thisRound[i].card.length) == zhuNumber){
+                if (thisRound[i].card.charAt(0) == zhuSuit || thisRound[i].card.substring(1, thisRound[i].card.length) == zhuNumber) {
                     zhu = true;
-                }else if(thisRound[i].card == "RJoker"){
+                } else if (thisRound[i].card == "RJoker") {
                     zhu = true;
                     thisRound[i].card = "16";
-                }else if(thisRound[i].card == "BJoker"){
+                } else if (thisRound[i].card == "BJoker") {
                     zhu = true;
                     thisRound[i].card = "15";
                 }
             }
-    
-            if(!zhu){ //all fupai
-                for(let i = 0; i < 4; i++){
-                    if(i > thisRound.length-1){
+
+            if (!zhu) { //all fupai
+                for (let i = 0; i < 4; i++) {
+                    if (i > thisRound.length - 1) {
                         break;
                     }
-                    if(thisRound[i].card.charAt(0) != currSuit){
+                    if (thisRound[i].card.charAt(0) != currSuit) {
                         thisRound.splice(i, 1);
                         i--;
-                    }else{
+                    } else {
                         thisRound[i].card = thisRound[i].card.substring(1, thisRound[i].card.length);
                     }
                 }
-                for(let i = 0; i < thisRound.length; i++){
-                    for(let j = 0; j < cardTypes.length; j++){
-                        if(thisRound[i].card == cardTypes[j]){
+                for (let i = 0; i < thisRound.length; i++) {
+                    for (let j = 0; j < cardTypes.length; j++) {
+                        if (thisRound[i].card == cardTypes[j]) {
                             thisRound[i].card = j;
                         }
                     }
                 }
-                for(let i = 0; i < thisRound.length; i++){
-                    for(let j = 0; j < thisRound.length-1; j++){
-                        if(thisRound[j].card < thisRound[j+1].card){
-                            let temp = thisRound[j+1];
-                            thisRound[j+1] = thisRound[j];
+                for (let i = 0; i < thisRound.length; i++) {
+                    for (let j = 0; j < thisRound.length - 1; j++) {
+                        if (thisRound[j].card < thisRound[j + 1].card) {
+                            let temp = thisRound[j + 1];
+                            thisRound[j + 1] = thisRound[j];
                             thisRound[j] = temp;
                         }
                     }
                 }
                 result = thisRound[0].order;
-            }else{ //zhupai is present
+            } else { //zhupai is present
                 currSuit = zhuSuit;
-                for(let i = 0; i < 4; i++){
-                    if(i > thisRound.length-1){
+                for (let i = 0; i < 4; i++) {
+                    if (i > thisRound.length - 1) {
                         break;
                     }
-                    if(thisRound[i].card == "15" || thisRound[i].card == "16"){
+                    if (thisRound[i].card == "15" || thisRound[i].card == "16") {
                         continue;
                     }
-                    if(thisRound[i].card.charAt(0) != currSuit && thisRound[i].card.substring(1, thisRound[i].card.length) != zhuNumber){
+                    if (thisRound[i].card.charAt(0) != currSuit && thisRound[i].card.substring(1, thisRound[i].card.length) != zhuNumber) {
                         thisRound.splice(i, 1);
                         i--;
                     }
                 }
-                for(let i = 0; i < thisRound.length; i++){
-                    if(thisRound[i].card.substring(1, thisRound[i].card.length) == zhuNumber){
-                        if(thisRound[i].card.charAt(0) != zhuSuit){
+                for (let i = 0; i < thisRound.length; i++) {
+                    if (thisRound[i].card.substring(1, thisRound[i].card.length) == zhuNumber) {
+                        if (thisRound[i].card.charAt(0) != zhuSuit) {
                             thisRound[i].card = "13";
-                        }else{
+                        } else {
                             thisRound[i].card = "14";
                         }
                         continue;
                     }
-                    if(thisRound[i].card == "15" || thisRound[i].card == "16"){
+                    if (thisRound[i].card == "15" || thisRound[i].card == "16") {
                         continue;
                     }
                     thisRound[i].card = thisRound[i].card.substring(1, thisRound[i].card.length)
-                    for(let j = 0; j < cardTypes.length; j++){
-                        if(thisRound[i].card == cardTypes[j]){
+                    for (let j = 0; j < cardTypes.length; j++) {
+                        if (thisRound[i].card == cardTypes[j]) {
                             thisRound[i].card = j;
                         }
                     }
                 }
-                for(let i = 0; i < thisRound.length; i++){
-                    for(let j = 0; j < thisRound.length-1; j++){
-                        if(thisRound[j].card < thisRound[j+1].card){
-                            let temp = thisRound[j+1];
-                            thisRound[j+1] = thisRound[j];
+                for (let i = 0; i < thisRound.length; i++) {
+                    for (let j = 0; j < thisRound.length - 1; j++) {
+                        if (thisRound[j].card < thisRound[j + 1].card) {
+                            let temp = thisRound[j + 1];
+                            thisRound[j + 1] = thisRound[j];
                             thisRound[j] = temp;
                         }
                     }
@@ -378,16 +377,16 @@ try {
             }
             // content.innerHTML += "<br>Largest Card: Person " + result;
             largest = result;
-        }else if(cardNum == 2){//♠ ♥ ♣ ♦
+        } else if (cardNum == 2) {//♠ ♥ ♣ ♦
             thisRoundPoints = 0;
             let thisRound = [new cp(1, card1), new cp(2, card2), new cp(3, card3), new cp(4, card4)];
             let twoCards = [];
 
             let card1A = "", card2A = "";
-            for(let i = 0; i < thisRound.length; i++){
+            for (let i = 0; i < thisRound.length; i++) {
                 card1A = "", card2A = thisRound[i].card;
-                while(true){
-                    if(card1A.length > 0 && card2A.charAt(0) == " "){
+                while (true) {
+                    if (card1A.length > 0 && card2A.charAt(0) == " ") {
                         break;
                     }
                     card1A += card2A.charAt(0);
@@ -396,115 +395,115 @@ try {
                 card2A = card2A.substring(1, card2A.length);
                 twoCards.push(new cp(card1A, card2A));
             }
-            for(let i = 0; i < twoCards.length; i++){
-                if(twoCards[i].order.substring(1, 2) == "5"){
+            for (let i = 0; i < twoCards.length; i++) {
+                if (twoCards[i].order.substring(1, 2) == "5") {
                     thisRoundPoints += 5;
                 }
-                if(twoCards[i].card.substring(1, 2) == "5"){
+                if (twoCards[i].card.substring(1, 2) == "5") {
                     thisRoundPoints += 5;
                 }
-                if(twoCards[i].order.substring(1, 3) == "10"){
+                if (twoCards[i].order.substring(1, 3) == "10") {
                     thisRoundPoints += 10;
                 }
-                if(twoCards[i].card.substring(1, 3) == "10"){
+                if (twoCards[i].card.substring(1, 3) == "10") {
                     thisRoundPoints += 10;
                 }
-                if(twoCards[i].order.substring(1, 2) == "K"){
+                if (twoCards[i].order.substring(1, 2) == "K") {
                     thisRoundPoints += 10;
                 }
-                if(twoCards[i].card.substring(1, 2) == "K"){
+                if (twoCards[i].card.substring(1, 2) == "K") {
                     thisRoundPoints += 10;
                 }
             }
-            for(let i = 0; i < twoCards.length; i++){
-                if(i > twoCards.length - 1){
+            for (let i = 0; i < twoCards.length; i++) {
+                if (i > twoCards.length - 1) {
                     break;
                 }
-                if(twoCards[i].order != twoCards[i].card){
+                if (twoCards[i].order != twoCards[i].card) {
                     twoCards.splice(i, 1);
                     thisRound.splice(i, 1);
                     i--;
                     continue;
                 }
-                if(twoCards[i].order.charAt(0) != currSuit){
-                    if(twoCards[i].order.substring(1, twoCards[i].order.length) != zhuNumber){
+                if (twoCards[i].order.charAt(0) != currSuit) {
+                    if (twoCards[i].order.substring(1, twoCards[i].order.length) != zhuNumber) {
                         twoCards.splice(i, 1);
                         thisRound.splice(i, 1);
                         i--;
                         continue;
                     }
                 }
-                if(twoCards[i].order.charAt(0) == zhuSuit || twoCards[i].order.substring(1, thisRound[i].order.length) == zhuNumber || twoCards[i].order == "BJoker" || twoCards[i].order == "RJoker"){
+                if (twoCards[i].order.charAt(0) == zhuSuit || twoCards[i].order.substring(1, thisRound[i].order.length) == zhuNumber || twoCards[i].order == "BJoker" || twoCards[i].order == "RJoker") {
                     zhu = true;
                 }
             }
-            for(let i = 0; i < thisRound.length; i++){
-                thisRound[i].card = thisRound[i].card.substring(0, thisRound[i].card.length/2);
+            for (let i = 0; i < thisRound.length; i++) {
+                thisRound[i].card = thisRound[i].card.substring(0, thisRound[i].card.length / 2);
             }
 
-            if(!zhu){
-                for(let i = 0; i < thisRound.length; i++){
+            if (!zhu) {
+                for (let i = 0; i < thisRound.length; i++) {
                     thisRound[i].card = thisRound[i].card.substring(1, thisRound[i].card.length);
-                    for(let j = 0; j < cardTypes.length; j++){
-                        if(thisRound[i].card == cardTypes[j]){
+                    for (let j = 0; j < cardTypes.length; j++) {
+                        if (thisRound[i].card == cardTypes[j]) {
                             thisRound[i].card = j;
                         }
                     }
                 }
-                for(let i = 0; i < thisRound.length; i++){
-                    for(let j = 0; j < thisRound.length-1; j++){
-                        if(thisRound[j].card < thisRound[j+1].card){
-                            let temp = thisRound[j+1];
-                            thisRound[j+1] = thisRound[j];
+                for (let i = 0; i < thisRound.length; i++) {
+                    for (let j = 0; j < thisRound.length - 1; j++) {
+                        if (thisRound[j].card < thisRound[j + 1].card) {
+                            let temp = thisRound[j + 1];
+                            thisRound[j + 1] = thisRound[j];
                             thisRound[j] = temp;
                         }
                     }
                 }
                 result = thisRound[0].order;
-            }else{
+            } else {
                 currSuit = zhuSuit;
 
-                for(let i = 0; i < thisRound.length; i++){
-                    if(i > thisRound.length-1){
+                for (let i = 0; i < thisRound.length; i++) {
+                    if (i > thisRound.length - 1) {
                         break;
                     }
-                    if(thisRound[i].card == "BJoker" || thisRound[i].card == "RJoker"){
+                    if (thisRound[i].card == "BJoker" || thisRound[i].card == "RJoker") {
                         continue;
                     }
-                    if(thisRound[i].card.charAt(0) != currSuit && thisRound[i].card.substring(1, thisRound[i].card.length) != zhuNumber){
+                    if (thisRound[i].card.charAt(0) != currSuit && thisRound[i].card.substring(1, thisRound[i].card.length) != zhuNumber) {
                         thisRound.splice(i, 1);
                         i--;
                     }
                 }
-                for(let i = 0; i < thisRound.length; i++){
-                    if(thisRound[i].card.substring(1, thisRound[i].card.length) == zhuNumber){
-                        if(thisRound[i].card.charAt(0) != zhuSuit){
+                for (let i = 0; i < thisRound.length; i++) {
+                    if (thisRound[i].card.substring(1, thisRound[i].card.length) == zhuNumber) {
+                        if (thisRound[i].card.charAt(0) != zhuSuit) {
                             thisRound[i].card = "13";
-                        }else{
+                        } else {
                             thisRound[i].card = "14";
                         }
                         continue;
                     }
-                    if(thisRound[i].card == "BJoker"){
+                    if (thisRound[i].card == "BJoker") {
                         thisRound[i].card = "15";
                         continue;
                     }
-                    if(thisRound[i].card == "RJoker"){
+                    if (thisRound[i].card == "RJoker") {
                         thisRound[i].card = "16";
                         continue;
                     }
                     thisRound[i].card = thisRound[i].card.substring(1, thisRound[i].card.length)
-                    for(let j = 0; j < cardTypes.length; j++){
-                        if(thisRound[i].card == cardTypes[j]){
+                    for (let j = 0; j < cardTypes.length; j++) {
+                        if (thisRound[i].card == cardTypes[j]) {
                             thisRound[i].card = j;
                         }
                     }
                 }
-                for(let i = 0; i < thisRound.length; i++){
-                    for(let j = 0; j < thisRound.length-1; j++){
-                        if(thisRound[j].card < thisRound[j+1].card){
-                            let temp = thisRound[j+1];
-                            thisRound[j+1] = thisRound[j];
+                for (let i = 0; i < thisRound.length; i++) {
+                    for (let j = 0; j < thisRound.length - 1; j++) {
+                        if (thisRound[j].card < thisRound[j + 1].card) {
+                            let temp = thisRound[j + 1];
+                            thisRound[j + 1] = thisRound[j];
                             thisRound[j] = temp;
                         }
                     }
@@ -515,13 +514,12 @@ try {
         largest = result;
         console.log("largest card: person " + largest);
     }
-
-
-    //TODO
-    // content.innerHTML += `
-    // <br>DiPai: ${dipai.join(" ")}
-    // <br>DiPai Points: ${dipaiPoints}
-    // `;
+    console.log("hi");
+    console.log("player cards: " + playerCards);
+    playerCards.forEach(playerDeck => {
+        console.log(playerDeck);
+    });
 } catch (error) {
+    // alert("A Problem Occurred");
     console.log(error);
 }

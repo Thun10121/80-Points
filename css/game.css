@@ -15,6 +15,10 @@ body {
     overflow: hidden;
     /* background: radial-gradient(#015f17, #217E18); */
     background: var(--base4);
+    -webkit-user-select: none;
+    /*Safari*/
+    -moz-user-select: none;
+    /*Firefox*/
 }
 
 .goldBK {
@@ -61,7 +65,7 @@ body {
     background: radial-gradient(#015f17, #217E18);
 }
 
-#bk-img{
+#bk-svg{
     height: 50vmin;
     width: 50vmin;
     position: absolute;
@@ -71,4 +75,149 @@ body {
     transform: translate(-50%, -50%);
     margin: 0;
     padding: 0;
+}
+
+/*
+width: 20vmin;
+height 6vmin;
+*/
+
+.played{
+    background-color: yellow;
+    position: absolute;
+    --playedMargin: 2vmin;
+    --cardH: 10vmin;
+}
+
+.card{
+    height: 10vmin;
+    width: auto;
+    position: absolute;
+}
+
+#playedcard1, #playedcard3{
+    width: auto;
+    height: 10vmin;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    justify-content: center;
+}
+
+#playedcard2, #playedcard4{
+    width: 10vmin;
+    height: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#playedcard1{
+    bottom: 0;
+    margin-bottom: var(--playedMargin);
+}
+
+#playedcard2{
+    right: 0;
+    margin-right: var(--playedMargin);
+}
+
+#playedcard3{
+    top: 0;
+    margin-top: var(--playedMargin);
+}
+
+#playedcard4{
+    left: 0;
+    margin-left: var(--playedMargin);
+}
+
+#playedcard2 *{
+    transform: rotate(180deg);
+    height: auto;
+    width: 10vmin;
+}
+
+#playedcard3 *{
+    transform: rotate(180deg);
+}
+
+#playedcard4 *{
+    height: auto;
+    width: 10vmin;
+}
+
+/*
+70vmin wide
+6vmin wide
+*/
+
+.deck-card{
+    width: 10vmin;
+    position: absolute;
+}
+
+.decks{
+    background-color: red;
+    position: absolute;
+    --deckMargin: 8vmin;
+}
+
+#player-decks1, #player-decks3{
+    width: auto;
+    height: 10vmin;
+    left: 50%;
+    transform: translateX(-50%);
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+}
+
+#player-decks2, #player-decks4{
+    position: absolute;
+    height: auto;
+    width: 10vmin;
+    top: 50vmin;
+    transform: translateY(-50%);
+    /* margin: 20vmin; */
+}
+
+#player-decks1{
+    bottom: 0;
+    /* margin-bottom: var(--deckMargin); */
+}
+
+#player-decks2{
+    right: 0;
+    margin-right: 20vmin;
+}
+
+#player-decks3{
+    top: 0;
+    /* margin-top: var(--deckMargin); */
+}
+
+#player-decks4{
+    left: 0;
+    margin-left: 20vmin;
+}
+
+#player-decks2 *{
+    transform: rotate(180deg);
+    height: 10vmin;
+    width: auto;
+}
+
+#player-decks3 *{
+    transform: rotate(180deg);
+}
+
+#player-decks4 *{
+    height: 10vmin;
+    width: auto;
 }
