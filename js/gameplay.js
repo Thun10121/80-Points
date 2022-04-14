@@ -88,10 +88,6 @@ try {
         }
     }
     //TODO
-    // content.innerHTML += `
-    // <br>DiPai: {${dipai.join(", ")}}
-    // <br>DiPai Points: ${dipaiPoints}
-    // `;
 
     function sortCards(sorting) { //!sort each player cards
         afterSorted = [];
@@ -253,21 +249,6 @@ try {
     let largest = 0;
     let thisRoundPoints = 0;
     let cardNum = 0;
-
-    // while(points < 80){
-    //     card1 = prompt("Enter Card 1");
-    //     card2 = prompt("Enter Card 2");
-    //     card3 = prompt("Enter Card 3");
-    //     card4 = prompt("Enter Card 4");
-    //     console.log(card1 + "\n" + card2 + "\n" + card3 + "\n" + card4);
-    //     findLargestCard(card1, card2, card3, card4);
-    //     if(largest != zhuang1 && largest != zhuang2){
-    //         points += thisRoundPoints;
-    //     }
-    //     console.log("Points caught: " + points);
-    //     console.log("Cards played in this round: " + cardNum);
-    // }
-    // console.log("Game Over");
 
     function findLargestCard(card1, card2, card3, card4) {
         cardNum = 1;
@@ -520,6 +501,5 @@ try {
         console.log(playerDeck);
     });
 } catch (error) {
-    // alert("A Problem Occurred");
     console.log(error);
 }
