@@ -1,9 +1,9 @@
 //? load all  the graphics to the game.html
 
-let deck1 = document.getElementById("player-decks1");
-let deck2 = document.getElementById("player-decks2");
-let deck3 = document.getElementById("player-decks3");
-let deck4 = document.getElementById("player-decks4");
+let deck1 = document.getElementById("player-decks1-content");
+let deck2 = document.getElementById("player-decks2-content");
+let deck3 = document.getElementById("player-decks3-content");
+let deck4 = document.getElementById("player-decks4-content");
 
 let played1 = document.getElementById("playedcard1");
 let played2 = document.getElementById("playedcard2");
