@@ -200,7 +200,6 @@ height 6vmin;
     position: relative;
     height: fit-content;
     width: fit-content;
-    transition: 500ms;
     justify-content: center;
     margin: auto;
 }
@@ -252,6 +251,7 @@ height 6vmin;
 
 #player-decks1-content *{
     margin: var(--Omargin);
+    transition: 200ms;
 }
 
 #player-decks2-content * {
