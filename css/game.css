@@ -7,6 +7,18 @@
     --base5: #232324;
     --base6: #015f17;
     --base7: #17871f;
+
+    --accent0: #FFFFFF;
+    --accent1: #FFDF01;
+    --accent2: #E6E6E6;
+    --accent3: #00AD11;
+
+    /*?linear gradient*/
+    --grad1: #F0D750;
+    --grad2: #E7CD3B;
+    --grad3: #BC8C1F;
+    --grad4: #D9AD15;
+    --grad5: #FCE186;
 }
 
 body {
@@ -48,8 +60,8 @@ body {
 */
 
 #table-border {
-    height: 50vmin;
-    width: 50vmin;
+    height: 80vmin;
+    width: 80vmin;
     padding: 1vmin;
     border-radius: 50%;
     position: absolute;
@@ -59,15 +71,15 @@ body {
 }
 
 #table {
-    width: 50vmin;
-    height: 50vmin;
+    width: 80vmin;
+    height: 80vmin;
     border-radius: 50%;
     background: radial-gradient(#015f17, #217E18);
 }
 
 #bk-svg {
-    height: 40vmin;
-    width: 40vmin;
+    height: 70vmin;
+    width: 70vmin;
     position: absolute;
     display: flex;
     top: 50%;
@@ -85,7 +97,7 @@ height 6vmin;
 .played {
     background-color: yellow;
     position: absolute;
-    --playedMargin: 2vmin;
+    --playedMargin: 12vmin;
     --cardH: 9vmin;
 }
 
@@ -159,7 +171,7 @@ height 6vmin;
 */
 
 #player-deck-cover {
-    z-index: 1;
+    z-index: 2;
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -169,45 +181,51 @@ height 6vmin;
 }
 
 .decks {
-    background-color: red;
     position: absolute;
     --deckMargin: 8vmin;
-    --deckH: 11vmin;
-    --deckW: 85vmin;
+    --deckH: 6.5vw;
+    --deckW: 90vw;
+    --deckMH: 6.5vmin;
+    --deckMW: 85vmin;
 }
 
 .deck-card {
     width: var(--deckH);
     margin: -4.125vmin;
-    --Omargin: -4.625vmin;
-    /*other player margin*/
+    --Omargin: -3.5vmin;
+    --MOmargin: -2vmin;
     position: relative;
 }
 
 .deck-content {
     position: relative;
-    height: auto;
+    height: fit-content;
+    width: fit-content;
     transition: 500ms;
     justify-content: center;
-    background-color: aqua;
+    margin: auto;
 }
 
 #player-decks1, #player-decks3 {
-    width: var(--deckW);
-    height: var(--deckH);
+    height: var(--deckMH);
+    width: var(--deckMW);
     left: 50%;
     transform: translateX(-50%);
 }
 
 #player-decks2, #player-decks4 {
     position: absolute;
-    height: var(--deckW);
-    width: var(--deckH);
-    top: 50vmin;
-    transform: translateY(-50%);
+    height: var(--deckMW);
+    width: var(--deckMH);
+    margin-top: auto;
+    padding-bottom: auto;
+    background-color: red;
 }
 
 #player-decks1 {
+    width: var(--deckW);
+    height: var(--deckH);
+    z-index: 1;
     bottom: 0;
     margin-bottom: var(--deckMargin);
 }
@@ -215,9 +233,13 @@ height 6vmin;
 #player-decks2 {
     right: 0;
     margin-right: 20vmin;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 #player-decks3 {
+    width: 100vw;
+    height: var(--deckMH);
     top: 0;
     margin-top: -5vmin;
 }
@@ -225,101 +247,33 @@ height 6vmin;
 #player-decks4 {
     left: 0;
     margin-left: 20vmin;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#player-decks1-content *{
+    margin: var(--Omargin);
 }
 
 #player-decks2-content * {
     transform: rotate(180deg);
-    height: var(--deckH);
+    height: var(--deckMH);
     width: auto;
-    margin: var(--Omargin);
+    margin: var(--MOmargin);
 }
 
 #player-decks3-content * {
     transform: rotate(180deg);
-    margin: var(--Omargin);
+    margin: 0vmin -2.5vmin;
+    width: 8vmin;
 }
 
 #player-decks4-content * {
-    height: var(--deckH);
+    height: var(--deckMH);
     width: auto;
-    margin: var(--Omargin);
+    margin: var(--MOmargin);
 }
 
 #player-decks1-content *:hover {
     transform: scale(1.1) translateY(-6vmin);
-}
-
-
-#bottom-bar-border {
-    display: none;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: .5vmin;
-    margin: 2vmin;
-    margin-bottom: 5vmin;
-    border-radius: 5vmin;
-}
-
-#bottom-bar {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    background-color: var(--base4);
-    padding: 1vmin;
-    border-radius: 5vmin;
-}
-
-#bb-login {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin: 0vmin 2vmin;
-    height: 5vmin;
-    width: 5vmin;
-}
-
-#bb-login-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: auto;
-    width: auto;
-    justify-content: center;
-}
-
-#bb-login-border {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 10vmin;
-    width: 10vmin;
-    padding: .5vmin;
-    border-radius: 50%;
-}
-
-#bb-login img {
-    height: 10vmin;
-    width: 10vmin;
-    margin: 0;
-    border-radius: 50%;
-}
-
-#bb-login-content p {
-    letter-spacing: .125vmin;
-}
-
-.bb-icon-svg {
-    transition: .5s;
-    fill: url(#gold1);
-    height: 4vmin;
-    width: 4vmin;
-    margin: auto 5vmin;
-}
-
-.bb-icon-svg:hover {
-    transform: scale(1.2);
-    fill: var(--accent3);
 }

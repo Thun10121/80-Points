@@ -26,6 +26,11 @@ function displayDecks() {
                 <img class="deck-card" src="../photos/Rcard-back.svg">        
             `
         }
+        if(count == 0){
+            cardHTML = `
+                <img class="deck-card" src="../photos/placeholder.svg">        
+            `
+        }
         for (let i = 0; i < 25; i++) {
             deckN.innerHTML += cardHTML;
         }
