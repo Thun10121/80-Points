@@ -22,8 +22,7 @@
 }
 
 body {
-    height: 100vh;
-    width: 100vw;
+    margin: 0;
     overflow: hidden;
     /* background: radial-gradient(#015f17, #217E18); */
     background: var(--base4);
@@ -275,4 +274,47 @@ height 6vmin;
 
 #player-decks1-content *:hover {
     transform: scale(1.1) translateY(-6vmin);
+}
+
+#sidebar-border{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    padding: .5vmin;
+    height: fit-content;
+    width: fit-content;
+    justify-content: center;
+    border-radius: 2vmin;
+    margin: 1vmin;
+}
+
+#sidebar{
+    justify-content: center;
+    background: var(--base4);
+    border-radius: 2vmin;
+}
+
+#sidebar-content{
+    display: flex;
+    flex-direction: column;
+}
+
+#svg-container{
+    margin: 3vmin 1vmin;
+    height: fit-content;
+    width: fit-content;
+}
+
+.ui-button{
+    fill: url(#gold);
+    transition: 200ms;
+    height: 5vmin;
+    width: 5vmin;
+}
+
+.ui-button:hover {
+    fill: var(--accent3);
+    transform: scale(1.15);
 }

@@ -90,7 +90,8 @@
                             </div>
                             <div class="front-game-div" id="front-game-random-back">
                                 <p id="front-game-random-text-back" class="goldText">RANDOM MODE</p>
-                                <p id="front-game-random-text-content" class="goldText">For each round of the game, a number with be
+                                <p id="front-game-random-text-content" class="goldText">For each round of the game, a
+                                    number with be
                                     <b>randomly</b>
                                     choosen to be the main card
                                 </p>
@@ -109,7 +110,8 @@
                             </div>
                             <div class="front-game-div" id="front-game-official-back">
                                 <p id="front-game-official-text-back" class="goldText">2->A MODE</p>
-                                <p id="front-game-official-text-content" class="goldText">The game will start with 2 as the main card,
+                                <p id="front-game-official-text-content" class="goldText">The game will start with 2 as
+                                    the main card,
                                     then <b>go up in order</b>: 3, 4, 5... eventually ending with A
                                 </p>
                                 <p id="front-game-official-click" class="goldText">click to create game</p>
@@ -256,49 +258,218 @@
             <div id="instructions-content-title">
             </div>
             <div id="instructions-content-text">
-                <h2 id="instructions-content-subtitle">Basics</h2>
-                <p id="instructions-content-paragraph">
-                <h2 id="instructions-content-paragraph-subtitle">Teams</h2><br>
-                This is a four-person game. Your teammate will be the person sitting on the opposite side of
-                you.
-                <br>
-                <h2 id="instructions-content-paragraph-subtitle">Goals</h2><br>
-                For each game, there will be one team "<b>on the stage</b>" and the other "<b>off
-                    the stage</b>"". The goal of the <b>on-the-stage team</b> is to prevent the <b>off-the-stage
-                    team</b>
-                from getting 80 points. Similarly, the <b>off-the-stage team</b> is trying to get at least 80
-                points to
-                win.
-                <h2 id="instructions-content-paragraph-subtitle">Points</h2><br>
-                Fives (5) of ♠/♥/♣/♦: 5 points <br>
-                Tens (10) of ♠/♥/♣/♦: 10 points <br>
-                Kings (K) of ♠/♥/♣/♦: 10 points <br>
-                Since there are 2 decks of cards used in this game, each game has a maximum of 200 possible
-                points. <br>
+                <!-- <h2 id="instructions-content-subtitle">Basics</h2> -->
+                <p>
+                    Basics:<br>
+                    There are two teams of two, making four players in total. During the game, partners will be placed
+                    opposite of each other so two people of the same team never play consecutively.
+                    <br>
+                    During each game, there is one team that is trying to “protect” points and one trying to “catch”
+                    points. For instructional purposes, the former will be called defenders and the latter will be
+                    called attackers.
+                    <br>
+                    In each round of the game, each person only plays once (though not necessarily one card, more
+                    instruction later). The person who plays the largest value in a particular round will protect/catch
+                    all the points played in that round for their team.
+                    <br>
+                    If the attacking team captures 80 or more points by the end, they win that game and become the
+                    defending team next game. If the attacking team fails to capture 80 points, the defending team
+                    levels up and continues as the defending team in the next game. The aim of 80 points is to be the
+                    first team to play through all levels.
+                    <br>
+                    Order of cards from smallest to largest value:
+                    2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K, A, Jokers (black, then red)
+                    <br><br>
+                    Point-cards and their worths:<br>
+                    5: 5pt<br>
+                    10: 10pt<br>
+                    K: 10pt<br>
+                    All other cards: no point values<br>
+                    Total possible points: 200pt<br>
+                    Note that 5, 10 and K are both playing cards and point cards. That is, if, during the round, the
+                    previous players have played 2, 6, and 8, the final player can play a 10 to have the largest value
+                    that round and also protect/catch the 10pts they played.
+                    <br><br>
+                    Card-Drawing Process:
+                    Both teams start at level 2, and level up through the cards until level A. Everyone draws cards from
+                    the deck in counterclockwise order, one card at a time.
+                    <br>
+                    Say the current level is 2: if you draw a 2 and decide to “call” it, the suit of your particular 2
+                    will be the main suit. Typically, it is beneficial to have as many cards of the main suit as
+                    possible. If anyone wants to change the main suit, he/she must have A PAIR OF 2s of the same suit.
+                    In this case, the previous suit will no longer be the main suit. If one decides to make this game no
+                    main suit, he/she must have A PAIR OF JOKERS (either two red jokers or two black jokers) to call 无主,
+                    which means that none of the suits is the main suit.
+                    <br>
+                    The game is played with two decks and there will be 8 cards left after everyone draws, giving each
+                    player 25 cards. The 8 leftover cards are the exchange cards.
+                    <br><br>
+                    Exchange cards:
+                    One person from the defending side will be able to pick up the 8 exchange cards. However, they must
+                    decide to put back down 8 cards from what they have. These 8 cards may consist of any of the 8
+                    exchange cards that were picked up, or any other cards in their hand, as long as it is 8 total.
+                    These cards will not be shown to anyone and will not be touched until the end of the game. Whoever
+                    is in this position has a slight advantage as they essentially get 8 extra cards and are able to get
+                    rid of 8 unfavorable cards.
+                    <br>
+                    If the player decides to “abandon” point value cards, the points are not necessarily safe and can
+                    still be captured by the attacking side at the very end of each game. More information later.
+                    <br><br>
+                    During the Game:
+                    The game starts with the defender who took the exchange cards. Typically, they will start with
+                    large-valued cards in their minor suits to give their partner an opportunity to “protect” their
+                    point cards (ex. I would play an ace of hearts. My partner knows that is almost certain to be the
+                    largest card that round, so they might play a 10 of hearts to protect those 10pts). After that,
+                    whoever played the largest card(s) in the previous round will start the upcoming round.
+                    <br>
+                    The first person may choose to play anything of his/her choice. After that, the remaining three
+                    players must play cards of the same suit if they have them.
+                    <br>
+                    There are a few ways the first person can start a new round:
+                    Play one card, where everyone else will follow up with one single card from the original suit if
+                    they have it.
+                    Play a pair (two cards of the same value and the same suit), where everyone else must follow with a
+                    pair of cards from that suit if they have it. If they don’t have a pair, they have to play two
+                    single cards from the suit. Pairs are always valued over single cards. For example, during the round
+                    of pairs, a pair of 3’s will be larger than someone playing a K and A.
+                    Play multiple cards. In this case, it could be a mix of single and/or pair(s) of cards. However, one
+                    constraint is that any single card in this multiple numbers of cards has to be the largest single
+                    card out of the cards that haven’t been played yet, and any pair being played has to be guaranteed
+                    to be the largest pair that has not been played yet. (For example, combinations such as AAK, AKK,
+                    AKKQQ are always allowed)
+                    Play a tractor, a combination of two or more consecutive pairs of cards, such as 3344, 8899, JJQQ,
+                    223344 etc.
+                    <br>
+                    All cards played by the first person must be of the same suit. No exceptions.
+                    <br>
+                    No matter which of the four scenarios above is happening:
+                    Everyone must play the same number of cards as the first person of the round; after each round,
+                    everyone should have the same number of cards left in their hand.
+                    If any pairs are being played by the first person, all following players must play the maximum
+                    number of pairs they have to match the number of pairs played by the first person in that suit. If
+                    any of the players do not have enough pairs, that should be made up of single cards.
+                    Suits always come first!! If you have ANY cards of the original suit being played in the current
+                    round, you HAVE TO play them first. Otherwise, your team will be penalized.
+                    <br>
+                    Stuffing and Killing (only applies if you do not have any cards of the original suit left):
+                    Stuffing: Play cards of any other minor suit instead. If you do this, no matter the value of the
+                    card, it will not be greater than cards of the original suit, thus it can never be the greatest card
+                    of the round. Say the current round is diamonds, a 3 of diamonds would be greater than an A of clubs
+                    (assuming clubs is not the main suit for the game).
+                    Killing: Play a “main card”. Main cards are greater than minor cards. If everyone else plays a minor
+                    card, but you have none left in that suit, you can play a “main card” and no matter how small your
+                    main card is, it is always greater than everyone else. However, if the original player plays a pair,
+                    you must also play a pair of main cards to kill them. If you play two different main cards, it is
+                    not greater than their pair of minor cards. The same applies to multiple cards and tractors. You
+                    must have multiple cards or tractors to kill.
+                    <br>
+                    At the end of each round, any points caught by the attacking side will be totaled. Note that the
+                    attacking side can catch their partner’s point cards or the defending team’s point cards; any points
+                    that were played that round are up for grabs no matter the player.
+                    <br>
+                    This repeats in multiple rounds until everyone has played all of their cards.
+                    <br><br>
+                    Main cards:
+                    Main cards include jokers, the “level card” the defenders are currently on (i.e., if the level is 2,
+                    all 2s NO MATTER THE SUIT are main cards; the “level card” is special and its value is different
+                    than when it isn’t a “level card”), and all cards of the suit that was called during the
+                    card-drawing process.
+                    <br>
+                    Exception: if a pair of Jokers called for 无主 during the drawing stage, only Jokers and the current
+                    level cards would count as main cards. All suits are minor cards.
+                    <br>
+                    Order: say if a spade of 2 is being called, then the order of the main cards would be spades of 3-A,
+                    then the 2’s (heart, club, diamond, with equal value), then the spades of 2’s (2 of them in total),
+                    then the jokers. All other cards are minor cards. The level cards always have the greatest value
+                    just behind the jokers, no matter the actual number of the card.
+                    <br>
+                    In the minor card suits, there are simply no cards where the level cards should be. If we are on the
+                    level of 2, all 2’s are not taken into account on regular cards. That means if the current round is
+                    diamonds (assuming diamond is a minor suit), and you have no diamond cards left except 2 of
+                    diamonds, you may still choose to stuff or kill since the 2 of diamonds in this game is counted as a
+                    main card, not diamonds.
+                    <br><br>
+                    After the game:
+                    <br>
+                    Whoever has the largest card for the very last round can protect/catch any points in the exchange
+                    cards (8 cards that were exchanged at the very beginning of the game).
+                    <br>
+                    If defending players are the largest for the last round, they are able to protect any points (5, 10,
+                    K) that they may have thrown into the exchange cards.
+                    <br>
+                    However, if the attacking players are the largest, whatever points are in the exchange cards (and
+                    exchange cards only) are doubled and added to the total points they caught (5 -> 10pts; 10 -> 20pts;
+                    K -> 20pts).
+                    <br>
+                    If the last round played is more than one card and the catching team is the largest, the points in
+                    the exchange cards will grow exponentially (2^n, where n is the number of cards in the last round).
+                    For example, if the last round is played as a pair, the points will quadruple (2^2). Of course, it
+                    is completely possible that there are no points in the 底牌, which would provide no additional points.
+                    <br>
+                    If the defenders win on level 2, they advance to level 3. If the attackers win on level 2, they
+                    return to whichever level the attackers were on before they were defeated. Each team’s level is
+                    independent of the other.
+                    <br><br>
+                    Skipping levels:
+                    If 0 points are captured, the defending team skips two levels, advancing three levels. Level 2 skips
+                    to level 5
+                    If less than 40 points are captured, the defending team skips one level, advancing two levels. Level
+                    2 skips to level 4.
+                    If 40 to 75 points are captured, the defending team advances one level. Level 2 to level 3.
+                    If 80 to 115 points are captured, the attacking team becomes the defending team on whichever level
+                    they lost on. Assuming the level they failed to level up on was level 2, the attacking team becomes
+                    the defending team on level 2.
+                    If 120 to 155 points are captured, the attacking team becomes the defending team and skips one
+                    level. Assuming the level they failed to level up on was level 2, the attacking team becomes the
+                    defending team on level 3.
+                    If 160 or more points are captured, the attacking team becomes the defending team and skips two
+                    levels. Assuming the level they failed to level up on was level 2, the attacking team becomes the
+                    defending team on level 4.
+                    <br>
+                    Exception: Levels 2, 5, 10, K, and Ace CANNOT BE SKIPPED.
                 </p>
-                <h2 id="instructions-content-subtitle">Drawing Cards</h2>
-                <p id="instructions-content-paragraph">
-                    In each game it will assigned a <b>main card</b>: assigned randomly or in order of
-                    2,3,4,5,6,7,8,9,10,J,Q,K,A. The <b>main card</b> is going to be the second biggest card:
-                    right
-                    under the jokers. Each player get 25 cards, 8 cards leftover. If you get a <b>main card</b>
-                    you
-                    become the
-                    <b>host</b> of the game. Hence, suit of the main card you have will be the <b>main suit</b>
-                    (your main card: ♥2 means main suit is ♥). If you multiple main cards in different suit, you
-                    can
-                    choose<b>main suit</b>. The suit of the main card you choose must be a suit of one of the
-                    main
-                    cards you have. You can overthrow, the host if you have a pair of the <b>main card</b> in
-                    the
-                    <b>same
-                        suit</b> (ex: pair of 2♥). The main suit will be the superior suit and have higher value
-                    than all other three suits (ex main suit: ♥ hence, 2♥ > 2♣ or 2♦ or 2♠). At last, if a
-                    player
-                    get a pair of joker (pair of red jokers or black jokers) they can overthrow the previous
-                    player(s)
-                    being the host.
-                </p>
+                <!-- <p id="instructions-content-paragraph">
+                                <h2 id="instructions-content-paragraph-subtitle">Teams</h2><br>
+                                This is a four-person game. Your teammate will be the person sitting on the opposite side of
+                                you.
+                                <br>
+                                <h2 id="instructions-content-paragraph-subtitle">Goals</h2><br>
+                                For each game, there will be one team "<b>on the stage</b>" and the other "<b>off
+                                    the stage</b>"". The goal of the <b>on-the-stage team</b> is to prevent the <b>off-the-stage
+                                    team</b>
+                                from getting 80 points. Similarly, the <b>off-the-stage team</b> is trying to get at least 80
+                                points to
+                                win.
+                                <h2 id="instructions-content-paragraph-subtitle">Points</h2><br>
+                                Fives (5) of ♠/♥/♣/♦: 5 points <br>
+                                Tens (10) of ♠/♥/♣/♦: 10 points <br>
+                                Kings (K) of ♠/♥/♣/♦: 10 points <br>
+                                Since there are 2 decks of cards used in this game, each game has a maximum of 200 possible
+                                points. <br>
+                                </p>
+                                <h2 id="instructions-content-subtitle">Drawing Cards</h2>
+                                <p id="instructions-content-paragraph">
+                                    In each game it will assigned a <b>main card</b>: assigned randomly or in order of
+                                    2,3,4,5,6,7,8,9,10,J,Q,K,A. The <b>main card</b> is going to be the second biggest card:
+                                    right
+                                    under the jokers. Each player get 25 cards, 8 cards leftover. If you get a <b>main card</b>
+                                    you
+                                    become the
+                                    <b>host</b> of the game. Hence, suit of the main card you have will be the <b>main suit</b>
+                                    (your main card: ♥2 means main suit is ♥). If you multiple main cards in different suit, you
+                                    can
+                                    choose<b>main suit</b>. The suit of the main card you choose must be a suit of one of the
+                                    main
+                                    cards you have. You can overthrow, the host if you have a pair of the <b>main card</b> in
+                                    the
+                                    <b>same
+                                        suit</b> (ex: pair of 2♥). The main suit will be the superior suit and have higher value
+                                    than all other three suits (ex main suit: ♥ hence, 2♥ > 2♣ or 2♦ or 2♠). At last, if a
+                                    player
+                                    get a pair of joker (pair of red jokers or black jokers) they can overthrow the previous
+                                    player(s)
+                                    being the host.
+                                </p> -->
             </div>
         </div>
     </div>

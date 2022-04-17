@@ -11,6 +11,14 @@ let log = document.getElementById("login-page");
 let logContent = document.getElementById("login-content");
 let logModal = document.getElementById("login-modal");
 
+let exit = document.getElementById("Exitalert");
+let exitContent = document.getElementById("exit-content");
+let exitModal = document.getElementById("exit-modal");
+
+let his = document.getElementById("history-page");
+let hisContent = document.getElementById("history-content");
+let hisModal = document.getElementById("history-modal");
+
 let createButton = document.getElementById("front-button-create");
 let joinButton = document.getElementById("front-button-join");
 let frontButtonDIV = document.getElementById("front-buttons-div");
@@ -24,6 +32,8 @@ let frontIcon = document.getElementById("icons");
 let setStatus = false;
 let insStatus = false;
 let logStatus = false;
+let exitStatus = false;
+let hisStatus = false;
 
 function instructions() {
     if (insStatus) {
@@ -97,6 +107,54 @@ function logins() {
     }
 }
 
+function exitAlert() {
+    if (exitStatus) {
+        setTimeout(function () {
+            exitModal.style.opacity = "0";
+            exitContent.style.opacity = "0";
+        }, 750);
+        exitContent.style.display = 'none';
+        exitModal.style.display = 'none';
+        exit.style.display = 'none';
+        exitStatus = false;
+    } else {
+        exitContent.style.display = 'flex';
+        exitModal.style.display = 'block';
+        exit.style.display = 'flex';
+        setTimeout(function () {
+            exitModal.style.opacity = ".75";
+        }, 10);
+        setTimeout(function () {
+            exitContent.style.opacity = "1";
+        }, 100);
+        exitStatus = true;
+    }
+}
+
+function history() {
+    if (hisStatus) {
+        setTimeout(function () {
+            hisModal.style.opacity = "0";
+            hisContent.style.opacity = "0";
+        }, 750);
+        hisContent.style.display = 'none';
+        hisModal.style.display = 'none';
+        his.style.display = 'none';
+        hisStatus = false;
+    } else {
+        hisContent.style.display = 'flex';
+        hisModal.style.display = 'block';
+        his.style.display = 'flex';
+        setTimeout(function () {
+            hisModal.style.opacity = ".75";
+        }, 10);
+        setTimeout(function () {
+            hisContent.style.opacity = "1";
+        }, 100);
+        hisStatus = true;
+    }
+}
+
 function join() {
     createButton.style.display = "none";
     joinButton.style.display = "none";
@@ -167,4 +225,8 @@ function inOrderZhu() {
     zhuNumber = "2";
     document.location = "/html/game.html";
     bottomBar.style.display = "flex";
+}
+
+function home() {
+    document.location = "../index.html";
 }
