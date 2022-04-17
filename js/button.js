@@ -217,16 +217,16 @@ function back() {
 function randomZhu() {
     rand = Math.floor(Math.random() * 13);
     zhuNumber = cardTypes[rand];
-    document.location = "/html/game.html";
+    document.location = "game.html";
     bottomBar.style.display = "flex";
 }
 
 function inOrderZhu() {
     zhuNumber = "2";
-    document.location = "/html/game.html";
+    document.location = "game.html";
     bottomBar.style.display = "flex";
 }
 
 function home() {
-    document.location = "../index.html";
+    document.location = "index.html";
 }
