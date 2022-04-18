@@ -41,16 +41,20 @@ let hisStatus = false;
 
 loading();
 function loading() {
-    frontPage.style.display = "none";
-    load.style.display = 'flex';
-    load.style.opacity = 100;
-    setTimeout(() => {
-        load.style.opacity = 0;
-        setTimeout(() => {
-            frontPage.style.display = "flex";
-            load.style.display = 'none';
-        }, 1000);
-    }, Math.floor(Math.random() * 2 + 2) * 1500);
+    load.style.opacity = 0;
+    frontPage.style.display = "flex";
+    load.style.display = 'none';
+
+    // frontPage.style.display = "none";
+    // load.style.display = 'flex';
+    // load.style.opacity = 100;
+    // setTimeout(() => {
+    //     load.style.opacity = 0;
+    //     setTimeout(() => {
+    //         frontPage.style.display = "flex";
+    //         load.style.display = 'none';
+    //     }, 1000);
+    // }, Math.floor(Math.random() * 2 + 2) * 1500);
 }
 
 function instructions() {
