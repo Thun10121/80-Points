@@ -503,3 +503,12 @@ try {
 } catch (error) {
     console.log(error);
 }
+
+
+window.onload = function(){ //!edit
+    if(reload > 0){
+        alert("you are leaving the page");
+    }
+    console.log(reload);
+    reload++;
+}

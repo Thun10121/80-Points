@@ -17,7 +17,7 @@ let cards = ["BJoker", "BJoker", "RJoker", "RJoker"];
 let rand = 0;
 let randCards = [];
 
-//!final
+//!display
 let playerCards = [[], [], [], []];
 let dipai = [];
 let dipaiPoints = 0;

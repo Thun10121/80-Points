@@ -230,3 +230,21 @@ function inOrderZhu() {
 function home() {
     document.location = "../index.html";
 }
+
+let load = document.getElementById("loading");
+let loadContent = document.getElementById("loading-content");
+let fp = document.getElementById("front-page")
+
+loading();
+
+function loading(){
+    load.style.display = "flex";
+    loadContent.style.display = "flex";
+    fp.style.display = "none";
+    console.log("troll");
+    setTimeout(function () {
+        load.style.display = "none";
+        loadContent.style.display = "none";
+        fp.style.display = "flex";
+    }, 100000);
+}

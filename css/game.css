@@ -59,25 +59,26 @@ body {
 */
 
 #table-border {
-    height: 85vmin;
-    width: 85vmin;
+    height: 75vmin;
+    width: 75vmin;
     padding: 1vmin;
     border-radius: 50%;
     position: absolute;
     left: 50%;
-    transform: translate(-50%,-5%);
+    top: 20%;
+    transform: translate(-50%, -20%);
 }
 
 #table {
-    width: 85vmin;
-    height: 85vmin;
+    width: 75vmin;
+    height: 75vmin;
     border-radius: 50%;
     background: radial-gradient(#015f17, #217E18);
 }
 
 #bk-svg {
-    height: 70vmin;
-    width: 70vmin;
+    height: 60vmin;
+    width: 60vmin;
     position: absolute;
     display: flex;
     top: 50%;
@@ -238,7 +239,7 @@ height 6vmin;
     width: 100vw;
     height: var(--deckMH);
     top: 0;
-    margin-top: -5vmin;
+    margin-top: -2vmin;
 }
 
 #player-decks4 {
