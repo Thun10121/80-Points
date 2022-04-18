@@ -24,3 +24,4 @@ let dipaiPoints = 0;
 let points = 0;
 let zhuSuit = "";
 let zhuNumber = "";
+let reloadAlert = false;

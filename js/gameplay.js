@@ -495,7 +495,6 @@ try {
         largest = result;
         console.log("largest card: person " + largest);
     }
-    console.log("hi");
     console.log("player cards: " + playerCards);
     playerCards.forEach(playerDeck => {
         console.log(playerDeck);
@@ -504,11 +503,15 @@ try {
     console.log(error);
 }
 
+function reload() {
+    setTimeout(function () {
+        reloadAlert = true;
+    }, 5000);
+}
 
-window.onload = function(){ //!edit
-    if(reload > 0){
+window.onload = function () { //!edit
+    console.log(reloadAlert);
+    if (reloadAlert) {
         alert("you are leaving the page");
     }
-    console.log(reload);
-    reload++;
 }

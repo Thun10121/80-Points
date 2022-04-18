@@ -43,3 +43,12 @@ function displayPlayed() {
 
     });
 }
+let x = "A4";
+
+createCard(x);
+
+function createCard(cardInputted){
+    let cardSuit = cardInputted.substring(0,1);
+    let cardNumber = cardInputted.substring(1,cardInputted.length);
+
+}
