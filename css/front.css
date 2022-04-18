@@ -40,15 +40,6 @@
     --base4: #015f17; */
 }
 
-#loading{
-    z-index: 100;
-}
-
-#loading-content{
-    height: 100vh;
-    width: 100vw;
-}
-
 body {
     overflow: hidden;
     background: var(--base4);
@@ -95,6 +86,199 @@ body {
             to(rgb(252, 225, 134)));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: .5s gradFlow linear infinite;
+}
+
+
+@keyframes gradFlow {
+    0% {
+        background: -webkit-gradient(linear, left top, right bottom,
+                from(rgb(240, 215, 80)),
+                color-stop(20%, rgb(231, 205, 59)),
+                color-stop(40%, rgb(217, 173, 21)),
+                to(rgb(252, 225, 134)));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: .0125vmin var(--accent1);
+    }
+
+    25% {
+        background: -webkit-gradient(linear, left top, right bottom,
+                from(rgb(252, 225, 134)),
+                color-stop(20%, rgb(240, 215, 80)),
+                color-stop(40%, rgb(231, 205, 59)),
+                to(rgb(217, 173, 21)));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: .0125vmin var(--accent1);
+    }
+
+    50% {
+        background: -webkit-gradient(linear, left top, right bottom,
+                from(rgb(217, 173, 21)),
+                color-stop(20%, rgb(252, 225, 134)),
+                color-stop(40%, rgb(240, 215, 80)),
+                to(rgb(231, 205, 59)));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: .0125vmin var(--accent1);
+    }
+
+    75% {
+        background: -webkit-gradient(linear, left top, right bottom,
+                from(rgb(231, 205, 59)),
+                color-stop(20%, rgb(217, 173, 21)),
+                color-stop(40%, rgb(252, 225, 134)),
+                to(rgb(240, 215, 80)));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: .0125vmin var(--accent1);
+    }
+
+    100% {
+        background: -webkit-gradient(linear, left top, right bottom,
+                from(rgb(240, 215, 80)),
+                color-stop(20%, rgb(231, 205, 59)),
+                color-stop(40%, rgb(217, 173, 21)),
+                to(rgb(252, 225, 134)));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: .0125vmin var(--accent1);
+    }
+}
+
+#loading-ld-corner {
+    position: absolute;
+    fill: url(#linear-gradient);
+    height: 30vmin;
+    width: 30vmin;
+    left: 0;
+    bottom: 0;
+}
+
+#loading-lt-corner {
+    position: absolute;
+    fill: url(#linear-gradient);
+    height: 30vmin;
+    width: 30vmin;
+    left: 0;
+    top: 0;
+}
+
+#loading-rd-corner {
+    position: absolute;
+    fill: url(#linear-gradient);
+    height: 30vmin;
+    width: 30vmin;
+    right: 0;
+    bottom: 0;
+}
+
+
+#loading-rt-corner {
+    position: absolute;
+    fill: url(#linear-gradient);
+    height: 30vmin;
+    width: 30vmin;
+    right: 0;
+    top: 0;
+}
+
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    justify-content: center;
+    flex-direction: column;
+    transition: all 1s ease-in-out;
+    display: flex;
+}
+
+#loading-container {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+#loading-text {
+    font-family: 'Gideon Roman', cursive;
+    letter-spacing: 2vmin;
+    font-size: 6vmin;
+    margin: .75vmax;
+    animation: 1s loading linear infinite;
+    animation-delay: calc(.2s * var(--i));
+    background: -webkit-gradient(linear, left top, right bottom,
+            from(rgb(240, 215, 80)),
+            color-stop(20%, rgb(231, 205, 59)),
+            color-stop(40%, rgb(217, 173, 21)),
+            to(rgb(252, 225, 134)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes loading {
+    0% {
+        transform: translateX(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+#loading-credits {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    top: 65%;
+    transform: translate(-50%, -65%);
+    justify-content: center;
+    flex-direction: row;
+    height: auto;
+}
+
+#person {
+    height: fit-content;
+    width: fit-content;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin: 1vmin 2vmin;
+}
+
+#person * {
+    font-family: 'Shippori Mincho B1', serif;
+    height: fit-content;
+    width: fit-content;
+}
+
+#name {
+    font-size: 2vmin;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: .25vmin;
+}
+
+#spacer {
+    height: .125vmin;
+    width: auto;
+    border-radius: .125vmin;
+}
+
+#roles {
+    font-size: 1.5vmin;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: .25vmin;
 }
 
 #front-background {
@@ -187,27 +371,22 @@ p {
 
     20% {
         color: var(--grad2);
-
     }
 
     40% {
         color: var(--grad3);
-
     }
 
     60% {
         color: var(--grad4);
-
     }
 
     80% {
         color: var(--grad5);
-
     }
 
     100% {
         color: var(--grad1);
-
     }
 }
 
@@ -318,12 +497,12 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
     border-radius: 1vmin;
 }
 
-#front-button-enter-background-border:hover, #front-button-home-background-border:hover{
+#front-button-enter-background-border:hover, #front-button-home-background-border:hover {
     background: transparent;
     transform: scale(.95);
 }
 
-#front-button-enter-background-border:hover #front-button-enter, #front-button-home-background-border:hover #front-button-home{
+#front-button-enter-background-border:hover #front-button-enter, #front-button-home-background-border:hover #front-button-home {
     transform: scale(1.1);
     cursor: pointer;
     background: -webkit-gradient(linear, left top, right bottom,
@@ -333,7 +512,7 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
             to(rgb(252, 225, 134)));
 }
 
-#front-button-home-background-border:hover #front-button-home{
+#front-button-home-background-border:hover #front-button-home {
     transform: scale(1.2);
 }
 
@@ -342,7 +521,7 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
     -webkit-background-clip: text;
 }
 
-#front-button-home-background-border{
+#front-button-home-background-border {
     margin-top: auto;
     margin-bottom: auto;
     height: 6vmin;
@@ -353,7 +532,7 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
     transition: 1s;
 }
 
-#front-button-home{
+#front-button-home {
     height: 6vmin;
     width: 6vmin;
     background: var(--base4);
@@ -363,7 +542,7 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
     transition: 1s;
 }
 
-#front-button-home svg{
+#front-button-home svg {
     position: relative;
     height: 4vmin;
     width: 4vmin;
@@ -373,7 +552,7 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
 }
 
 
-#front-button-home-background-border:hover #front-button-home #front-button-home-svg{
+#front-button-home-background-border:hover #front-button-home #front-button-home-svg {
     fill: var(--base4);
 }
 
@@ -457,7 +636,7 @@ input#front-join-input::-webkit-inner-spin-button, input#front-join-input::-webk
     margin-left: 1vmin;
 }
 
-#front-login-pfp-border{
+#front-login-pfp-border {
     height: 8vmin;
     width: 8vmin;
     padding: .5vmin;

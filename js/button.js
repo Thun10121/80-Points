@@ -25,15 +25,33 @@ let frontButtonDIV = document.getElementById("front-buttons-div");
 let frontPageElement = document.getElementById("front-page-elements");
 let frontGame = document.getElementById("front-game-content");
 
+const load = document.getElementById("loading");
+
 let bottomBar = document.getElementById("bottom-bar-border");
 
 let frontIcon = document.getElementById("icons");
+
+let frontPage = document.getElementById("front-page");
 
 let setStatus = false;
 let insStatus = false;
 let logStatus = false;
 let exitStatus = false;
 let hisStatus = false;
+
+loading();
+function loading() {
+    frontPage.style.display = "none";
+    load.style.display = 'flex';
+    load.style.opacity = 100;
+    setTimeout(() => {
+        load.style.opacity = 0;
+        setTimeout(() => {
+            frontPage.style.display = "flex";
+            load.style.display = 'none';
+        }, 1000);
+    }, Math.floor(Math.random() * 2 + 2) * 1500);
+}
 
 function instructions() {
     if (insStatus) {
@@ -229,22 +247,4 @@ function inOrderZhu() {
 
 function home() {
     document.location = "../index.html";
-}
-
-let load = document.getElementById("loading");
-let loadContent = document.getElementById("loading-content");
-let fp = document.getElementById("front-page")
-
-loading();
-
-function loading(){
-    load.style.display = "flex";
-    loadContent.style.display = "flex";
-    fp.style.display = "none";
-    console.log("troll");
-    setTimeout(function () {
-        load.style.display = "none";
-        loadContent.style.display = "none";
-        fp.style.display = "flex";
-    }, 100000);
 }
