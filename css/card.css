@@ -27,7 +27,7 @@ body {
     position: relative;
 }
 
-#card-type{
+#card-type {
     position: absolute;
     justify-content: center;
     margin: 0;
@@ -57,11 +57,20 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-#card-center{
+#card-center-suit {
     position: absolute;
-    height: 20vmin;
-    width: 20vmin;
+    font-size: 7vmin;
+    line-height: 336px;
+    color: red;
+    top: -50px;
+    left: 80px
+}
+
+#card-center-svg {
+    position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    height: 30vmin;
+    width: 30vmin;
+    fill: url(#linear-gradient);
+    transform: translateY(-50%);
 }
