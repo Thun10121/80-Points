@@ -59,11 +59,11 @@ body {
 
 #card-center-suit {
     position: absolute;
-    font-size: 7vmin;
+    font-size: 9vmin;
     line-height: 336px;
     color: red;
-    top: -50px;
-    left: 80px
+    top: -55px;
+    left: 75px
 }
 
 #card-center-svg {
@@ -71,6 +71,7 @@ body {
     top: 50%;
     height: 30vmin;
     width: 30vmin;
+    /* fill: #00AD11; */
     fill: url(#linear-gradient);
     transform: translateY(-50%);
 }
