@@ -17,11 +17,10 @@ let cards = ["BJoker", "BJoker", "RJoker", "RJoker"];
 let rand = 0;
 let randCards = [];
 
-//!display
+//!final
 let playerCards = [[], [], [], []];
 let dipai = [];
 let dipaiPoints = 0;
 let points = 0;
 let zhuSuit = "";
 let zhuNumber = "";
-let reloadAlert = false;

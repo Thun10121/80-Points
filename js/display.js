@@ -13,43 +13,11 @@ let played4 = document.getElementById("playedcard4");
 let deck = [deck1, deck2, deck3, deck4];
 let played = [played1, played2, played3, played4];
 
-function displayDecks() {
-    let count = 0;
-    deck.forEach(deckN => {
-        let cardHTML = `
-            <img class="deck-card" src="../photos/card-back.svg">        
-        `;
-        if (count % 2 == 1) {
-            cardHTML = `
-                <img class="deck-card" src="../photos/Rcard-back.svg">        
-            `
-        }
-        if (count == 0) {
-            cardHTML = `
-                <img class="deck-card" src="../photos/placeholder.svg">        
-            `
-        }
-        for (let i = 0; i < 25; i++) {
-            deckN.innerHTML += cardHTML;
-        }
-        count++;
-    });
-}
-
-function displayPlayed() {
-    played.forEach(playedN => {
-
-    });
-}
-
-
-let suitsCard = [];
-
 function createCard(cardInputted) {
     let cardSuit = cardInputted.substring(0, 1);
     let cardNumber = cardInputted.substring(1, cardInputted.length);
     let suitColor = "red";
-    if(cardSuit == "♣" || cardSuit == "♠"){
+    if (cardSuit == "♣" || cardSuit == "♠") {
         suitColor = "black;"
     }
     let cardsHTML = `
@@ -81,6 +49,43 @@ function createCard(cardInputted) {
             <div id="card-center-suit" class="${suitColor}">${cardSuit}</div>
         </div>
     </div>`;
-    let cardDIV = document.getElementById("cardsDIV");
-    cardDIV.innerHTML += cardsHTML;
+    return cardsHTML;
+}
+
+function displayDecks() {
+    let count = 0;
+    deck.forEach(deckN => {
+        let cardHTML = `
+            <img class="deck-card" src="../photos/card-back.svg">        
+        `;
+        if (count % 2 == 1) {
+            cardHTML = `
+                <img class="deck-card" src="../photos/Rcard-back.svg">        
+            `
+        }
+        for (let i = 0; i < 25; i++) {
+            deckN.innerHTML += cardHTML;
+        }
+        if (count == 0) {
+            deckN.innerHTML = '';
+            console.log(playerCards[0]);
+            console.log("player cards: " + playerCards);
+            playerCards.forEach(playerDeck => {
+                console.log(playerDeck);
+            });
+            // playerCards[0].forEach(cardN => {
+            //     deckN.innerHTML += createCard(cardN);
+            //     console.log(createCard("♠A"));
+
+            // });
+        }
+        console.log(count);
+        count++;
+    });
+}
+
+function displayPlayed() {
+    played.forEach(playedN => {
+
+    });
 }

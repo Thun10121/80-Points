@@ -5,7 +5,7 @@ body {
 
 #card-border {
     transform: scale(.8);
-    width: 216px;
+    width: 13vmin;
     height: 336px;
     padding: 5px;
     border-radius: 20px;

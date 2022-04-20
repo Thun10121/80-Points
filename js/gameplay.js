@@ -12,6 +12,8 @@ diamonds: ♦
 ♠ ♥ ♣ ♦
 */
 
+//!functionns
+
 try {
     let zhuSuitDiv = document.getElementById("zhuSuit");
     let zhuCardDiv = document.getElementById("zhuCard");
@@ -70,15 +72,21 @@ try {
     zhuSuit = suits[rand];
     rand = Math.floor(Math.random() * 13);
     zhuNumber = cardTypes[rand];
-    console.log("zhuSuit: " + zhuSuit);
-    console.log("zhuNumber: " + zhuNumber);
+    const FzhuSuit = zhuSuit;
+    const FzhuNumber = zhuNumber;
+    console.log("zhuSuit: " + FzhuSuit);
+    console.log("zhuNumber: " + FzhuNumber);
     // zhuSuitDiv.innerHTML = `Main Suit: ${zhuSuit}`; //!add back
     // zhuCardDiv.innerHTML = `Main Number: ${zhuNumber}`; //! add back
-
-    for (let i = 0; i < 4; i++) {
-        playerCards[i] = sortCards(playerCards[i]);
-        //TODO content.innerHTML += "Player " + (i + 1) + " cards: " + playerCards[i].join(" ") + "<br>";
+    displayPlayerCards();
+    function displayPlayerCards(){
+        for (let i = 0; i < 4; i++) {
+            playerCards[i] = sortCards(playerCards[i]);
+            //TODO content.innerHTML += "Player " + (i + 1) + " cards: " + playerCards[i].join(" ") + "<br>";
+        }
+        return playerCards;
     }
+    const FplayerCards = displayPlayerCards;
 
     for (let i = 0; i < dipai.length; i++) {
         if (dipai[i].substring(1, dipai[i].length) == "5") {
@@ -87,7 +95,6 @@ try {
             dipaiPoints += 10;
         }
     }
-    //TODO
 
     function sortCards(sorting) { //!sort each player cards
         afterSorted = [];
@@ -182,7 +189,6 @@ try {
                 }
             }
         }
-
         sorting = afterSorted;
         return sorting;
     }
@@ -495,10 +501,7 @@ try {
         largest = result;
         console.log("largest card: person " + largest);
     }
-    console.log("player cards: " + playerCards);
-    playerCards.forEach(playerDeck => {
-        console.log(playerDeck);
-    });
+   
 } catch (error) {
     console.log(error);
 }
