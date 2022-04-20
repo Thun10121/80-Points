@@ -39,12 +39,6 @@ let logStatus = false;
 let exitStatus = false;
 let hisStatus = false;
 
-let url = document.location.href
-
-if(!url.includes("game.html")){
-    loading();
-}
-
 function loading() {
     load.style.opacity = 0;
     frontPage.style.display = "flex";
@@ -256,4 +250,4 @@ function inOrderZhu() {
 
 function home() {
     document.location = "../index.html";
-}
+}3333
