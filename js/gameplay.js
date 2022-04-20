@@ -101,7 +101,7 @@ try {
         playerZhuNumber = [];
         playerZhuSuit = [];
         playerFuSuit = [[]];
-        for (let i = 0; i < sorting.length; i++) {
+        for (let i = 0; i < sorting.length; i++) { //length of the deck
             if (i > sorting.length - 1) {
                 break;
             }

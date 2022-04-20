@@ -6,8 +6,11 @@ function intialize() { //the function that calls all functions to intialize
     let deck = putCards();
     deck = randomizeCards(deck);
     const zhuSuit = randomizeSuit();
+    console.log("suit: " + zhuSuit);
     const zhuNumber = randomizeNumber();
-    const playerDecks = distributeCards(deck);
+    console.log(deck);
+    let playerDecksUnsorted = distributeCards(deck);
+    const playerDecks = sortPlayerDecks(playerDecksUnsorted, zhuSuit);
 }
 
 function putCards() {
@@ -33,6 +36,8 @@ function randomizeCards(deck) {
 }
 
 function randomizeSuit() { //randomize the suit
+    //! remember the users will decide the zhuSuit
+    //? this is for debugging purposes
     let rand = Math.floor(Math.random() * 4);
     return suitTypes[rand];
 }
@@ -43,10 +48,41 @@ function randomizeNumber() { //randomize the number
 }
 
 function distributeCards(deck) {
-    let playerCards = [[deck.splice(0, 25)], [deck.splice(25, 25)], [deck.splice(50, 25)], [deck.splice(75, 25)]];
-    //? unfinished
+    let playerCards = [[], [], [], []];
+    for (let i = 0; i < 4; i++) {
+        let temp = []; //each player deck
+        for (let j = 0; j < 25; j++) {
+            temp.push(deck[0]);
+            deck.splice(0, 1);
+        }
+        playerCards.push(temp);
+    }
+    return playerCards;
 }
 
-function sortCards(playerDecks) {
+function sortPlayerDecks(playerDecks, zhuSuit, zhuNumber) {
+    playerDecks.forEach(deckN => {
+        deckN.sort();
+        deckN = sortZhuSuit(deckN, zhuSuit);
+        console.log("player length"); //?debug unfinsihed
+    });
+}
+
+function sortZhuSuit(deck, zhuSuit) {
+    for (let i = 0; i < deck.length; i++) {
+        if (deck[i].charAt(0) == zhuSuit) {
+            let temp = deck[i];
+            deck.splice(i, 1);
+            deck.unshift(temp);
+        }
+    }
+    console.log("deck " + deck);
+}
+
+function sortZhuNumber(deck) {
+
+}
+
+function sortJokers(deck) {
 
 }
