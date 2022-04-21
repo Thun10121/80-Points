@@ -79,13 +79,17 @@ try {
     // zhuSuitDiv.innerHTML = `Main Suit: ${zhuSuit}`; //!add back
     // zhuCardDiv.innerHTML = `Main Number: ${zhuNumber}`; //! add back
     displayPlayerCards();
+
     function displayPlayerCards(){
         for (let i = 0; i < 4; i++) {
             playerCards[i] = sortCards(playerCards[i]);
+            console.log(playerCards[i].join(" "));
             //TODO content.innerHTML += "Player " + (i + 1) + " cards: " + playerCards[i].join(" ") + "<br>";
         }
         return playerCards;
     }
+    console.log(dipai.join(" "));
+
     const FplayerCards = displayPlayerCards;
 
     for (let i = 0; i < dipai.length; i++) {
@@ -161,34 +165,17 @@ try {
         }
         playerFuSuit.shift();
 
-        for (let i = 0; i < playerFuSuit.length; i++) {
-            if (playerFuSuit[i][0].substring(0, 1) == "♠") {
-                for (let j = 0; j < playerFuSuit[i].length; j++) {
-                    afterSorted.push(playerFuSuit[i][j]);
+        for (let i = 0; i < 4; i++){
+            let currSuit = suits[i];
+            for (let j = 0; j < playerFuSuit.length; j++) {
+                if (playerFuSuit[j][0].substring(0, 1) == currSuit) {
+                    for (let k = 0; k < playerFuSuit[j].length; k++) {
+                        afterSorted.push(playerFuSuit[j][k]);
+                    }
                 }
             }
         }
-        for (let i = 0; i < playerFuSuit.length; i++) {
-            if (playerFuSuit[i][0].substring(0, 1) == "♥") {
-                for (let j = 0; j < playerFuSuit[i].length; j++) {
-                    afterSorted.push(playerFuSuit[i][j]);
-                }
-            }
-        }
-        for (let i = 0; i < playerFuSuit.length; i++) {
-            if (playerFuSuit[i][0].substring(0, 1) == "♣") {
-                for (let j = 0; j < playerFuSuit[i].length; j++) {
-                    afterSorted.push(playerFuSuit[i][j]);
-                }
-            }
-        }
-        for (let i = 0; i < playerFuSuit.length; i++) {
-            if (playerFuSuit[i][0].substring(0, 1) == "♦") {
-                for (let j = 0; j < playerFuSuit[i].length; j++) {
-                    afterSorted.push(playerFuSuit[i][j]);
-                }
-            }
-        }
+
         sorting = afterSorted;
         return sorting;
     }
@@ -196,24 +183,12 @@ try {
     function sortSuit(currCards) { //!sort each deck by suits
         let sortArr = currCards;
         currCards = [];
-        for (let i = 0; i < sortArr.length; i++) {
-            if (sortArr[i].substring(0, 1) == "♠") {
-                currCards.push(sortArr[i]);
-            }
-        }
-        for (let i = 0; i < sortArr.length; i++) {
-            if (sortArr[i].substring(0, 1) == "♥") {
-                currCards.push(sortArr[i]);
-            }
-        }
-        for (let i = 0; i < sortArr.length; i++) {
-            if (sortArr[i].substring(0, 1) == "♣") {
-                currCards.push(sortArr[i]);
-            }
-        }
-        for (let i = 0; i < sortArr.length; i++) {
-            if (sortArr[i].substring(0, 1) == "♦") {
-                currCards.push(sortArr[i]);
+        for(let i = 0; i < 4; i++){
+            let currSuit = suits[i];
+            for (let j = 0; j < sortArr.length; j++) {
+                if (sortArr[j].substring(0, 1) == currSuit) {
+                    currCards.push(sortArr[j]);
+                }
             }
         }
         return currCards;
