@@ -8,6 +8,7 @@ function intialize() { //the function that calls all functions to intialize
     const zhuSuit = randomizeSuit();
     console.log("suit: " + zhuSuit);
     const zhuNumber = randomizeNumber();
+    console.log("number: " + zhuNumber);
     console.log(deck);
     let playerDecksUnsorted = distributeCards(deck);
     const playerDecks = sortPlayerDecks(playerDecksUnsorted, zhuSuit);
@@ -48,7 +49,7 @@ function randomizeNumber() { //randomize the number
 }
 
 function distributeCards(deck) {
-    let playerCards = [[], [], [], []];
+    let playerCards = [];
     for (let i = 0; i < 4; i++) {
         let temp = []; //each player deck
         for (let j = 0; j < 25; j++) {
@@ -62,27 +63,42 @@ function distributeCards(deck) {
 
 function sortPlayerDecks(playerDecks, zhuSuit, zhuNumber) {
     playerDecks.forEach(deckN => {
-        deckN.sort();
-        deckN = sortZhuSuit(deckN, zhuSuit);
-        console.log("player length"); //?debug unfinsihed
+        let jokerData = findJokers(deckN);
+        let playerJokerCards = jokerData[0];
+        deckN
     });
 }
 
-function sortZhuSuit(deck, zhuSuit) {
+function findJokers(deck) {
+    let playerJoker = [];
     for (let i = 0; i < deck.length; i++) {
-        if (deck[i].charAt(0) == zhuSuit) {
+        if (deck[i] == "RJoker" || deck[i] == "BJoker") {
+            playerJoker.push(deck[i]);
+            deck.splice(i, 1);
+        }
+    }
+    let output = [playerJoker, deck]
+    return output;
+}
+
+function sortZhuNumber(deck, zhuNumber) {
+    for (let i = 0; i < deck.length; i++) {
+        if (deck[i].substring(1, deck[i].length) == zhuNumber) {
             let temp = deck[i];
             deck.splice(i, 1);
             deck.unshift(temp);
         }
     }
-    console.log("deck " + deck);
+    return deck;
 }
 
-function sortZhuNumber(deck) {
-
-}
-
-function sortJokers(deck) {
-
+function findZhuSuit(deck, zhuSuit) {
+    let playerZhuSuit = [];
+    for (let i = 0; i < deck.length; i++) {
+        if (deck[i].charAt(0) == zhuSuit) {
+            playerZhuSuit.push(deck[i]);
+            deck.splice(i, 1);
+        }
+    }
+    return playerZhuSuit;
 }
