@@ -126,7 +126,12 @@ try {
                 sorting.splice(i, 1);
                 i--;
             }
-        }
+        } //take out red joker and put it as the first element of Asorted array
+        /*
+            if they see a black joker then thwey will put it at the end of the Asorted array
+            if they see a card that has a zhuNumber then they will put the card into the zhuNumber Array
+            if they see a card that has a zhuSuit then they will put the card ina a zhuSuit card
+        */
         for (let i = 0; i < playerZhuNumber.length; i++) {
             if (i > playerZhuNumber.length - 1) {
                 break;

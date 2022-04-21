@@ -13,7 +13,7 @@ function intialize() { //the function that calls all functions to intialize
     console.log("number: " + zhuNumber);
     console.log(deck);
     let playerDecksUnsorted = distributeCards(deck);
-    const playerDecks = sortPlayerDecks(playerDecksUnsorted, zhuSuit);
+    const playerDecks = sortPlayerDecks(playerDecksUnsorted, zhuSuit, zhuNumber);
 }
 
 function putCards() {
@@ -65,9 +65,23 @@ function distributeCards(deck) {
 
 function sortPlayerDecks(playerDecks, zhuSuit, zhuNumber) {
     playerDecks.forEach(deckN => {
-        let jokerData = findJokers(deckN);
-        let playerJokerCards = jokerData[0];
-        deckN
+        console.group("~~deck~~")
+        console.log(deckN);
+        let playerJoker = [];
+        let playerZhuSuit = [];
+        let playerZhuNumber = [];
+        let playerFuSuit = [];
+        deckN.forEach(cardN => {
+            if (cardN.includes("Joker")) {
+                playerJoker.push(cardN);
+            } else if (cardN.substring(1, cardN.length) == zhuNumber) {
+                playerZhuNumber.push(cardN);
+            } else if (cardN.charAt(0) == zhuSuit) {
+                playerZhuSuit.push(cardN);
+            } else {
+                playerFuSuit.push(cardN);
+            }
+        });
     });
 }
 
