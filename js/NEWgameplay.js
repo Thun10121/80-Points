@@ -106,6 +106,7 @@ function sortZhuNumber(deck, zhuSuit) {
 
 function sortZhuSuit(deck) {
     deck.sort();
+    console.log(deck);
     let sortedDeck = [];
     let deckInt = [];
     let deckChar = [];
@@ -118,18 +119,36 @@ function sortZhuSuit(deck) {
     });
     console.log("zhu Suit");
     deckInt.sort();
+    deckInt.reverse();
     deckChar.sort();
-    let sortedDeckChar = [];
-    deckChar.forEach(cardN => {
-        if(cardN.includes("A")){
-            sortedDeckChar.push(cardN);
-        } else {
-            sortedDeckChar.unshift(cardN);
+
+    let temp;
+    let tempDeck = [];
+    for(let i = 0; i < deckInt.length; i++) {
+        if(deckInt[i].includes("10")){
+            temp = deckInt[i];
+            deckInt.splice(i, 1);
+            tempDeck.push(temp);
+            i --;
         }
-    });
+    }
+    deckInt = tempDeck.concat(deckInt);
+    tempDeck = [];
+
+    for(let i = cardTypes.length - 1; i > cardTypes.length - 5; i--) {
+        for(let j = 0; j < deckChar.length; j++){
+            if(deckChar[j].includes(cardTypes[i])){
+                tempDeck.push(deckChar[j]);
+            }
+        }
+    }
+    deckChar = tempDeck;
+
+    sortedDeck = deckChar.concat(deckInt);
 
     //unfinished
-    console.log("int" + deckInt);
-    console.log("char" + sortedDeckChar);
+    console.log("int: " + deckInt.join(" "));
+    console.log("char: " + deckChar.join(" "));
+    console.log("sorted zhu deck: " + sortedDeck.join(" "));
 
 }
