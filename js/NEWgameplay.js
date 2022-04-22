@@ -65,8 +65,6 @@ function distributeCards(deck) {
 
 function sortPlayerDecks(playerDecks, zhuSuit, zhuNumber) {
     playerDecks.forEach(deckN => {
-        console.group("~~deck~~")
-        console.log(deckN);
         let playerJoker = [];
         let playerZhuSuit = [];
         let playerZhuNumber = [];
@@ -82,39 +80,56 @@ function sortPlayerDecks(playerDecks, zhuSuit, zhuNumber) {
                 playerFuSuit.push(cardN);
             }
         });
+        playerJoker = sortJoker(playerJoker);
+        playerZhuNumber = sortZhuNumber(playerZhuNumber, zhuSuit);
+        playerZhuSuit = sortZhuSuit(playerZhuSuit);
     });
 }
 
-function findJokers(deck) {
-    let playerJoker = [];
-    for (let i = 0; i < deck.length; i++) {
-        if (deck[i] == "RJoker" || deck[i] == "BJoker") {
-            playerJoker.push(deck[i]);
-            deck.splice(i, 1);
-        }
-    }
-    let output = [playerJoker, deck]
-    return output;
-}
-
-function sortZhuNumber(deck, zhuNumber) {
-    for (let i = 0; i < deck.length; i++) {
-        if (deck[i].substring(1, deck[i].length) == zhuNumber) {
-            let temp = deck[i];
-            deck.splice(i, 1);
-            deck.unshift(temp);
-        }
-    }
+function sortJoker(deck) { //backwards
+    deck.sort();
     return deck;
 }
 
-function findZhuSuit(deck, zhuSuit) {
-    let playerZhuSuit = [];
-    for (let i = 0; i < deck.length; i++) {
-        if (deck[i].charAt(0) == zhuSuit) {
-            playerZhuSuit.push(deck[i]);
-            deck.splice(i, 1);
+function sortZhuNumber(deck, zhuSuit) {
+    deck.sort();
+    let sortedDeck = [];
+    deck.forEach(cardN => {
+        if (cardN.charAt(0) == zhuSuit) {
+            sortedDeck.unshift(cardN);
+        } else {
+            sortedDeck.push(cardN);
         }
-    }
-    return playerZhuSuit;
+    });
+    return sortedDeck;
+}
+
+function sortZhuSuit(deck) {
+    deck.sort();
+    let sortedDeck = [];
+    let deckInt = [];
+    let deckChar = [];
+    deck.forEach(cardN => {
+        if (!isNaN(cardN.substring(1, cardN.length))) {
+            deckInt.push(cardN);
+        } else {
+            deckChar.push(cardN);
+        }
+    });
+    console.log("zhu Suit");
+    deckInt.sort();
+    deckChar.sort();
+    let sortedDeckChar = [];
+    deckChar.forEach(cardN => {
+        if(cardN.includes("A")){
+            sortedDeckChar.push(cardN);
+        } else {
+            sortedDeckChar.unshift(cardN);
+        }
+    });
+
+    //unfinished
+    console.log("int" + deckInt);
+    console.log("char" + sortedDeckChar);
+
 }
