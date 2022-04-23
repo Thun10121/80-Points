@@ -170,5 +170,4 @@ function readData(gameId) {
         const games = JSON.parse(data);
         console.log(games);
     });
-
 }
