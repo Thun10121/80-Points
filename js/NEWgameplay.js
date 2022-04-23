@@ -2,7 +2,7 @@
 const cardTypes = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
 const suitTypes = ["♠", "♥", "♣", "♦"];
 // const fs = require('fs');
-//test
+
 function intialize() { //the function that calls all functions to intialize
     let deck = putCards();
     deck = randomizeCards(deck);
