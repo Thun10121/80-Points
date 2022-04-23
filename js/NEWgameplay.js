@@ -2,6 +2,7 @@
 
 const cardTypes = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
 const suitTypes = ["♠", "♥", "♣", "♦"];
+let diPai = [];
 
 
 function intialize() { //the function that calls all functions to intialize
@@ -11,8 +12,9 @@ function intialize() { //the function that calls all functions to intialize
     console.log("suit: " + zhuSuit);
     const zhuNumber = randomizeNumber();
     console.log("number: " + zhuNumber);
-    // console.log(deck);
+    // console.log(deck,join(" "));
     let playerDecksUnsorted = distributeCards(deck);
+    console.log(diPai.join(" "));
     const playerDecks = sortPlayerDecks(playerDecksUnsorted, zhuSuit, zhuNumber);
 }
 
@@ -31,7 +33,7 @@ function putCards() {
 function randomizeCards(deck) {
     let randDeck = [];
     while (deck.length > 0) {
-        let = rand = Math.floor(Math.random() * (deck.length));
+        let rand = Math.floor(Math.random() * (deck.length));
         randDeck.push(deck[rand]);
         deck.splice(rand, 1);
     }
@@ -51,7 +53,7 @@ function randomizeNumber() { //randomize the number
 }
 
 function distributeCards(deck) {
-    let playerCards = [];
+    let playerCards = [[]];
     for (let i = 0; i < 4; i++) {
         let temp = []; //each player deck
         for (let j = 0; j < 25; j++) {
@@ -60,6 +62,7 @@ function distributeCards(deck) {
         }
         playerCards.push(temp);
     }
+    diPai = deck;
     return playerCards;
 }
 
