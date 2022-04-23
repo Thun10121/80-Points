@@ -2,20 +2,17 @@
 
 const cardTypes = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
 const suitTypes = ["♠", "♥", "♣", "♦"];
-let diPai = [];
-
 
 function intialize() { //the function that calls all functions to intialize
     let deck = putCards();
     deck = randomizeCards(deck);
-    const zhuSuit = randomizeSuit();
+    const zhuSuit = randomizeSuit(); //!
     console.log("suit: " + zhuSuit);
-    const zhuNumber = randomizeNumber();
-    console.log("number: " + zhuNumber);
-    // console.log(deck,join(" "));
-    let playerDecksUnsorted = distributeCards(deck);
-    console.log(diPai.join(" "));
-    const playerDecks = sortPlayerDecks(playerDecksUnsorted, zhuSuit, zhuNumber);
+    const zhuNumber = randomizeNumber(); //!
+    let distributeCardsOutput = distributeCards(deck);
+    let playerDecksUnsorted = distributeCardsOutput[0];
+    const diPai = distributeCardsOutput[1]; //!
+    const playerDecks = sortPlayerDecks(playerDecksUnsorted, zhuSuit, zhuNumber); //!
 }
 
 function putCards() {
@@ -62,8 +59,9 @@ function distributeCards(deck) {
         }
         playerCards.push(temp);
     }
-    diPai = deck;
-    return playerCards;
+    let diPai = deck;
+    let output = [playerCards, diPai]
+    return output;
 }
 
 function sortPlayerDecks(playerDecks, zhuSuit, zhuNumber) {
@@ -87,13 +85,8 @@ function sortPlayerDecks(playerDecks, zhuSuit, zhuNumber) {
         playerZhuNumber = sortZhuNumber(playerZhuNumber, zhuSuit);
         playerZhuSuit = sortZhuSuit(playerZhuSuit);
         playerFuSuit = sortFuSuit(playerFuSuit);
-
         deckN = [];
-        deckN = deckN.concat(playerJoker);
-        deckN = deckN.concat(playerZhuNumber);
-        deckN = deckN.concat(playerZhuSuit);
-        deckN = deckN.concat(playerFuSuit);
-
+        deckN = deckN.concat(playerJoker).concat(playerZhuNumber).concat(playerZhuSuit).concat(playerFuSuit);
         console.log(deckN.join(" "));
     });
 }
@@ -118,7 +111,6 @@ function sortZhuNumber(deck, zhuSuit) {
 }
 
 function sortZhuSuit(deck) {
-
     for(let i = 0; i < deck.length; i++){
         deck[i] = deck[i].replace("10", "v");
         deck[i] = deck[i].replace("J", "w");
@@ -126,9 +118,7 @@ function sortZhuSuit(deck) {
         deck[i] = deck[i].replace("K", "y");
         deck[i] = deck[i].replace("A", "z");
     }
-    
     deck.sort();
-    
     for(let i = 0; i < deck.length; i++){
         deck[i] = deck[i].replace("v", "10");
         deck[i] = deck[i].replace("w", "J");
@@ -136,17 +126,11 @@ function sortZhuSuit(deck) {
         deck[i] = deck[i].replace("y", "K");
         deck[i] = deck[i].replace("z", "A");
     }
-
     deck.reverse();
-
-    // console.log("sorted zhu deck: " + deck.join(" "));
-    
     return deck;
-
 }
 
 function sortFuSuit(deck){
-
     for(let i = 0; i < deck.length; i++){
         deck[i] = deck[i].replace("10", "v");
         deck[i] = deck[i].replace("J", "w");
@@ -154,9 +138,7 @@ function sortFuSuit(deck){
         deck[i] = deck[i].replace("K", "y");
         deck[i] = deck[i].replace("A", "z");
     }
-    
     deck.sort();
-    
     for(let i = 0; i < deck.length; i++){
         deck[i] = deck[i].replace("v", "10");
         deck[i] = deck[i].replace("w", "J");
@@ -164,11 +146,6 @@ function sortFuSuit(deck){
         deck[i] = deck[i].replace("y", "K");
         deck[i] = deck[i].replace("z", "A");
     }
-
     deck.reverse();
-
-    // console.log("sorted fu deck: " + deck.join(" "));
-    
     return deck;
-
 }
