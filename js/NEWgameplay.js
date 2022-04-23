@@ -1,7 +1,7 @@
 //♠ ♥ ♣ ♦
-
 const cardTypes = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
 const suitTypes = ["♠", "♥", "♣", "♦"];
+// const fs = require('fs');
 
 function intialize() { //the function that calls all functions to intialize
     let deck = putCards();
@@ -13,6 +13,13 @@ function intialize() { //the function that calls all functions to intialize
     let playerDecksUnsorted = distributeCardsOutput[0];
     const diPai = distributeCardsOutput[1]; //!
     const playerDecks = sortPlayerDecks(playerDecksUnsorted, zhuSuit, zhuNumber); //!
+    let game = {
+        gameId: "1",
+        playerDecks: playerDecks,
+        diPai: diPai,
+        players: ["thun", "hbl", "eemmaa", "avocado"]
+    }
+    // writeData(game);
 }
 
 function putCards() {
@@ -111,7 +118,7 @@ function sortZhuNumber(deck, zhuSuit) {
 }
 
 function sortZhuSuit(deck) {
-    for(let i = 0; i < deck.length; i++){
+    for (let i = 0; i < deck.length; i++) {
         deck[i] = deck[i].replace("10", "v");
         deck[i] = deck[i].replace("J", "w");
         deck[i] = deck[i].replace("Q", "x");
@@ -119,7 +126,7 @@ function sortZhuSuit(deck) {
         deck[i] = deck[i].replace("A", "z");
     }
     deck.sort();
-    for(let i = 0; i < deck.length; i++){
+    for (let i = 0; i < deck.length; i++) {
         deck[i] = deck[i].replace("v", "10");
         deck[i] = deck[i].replace("w", "J");
         deck[i] = deck[i].replace("x", "Q");
@@ -130,8 +137,8 @@ function sortZhuSuit(deck) {
     return deck;
 }
 
-function sortFuSuit(deck){
-    for(let i = 0; i < deck.length; i++){
+function sortFuSuit(deck) {
+    for (let i = 0; i < deck.length; i++) {
         deck[i] = deck[i].replace("10", "v");
         deck[i] = deck[i].replace("J", "w");
         deck[i] = deck[i].replace("Q", "x");
@@ -139,7 +146,7 @@ function sortFuSuit(deck){
         deck[i] = deck[i].replace("A", "z");
     }
     deck.sort();
-    for(let i = 0; i < deck.length; i++){
+    for (let i = 0; i < deck.length; i++) {
         deck[i] = deck[i].replace("v", "10");
         deck[i] = deck[i].replace("w", "J");
         deck[i] = deck[i].replace("x", "Q");
@@ -148,4 +155,20 @@ function sortFuSuit(deck){
     }
     deck.reverse();
     return deck;
+}
+
+function writeData(game) {
+    fs.writeFile("../data/gameData.json", JSON.stringify(game), (error) => {
+        if(err){
+            throw err;
+        }
+    });
+}
+
+function readData(gameId) {
+    fs.readFile(date, function (data) {
+        const games = JSON.parse(data);
+        console.log(games);
+    });
+
 }
