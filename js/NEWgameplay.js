@@ -7,11 +7,12 @@ function intialize() { //the function that calls all functions to intialize
     let deck = putCards();
     deck = randomizeCards(deck);
     const zhuSuit = randomizeSuit(); //!
-    console.log("suit: " + zhuSuit);
     const zhuNumber = randomizeNumber(); //!
+    console.log(zhuSuit + " " + zhuNumber);
     let distributeCardsOutput = distributeCards(deck);
     let playerDecksUnsorted = distributeCardsOutput[0];
     const diPai = distributeCardsOutput[1]; //!
+    console.log(diPai.join(" "));
     const playerDecks = sortPlayerDecks(playerDecksUnsorted, zhuSuit, zhuNumber); //!
     let game = {
         gameId: "1",
@@ -57,7 +58,7 @@ function randomizeNumber() { //randomize the number
 }
 
 function distributeCards(deck) {
-    let playerCards = [[]];
+    let playerCards = [];
     for (let i = 0; i < 4; i++) {
         let temp = []; //each player deck
         for (let j = 0; j < 25; j++) {
