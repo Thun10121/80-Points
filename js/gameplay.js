@@ -79,7 +79,6 @@ try {
     // zhuSuitDiv.innerHTML = `Main Suit: ${zhuSuit}`; //!add back
     // zhuCardDiv.innerHTML = `Main Number: ${zhuNumber}`; //! add back
     displayPlayerCards();
-
     function displayPlayerCards(){
         for (let i = 0; i < 4; i++) {
             playerCards[i] = sortCards(playerCards[i]);
@@ -89,9 +88,7 @@ try {
         return playerCards;
     }
     console.log(dipai.join(" "));
-
     const FplayerCards = displayPlayerCards;
-
     for (let i = 0; i < dipai.length; i++) {
         if (dipai[i].substring(1, dipai[i].length) == "5") {
             dipaiPoints += 5;
@@ -169,7 +166,6 @@ try {
             playerFuSuit.push(tempFuSuit);
         }
         playerFuSuit.shift();
-
         for (let i = 0; i < 4; i++){
             let currSuit = suits[i];
             for (let j = 0; j < playerFuSuit.length; j++) {
@@ -180,7 +176,6 @@ try {
                 }
             }
         }
-
         sorting = afterSorted;
         return sorting;
     }

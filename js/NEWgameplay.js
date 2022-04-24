@@ -14,12 +14,14 @@ function intialize() { //the function that calls all functions to intialize
     const diPai = distributeCardsOutput[1]; //!
     console.log(diPai.join(" "));
     const playerDecks = sortPlayerDecks(playerDecksUnsorted, zhuSuit, zhuNumber); //!
+    // console.log("players" + playerDecks);
     let game = {
-        gameId: "1",
+        gameId: "1", //TODO This would subject to change
         playerDecks: playerDecks,
         diPai: diPai,
         players: ["thun", "hbl", "eemmaa", "avocado"]
     }
+    return game;
     // writeData(game);
 }
 
@@ -73,6 +75,8 @@ function distributeCards(deck) {
 }
 
 function sortPlayerDecks(playerDecks, zhuSuit, zhuNumber) {
+    let sortedPlayerDecks = [];
+    let count = 0;
     playerDecks.forEach(deckN => {
         let playerJoker = [];
         let playerZhuSuit = [];
@@ -93,10 +97,11 @@ function sortPlayerDecks(playerDecks, zhuSuit, zhuNumber) {
         playerZhuNumber = sortZhuNumber(playerZhuNumber, zhuSuit);
         playerZhuSuit = sortZhuSuit(playerZhuSuit);
         playerFuSuit = sortFuSuit(playerFuSuit);
-        deckN = [];
-        deckN = deckN.concat(playerJoker).concat(playerZhuNumber).concat(playerZhuSuit).concat(playerFuSuit);
-        console.log(deckN.join(" "));
+        let output = playerJoker.concat(playerZhuNumber).concat(playerZhuSuit).concat(playerFuSuit);
+        sortedPlayerDecks.push(output);
+        count++;
     });
+    return sortedPlayerDecks
 }
 
 function sortJoker(deck) { //backwards
@@ -158,17 +163,25 @@ function sortFuSuit(deck) {
     return deck;
 }
 
-function writeData(game) {
-    fs.writeFile("../data/gameData.json", JSON.stringify(game), (error) => {
-        if(err){
-            throw err;
-        }
-    });
+function findLArgestCard(card1, card2, card3, card4) {
+
 }
 
-function readData(gameId) {
-    fs.readFile(date, function (data) {
-        const games = JSON.parse(data);
-        console.log(games);
-    });
+function isZhuSuit() {
+
 }
+
+// function writeData(game) {
+//     fs.writeFile("../data/gameData.json", JSON.stringify(game), (error) => {
+//         if(err){
+//             throw err;
+//         }
+//     });
+// }
+
+// function readData(gameId) {
+//     fs.readFile(date, function (data) {
+//         const games = JSON.parse(data);
+//         console.log(games);
+//     });
+// }
