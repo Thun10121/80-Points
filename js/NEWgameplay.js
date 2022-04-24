@@ -14,7 +14,6 @@ function intialize() { //the function that calls all functions to intialize
     const diPai = distributeCardsOutput[1]; //!
     console.log(diPai.join(" "));
     const playerDecks = sortPlayerDecks(playerDecksUnsorted, zhuSuit, zhuNumber); //!
-    // console.log("players" + playerDecks);
     let game = {
         gameId: "1", //TODO This would subject to change
         playerDecks: playerDecks,
@@ -76,7 +75,6 @@ function distributeCards(deck) {
 
 function sortPlayerDecks(playerDecks, zhuSuit, zhuNumber) {
     let sortedPlayerDecks = [];
-    let count = 0;
     playerDecks.forEach(deckN => {
         let playerJoker = [];
         let playerZhuSuit = [];
@@ -99,7 +97,6 @@ function sortPlayerDecks(playerDecks, zhuSuit, zhuNumber) {
         playerFuSuit = sortFuSuit(playerFuSuit);
         let output = playerJoker.concat(playerZhuNumber).concat(playerZhuSuit).concat(playerFuSuit);
         sortedPlayerDecks.push(output);
-        count++;
     });
     return sortedPlayerDecks;
 }
