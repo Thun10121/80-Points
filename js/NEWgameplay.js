@@ -97,6 +97,7 @@ function sortPlayerDecks(playerDecks, zhuSuit, zhuNumber) {
         playerFuSuit = sortFuSuit(playerFuSuit);
         let output = playerJoker.concat(playerZhuNumber).concat(playerZhuSuit).concat(playerFuSuit);
         sortedPlayerDecks.push(output);
+        console.log(output.join(" "));
     });
     return sortedPlayerDecks;
 }
