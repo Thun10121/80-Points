@@ -8,11 +8,9 @@ function intialize() { //the function that calls all functions to intialize
     deck = randomizeCards(deck);
     const zhuSuit = randomizeSuit(); //!
     const zhuNumber = randomizeNumber(); //!
-    console.log(zhuSuit + " " + zhuNumber);
     let distributeCardsOutput = distributeCards(deck);
     let playerDecksUnsorted = distributeCardsOutput[0];
     const diPai = distributeCardsOutput[1]; //!
-    console.log(diPai.join(" "));
     const playerDecks = sortPlayerDecks(playerDecksUnsorted, zhuSuit, zhuNumber); //!
     let game = {
         gameId: "1", //TODO This would subject to change
@@ -20,6 +18,9 @@ function intialize() { //the function that calls all functions to intialize
         diPai: diPai,
         players: ["thun", "hbl", "eemmaa", "avocado"]
     }
+    // console.log(zhuSuit + " " + zhuNumber);
+    // console.log(diPai.join(" "));
+
     return game;
     // writeData(game);
 }
@@ -97,7 +98,6 @@ function sortPlayerDecks(playerDecks, zhuSuit, zhuNumber) {
         playerFuSuit = sortFuSuit(playerFuSuit);
         let output = playerJoker.concat(playerZhuNumber).concat(playerZhuSuit).concat(playerFuSuit);
         sortedPlayerDecks.push(output);
-        console.log(output.join(" "));
     });
     return sortedPlayerDecks;
 }
