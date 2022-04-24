@@ -231,7 +231,7 @@ try {
     let thisRoundPoints = 0;
     let cardNum = 0;
 
-    function findLargestCard(card1, card2, card3, card4) {
+    function findLargestCard(card1, card2, card3, card4) { //? optimize
         cardNum = 1;
         let currSuit = card1.charAt(0);
         let result = 0;
