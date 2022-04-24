@@ -70,7 +70,7 @@ function distributeCards(deck) {
         playerCards.push(temp);
     }
     let diPai = deck;
-    let output = [playerCards, diPai]
+    let output = [playerCards, diPai];
     return output;
 }
 
@@ -101,7 +101,7 @@ function sortPlayerDecks(playerDecks, zhuSuit, zhuNumber) {
         sortedPlayerDecks.push(output);
         count++;
     });
-    return sortedPlayerDecks
+    return sortedPlayerDecks;
 }
 
 function sortJoker(deck) { //backwards
