@@ -68,18 +68,10 @@ function displayDecks() {
         }
         if (count == 0) {
             deckN.innerHTML = '';
-            console.log(playerCards[0]);
-            console.log("player cards: " + playerCards);
-            playerCards.forEach(playerDeck => {
-                console.log(playerDeck);
+            players[0].forEach(cardN => {
+                deckN.innerHTML += createCard(cardN);
             });
-            // playerCards[0].forEach(cardN => {
-            //     deckN.innerHTML += createCard(cardN);
-            //     console.log(createCard("♠A"));
-
-            // });
         }
-        console.log(count);
         count++;
     });
 }
