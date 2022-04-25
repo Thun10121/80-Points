@@ -26,9 +26,9 @@ body {
     overflow: hidden;
     /* background: radial-gradient(#015f17, #217E18); */
     background: var(--base4);
-    -webkit-user-select: none;
+    /* -webkit-user-select: none; */
     /*Safari*/
-    -moz-user-select: none;
+    /* -moz-user-select: none; */
     /*Firefox*/
 }
 
@@ -47,7 +47,7 @@ body {
             color-stop(20%, rgb(231, 205, 59)),
             color-stop(40%, rgb(217, 173, 21)),
             to(rgb(252, 225, 134)));
-    -webkit-background-clip: text;
+    /* -webkit-background-clip: text; */
     -webkit-text-fill-color: transparent;
 }
 
