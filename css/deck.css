@@ -1,0 +1,21 @@
+#player-decks1 {
+    width: fit-content;
+    height: 13vmin; 
+    z-index: 1;
+    bottom: 0;
+    margin-bottom: 8vmin;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#player-decks1-content #card-border{
+    transition: 200ms;
+    object-fit: scale-down;
+    margin: -4vmin;
+}
+
+#player-decks1-content #card-border:hover {
+    transform: scale(1.1) translateY(-6vmin);
+}

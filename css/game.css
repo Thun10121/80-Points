@@ -190,7 +190,7 @@ height 6vmin;
 
 .deck-card {
     width: var(--deckH);
-    margin: -4.125vmin;
+    /* margin: -4.125vmin; */
     --Omargin: -3.5vmin;
     --MOmargin: -2vmin;
     position: relative;
@@ -204,47 +204,33 @@ height 6vmin;
     margin: auto;
 }
 
-#player-decks1, #player-decks3 {
-    height: var(--deckMH);
-    width: var(--deckMW);
-    left: 50%;
-    transform: translateX(-50%);
-}
-
 #player-decks2, #player-decks4 {
     position: absolute;
-    height: var(--deckMW);
-    width: var(--deckMH);
+    height: fit-content;
+    width: 12.4vmin;
     margin-top: auto;
     padding-bottom: auto;
-    background-color: red;
-}
-
-#player-decks1 {
-    width: var(--deckW);
-    height: var(--deckH);
-    z-index: 1;
-    bottom: 0;
-    margin-bottom: var(--deckMargin);
 }
 
 #player-decks2 {
     right: 0;
-    margin-right: 35vmin;
+    margin-right: 21vw;
     top: 50%;
     transform: translateY(-50%);
 }
 
 #player-decks3 {
-    width: 100vw;
-    height: var(--deckMH);
+    width: fit-content;
+    height: fit-content;
     top: 0;
-    margin-top: -2vmin;
+    margin-top: -10vmin;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 #player-decks4 {
     left: 0;
-    margin-left: 35vmin;
+    margin-left: 21vw;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -256,33 +242,23 @@ height 6vmin;
     display: flex;
 }
 
-#player-decks1-content #card-border{
-    transition: 200ms;
-    object-fit: scale-down;
-    margin: -4vmin;
-}
-
-#player-decks2-content #card-border {
+#player-decks2-content .deck-card {
     transform: rotate(180deg);
-    height: var(--deckMH);
-    width: auto;
-    margin: var(--MOmargin);
+    height: 8vmin;
+    margin-top: -3vmin;
+    margin-bottom: -3vmin;
 }
 
-#player-decks3-content #card-border {
+#player-decks3-content .deck-card {
     transform: rotate(180deg);
-    margin: 0vmin -2vmin;
-    width: 7vmin;
+    margin: 0vmin -2.75vmin;
+    width: 8vmin;
 }
 
-#player-decks4-content #card-border {
-    height: var(--deckMH);
-    width: auto;
-    margin: var(--MOmargin);
-}
-
-#player-decks1-content #card-border:hover {
-    transform: scale(1.1) translateY(-6vmin);
+#player-decks4-content .deck-card {
+    height: 8vmin;
+    margin-top: -3vmin;
+    margin-bottom: -3vmin;
 }
 
 #sidebar-border{
