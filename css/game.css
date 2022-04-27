@@ -23,7 +23,7 @@
 
 body {
     margin: 0;
-    overflow: hidden;
+    /* overflow: hidden; */
     /* background: radial-gradient(#015f17, #217E18); */
     background: var(--base4);
     /* -webkit-user-select: none; */
@@ -249,31 +249,40 @@ height 6vmin;
     transform: translateY(-50%);
 }
 
-#player-decks1-content *{
-    margin: var(--Omargin);
-    transition: 200ms;
+#player-decks1-content{
+    object-fit: scale-down;
+    background-color: red;
+    margin: 0;
+    height: 13vmin;
+    display: flex;
 }
 
-#player-decks2-content * {
+#player-decks1-content #card-border{
+    transition: 200ms;
+    object-fit: scale-down;
+    margin: -4vmin;
+}
+
+#player-decks2-content #card-border {
     transform: rotate(180deg);
     height: var(--deckMH);
     width: auto;
     margin: var(--MOmargin);
 }
 
-#player-decks3-content * {
+#player-decks3-content #card-border {
     transform: rotate(180deg);
     margin: 0vmin -2vmin;
     width: 7vmin;
 }
 
-#player-decks4-content * {
+#player-decks4-content #card-border {
     height: var(--deckMH);
     width: auto;
     margin: var(--MOmargin);
 }
 
-#player-decks1-content *:hover {
+#player-decks1-content #card-border:hover {
     transform: scale(1.1) translateY(-6vmin);
 }
 

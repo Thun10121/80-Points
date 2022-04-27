@@ -55,22 +55,24 @@ function createCard(cardInputted) {
 function displayDecks() {
     let count = 0;
     deck.forEach(deckN => {
-        let cardHTML = `
-            <img class="deck-card" src="../photos/card-back.svg">        
-        `;
-        if (count % 2 == 1) {
-            cardHTML = `
-                <img class="deck-card" src="../photos/Rcard-back.svg">        
-            `
-        }
-        for (let i = 0; i < 25; i++) {
-            deckN.innerHTML += cardHTML;
-        }
         if (count == 0) {
+            console.log(players[0]);
             deckN.innerHTML = '';
             players[0].forEach(cardN => {
                 deckN.innerHTML += createCard(cardN);
             });
+        } else {
+            let cardHTML = `
+            <img class="deck-card" src="../photos/card-back.svg">        
+        `;
+            if (count % 2 == 1) {
+                cardHTML = `
+                <img class="deck-card" src="../photos/Rcard-back.svg">        
+            `;
+            }
+            for (let i = 0; i < 25; i++) {
+                deckN.innerHTML += cardHTML;
+            }
         }
         count++;
     });

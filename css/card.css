@@ -4,45 +4,39 @@ body {
 }
 
 #card-border {
-    transform: scale(.8);
-    width: 13vmin;
-    height: 336px;
-    padding: 5px;
-    border-radius: 20px;
+    object-fit: scale-down;
+    height: auto;
+    aspect-ratio: 216/336;
+    padding: .5vmin;
+    border-radius: 1vmin;
     background: linear-gradient(to left,
             rgb(231, 205, 59),
             rgb(231, 205, 59) 20%,
             rgb(217, 173, 21) 40%,
             rgb(240, 215, 80));
-    margin: 20px;
     position: relative;
 }
 
 #card-content {
-    width: 216px;
-    height: 336px;
-    border-radius: 20px;
+    height: auto;
+    aspect-ratio: 216/336;
+    border-radius: 1vmin;
     background: white;
     display: flex;
-    justify-content: center;
     position: relative;
 }
 
 #card-type {
-    position: absolute;
-    justify-content: center;
-    margin: 0;
+    margin: .125vmin;
     display: flex;
     flex-direction: row;
-    top: 0;
-    left: 0;
-    margin: 5px;
 }
 
 #card-suit, #card-number {
     position: relative;
     font-family: 'Luxurious Roman', cursive;
-    font-size: 50px;
+    font-size: 3vmin;
+    float: left;
 }
 
 #card-number {
@@ -51,28 +45,25 @@ body {
 
 #card-center-suit {
     position: absolute;
-    font-size: 75px;
-    line-height: 336px;
-    top: -55px;
-    left: 75px;
+    top: 30%;
+    left: 40%;
+    transform: translate(-40%,-40%);
     font-family: 'Luxurious Roman', cursive;
+    font-size: 5vmin;
 }
 
 #card-center-svg {
     position: absolute;
-    top: 50%;
-    height: 245px;
-    width: 245px;
     fill: url(#linear-gradient);
+    margin: .25vmin;
+    top: 50%;
     transform: translateY(-50%);
 }
 
 .red{
-    /* background: red; */
     color: red;
 }
 
 .black{
-    /* background: black; */
     color: black;
 }

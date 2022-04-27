@@ -1,0 +1,65 @@
+:root {
+    --corner-wh: 50vmin;
+    --corner2-wh: 25vmin;
+    --base2: #A6A6A6;
+    --base3: #5c5c5c;
+    --base4: rgb(25, 26, 25);
+    --base5: #232324;
+    --base6: #015f17;
+    --base7: #17871f;
+
+    --accent0: #FFFFFF;
+    --accent1: #FFDF01;
+    --accent2: #E6E6E6;
+    --accent3: #00AD11;
+
+    /*?linear gradient*/
+    --grad1: #F0D750;
+    --grad2: #E7CD3B;
+    --grad3: #BC8C1F;
+    --grad4: #D9AD15;
+    --grad5: #FCE186;
+}
+
+body {
+    margin: 0;
+    /* overflow: hidden; */
+    /* background: radial-gradient(#015f17, #217E18); */
+    background: var(--base4);
+    /* -webkit-user-select: none; */
+    /*Safari*/
+    /* -moz-user-select: none; */
+    /*Firefox*/
+}
+
+#player-decks1 {
+    height: var(--deckMH);
+    width: var(--deckMW);
+    left: 50%;
+    transform: translateX(-50%);
+    background: red;
+}
+
+
+#player-decks1 {
+    width: var(--deckW);
+    height: var(--deckH);
+    z-index: 1;
+    bottom: 0;
+    margin-bottom: var(--deckMargin);
+}
+#player-decks1-content{
+    background-color: red;
+    margin: 0;
+    height: 8vmin;
+    display: flex;
+}
+
+#player-decks1-content #card-border{
+    transition: 200ms;
+    object-fit: scale-down;
+}
+
+#player-decks1-content #card-border:hover {
+    transform: scale(1.1) translateY(-6vmin);
+}
