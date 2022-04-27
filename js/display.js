@@ -18,10 +18,13 @@ function createCard(cardInputted) {
     let cardNumber = cardInputted.substring(1, cardInputted.length);
     let suitColor = "red";
     if (cardSuit == "♣" || cardSuit == "♠") {
-        suitColor = "black;"
+        suitColor = "black";
+        borderColor = "blackBK";
+    } else {
+        borderColor = "redBK";
     }
     let cardsHTML = `
-    <div id="card-border">
+    <div id="card-border" class="${borderColor}">
         <div id="card-content">
             <div id="card-type">
                 <div id="card-suit" class="${suitColor}">${cardSuit}</div>

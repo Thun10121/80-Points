@@ -14,7 +14,6 @@ body {
             rgb(231, 205, 59) 20%,
             rgb(217, 173, 21) 40%,
             rgb(240, 215, 80)); */
-            background-color: black;
     position: relative;
 }
 
@@ -67,4 +66,12 @@ body {
 
 .black{
     color: black;
+}
+
+.redBK{
+    background-color: red;
+}
+
+.blackBK { 
+    background-color: black;
 }
