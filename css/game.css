@@ -251,7 +251,6 @@ height 6vmin;
 
 #player-decks1-content{
     object-fit: scale-down;
-    background-color: red;
     margin: 0;
     height: 13vmin;
     display: flex;
