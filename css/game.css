@@ -47,7 +47,7 @@ body {
             color-stop(20%, rgb(231, 205, 59)),
             color-stop(40%, rgb(217, 173, 21)),
             to(rgb(252, 225, 134)));
-    /* -webkit-background-clip: text; */
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
