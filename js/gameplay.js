@@ -26,6 +26,14 @@ function intialize() { //the function that calls all functions to intialize
         console.log(playerDecks[i].join(" "));
     }
 
+    let cardExample = [];
+    for(let i = 0; i < 4; i++){
+        let rand1 = Math.floor(Math.random() * (cardTypes.length));
+        let rand2 = Math.floor(Math.random() * (suitTypes.length));
+        cardExample.push(suitTypes[rand2] + cardTypes[rand1]);
+    }
+    findLargestCard(cardExample[0], cardExample[1], cardExample[2], cardExample[3], zhuSuit, zhuNumber);
+
     return game;
     // writeData(game);
 }
@@ -204,8 +212,79 @@ function sortFuSuit(deck, zhuSuit) {
     return deck;
 }
 
-function findLArgestCard(card1, card2, card3, card4) {
+function CardInfo(card, player, point, zhuLevel){
+    this.card = card;
+    this.player = player;
+    this.point = point;
+    this.zhuLevel = zhuLevel;
+    //zhuLevel: 4 = Joker; 3 = mainNumber + mainSuit; 2 = mainNumber; 1 = mainSuit; 0 = not zhu
+}
 
+function findLargestCard(card1, card2, card3, card4, mainSuit, mainNumber) {
+    console.log(card1, card2, card3, card4, mainSuit, mainNumber);
+    let theCards = [card1, card2, card3, card4];
+    let cardMap = [];
+    let highestZhu = 0;
+    let card, player, point, zhuLevel;
+    for(let i = 0; i < theCards.length; i++) {
+        card = theCards[i];
+        player = i + 1;
+        if(card.includes("5")){
+            point = 5;
+        }else if(card.includes("10") || card.includes("K")){
+            point = 10;
+        }else{
+            point = 0;
+        }
+        if(card.includes("BJoker") || card.includes("RJoker")){
+            zhuLevel = 4;
+        }else if(card.includes(mainNumber)){
+            if(card.includes(mainSuit)){
+                zhuLevel = 3;
+            }else{
+                zhuLevel = 2;
+            }
+        }else if(card.includes(mainSuit)){
+            zhuLevel = 1;
+        }else{
+            zhuLevel = 0;
+        }
+        if(zhuLevel > highestZhu){
+            highestZhu = zhuLevel;
+        }
+        cardMap.push(new CardInfo(card, player, point, zhuLevel));
+        console.log("" + zhuLevel);
+    }
+    if(highestZhu > 0){ //if zhupai present
+        for(let i = 0; i < cardMap.length; i++){
+            if(cardMap[i].zhuLevel != highestZhu){
+                cardMap.splice(i, 1);
+                i --;
+            }
+        }
+        if(highestZhu > 1){
+            console.log("Largest Card: Player " + cardMap[0].player);
+        }else{
+            let biggest = 0;
+            for(let j = 0; j < cardMap.length; j++){
+                for(let k = 0; k < cardTypes.length; k++){
+                    if(cardMap[j].card.includes(cardTypes[k])){
+                        cardMap[j].card = k;
+                        if(k > biggest){
+                            biggest = k;
+                        }
+                        break;
+                    }
+                }
+            }
+            for(let j = 0; j < cardMap.length; j++){
+                if(cardMap[j].card == biggest){
+                    console.log("Largest Card: Player " + cardMap[j].player);
+                    break;
+                }
+            }
+        }
+    }
 }
 
 function isZhuSuit() {
