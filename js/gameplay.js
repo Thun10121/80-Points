@@ -18,8 +18,13 @@ function intialize() { //the function that calls all functions to intialize
         diPai: diPai,
         players: ["thun", "hbl", "eemmaa", "avocado"]
     }
-    // console.log(zhuSuit + " " + zhuNumber);
-    // console.log(diPai.join(" "));
+
+    //debugging purposes
+    console.log(zhuSuit + " " + zhuNumber);
+    console.log(diPai.join(" "));
+    for(let i = 0; i < 4; i++){
+        console.log(playerDecks[i].join(" "));
+    }
 
     return game;
     // writeData(game);
@@ -95,7 +100,7 @@ function sortPlayerDecks(playerDecks, zhuSuit, zhuNumber) {
         playerJoker = sortJoker(playerJoker);
         playerZhuNumber = sortZhuNumber(playerZhuNumber, zhuSuit);
         playerZhuSuit = sortZhuSuit(playerZhuSuit);
-        playerFuSuit = sortFuSuit(playerFuSuit);
+        playerFuSuit = sortFuSuit(playerFuSuit, zhuSuit);
         let output = playerJoker.concat(playerZhuNumber).concat(playerZhuSuit).concat(playerFuSuit);
         sortedPlayerDecks.push(output);
     });
@@ -118,6 +123,24 @@ function sortZhuNumber(deck, zhuSuit) {
             sortedDeck.push(cardN);
         }
     });
+
+    //sort by alternating color with ♠ ♥ ♣ ♦ precedence
+    let corrOrder = ["♠", "♥", "♣", "♦"];
+    let suitOrder = [["♠", "♥", "♣", "♦"], ["♥", "♠", "♦", "♣"], ["♣", "♥", "♠", "♦"], ["♦", "♠", "♥", "♣"]];
+    let sortOrder = [[], [], [], []];
+    for(let i = 0; i < corrOrder.length; i++){
+        if(corrOrder[i] == zhuSuit){
+            for(let j = 0; j < suitOrder[i].length; j++){
+                for(let k = 0; k < deck.length; k++){
+                    if(deck[k].includes(suitOrder[i][j])){
+                        sortOrder[j].push(deck[k]);
+                    }
+                }
+            }
+            break;
+        }
+    }
+    sortedDeck = sortOrder[0].concat(sortOrder[1]).concat(sortOrder[2]).concat(sortOrder[3]);
     return sortedDeck;
 }
 
@@ -141,7 +164,7 @@ function sortZhuSuit(deck) {
     return deck;
 }
 
-function sortFuSuit(deck) {
+function sortFuSuit(deck, zhuSuit) {
     for (let i = 0; i < deck.length; i++) {
         deck[i] = deck[i].replace("10", "v");
         deck[i] = deck[i].replace("J", "w");
@@ -158,6 +181,26 @@ function sortFuSuit(deck) {
         deck[i] = deck[i].replace("z", "A");
     }
     deck.reverse();
+
+    //sort by alternating color with ♠ ♥ ♣ ♦ precedence
+    let corrOrder = ["♠", "♥", "♣", "♦"];
+    let suitOrder = [["♥", "♣", "♦"], ["♠", "♦", "♣"], ["♥", "♠", "♦"], ["♠", "♥", "♣"]];
+    let sortedDeck = [[], [], []];
+    for(let i = 0; i < corrOrder.length; i++){
+        if(corrOrder[i] == zhuSuit){
+            for(let j = 0; j < suitOrder[i].length; j++){
+                for(let k = 0; k < deck.length; k++){
+                    if(deck[k].includes(suitOrder[i][j])){
+                        sortedDeck[j].push(deck[k]);
+                    }
+                }
+            }
+            break;
+        }
+    }
+
+    deck = sortedDeck[0].concat(sortedDeck[1]).concat(sortedDeck[2]);
+
     return deck;
 }
 
