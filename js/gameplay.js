@@ -28,9 +28,8 @@ function intialize() { //the function that calls all functions to intialize
 
     let cardExample = [];
     for(let i = 0; i < 4; i++){
-        let rand1 = Math.floor(Math.random() * (cardTypes.length));
-        let rand2 = Math.floor(Math.random() * (suitTypes.length));
-        cardExample.push(suitTypes[rand2] + cardTypes[rand1]);
+        let rand = Math.floor(Math.random() * playerDecks[i].length);
+        cardExample.push(playerDecks[i][rand]);
     }
     findLargestCard(cardExample[0], cardExample[1], cardExample[2], cardExample[3], zhuSuit, zhuNumber);
 
@@ -220,7 +219,7 @@ function CardInfo(card, player, zhuLevel){
 }
 
 function findLargestCard(card1, card2, card3, card4, zhuSuit, zhuNumber) {
-    console.log(card1, card2, card3, card4, zhuSuit, zhuNumber);
+    console.log(card1, card2, card3, card4);
     let theCards = [card1, card2, card3, card4];
     let cardMap = [];
     let highestZhu = 0, totalPoints = 0;
@@ -253,7 +252,7 @@ function findLargestCard(card1, card2, card3, card4, zhuSuit, zhuNumber) {
             highestZhu = zhuLevel;
         }
         cardMap.push(new CardInfo(card, player, zhuLevel));
-        console.log("" + zhuLevel);
+        console.log("ZhuLevel: " + zhuLevel);
     }
     if(highestZhu > 0){ //if zhupai present
         for(let i = 0; i < cardMap.length; i++){
