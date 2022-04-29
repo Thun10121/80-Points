@@ -13,15 +13,19 @@ let played4 = document.getElementById("playedcard4");
 let deck = [deck1, deck2, deck3, deck4];
 let played = [played1, played2, played3, played4];
 
-function createCard(cardInputted) {
+function createCard(cardInputted,zhuSuit) {
     let cardSuit = cardInputted.substring(0, 1);
     let cardNumber = cardInputted.substring(1, cardInputted.length);
     let suitColor = "red";
+    let zhuStarDisplay = "hide";
     if (cardSuit == "♣" || cardSuit == "♠") {
         suitColor = "black";
         borderColor = "blackBK";
     } else {
         borderColor = "redBK";
+    }
+    if(cardSuit == zhuSuit){
+        zhuStarDisplay = "show";
     }
     let cardsHTML = `
     <div id="card-border">
@@ -52,20 +56,48 @@ function createCard(cardInputted) {
                         transform="translate(-7.55 -0.99)" />
                 </svg>
                 <div id="card-center-suit" class="${suitColor}">${cardSuit}</div>
+                <svg id="zhuStar" class="${zhuStarDisplay}" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px"
+                    viewBox="0 0 24 24" width="24px" fill="#00ad11">
+                    <linearGradient id="gold" x1="36.44" y1="51.18" x2="86.38" y2="30.25"
+                        gradientUnits="userSpaceOnUse">
+                        <stop offset="0.34" stop-color="#f0d750" />
+                        <stop offset="0.56" stop-color="#e7cd3b" />
+                        <stop offset="0.72" stop-color="#bc8c1f" />
+                        <stop offset="0.82" stop-color="#d9ad15" />
+                        <stop offset="1" stop-color="#fce186" />
+                    </linearGradient>
+                    <g>
+                        <rect fill="none" height="24" width="24" />
+                    </g>
+                    <g>
+                        <g>
+                            <g>
+                                <g>
+                                    <path
+                                        d="M12,22C6.49,22,2,17.51,2,12S6.49,2,12,2s10,4.04,10,9c0,3.31-2.69,6-6,6h-1.77c-0.28,0-0.5,0.22-0.5,0.5 c0,0.12,0.05,0.23,0.13,0.33c0.41,0.47,0.64,1.06,0.64,1.67C14.5,20.88,13.38,22,12,22z M12,4c-4.41,0-8,3.59-8,8s3.59,8,8,8 c0.28,0,0.5-0.22,0.5-0.5c0-0.16-0.08-0.28-0.14-0.35c-0.41-0.46-0.63-1.05-0.63-1.65c0-1.38,1.12-2.5,2.5-2.5H16 c2.21,0,4-1.79,4-4C20,7.14,16.41,4,12,4z" />
+                                    <circle cx="6.5" cy="11.5" r="1.5" />
+                                    <circle cx="9.5" cy="7.5" r="1.5" />
+                                    <circle cx="14.5" cy="7.5" r="1.5" />
+                                    <circle cx="17.5" cy="11.5" r="1.5" />
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
             </div>
         </div>
     </div>`;
     return cardsHTML;
 }
 
-function displayDecks() {
+function displayDecks(zhuSuit) {
     let count = 0;
     deck.forEach(deckN => {
         if (count == 0) {
             console.log(players[0]);
             deckN.innerHTML = '';
             players[0].forEach(cardN => {
-                deckN.innerHTML += createCard(cardN);
+                deckN.innerHTML += createCard(cardN, zhuSuit);
             });
         } else {
             let cardHTML = `

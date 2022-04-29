@@ -16,6 +16,8 @@ function intialize() { //the function that calls all functions to intialize
     let game = {
         gameId: "1", //TODO This would subject to change
         playerDecks: playerDecks,
+        zhuSuit: zhuSuit,
+        zhuNumber: zhuNumber,
         diPai: diPai,
         players: ["thun", "hbl", "eemmaa", "avocado"]
     }

@@ -82,3 +82,20 @@ body {
 .blackBK { 
     background-color: black;
 }
+
+#zhuStar {
+    z-index: 2;
+    height: 3vmin;
+    width: 3vmin;
+    position: absolute;
+    bottom: 0;
+    margin: .25vmin;
+}
+
+.hide{
+    display: none;
+}
+
+.show{
+    display: flex;
+}
