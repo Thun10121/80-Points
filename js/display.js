@@ -13,7 +13,7 @@ let played4 = document.getElementById("playedcard4");
 let deck = [deck1, deck2, deck3, deck4];
 let played = [played1, played2, played3, played4];
 
-function createCard(cardInputted,zhuSuit) {
+function createCard(cardInputted, zhuSuit, zhuNumber) {
     let cardSuit = cardInputted.substring(0, 1);
     let cardNumber = cardInputted.substring(1, cardInputted.length);
     let suitColor = "red";
@@ -24,7 +24,7 @@ function createCard(cardInputted,zhuSuit) {
     } else {
         borderColor = "redBK";
     }
-    if(cardSuit == zhuSuit){
+    if(cardSuit == zhuSuit || cardNumber == zhuNumber || cardNumber == "Joker"){
         zhuStarDisplay = "show";
     }
     let cardsHTML = `
@@ -90,14 +90,14 @@ function createCard(cardInputted,zhuSuit) {
     return cardsHTML;
 }
 
-function displayDecks(zhuSuit) {
+function displayDecks(zhuSuit, zhuNumber) {
     let count = 0;
     deck.forEach(deckN => {
         if (count == 0) {
             console.log(players[0]);
             deckN.innerHTML = '';
             players[0].forEach(cardN => {
-                deckN.innerHTML += createCard(cardN, zhuSuit);
+                deckN.innerHTML += createCard(cardN, zhuSuit, zhuNumber);
             });
         } else {
             let cardHTML = `
