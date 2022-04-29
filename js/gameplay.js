@@ -215,7 +215,7 @@ function CardInfo(card, player, zhuLevel){
     this.card = card;
     this.player = player;
     this.zhuLevel = zhuLevel;
-    //zhuLevel: 4 = Joker; 3 = zhuNumber + zhuSuit; 2 = zhuNumber; 1 = zhuSuit; 0 = not zhu
+    //zhuLevel: 5 = RJoker; 4 = BJoker; 3 = zhuNumber + zhuSuit; 2 = zhuNumber; 1 = zhuSuit; 0 = not zhu
 }
 
 function findLargestCard(card1, card2, card3, card4, zhuSuit, zhuNumber) {
@@ -235,7 +235,9 @@ function findLargestCard(card1, card2, card3, card4, zhuSuit, zhuNumber) {
             point = 0;
         }
         totalPoints += point;
-        if(card.includes("BJoker") || card.includes("RJoker")){
+        if(card.includes("RJoker")){
+            zhuLevel = 5;
+        }else if(card.includes("BJoker")){
             zhuLevel = 4;
         }else if(card.includes(zhuNumber)){
             if(card.includes(zhuSuit)){
