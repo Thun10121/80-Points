@@ -1,6 +1,7 @@
 //♠ ♥ ♣ ♦
 const cardTypes = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
 const suitTypes = ["♠", "♥", "♣", "♦"];
+const cardValue = new Map();
 // const fs = require('fs');
 
 function intialize() { //the function that calls all functions to intialize
@@ -25,7 +26,12 @@ function intialize() { //the function that calls all functions to intialize
     for(let i = 0; i < 4; i++){
         console.log(playerDecks[i].join(" "));
     }
-
+    
+    for(let i = 0; i < cardTypes.length; i++){
+        if(cardTypes[i] != zhuNumber){
+            cardValue.set(cardTypes[i], cardValue.size + 1);
+        }
+    }
     let cardExample = [];
     for(let i = 0; i < 4; i++){
         let rand = Math.floor(Math.random() * playerDecks[i].length);
@@ -268,14 +274,9 @@ function findLargestCard(card1, card2, card3, card4, zhuSuit, zhuNumber) {
         }else{
             let biggest = 0;
             for(let j = 0; j < cardMap.length; j++){
-                for(let k = 0; k < cardTypes.length; k++){
-                    if(cardMap[j].card.includes(cardTypes[k])){
-                        cardMap[j].card = k;
-                        if(k > biggest){
-                            biggest = k;
-                        }
-                        break;
-                    }
+                cardMap[j].card = cardValue.get(cardMap[j].card.substr(1, cardMap[j].card.length));
+                if(cardMap[j].card > biggest){
+                    biggest = cardMap[j].card;
                 }
             }
             for(let j = 0; j < cardMap.length; j++){
@@ -295,14 +296,9 @@ function findLargestCard(card1, card2, card3, card4, zhuSuit, zhuNumber) {
         }
         let biggest = 0;
         for(let j = 0; j < cardMap.length; j++){
-            for(let k = 0; k < cardTypes.length; k++){
-                if(cardMap[j].card.includes(cardTypes[k])){
-                    cardMap[j].card = k;
-                    if(k > biggest){
-                        biggest = k;
-                    }
-                    break;
-                }
+            cardMap[j].card = cardValue.get(cardMap[j].card.substr(1, cardMap[j].card.length));
+            if(cardMap[j].card > biggest){
+            biggest = cardMap[j].card;
             }
         }
         for(let j = 0; j < cardMap.length; j++){
