@@ -83,12 +83,41 @@ body {
     background-color: black;
 }
 
+#zhuHollowStar {
+    z-index: 2;
+    height: 3vmin;
+    width: 3vmin;
+    position: absolute;
+    bottom: 0;
+    margin: .25vmin;
+}
+
 #zhuStar {
     z-index: 2;
     height: 3vmin;
     width: 3vmin;
     position: absolute;
     bottom: 0;
+    margin: .25vmin;
+}
+
+#zhuStarDouble {
+    z-index: 2;
+    height: 3vmin;
+    width: 3vmin;
+    position: absolute;
+    bottom: 0;
+    left: 1vmin;
+    margin: .25vmin;
+}
+
+#zhuStarTriple {
+    z-index: 2;
+    height: 3vmin;
+    width: 3vmin;
+    position: absolute;
+    bottom: 0;
+    left: 2vmin;
     margin: .25vmin;
 }
 
