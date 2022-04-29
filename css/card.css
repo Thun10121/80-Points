@@ -89,7 +89,7 @@ body {
     width: 3vmin;
     position: absolute;
     bottom: 0;
-    margin: .25vmin;
+    margin: .5vmin;
 }
 
 #zhuStar {
@@ -98,7 +98,7 @@ body {
     width: 3vmin;
     position: absolute;
     bottom: 0;
-    margin: .25vmin;
+    margin: .5vmin;
 }
 
 #zhuDoubleStar {
@@ -108,7 +108,7 @@ body {
     position: absolute;
     bottom: 0;
     left: 1vmin;
-    margin: .25vmin;
+    margin: .5vmin;
 }
 
 #zhuTripleStar {
@@ -118,7 +118,7 @@ body {
     position: absolute;
     bottom: 0;
     left: 2vmin;
-    margin: .25vmin;
+    margin: .5vmin;
 }
 
 .hide{
