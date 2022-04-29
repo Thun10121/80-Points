@@ -360,13 +360,14 @@ p {
     letter-spacing: 2vw;
     font-weight: bold;
     font-family: 'Turret Road', cursive;
-    animation: 2s frontAnimation linear infinite;
-    animation-delay: calc(.5s * var(--i));
+    animation: 2s goldCycle linear infinite calc(.5s * var(--i)),
+        10s shine linear infinite 0s;
 }
 
-@keyframes frontAnimation {
+@keyframes goldCycle {
     0% {
         color: var(--grad1);
+
     }
 
     20% {
@@ -387,6 +388,20 @@ p {
 
     100% {
         color: var(--grad1);
+    }
+}
+
+@keyframes shine {
+    0% {
+        text-shadow: .05vmin .05vmin 8vmin #FFFFFF;
+    }
+
+    50% {
+        text-shadow: .05vmin .05vmin 20vmin #FFFFFF;
+    }
+
+    100% {
+        text-shadow: .05vmin .05vmin 8vmin #FFFFFF;
     }
 }
 
