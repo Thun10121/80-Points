@@ -17,7 +17,7 @@ function createCard(cardInputted, zhuSuit, zhuNumber) {
     let cardSuit = cardInputted.substring(0, 1);
     let cardNumber = cardInputted.substring(1, cardInputted.length);
     let suitColor = "red";
-    let zhuHollowStarDisplay = "hide", zhuStarDisplay = "hide", zhuDoubleStarDisplay = "hide", zhuTripleStarDisplay = "hide";
+    let zhuHollowStarDisplay = "hide", zhuSolidStarDisplay = "hide", zhuFilledStarDisplay = "hide", zhuJokerStarDisplay = "hide";
     if (cardSuit == "♣" || cardSuit == "♠") {
         suitColor = "black";
         borderColor = "blackBK";
@@ -26,14 +26,12 @@ function createCard(cardInputted, zhuSuit, zhuNumber) {
     }
     if (cardSuit == zhuSuit || cardNumber == zhuNumber || cardNumber == "Joker") {
         if (cardSuit == zhuSuit && cardNumber == zhuNumber) {
-            zhuStarDisplay = "show";
-            zhuDoubleStarDisplay = "show";
+            zhuSolidStarDisplay = "show";
+            zhuFilledStarDisplay = "show";
         } else if (cardNumber == zhuNumber) {
-            zhuStarDisplay = "show";
+            zhuSolidStarDisplay = "show";
         } else if (cardNumber == "Joker") {
-            zhuStarDisplay = "show";
-            zhuDoubleStarDisplay = "show";
-            zhuTripleStarDisplay = "show";
+            zhuJokerStarDisplay = "show";
         } else {
             zhuHollowStarDisplay = "show";
         }
@@ -81,41 +79,51 @@ function createCard(cardInputted, zhuSuit, zhuNumber) {
                     <path d="M164.21,119.28l-12.64-.47a2.14,2.14,0,0,1-1.92-1.41l-4.35-12a2.66,2.66,0,0,0-5,0l-4.35,12a2.11,2.11,0,0,1-1.92,1.41l-12.64.47a2.7,2.7,0,0,0-1.55,4.81l10,7.89a2.17,2.17,0,0,1,.73,2.29l-3.46,12.29a2.67,2.67,0,0,0,4.05,3l10.5-7.13a2.15,2.15,0,0,1,2.38,0l10.5,7.13a2.67,2.67,0,0,0,4-3l-3.47-12.29a2.19,2.19,0,0,1,.74-2.29l9.95-7.89A2.7,2.7,0,0,0,164.21,119.28Zm-11.12,9.54a6,6,0,0,0-2.06,6.39l2.19,7.76a.31.31,0,0,1-.47.34l-6.5-4.41a6.51,6.51,0,0,0-2.24-1,6,6,0,0,0-4.54.9l-6.63,4.5a.31.31,0,0,1-.47-.34l2.19-7.76a6,6,0,0,0-2.06-6.39l-6.28-5a.32.32,0,0,1,.18-.56l8-.29a6,6,0,0,0,5.38-4l2.75-7.57a.31.31,0,0,1,.58,0l2.74,7.57a6,6,0,0,0,5.38,4l8,.29a.31.31,0,0,1,.18.56Z" transform="translate(-118.81 -103.63)"/>
                     <path class="cls-hollow-star" d="M123.36,104.61" transform="translate(-118.81 -103.63)"/>
                 </svg>
-                <svg id="zhuStar" class="${zhuStarDisplay}"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 199.83 190.22" fill="#00ad11">
+                <svg id="zhuSolidStar" class="${zhuSolidStarDisplay}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.98 46.37" fill="#00ad11">
                     <defs>
                         <style>
                             .cls-star {
-                                stroke: #00ad11;
+                                fill: none;
+                                stroke: #000;
                                 stroke-miterlimit: 10;
                                 stroke-width: 10px;
                             }
                         </style>
                     </defs>
-                    <path class="cls-star" d="M147.41,56.47l24.94,67.64a.71.71,0,0,0,.63.45l72,2.82a.7.7,0,0,1,.4,1.24l-56.62,44.62a.7.7,0,0,0-.23.73l19.57,69.39a.69.69,0,0,1-1,.76l-59.94-40.06a.71.71,0,0,0-.77,0L86.44,244.12a.69.69,0,0,1-1-.76L105,174a.69.69,0,0,0-.24-.73L48.11,128.62a.69.69,0,0,1,.4-1.24l72-2.82a.68.68,0,0,0,.62-.45l25-67.64A.69.69,0,0,1,147.41,56.47Z" transform="translate(-46.84 -55.02)"/>
+                    <path class="cls-star" d="M123.36,104.61" transform="translate(-118.81 -103.63)"/>
+                    <path d="M164.21,119.28l-12.64-.47a2.14,2.14,0,0,1-1.92-1.41l-4.35-12a2.66,2.66,0,0,0-5,0l-4.35,12a2.11,2.11,0,0,1-1.92,1.41l-12.64.47a2.7,2.7,0,0,0-1.55,4.81l10,7.89a2.17,2.17,0,0,1,.73,2.29l-3.46,12.29a2.67,2.67,0,0,0,4.05,3l10.5-7.13a2.15,2.15,0,0,1,2.38,0l10.5,7.13a2.67,2.67,0,0,0,4-3l-3.47-12.29a2.19,2.19,0,0,1,.74-2.29l9.95-7.89A2.7,2.7,0,0,0,164.21,119.28Z" transform="translate(-118.81 -103.63)"/>
                 </svg>
-                <svg id="zhuDoubleStar" class="${zhuDoubleStarDisplay}"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 199.83 190.22" fill="#00ad11">
+                <svg id="zhuFilledStar" class="${zhuFilledStarDisplay}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.96 46.37" fill="#00ad11">
                     <defs>
                         <style>
-                            .cls-star {
-                                stroke: #00ad11;
-                                stroke-miterlimit: 10;
-                                stroke-width: 10px;
-                            }
+                        .cls-filled-1 {
+                            fill: #fff;
+                        }
+                        .cls-filled-2 {
+                            fill: none;
+                            stroke: #000;
+                            stroke-miterlimit: 10;
+                            stroke-width: 10px;
+                        }
                         </style>
                     </defs>
-                    <path class="cls-star" d="M147.41,56.47l24.94,67.64a.71.71,0,0,0,.63.45l72,2.82a.7.7,0,0,1,.4,1.24l-56.62,44.62a.7.7,0,0,0-.23.73l19.57,69.39a.69.69,0,0,1-1,.76l-59.94-40.06a.71.71,0,0,0-.77,0L86.44,244.12a.69.69,0,0,1-1-.76L105,174a.69.69,0,0,0-.24-.73L48.11,128.62a.69.69,0,0,1,.4-1.24l72-2.82a.68.68,0,0,0,.62-.45l25-67.64A.69.69,0,0,1,147.41,56.47Z" transform="translate(-46.84 -55.02)"/>
+                    <path class="cls-filled-1" d="M25,3.79l4.85,13.29a1,1,0,0,0,.91.66l14.14.51a1,1,0,0,1,.58,1.8L34.31,28.77A1,1,0,0,0,34,29.84l3.89,13.6a1,1,0,0,1-1.54,1.11L24.58,36.66a1,1,0,0,0-1.13,0L11.72,44.55a1,1,0,0,1-1.54-1.11l3.89-13.6a1,1,0,0,0-.35-1.07L2.58,20.05a1,1,0,0,1,.59-1.8l14.13-.51a1,1,0,0,0,.92-.66L23.06,3.79A1,1,0,0,1,25,3.79Z" transform="translate(-0.01 -0.02)"/>
+                    <path d="M45.4,15.65l-12.64-.47a2.14,2.14,0,0,1-1.92-1.41l-4.35-12a2.66,2.66,0,0,0-5,0l-4.35,12a2.11,2.11,0,0,1-1.92,1.41l-12.64.47A2.7,2.7,0,0,0,1,20.46l10,7.89a2.18,2.18,0,0,1,.73,2.29L8.3,42.93a2.67,2.67,0,0,0,4,3l10.5-7.13a2.15,2.15,0,0,1,2.38,0l10.5,7.13a2.67,2.67,0,0,0,4-3L36.26,30.64A2.2,2.2,0,0,1,37,28.35l10-7.89a2.7,2.7,0,0,0-1.55-4.81ZM34.28,25.19a6,6,0,0,0-2.06,6.39l2.19,7.76a.31.31,0,0,1-.22.38.32.32,0,0,1-.25,0l-6.5-4.41a6.64,6.64,0,0,0-2.24-1,6,6,0,0,0-4.54.9L14,39.67a.31.31,0,0,1-.47-.34l2.19-7.76a6,6,0,0,0-2.06-6.39l-6.28-5a.32.32,0,0,1,0-.45.33.33,0,0,1,.21-.11l8-.29a6,6,0,0,0,5.38-4l2.75-7.57a.31.31,0,0,1,.4-.18.32.32,0,0,1,.18.18L27,15.33a6,6,0,0,0,5.38,4l8,.29a.31.31,0,0,1,.18.56Z" transform="translate(-0.01 -0.02)"/>
+                    <path class="cls-filled-2" d="M4.55,1" transform="translate(-0.01 -0.02)"/>
                 </svg>
-                <svg id="zhuTripleStar" class="${zhuTripleStarDisplay}"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 199.83 190.22" fill="#00ad11">
+                <svg id="zhuJokerStar" class="${zhuJokerStarDisplay}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65.68 65.68" fill="#00ad11">
                     <defs>
                         <style>
-                            .cls-star {
-                                stroke: #00ad11;
+                            .cls-joker {
+                                fill: none;
+                                stroke: #000;
                                 stroke-miterlimit: 10;
                                 stroke-width: 10px;
                             }
                         </style>
                     </defs>
-                    <path class="cls-star" d="M147.41,56.47l24.94,67.64a.71.71,0,0,0,.63.45l72,2.82a.7.7,0,0,1,.4,1.24l-56.62,44.62a.7.7,0,0,0-.23.73l19.57,69.39a.69.69,0,0,1-1,.76l-59.94-40.06a.71.71,0,0,0-.77,0L86.44,244.12a.69.69,0,0,1-1-.76L105,174a.69.69,0,0,0-.24-.73L48.11,128.62a.69.69,0,0,1,.4-1.24l72-2.82a.68.68,0,0,0,.62-.45l25-67.64A.69.69,0,0,1,147.41,56.47Z" transform="translate(-46.84 -55.02)"/>
+                    <path class="cls-joker" d="M154.27,132.13" transform="translate(-121.42 -99.29)"/>
+                    <path d="M154.27,99.29a32.84,32.84,0,1,0,32.84,32.84A32.84,32.84,0,0,0,154.27,99.29Zm23,28.09-9.95,7.89a2.18,2.18,0,0,0-.74,2.29L170,149.85a2.69,2.69,0,0,1-.32,2.19,2.66,2.66,0,0,1-3.68.81l-10.5-7.13a2.15,2.15,0,0,0-2.38,0l-10.5,7.13a2.63,2.63,0,0,1-2.29.34,2.66,2.66,0,0,1-1.76-3.34L142,137.56a2.18,2.18,0,0,0-.73-2.29l-10-7.89a2.7,2.7,0,0,1,1.55-4.81l12.64-.47a2.11,2.11,0,0,0,1.92-1.41l4.35-12a2.66,2.66,0,0,1,5,0l4.35,12A2.11,2.11,0,0,0,163,122.1l12.64.47a2.7,2.7,0,0,1,1.55,4.81Z" transform="translate(-121.42 -99.29)"/>
                 </svg>
             </div>
         </div>

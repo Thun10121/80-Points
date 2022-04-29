@@ -92,7 +92,7 @@ body {
     margin: .5vmin;
 }
 
-#zhuStar {
+#zhuSolidStar {
     z-index: 2;
     height: 3vmin;
     width: 3vmin;
@@ -101,8 +101,8 @@ body {
     margin: .5vmin;
 }
 
-#zhuDoubleStar {
-    z-index: 2;
+#zhuFilledStar {
+    z-index: 3;
     height: 3vmin;
     width: 3vmin;
     position: absolute;
@@ -111,13 +111,12 @@ body {
     margin: .5vmin;
 }
 
-#zhuTripleStar {
+#zhuJokerStar {
     z-index: 2;
     height: 3vmin;
     width: 3vmin;
     position: absolute;
     bottom: 0;
-    left: 2vmin;
     margin: .5vmin;
 }
 
