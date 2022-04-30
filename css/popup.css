@@ -321,3 +321,26 @@
     font-family: 'Shippori Mincho B1', serif;
     font-weight: 600;
 }
+
+#fanDiv {
+    z-index: -1;
+    height: fit-content;
+    width: fit-content;
+    position: absolute;
+    left: 50%;
+    top: -50%;
+    transform: translateX(-50%,50%);
+}
+
+.fan-card {
+    height: 30vmin;
+    width: auto;
+    position: absolute;
+    transform-origin: bottom left;
+    transform: rotate(calc(var(--card) * 20deg - 90deg));
+    padding-bottom: 20vmin;
+    user-drag: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+}

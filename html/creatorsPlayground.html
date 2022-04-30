@@ -23,8 +23,12 @@
         width: auto;
         position: absolute;
         transform-origin: bottom left;
-        transform: rotate(calc(var(--card) *  20deg - 90deg));
-        /* padding-bottom: 5vmin; */
+        transform: rotate(calc(var(--card) * 20deg - 90deg));
+        padding-bottom: 15vmin;
+        user-drag: none;
+        user-select: none;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
     }
 </style>
 
@@ -37,7 +41,7 @@
     let fanDIV = document.getElementById("fanDiv");
     for (let i = 0; i < 10; i++) {
         let fanCard = `
-            <img class="fan-card" style="--card:${i}" src="../photos/card-back.svg">        
+            <img class="fan-card" style="--card:${i}" src="../photos/cardBK-inverted.svg">        
             `;
         fanDiv.innerHTML += fanCard;
     }
