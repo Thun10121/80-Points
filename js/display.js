@@ -13,7 +13,7 @@ let played4 = document.getElementById("playedcard4");
 let deck = [deck1, deck2, deck3, deck4];
 let played = [played1, played2, played3, played4];
 
-function createCard(cardInputted, zhuSuit, zhuNumber) {
+function createCard(cardInputted, zhuSuit, zhuNumber, cardIndex) {
     let cardSuit = cardInputted.substring(0, 1);
     let cardNumber = cardInputted.substring(1, cardInputted.length);
     let suitColor = "red";
@@ -37,7 +37,7 @@ function createCard(cardInputted, zhuSuit, zhuNumber) {
         }
     }
     let cardsHTML = `
-    <div id="card-border">
+    <div id="card-border${cardIndex}" class="card-border card-border-deactive" onclick="initiateCard('${cardSuit}', '${cardNumber}', '${cardIndex}')">
         <div id="card-inner-border" class="${borderColor}">
             <div id="card-content">
                 <div id="card-type">
@@ -131,14 +131,23 @@ function createCard(cardInputted, zhuSuit, zhuNumber) {
     return cardsHTML;
 }
 
+function initiateCard(suit, number, index) {
+    let cardID = document.getElementById(`card-border${index}`);
+    cardID.classList.toggle("card-border-active");
+    cardID.classList.toggle("card-border-deactive");
+
+}
+
 function displayDecks(zhuSuit, zhuNumber) {
     let count = 0;
     deck.forEach(deckN => {
         if (count == 0) {
             console.log(players[0]);
             deckN.innerHTML = '';
+            let count = 0;
             players[0].forEach(cardN => {
-                deckN.innerHTML += createCard(cardN, zhuSuit, zhuNumber);
+                deckN.innerHTML += createCard(cardN, zhuSuit, zhuNumber, count);
+                count++;
             });
         } else {
             let cardHTML = `
@@ -163,7 +172,7 @@ function displayPlayed() {
     });
 }
 
-function displayResult(){
+function displayResult() {
     let fanDIV = document.getElementById("fanDiv");
     for (let i = 0; i < 10; i++) {
         let fanCard = `

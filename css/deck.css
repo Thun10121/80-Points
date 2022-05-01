@@ -1,6 +1,6 @@
 #player-decks1 {
     width: fit-content;
-    height: 13vmin; 
+    height: 13vmin;
     z-index: 1;
     bottom: 0;
     margin-bottom: 8vmin;
@@ -10,12 +10,16 @@
     transform: translateX(-50%);
 }
 
-#player-decks1-content #card-border{
+#player-decks1-content .card-border {
     transition: 200ms;
     object-fit: scale-down;
     margin: -4vmin;
 }
 
-#player-decks1-content #card-border:hover {
+#player-decks1-content .card-border-deactive:hover {
+    transform: scale(1.1) translateY(-6vmin);
+}
+
+#player-decks1-content .card-border-active {
     transform: scale(1.1) translateY(-6vmin);
 }
