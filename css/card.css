@@ -6,7 +6,7 @@ body {
 
 #card-inner-border{
     aspect-ratio: 216/336;
-    padding: .3vmin;
+    padding: .5vmin;
     border-radius: 1vmin;
 }
 
@@ -14,7 +14,7 @@ body {
     object-fit: scale-down;
     height: auto;
     aspect-ratio: 216/336;
-    padding: .3vmin;
+    padding: .5vmin;
     border-radius: 1vmin;
     /* background: linear-gradient(to left,
             rgb(231, 205, 59),
@@ -90,7 +90,7 @@ body {
     width: 3vmin;
     position: absolute;
     bottom: 0;
-    margin: .5vmin;
+    margin: .25vmin;
 }
 
 #zhuSolidStar {
@@ -99,7 +99,7 @@ body {
     width: 3vmin;
     position: absolute;
     bottom: 0;
-    margin: .5vmin;
+    margin: .25vmin;
 }
 
 #zhuFilledStar {
@@ -109,7 +109,7 @@ body {
     position: absolute;
     bottom: 0;
     left: 1vmin;
-    margin: .5vmin;
+    margin: .25vmin;
 }
 
 #zhuJokerStar {
@@ -118,7 +118,7 @@ body {
     width: 3vmin;
     position: absolute;
     bottom: 0;
-    margin: .5vmin;
+    margin: .25vmin;
 }
 
 .hide{
