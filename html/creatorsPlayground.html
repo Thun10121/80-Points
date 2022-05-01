@@ -13,6 +13,7 @@
         height: fit-content;
         width: fit-content;
         position: absolute;
+        top: 20%;
         left: 50%;
         transform: translateX(-50%);
         background-color: aqua;
@@ -24,7 +25,7 @@
         position: absolute;
         transform-origin: bottom left;
         transform: rotate(calc(var(--card) * 20deg - 90deg));
-        padding-bottom: 15vmin;
+        /* padding-bottom: 15vmin; */
         user-drag: none;
         user-select: none;
         -webkit-user-drag: none;
@@ -39,7 +40,7 @@
 
 <script type="text/javascript">
     let fanDIV = document.getElementById("fanDiv");
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 8; i++) {
         let fanCard = `
             <img class="fan-card" style="--card:${i}" src="../photos/cardBK-inverted.svg">        
             `;

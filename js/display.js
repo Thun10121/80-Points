@@ -165,9 +165,9 @@ function displayPlayed() {
 
 function displayResult(){
     let fanDIV = document.getElementById("fanDiv");
-    for (let i = 0; i < 9; i++) {
+    for (let i = 0; i < 10; i++) {
         let fanCard = `
-            <img class="fan-card" style="--card:${i}" src="../photos/cardBK-inverted.svg">        
+            <img class="fan-card" id="fan-card" style="--card:${i}" src="../photos/cardBK-inverted.svg">        
             `;
         fanDiv.innerHTML += fanCard;
     }
