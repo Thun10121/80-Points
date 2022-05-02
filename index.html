@@ -178,7 +178,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <div id="icons">
                 <div id="icon-container">
@@ -186,7 +185,7 @@
                         <div class="front-icon" id="front-icon">
                             <!--!login icon-->
                             <svg class="front-icon-svg" id="login" xmlns="http://www.w3.org/2000/svg" height="24px"
-                                viewBox="0 0 24 24" width="24px" onclick="logins()">
+                                viewBox="0 0 24 24" width="24px" onclick="popup('login')">
                                 <g>
                                     <rect fill="none" height="24" width="24" />
                                 </g>
@@ -200,8 +199,8 @@
                     <div class="front-icon-background-border" id="help">
                         <div class="front-icon">
                             <!--!help icon-->
-                            <svg class="front-icon-svg" id="help-icon" xmlns="http://www.w3.org/2000/svg" height="24px"
-                                viewBox="0 0 24 24" width="24px" onclick="instructions()">
+                            <svg class="front-icon-svg" id="instructions-icon" xmlns="http://www.w3.org/2000/svg" height="24px"
+                                viewBox="0 0 24 24" width="24px" onclick="popup('instructions')">
                                 <linearGradient id="gold" x1="36.44" y1="51.18" x2="86.38" y2="30.25"
                                     gradientUnits="userSpaceOnUse">
                                     <stop offset="0.34" stop-color="#f0d750" />
@@ -216,11 +215,11 @@
                             </svg>
                         </div>
                     </div>
-                    <div class="front-icon-background-border" id="setting">
+                    <div class="front-icon-background-border" id="settings">
                         <div class="front-icon">
                             <!--!setting icon-->
-                            <svg class="front-icon-svg" id="setting" xmlns="http://www.w3.org/2000/svg" height="24px"
-                                viewBox="0 0 24 24" width="24px" onclick="settings()">
+                            <svg class="front-icon-svg" id="settings" xmlns="http://www.w3.org/2000/svg" height="24px"
+                                viewBox="0 0 24 24" width="24px" onclick="popup('settings')">
                                 <path d="M0 0h24v24H0V0z" fill="none" />
                                 <path
                                     d="M19.43 12.98c.04-.32.07-.64.07-.98 0-.34-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.09-.16-.26-.25-.44-.25-.06 0-.12.01-.17.03l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.06-.02-.12-.03-.18-.03-.17 0-.34.09-.43.25l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98 0 .33.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.09.16.26.25.44.25.06 0 .12-.01.17-.03l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.06.02.12.03.18.03.17 0 .34-.09.43-.25l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zm-1.98-1.71c.04.31.05.52.05.73 0 .21-.02.43-.05.73l-.14 1.13.89.7 1.08.84-.7 1.21-1.27-.51-1.04-.42-.9.68c-.43.32-.84.56-1.25.73l-1.06.43-.16 1.13-.2 1.35h-1.4l-.19-1.35-.16-1.13-1.06-.43c-.43-.18-.83-.41-1.23-.71l-.91-.7-1.06.43-1.27.51-.7-1.21 1.08-.84.89-.7-.14-1.13c-.03-.31-.05-.54-.05-.74s.02-.43.05-.73l.14-1.13-.89-.7-1.08-.84.7-1.21 1.27.51 1.04.42.9-.68c.43-.32.84-.56 1.25-.73l1.06-.43.16-1.13.2-1.35h1.39l.19 1.35.16 1.13 1.06.43c.43.18.83.41 1.23.71l.91.7 1.06-.43 1.27-.51.7 1.21-1.07.85-.89.7.14 1.13zM12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" />
@@ -289,205 +288,200 @@
             </div>
         </div>
     </div>
-    <div class="popup" id="settings-page">
-        <div class="popup-modal" id="settings-modal"></div>
-        <div class="popup-content" id="settings-content">
-            <div class="popup-x-button" id="settings-x-button">
-                <svg class="popup-x-button-icon" id="x" xmlns="http://www.w3.org/2000/svg" height="24px"
-                    viewBox="0 0 24 24" width="24px" onclick="settings()">
-                    <path d="M0 0h24v24H0V0z" fill="none" />
-                    <path
-                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
-                </svg>
-            </div>
-            <h1>Settings</h1>
+    <div class="popup-content popup-hide popup-hide-opacity" id="settings-page">
+        <div class="popup-x-button" id="settings-x-button">
+            <svg class="popup-x-button-icon" id="x" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24"
+                width="24px" onclick="popup('settings')">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path
+                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
+            </svg>
         </div>
+        <h1>Settings</h1>
     </div>
-    <div class="popup" id="instructions-page">
-        <div class="popup-modal" id="instructions-modal"></div>
-        <div class="popup-content" id="instructions-content">
-            <div class="popup-x-button" id="instructions-x-button">
-                <svg class="popup-x-button-icon" id="x" xmlns="http://www.w3.org/2000/svg" height="24px"
-                    viewBox="0 0 24 24" width="24px" onclick="instructions()">
-                    <path d="M0 0h24v24H0V0z" fill="none" />
-                    <path
-                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
-                </svg>
-            </div>
-            <div id="instructions-content-title">
-            </div>
-            <div id="instructions-content-text">
-                <!-- <h2 id="instructions-content-subtitle">Basics</h2> -->
-                <p>
-                    Basics:<br>
-                    There are two teams of two, making four players in total. During the game, partners will be placed
-                    opposite of each other so two people of the same team never play consecutively.
-                    <br>
-                    During each game, there is one team that is trying to “protect” points and one trying to “catch”
-                    points. For instructional purposes, the former will be called defenders and the latter will be
-                    called attackers.
-                    <br>
-                    In each round of the game, each person only plays once (though not necessarily one card, more
-                    instruction later). The person who plays the largest value in a particular round will protect/catch
-                    all the points played in that round for their team.
-                    <br>
-                    If the attacking team captures 80 or more points by the end, they win that game and become the
-                    defending team next game. If the attacking team fails to capture 80 points, the defending team
-                    levels up and continues as the defending team in the next game. The aim of 80 points is to be the
-                    first team to play through all levels.
-                    <br>
-                    Order of cards from smallest to largest value:
-                    2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K, A, Jokers (black, then red)
-                    <br><br>
-                    Point-cards and their worths:<br>
-                    5: 5pt<br>
-                    10: 10pt<br>
-                    K: 10pt<br>
-                    All other cards: no point values<br>
-                    Total possible points: 200pt<br>
-                    Note that 5, 10 and K are both playing cards and point cards. That is, if, during the round, the
-                    previous players have played 2, 6, and 8, the final player can play a 10 to have the largest value
-                    that round and also protect/catch the 10pts they played.
-                    <br><br>
-                    Card-Drawing Process:
-                    Both teams start at level 2, and level up through the cards until level A. Everyone draws cards from
-                    the deck in counterclockwise order, one card at a time.
-                    <br>
-                    Say the current level is 2: if you draw a 2 and decide to “call” it, the suit of your particular 2
-                    will be the main suit. Typically, it is beneficial to have as many cards of the main suit as
-                    possible. If anyone wants to change the main suit, he/she must have A PAIR OF 2s of the same suit.
-                    In this case, the previous suit will no longer be the main suit. If one decides to make this game no
-                    main suit, he/she must have A PAIR OF JOKERS (either two red jokers or two black jokers) to call 无主,
-                    which means that none of the suits is the main suit.
-                    <br>
-                    The game is played with two decks and there will be 8 cards left after everyone draws, giving each
-                    player 25 cards. The 8 leftover cards are the exchange cards.
-                    <br><br>
-                    Exchange cards:
-                    One person from the defending side will be able to pick up the 8 exchange cards. However, they must
-                    decide to put back down 8 cards from what they have. These 8 cards may consist of any of the 8
-                    exchange cards that were picked up, or any other cards in their hand, as long as it is 8 total.
-                    These cards will not be shown to anyone and will not be touched until the end of the game. Whoever
-                    is in this position has a slight advantage as they essentially get 8 extra cards and are able to get
-                    rid of 8 unfavorable cards.
-                    <br>
-                    If the player decides to “abandon” point value cards, the points are not necessarily safe and can
-                    still be captured by the attacking side at the very end of each game. More information later.
-                    <br><br>
-                    During the Game:
-                    The game starts with the defender who took the exchange cards. Typically, they will start with
-                    large-valued cards in their minor suits to give their partner an opportunity to “protect” their
-                    point cards (ex. I would play an ace of hearts. My partner knows that is almost certain to be the
-                    largest card that round, so they might play a 10 of hearts to protect those 10pts). After that,
-                    whoever played the largest card(s) in the previous round will start the upcoming round.
-                    <br>
-                    The first person may choose to play anything of his/her choice. After that, the remaining three
-                    players must play cards of the same suit if they have them.
-                    <br>
-                    There are a few ways the first person can start a new round:
-                    Play one card, where everyone else will follow up with one single card from the original suit if
-                    they have it.
-                    Play a pair (two cards of the same value and the same suit), where everyone else must follow with a
-                    pair of cards from that suit if they have it. If they don’t have a pair, they have to play two
-                    single cards from the suit. Pairs are always valued over single cards. For example, during the round
-                    of pairs, a pair of 3’s will be larger than someone playing a K and A.
-                    Play multiple cards. In this case, it could be a mix of single and/or pair(s) of cards. However, one
-                    constraint is that any single card in this multiple numbers of cards has to be the largest single
-                    card out of the cards that haven’t been played yet, and any pair being played has to be guaranteed
-                    to be the largest pair that has not been played yet. (For example, combinations such as AAK, AKK,
-                    AKKQQ are always allowed)
-                    Play a tractor, a combination of two or more consecutive pairs of cards, such as 3344, 8899, JJQQ,
-                    223344 etc.
-                    <br>
-                    All cards played by the first person must be of the same suit. No exceptions.
-                    <br>
-                    No matter which of the four scenarios above is happening:
-                    Everyone must play the same number of cards as the first person of the round; after each round,
-                    everyone should have the same number of cards left in their hand.
-                    If any pairs are being played by the first person, all following players must play the maximum
-                    number of pairs they have to match the number of pairs played by the first person in that suit. If
-                    any of the players do not have enough pairs, that should be made up of single cards.
-                    Suits always come first!! If you have ANY cards of the original suit being played in the current
-                    round, you HAVE TO play them first. Otherwise, your team will be penalized.
-                    <br>
-                    Stuffing and Killing (only applies if you do not have any cards of the original suit left):
-                    Stuffing: Play cards of any other minor suit instead. If you do this, no matter the value of the
-                    card, it will not be greater than cards of the original suit, thus it can never be the greatest card
-                    of the round. Say the current round is diamonds, a 3 of diamonds would be greater than an A of clubs
-                    (assuming clubs is not the main suit for the game).
-                    Killing: Play a “main card”. Main cards are greater than minor cards. If everyone else plays a minor
-                    card, but you have none left in that suit, you can play a “main card” and no matter how small your
-                    main card is, it is always greater than everyone else. However, if the original player plays a pair,
-                    you must also play a pair of main cards to kill them. If you play two different main cards, it is
-                    not greater than their pair of minor cards. The same applies to multiple cards and tractors. You
-                    must have multiple cards or tractors to kill.
-                    <br>
-                    At the end of each round, any points caught by the attacking side will be totaled. Note that the
-                    attacking side can catch their partner’s point cards or the defending team’s point cards; any points
-                    that were played that round are up for grabs no matter the player.
-                    <br>
-                    This repeats in multiple rounds until everyone has played all of their cards.
-                    <br><br>
-                    Main cards:
-                    Main cards include jokers, the “level card” the defenders are currently on (i.e., if the level is 2,
-                    all 2s NO MATTER THE SUIT are main cards; the “level card” is special and its value is different
-                    than when it isn’t a “level card”), and all cards of the suit that was called during the
-                    card-drawing process.
-                    <br>
-                    Exception: if a pair of Jokers called for 无主 during the drawing stage, only Jokers and the current
-                    level cards would count as main cards. All suits are minor cards.
-                    <br>
-                    Order: say if a spade of 2 is being called, then the order of the main cards would be spades of 3-A,
-                    then the 2’s (heart, club, diamond, with equal value), then the spades of 2’s (2 of them in total),
-                    then the jokers. All other cards are minor cards. The level cards always have the greatest value
-                    just behind the jokers, no matter the actual number of the card.
-                    <br>
-                    In the minor card suits, there are simply no cards where the level cards should be. If we are on the
-                    level of 2, all 2’s are not taken into account on regular cards. That means if the current round is
-                    diamonds (assuming diamond is a minor suit), and you have no diamond cards left except 2 of
-                    diamonds, you may still choose to stuff or kill since the 2 of diamonds in this game is counted as a
-                    main card, not diamonds.
-                    <br><br>
-                    After the game:
-                    <br>
-                    Whoever has the largest card for the very last round can protect/catch any points in the exchange
-                    cards (8 cards that were exchanged at the very beginning of the game).
-                    <br>
-                    If defending players are the largest for the last round, they are able to protect any points (5, 10,
-                    K) that they may have thrown into the exchange cards.
-                    <br>
-                    However, if the attacking players are the largest, whatever points are in the exchange cards (and
-                    exchange cards only) are doubled and added to the total points they caught (5 -> 10pts; 10 -> 20pts;
-                    K -> 20pts).
-                    <br>
-                    If the last round played is more than one card and the catching team is the largest, the points in
-                    the exchange cards will grow exponentially (2^n, where n is the number of cards in the last round).
-                    For example, if the last round is played as a pair, the points will quadruple (2^2). Of course, it
-                    is completely possible that there are no points in the 底牌, which would provide no additional points.
-                    <br>
-                    If the defenders win on level 2, they advance to level 3. If the attackers win on level 2, they
-                    return to whichever level the attackers were on before they were defeated. Each team’s level is
-                    independent of the other.
-                    <br><br>
-                    Skipping levels:
-                    If 0 points are captured, the defending team skips two levels, advancing three levels. Level 2 skips
-                    to level 5
-                    If less than 40 points are captured, the defending team skips one level, advancing two levels. Level
-                    2 skips to level 4.
-                    If 40 to 75 points are captured, the defending team advances one level. Level 2 to level 3.
-                    If 80 to 115 points are captured, the attacking team becomes the defending team on whichever level
-                    they lost on. Assuming the level they failed to level up on was level 2, the attacking team becomes
-                    the defending team on level 2.
-                    If 120 to 155 points are captured, the attacking team becomes the defending team and skips one
-                    level. Assuming the level they failed to level up on was level 2, the attacking team becomes the
-                    defending team on level 3.
-                    If 160 or more points are captured, the attacking team becomes the defending team and skips two
-                    levels. Assuming the level they failed to level up on was level 2, the attacking team becomes the
-                    defending team on level 4.
-                    <br>
-                    Exception: Levels 2, 5, 10, K, and Ace CANNOT BE SKIPPED.
-                </p>
-                <!-- <p id="instructions-content-paragraph">
+    <div class="popup-content popup-hide popup-hide-opacity" id="instructions-page">
+        <div class="popup-x-button" id="instructions-x-button">
+            <svg class="popup-x-button-icon" id="x" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24"
+                width="24px" onclick="popup('instructions')">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path
+                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
+            </svg>
+        </div>
+        <div id="instructions-title">
+        </div>
+        <div id="instructions-text">
+            <!-- <h2 id="instructions-content-subtitle">Basics</h2> -->
+            <p>
+                Basics:<br>
+                There are two teams of two, making four players in total. During the game, partners will be placed
+                opposite of each other so two people of the same team never play consecutively.
+                <br>
+                During each game, there is one team that is trying to “protect” points and one trying to “catch”
+                points. For instructional purposes, the former will be called defenders and the latter will be
+                called attackers.
+                <br>
+                In each round of the game, each person only plays once (though not necessarily one card, more
+                instruction later). The person who plays the largest value in a particular round will protect/catch
+                all the points played in that round for their team.
+                <br>
+                If the attacking team captures 80 or more points by the end, they win that game and become the
+                defending team next game. If the attacking team fails to capture 80 points, the defending team
+                levels up and continues as the defending team in the next game. The aim of 80 points is to be the
+                first team to play through all levels.
+                <br>
+                Order of cards from smallest to largest value:
+                2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K, A, Jokers (black, then red)
+                <br><br>
+                Point-cards and their worths:<br>
+                5: 5pt<br>
+                10: 10pt<br>
+                K: 10pt<br>
+                All other cards: no point values<br>
+                Total possible points: 200pt<br>
+                Note that 5, 10 and K are both playing cards and point cards. That is, if, during the round, the
+                previous players have played 2, 6, and 8, the final player can play a 10 to have the largest value
+                that round and also protect/catch the 10pts they played.
+                <br><br>
+                Card-Drawing Process:
+                Both teams start at level 2, and level up through the cards until level A. Everyone draws cards from
+                the deck in counterclockwise order, one card at a time.
+                <br>
+                Say the current level is 2: if you draw a 2 and decide to “call” it, the suit of your particular 2
+                will be the main suit. Typically, it is beneficial to have as many cards of the main suit as
+                possible. If anyone wants to change the main suit, he/she must have A PAIR OF 2s of the same suit.
+                In this case, the previous suit will no longer be the main suit. If one decides to make this game no
+                main suit, he/she must have A PAIR OF JOKERS (either two red jokers or two black jokers) to call 无主,
+                which means that none of the suits is the main suit.
+                <br>
+                The game is played with two decks and there will be 8 cards left after everyone draws, giving each
+                player 25 cards. The 8 leftover cards are the exchange cards.
+                <br><br>
+                Exchange cards:
+                One person from the defending side will be able to pick up the 8 exchange cards. However, they must
+                decide to put back down 8 cards from what they have. These 8 cards may consist of any of the 8
+                exchange cards that were picked up, or any other cards in their hand, as long as it is 8 total.
+                These cards will not be shown to anyone and will not be touched until the end of the game. Whoever
+                is in this position has a slight advantage as they essentially get 8 extra cards and are able to get
+                rid of 8 unfavorable cards.
+                <br>
+                If the player decides to “abandon” point value cards, the points are not necessarily safe and can
+                still be captured by the attacking side at the very end of each game. More information later.
+                <br><br>
+                During the Game:
+                The game starts with the defender who took the exchange cards. Typically, they will start with
+                large-valued cards in their minor suits to give their partner an opportunity to “protect” their
+                point cards (ex. I would play an ace of hearts. My partner knows that is almost certain to be the
+                largest card that round, so they might play a 10 of hearts to protect those 10pts). After that,
+                whoever played the largest card(s) in the previous round will start the upcoming round.
+                <br>
+                The first person may choose to play anything of his/her choice. After that, the remaining three
+                players must play cards of the same suit if they have them.
+                <br>
+                There are a few ways the first person can start a new round:
+                Play one card, where everyone else will follow up with one single card from the original suit if
+                they have it.
+                Play a pair (two cards of the same value and the same suit), where everyone else must follow with a
+                pair of cards from that suit if they have it. If they don’t have a pair, they have to play two
+                single cards from the suit. Pairs are always valued over single cards. For example, during the round
+                of pairs, a pair of 3’s will be larger than someone playing a K and A.
+                Play multiple cards. In this case, it could be a mix of single and/or pair(s) of cards. However, one
+                constraint is that any single card in this multiple numbers of cards has to be the largest single
+                card out of the cards that haven’t been played yet, and any pair being played has to be guaranteed
+                to be the largest pair that has not been played yet. (For example, combinations such as AAK, AKK,
+                AKKQQ are always allowed)
+                Play a tractor, a combination of two or more consecutive pairs of cards, such as 3344, 8899, JJQQ,
+                223344 etc.
+                <br>
+                All cards played by the first person must be of the same suit. No exceptions.
+                <br>
+                No matter which of the four scenarios above is happening:
+                Everyone must play the same number of cards as the first person of the round; after each round,
+                everyone should have the same number of cards left in their hand.
+                If any pairs are being played by the first person, all following players must play the maximum
+                number of pairs they have to match the number of pairs played by the first person in that suit. If
+                any of the players do not have enough pairs, that should be made up of single cards.
+                Suits always come first!! If you have ANY cards of the original suit being played in the current
+                round, you HAVE TO play them first. Otherwise, your team will be penalized.
+                <br>
+                Stuffing and Killing (only applies if you do not have any cards of the original suit left):
+                Stuffing: Play cards of any other minor suit instead. If you do this, no matter the value of the
+                card, it will not be greater than cards of the original suit, thus it can never be the greatest card
+                of the round. Say the current round is diamonds, a 3 of diamonds would be greater than an A of clubs
+                (assuming clubs is not the main suit for the game).
+                Killing: Play a “main card”. Main cards are greater than minor cards. If everyone else plays a minor
+                card, but you have none left in that suit, you can play a “main card” and no matter how small your
+                main card is, it is always greater than everyone else. However, if the original player plays a pair,
+                you must also play a pair of main cards to kill them. If you play two different main cards, it is
+                not greater than their pair of minor cards. The same applies to multiple cards and tractors. You
+                must have multiple cards or tractors to kill.
+                <br>
+                At the end of each round, any points caught by the attacking side will be totaled. Note that the
+                attacking side can catch their partner’s point cards or the defending team’s point cards; any points
+                that were played that round are up for grabs no matter the player.
+                <br>
+                This repeats in multiple rounds until everyone has played all of their cards.
+                <br><br>
+                Main cards:
+                Main cards include jokers, the “level card” the defenders are currently on (i.e., if the level is 2,
+                all 2s NO MATTER THE SUIT are main cards; the “level card” is special and its value is different
+                than when it isn’t a “level card”), and all cards of the suit that was called during the
+                card-drawing process.
+                <br>
+                Exception: if a pair of Jokers called for 无主 during the drawing stage, only Jokers and the current
+                level cards would count as main cards. All suits are minor cards.
+                <br>
+                Order: say if a spade of 2 is being called, then the order of the main cards would be spades of 3-A,
+                then the 2’s (heart, club, diamond, with equal value), then the spades of 2’s (2 of them in total),
+                then the jokers. All other cards are minor cards. The level cards always have the greatest value
+                just behind the jokers, no matter the actual number of the card.
+                <br>
+                In the minor card suits, there are simply no cards where the level cards should be. If we are on the
+                level of 2, all 2’s are not taken into account on regular cards. That means if the current round is
+                diamonds (assuming diamond is a minor suit), and you have no diamond cards left except 2 of
+                diamonds, you may still choose to stuff or kill since the 2 of diamonds in this game is counted as a
+                main card, not diamonds.
+                <br><br>
+                After the game:
+                <br>
+                Whoever has the largest card for the very last round can protect/catch any points in the exchange
+                cards (8 cards that were exchanged at the very beginning of the game).
+                <br>
+                If defending players are the largest for the last round, they are able to protect any points (5, 10,
+                K) that they may have thrown into the exchange cards.
+                <br>
+                However, if the attacking players are the largest, whatever points are in the exchange cards (and
+                exchange cards only) are doubled and added to the total points they caught (5 -> 10pts; 10 -> 20pts;
+                K -> 20pts).
+                <br>
+                If the last round played is more than one card and the catching team is the largest, the points in
+                the exchange cards will grow exponentially (2^n, where n is the number of cards in the last round).
+                For example, if the last round is played as a pair, the points will quadruple (2^2). Of course, it
+                is completely possible that there are no points in the 底牌, which would provide no additional points.
+                <br>
+                If the defenders win on level 2, they advance to level 3. If the attackers win on level 2, they
+                return to whichever level the attackers were on before they were defeated. Each team’s level is
+                independent of the other.
+                <br><br>
+                Skipping levels:
+                If 0 points are captured, the defending team skips two levels, advancing three levels. Level 2 skips
+                to level 5
+                If less than 40 points are captured, the defending team skips one level, advancing two levels. Level
+                2 skips to level 4.
+                If 40 to 75 points are captured, the defending team advances one level. Level 2 to level 3.
+                If 80 to 115 points are captured, the attacking team becomes the defending team on whichever level
+                they lost on. Assuming the level they failed to level up on was level 2, the attacking team becomes
+                the defending team on level 2.
+                If 120 to 155 points are captured, the attacking team becomes the defending team and skips one
+                level. Assuming the level they failed to level up on was level 2, the attacking team becomes the
+                defending team on level 3.
+                If 160 or more points are captured, the attacking team becomes the defending team and skips two
+                levels. Assuming the level they failed to level up on was level 2, the attacking team becomes the
+                defending team on level 4.
+                <br>
+                Exception: Levels 2, 5, 10, K, and Ace CANNOT BE SKIPPED.
+            </p>
+            <!-- <p id="instructions-content-paragraph">
                                 <h2 id="instructions-content-paragraph-subtitle">Teams</h2><br>
                                 This is a four-person game. Your teammate will be the person sitting on the opposite side of
                                 you.
@@ -529,23 +523,21 @@
                                     player(s)
                                     being the host.
                                 </p> -->
-            </div>
         </div>
     </div>
-    <div class="popup" id="login-page">
-        <div class="popup-modal" id="login-modal"></div>
-        <div class="popup-content" id="login-content">
-            <div class="popup-x-button" id="login-x-button">
-                <svg class="popup-x-button-icon" id="x" xmlns="http://www.w3.org/2000/svg" height="24px"
-                    viewBox="0 0 24 24" width="24px" onclick="logins()">
-                    <path d="M0 0h24v24H0V0z" fill="none" />
-                    <path
-                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
-                </svg>
-                <h1>Login</h1>
-            </div>
+    <div class="popup-content popup-hide popup-hide-opacity" id="login-page">
+        <div class="popup-x-button" id="login-x-button">
+            <svg class="popup-x-button-icon" id="x" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24"
+                width="24px" onclick="popup('login')">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path
+                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
+            </svg>
         </div>
+        <h1>Login</h1>
     </div>
+    <div id="modal" class="popup popup-hide-opacity popup-hide"></div>
+    
     <script src="js/variables.js"></script>
     <script src="js/button.js"></script>
     <script type="text/javascript">

@@ -1,23 +1,9 @@
 //!popups
-let ins = document.getElementById("instructions-page");
-let insContent = document.getElementById("instructions-content");
-let insModal = document.getElementById("instructions-modal");
-
-let set = document.getElementById("settings-page");
-let setContent = document.getElementById("settings-content");
-let setModal = document.getElementById("settings-modal");
-
-let log = document.getElementById("login-page");
-let logContent = document.getElementById("login-content");
-let logModal = document.getElementById("login-modal");
+let modal = document.getElementById("modal");
 
 let exit = document.getElementById("Exitalert");
 let exitContent = document.getElementById("exit-content");
 let exitModal = document.getElementById("exit-modal");
-
-let his = document.getElementById("history-page");
-let hisContent = document.getElementById("history-content");
-let hisModal = document.getElementById("history-modal");
 
 let createButton = document.getElementById("front-button-create");
 let joinButton = document.getElementById("front-button-join");
@@ -33,11 +19,7 @@ let frontIcon = document.getElementById("icons");
 
 let frontPage = document.getElementById("front-page");
 
-let setStatus = false;
-let insStatus = false;
-let logStatus = false;
 let exitStatus = false;
-let hisStatus = false;
 
 function loading() {
     load.style.opacity = 0;
@@ -56,76 +38,22 @@ function loading() {
     // }, Math.floor(Math.random() * 2 + 2) * 1500);
 }
 
-function instructions() {
-    if (insStatus) {
-        setTimeout(function () {
-            insModal.style.opacity = "0";
-            insContent.style.opacity = "0";
-        }, 750);
-        insContent.style.display = 'none';
-        insModal.style.display = 'none';
-        ins.style.display = 'none';
-        insStatus = false;
-    } else {
-        insContent.style.display = 'flex';
-        insModal.style.display = 'block';
-        ins.style.display = 'flex';
-        setTimeout(function () {
-            insModal.style.opacity = ".75";
-        }, 10);
-        setTimeout(function () {
-            insContent.style.opacity = "1";
-        }, 100);
-        insStatus = true;
-    }
-}
-
-function settings() {
-    if (setStatus) {
-        setTimeout(function () {
-            setModal.style.opacity = "0";
-            setContent.style.opacity = "0";
-        }, 750);
-        setContent.style.display = 'none';
-        setModal.style.display = 'none';
-        set.style.display = 'none';
-        setStatus = false;
-    } else {
-        setContent.style.display = 'flex';
-        setModal.style.display = 'block';
-        set.style.display = 'flex';
-        setTimeout(function () {
-            setModal.style.opacity = ".75";
-        }, 10);
-        setTimeout(function () {
-            setContent.style.opacity = "1";
-        }, 100);
-        setStatus = true;
-    }
-}
-
-function logins() {
-    if (logStatus) {
-        setTimeout(function () {
-            logModal.style.opacity = "0";
-            logContent.style.opacity = "0";
-        }, 750);
-        logContent.style.display = 'none';
-        logModal.style.display = 'none';
-        log.style.display = 'none';
-        logStatus = false;
-    } else {
-        logContent.style.display = 'flex';
-        logModal.style.display = 'block';
-        log.style.display = 'flex';
-        setTimeout(function () {
-            logModal.style.opacity = ".75";
-        }, 10);
-        setTimeout(function () {
-            logContent.style.opacity = "1";
-        }, 100);
-        logStatus = true;
-    }
+function popup(div) {
+    let content = document.getElementById(`${div}-page`);
+    content.classList.toggle("popup-show");
+    modal.classList.toggle("popup-show");
+    setTimeout(function () {
+        modal.classList.toggle("popup-show-opacity-modal");
+    }, 10);
+    setTimeout(function () {
+        content.classList.toggle("popup-show-opacity");
+    }, 100);
+    setTimeout(function () {
+        content.classList.toggle("popup-hide-opacity");
+        modal.classList.toggle("popup-hide-opacity");
+    }, 1000);
+    modal.classList.toggle("popup-hide");
+    content.classList.toggle("popup-hide");
 }
 
 function exitAlert() {
@@ -149,30 +77,6 @@ function exitAlert() {
             exitContent.style.opacity = "1";
         }, 100);
         exitStatus = true;
-    }
-}
-
-function history() {
-    if (hisStatus) {
-        setTimeout(function () {
-            hisModal.style.opacity = "0";
-            hisContent.style.opacity = "0";
-        }, 750);
-        hisContent.style.display = 'none';
-        hisModal.style.display = 'none';
-        his.style.display = 'none';
-        hisStatus = false;
-    } else {
-        hisContent.style.display = 'flex';
-        hisModal.style.display = 'block';
-        his.style.display = 'flex';
-        setTimeout(function () {
-            hisModal.style.opacity = ".75";
-        }, 10);
-        setTimeout(function () {
-            hisContent.style.opacity = "1";
-        }, 100);
-        hisStatus = true;
     }
 }
 

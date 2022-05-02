@@ -17,18 +17,11 @@
     -webkit-text-fill-color: transparent;
 }
 
-.popup {
-    height: auto;
-    width: auto;
-    background-color: transparent;
-    display: none;
-}
-
-.popup * {
+.popup-content *{
     color: white;
 }
 
-.popup-modal {
+.popup#modal {
     position: fixed;
     left: 50%;
     top: 50%;
@@ -36,8 +29,6 @@
     height: 100vh;
     width: 100vw;
     background-color: black;
-    opacity: 0;
-    display: none;
     transition: 750ms;
     z-index: 10;
 }
@@ -82,22 +73,21 @@
     width: 4vmin;
 }
 
-#instructions-content-title {
+#instructions-page{
+    flex-direction: column;
+}
+
+#instructions-title {
     font-family: 'Turret Road', cursive;
     font-weight: bold;
 }
 
-#instructions-content-subtitle {
+#instructions-subtitle {
     text-align: right;
 }
 
-#instructions-content-paragraph {
+#instructions-paragraph {
     font-family: 'Roboto', sans-serif;
-}
-
-#login-content {
-    overflow-y: hidden;
-    border-radius: 1vmin;
 }
 
 #login-content h1 {
@@ -320,7 +310,6 @@
     margin-bottom: 1vmin;
 }
 
-
 .player-pfp-img {
     height: 8vmin;
     width: 8vmin;
@@ -355,4 +344,24 @@
     -webkit-user-drag: none;
     -webkit-user-select: none;
     -moz-user-select: none;
+}
+
+.popup-hide-opacity{
+    opacity: 0;
+}
+
+.popup-show-opacity{
+    opacity: 1;
+}
+
+.popup-show-opacity-modal{
+    opacity: .75;
+}
+
+.popup-hide{
+    display: none;
+}
+
+.popup-show{
+    display: flex;
 }
