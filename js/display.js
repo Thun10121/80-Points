@@ -135,7 +135,6 @@ function initiateCard(suit, number, index) {
     let cardID = document.getElementById(`card-border${index}`);
     cardID.classList.toggle("card-border-active");
     cardID.classList.toggle("card-border-deactive");
-
 }
 
 function displayDecks(zhuSuit, zhuNumber) {

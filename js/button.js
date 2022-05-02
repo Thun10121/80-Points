@@ -250,4 +250,4 @@ function inOrderZhu() {
 
 function home() {
     document.location = "../index.html";
-}3333
+}

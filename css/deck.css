@@ -17,7 +17,7 @@
 }
 
 #player-decks1-content .card-border-deactive:hover {
-    transform: scale(1.1) translateY(-6vmin);
+    transform: scale(1.1) translateY(-3vmin);
 }
 
 #player-decks1-content .card-border-active {

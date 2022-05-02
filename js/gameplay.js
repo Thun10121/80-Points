@@ -262,8 +262,8 @@ function findLargestCard(card1, card2, card3, card4, zhuSuit, zhuNumber) {
             highestZhu = zhuLevel;
         }
         cardMap.push(new CardInfo(card, player, zhuLevel));
-        console.log("ZhuLevel: " + zhuLevel);
     }
+    
     if(highestZhu > 0){ //if zhupai present
         for(let i = 0; i < cardMap.length; i++){
             if(cardMap[i].zhuLevel != highestZhu){
