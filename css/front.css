@@ -449,9 +449,11 @@ p {
             to(rgb(252, 225, 134)));
 }
 
-#front-button-background-border:hover .front-button .front-button-text {
-    color: var(--base4);
-    -webkit-text-stroke: .125vmin var(--base4);
+#front-button-background-border:hover .front-button .goldText {
+    -webkit-text-stroke: .0125vmin #000;
+    background: #000;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .front-button-text {
