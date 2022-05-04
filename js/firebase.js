@@ -1,13 +1,15 @@
-// Import the functions you need from the SDKs you need
+// functions import
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-analytics.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore-lite.js";
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js";
+import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-database.js";
+
+//URL you change change the thingy before .js
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+//configuration !do not touch
 const firebaseConfig = {
     apiKey: "AIzaSyANrI9PvNqHxOBjmiaNhiMWWjYXKIiPni0",
     authDomain: "points-dfd91.firebaseapp.com",
@@ -18,18 +20,30 @@ const firebaseConfig = {
     measurementId: "G-BWB9ZLR8T7"
 };
 
-// Initialize Firebase
+// intializations
 const app = initializeApp(firebaseConfig);
-const dp = getFirestore(app); //database
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
 
-onAuthStateChanged(auth, user => {
-    if (user != null) {
-        console.log('logged in!');
-    } else {
-        console.log('no user');
-    }
-});
+//functions
+function writeData() {
+    const db = getDatabase();
+    set(ref(db, 'games' + 1), {
+        game: 1,
+        points: 0,
+        players: 4
+    }).then(() => {
+        console.log("data saved");
+    });
+}
 
-console.log("hi");
+/* !example code need testing
+// Add a new document in collection "cities"
+await setDoc(doc(db, "cities", "LA"), {
+  name: "Los Angeles",
+  state: "CA",
+  country: "USA"
+});
+*/
+
+writeData();
