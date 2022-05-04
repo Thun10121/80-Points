@@ -315,18 +315,3 @@ function findLargestCard(card1, card2, card3, card4, zhuSuit, zhuNumber) {
 function isZhuSuit() {
 
 }
-
-// function writeData(game) {
-//     fs.writeFile("../data/gameData.json", JSON.stringify(game), (error) => {
-//         if(err){
-//             throw err;
-//         }
-//     });
-// }
-
-// function readData(gameId) {
-//     fs.readFile(date, function (data) {
-//         const games = JSON.parse(data);
-//         console.log(games);
-//     });
-// }
