@@ -1,0 +1,136 @@
+:root {
+    --base2: #A6A6A6;
+    --base3: #5c5c5c;
+    --base5: #232324;
+    --base6: #015f17;
+    --base7: #17871f;
+
+    --accent0: #FFFFFF;
+    --accent1: #FFDF01;
+    --accent2: #E6E6E6;
+    --accent3: #00AD11;
+
+    --icon-h: 5vmin;
+    --icon-w: 5vmin;
+    --icon-switch-w: 6vmin;
+
+    --card-height: 60vmin;
+    --card-width: 40vmin;
+
+    /*?linear gradient*/
+    --grad1: #F0D750;
+    --grad2: #E7CD3B;
+    --grad3: #BC8C1F;
+    --grad4: #D9AD15;
+    --grad5: #FCE186;
+
+
+    /**color schemes */
+
+    /*? black*/
+    --base4: rgb(25, 26, 25);
+    --base1: rgb(25, 26, 25);
+
+    /*? white*/
+    /* --base4: rgb(235, 235, 235);
+    --base1: rgb(235, 235, 235); */
+
+    /*? green*/
+    /* --base1: #217E18;
+    --base4: #015f17; */
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--base5);
+}
+
+::-webkit-scrollbar-thumb {
+    transition: 1s;
+    background: var(--accent0);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--base2);
+}
+
+.goldBK {
+    background: linear-gradient(to left,
+            rgb(231, 205, 59),
+            rgb(231, 205, 59) 20%,
+            rgb(217, 173, 21) 40%,
+            rgb(240, 215, 80));
+}
+
+.goldText {
+    -webkit-text-stroke: .0125vmin var(--accent1);
+    background: -webkit-gradient(linear, left top, right bottom,
+            from(rgb(240, 215, 80)),
+            color-stop(20%, rgb(231, 205, 59)),
+            color-stop(40%, rgb(217, 173, 21)),
+            to(rgb(252, 225, 134)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: 4s gradFlow linear infinite;
+}
+
+@keyframes gradFlow {
+    0% {
+        background: -webkit-gradient(linear, left top, right bottom,
+                from(rgb(240, 215, 80)),
+                color-stop(20%, rgb(231, 205, 59)),
+                color-stop(40%, rgb(217, 173, 21)),
+                to(rgb(252, 225, 134)));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: .0125vmin var(--accent1);
+    }
+
+    25% {
+        background: -webkit-gradient(linear, left top, right bottom,
+                from(rgb(252, 225, 134)),
+                color-stop(20%, rgb(240, 215, 80)),
+                color-stop(40%, rgb(231, 205, 59)),
+                to(rgb(217, 173, 21)));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: .0125vmin var(--accent1);
+    }
+
+    50% {
+        background: -webkit-gradient(linear, left top, right bottom,
+                from(rgb(217, 173, 21)),
+                color-stop(20%, rgb(252, 225, 134)),
+                color-stop(40%, rgb(240, 215, 80)),
+                to(rgb(231, 205, 59)));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: .0125vmin var(--accent1);
+    }
+
+    75% {
+        background: -webkit-gradient(linear, left top, right bottom,
+                from(rgb(231, 205, 59)),
+                color-stop(20%, rgb(217, 173, 21)),
+                color-stop(40%, rgb(252, 225, 134)),
+                to(rgb(240, 215, 80)));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: .0125vmin var(--accent1);
+    }
+
+    100% {
+        background: -webkit-gradient(linear, left top, right bottom,
+                from(rgb(240, 215, 80)),
+                color-stop(20%, rgb(231, 205, 59)),
+                color-stop(40%, rgb(217, 173, 21)),
+                to(rgb(252, 225, 134)));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: .0125vmin var(--accent1);
+    }
+}
