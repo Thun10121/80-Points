@@ -2,9 +2,38 @@
 const cardTypes = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
 const suitTypes = ["♠", "♥", "♣", "♦"];
 const cardValue = new Map();
+const activeRooms = [];
+const roomID = "";
 // const fs = require('fs');
 
+function GenerateRoomNumber(){
+    let rand = Math.floor(Math.random() * 999999);
+    let room = toString(rand);
+    while(room.length < 6){
+        room = "0" + room;
+    }
+    return room;
+}
+
 function intialize() { //the function that calls all functions to intialize
+    let room = "";
+    let exists = false;
+    while(true){
+        room = GenerateRoomNumber();
+        exists = false;
+        for(let i = 0; i < activeRooms.length; i++){
+            if(activeRooms[i] == room){
+                exists = true;
+                break;
+            }
+        }
+        if(!exists){
+            activeRooms.push(room);
+            roomID = room;
+            break;
+        }
+    }
+    
     let deck = putCards();
     deck = randomizeCards(deck);
     const zhuSuit = randomizeSuit(); //!
