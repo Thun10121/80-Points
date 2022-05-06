@@ -2,38 +2,74 @@
 const cardTypes = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
 const suitTypes = ["♠", "♥", "♣", "♦"];
 const cardValue = new Map();
-const activeRooms = [];
-const roomID = "";
+const activeRooms = []; //!add to firebase
+let roomID = "";
 // const fs = require('fs');
 
-function GenerateRoomNumber(){
-    let rand = Math.floor(Math.random() * 999999);
-    let room = toString(rand);
-    while(room.length < 6){
+function GenerateRoomNumber() {
+    let room = Math.floor(Math.random() * 1).toString();
+    while (room.length < 6) {
         room = "0" + room;
     }
     return room;
 }
 
 function intialize() { //the function that calls all functions to intialize
-    let room = "";
-    let exists = false;
-    while(true){
-        room = GenerateRoomNumber();
-        exists = false;
-        for(let i = 0; i < activeRooms.length; i++){
-            if(activeRooms[i] == room){
-                exists = true;
-                break;
-            }
-        }
-        if(!exists){
-            activeRooms.push(room);
-            roomID = room;
-            break;
-        }
-    }
-    
+    // for (let i = 0; i < 2; i++) {
+    //     let room = GenerateRoomNumber();
+    //     let exists = false;
+    //     while (true) {
+    //         for (let i = 0; i < activeRooms.length; i++) {
+    //             if (room == activeRooms[i]) {
+    //                 exists = true
+    //             }
+    //         }
+    //         if (!exists) {
+    //             activeRooms.push(room);
+    //             roomID = room;
+    //             console.log("hello world");
+    //             break;
+    //         } else {
+    //             room = GenerateRoomNumber();
+    //         }
+    //     }
+
+        // while (true) {
+        //     exists = false;
+        //     for (let i = 0; i < activeRooms.length; i++) {
+        //         if (activeRooms[i] == room) {
+        //             exists = true;
+        //             break;
+        //         }
+        //     }
+        //     if (!exists) {
+        //         activeRooms.push(room);
+        //         roomID = room;
+        //         break;
+        //     }
+        // }
+    // }`
+    // console.log("room " + roomID);
+
+
+    // let room = "";
+    // let exists = false;
+    // while(true){
+    //     room = GenerateRoomNumber();
+    //     exists = false;
+    //     for(let i = 0; i < activeRooms.length; i++){
+    //         if(activeRooms[i] == room){
+    //             exists = true;
+    //             break;
+    //         }
+    //     }
+    //     if(!exists){
+    //         activeRooms.push(room);
+    //         roomID = room;
+    //         break;
+    //     }
+    // }
+
     let deck = putCards();
     deck = randomizeCards(deck);
     const zhuSuit = randomizeSuit(); //!
@@ -52,19 +88,14 @@ function intialize() { //the function that calls all functions to intialize
     }
 
     //debugging purposes
-    console.log(zhuSuit + " " + zhuNumber);
-    console.log(diPai.join(" "));
-    for(let i = 0; i < 4; i++){
-        console.log(playerDecks[i].join(" "));
-    }
-    
-    for(let i = 0; i < cardTypes.length; i++){
-        if(cardTypes[i] != zhuNumber){
+
+    for (let i = 0; i < cardTypes.length; i++) {
+        if (cardTypes[i] != zhuNumber) {
             cardValue.set(cardTypes[i], cardValue.size + 1);
         }
     }
     let cardExample = [];
-    for(let i = 0; i < 4; i++){
+    for (let i = 0; i < 4; i++) {
         let rand = Math.floor(Math.random() * playerDecks[i].length);
         cardExample.push(playerDecks[i][rand]);
     }
@@ -170,11 +201,11 @@ function sortZhuNumber(deck, zhuSuit) {
     let corrOrder = ["♠", "♥", "♣", "♦"];
     let suitOrder = [["♠", "♥", "♣", "♦"], ["♥", "♠", "♦", "♣"], ["♣", "♥", "♠", "♦"], ["♦", "♠", "♥", "♣"]];
     let sortOrder = [[], [], [], []];
-    for(let i = 0; i < corrOrder.length; i++){
-        if(corrOrder[i] == zhuSuit){
-            for(let j = 0; j < suitOrder[i].length; j++){
-                for(let k = 0; k < deck.length; k++){
-                    if(deck[k].includes(suitOrder[i][j])){
+    for (let i = 0; i < corrOrder.length; i++) {
+        if (corrOrder[i] == zhuSuit) {
+            for (let j = 0; j < suitOrder[i].length; j++) {
+                for (let k = 0; k < deck.length; k++) {
+                    if (deck[k].includes(suitOrder[i][j])) {
                         sortOrder[j].push(deck[k]);
                     }
                 }
@@ -228,11 +259,11 @@ function sortFuSuit(deck, zhuSuit) {
     let corrOrder = ["♠", "♥", "♣", "♦"];
     let suitOrder = [["♥", "♣", "♦"], ["♠", "♦", "♣"], ["♥", "♠", "♦"], ["♠", "♥", "♣"]];
     let sortedDeck = [[], [], []];
-    for(let i = 0; i < corrOrder.length; i++){
-        if(corrOrder[i] == zhuSuit){
-            for(let j = 0; j < suitOrder[i].length; j++){
-                for(let k = 0; k < deck.length; k++){
-                    if(deck[k].includes(suitOrder[i][j])){
+    for (let i = 0; i < corrOrder.length; i++) {
+        if (corrOrder[i] == zhuSuit) {
+            for (let j = 0; j < suitOrder[i].length; j++) {
+                for (let k = 0; k < deck.length; k++) {
+                    if (deck[k].includes(suitOrder[i][j])) {
                         sortedDeck[j].push(deck[k]);
                     }
                 }
@@ -246,7 +277,7 @@ function sortFuSuit(deck, zhuSuit) {
     return deck;
 }
 
-function CardInfo(card, player, zhuLevel){
+function CardInfo(card, player, zhuLevel) {
     this.card = card;
     this.player = player;
     this.zhuLevel = zhuLevel;
@@ -254,85 +285,84 @@ function CardInfo(card, player, zhuLevel){
 }
 
 function findLargestCard(card1, card2, card3, card4, zhuSuit, zhuNumber) {
-    console.log(card1, card2, card3, card4);
     let theCards = [card1, card2, card3, card4];
     let cardMap = [];
     let highestZhu = 0, totalPoints = 0;
     let card, player, point, zhuLevel;
-    for(let i = 0; i < theCards.length; i++) {
+    for (let i = 0; i < theCards.length; i++) {
         card = theCards[i];
         player = i + 1;
-        if(card.includes("5")){
+        if (card.includes("5")) {
             point = 5;
-        }else if(card.includes("10") || card.includes("K")){
+        } else if (card.includes("10") || card.includes("K")) {
             point = 10;
-        }else{
+        } else {
             point = 0;
         }
         totalPoints += point;
-        if(card.includes("RJoker")){
+        if (card.includes("RJoker")) {
             zhuLevel = 5;
-        }else if(card.includes("BJoker")){
+        } else if (card.includes("BJoker")) {
             zhuLevel = 4;
-        }else if(card.includes(zhuNumber)){
-            if(card.includes(zhuSuit)){
+        } else if (card.includes(zhuNumber)) {
+            if (card.includes(zhuSuit)) {
                 zhuLevel = 3;
-            }else{
+            } else {
                 zhuLevel = 2;
             }
-        }else if(card.includes(zhuSuit)){
+        } else if (card.includes(zhuSuit)) {
             zhuLevel = 1;
-        }else{
+        } else {
             zhuLevel = 0;
         }
-        if(zhuLevel > highestZhu){
+        if (zhuLevel > highestZhu) {
             highestZhu = zhuLevel;
         }
         cardMap.push(new CardInfo(card, player, zhuLevel));
     }
-    
-    if(highestZhu > 0){ //if zhupai present
-        for(let i = 0; i < cardMap.length; i++){
-            if(cardMap[i].zhuLevel != highestZhu){
+
+    if (highestZhu > 0) { //if zhupai present
+        for (let i = 0; i < cardMap.length; i++) {
+            if (cardMap[i].zhuLevel != highestZhu) {
                 cardMap.splice(i, 1);
-                i --;
+                i--;
             }
         }
-        if(highestZhu > 1){
-            console.log("Largest Card: Player " + cardMap[0].player);
-        }else{
+        if (highestZhu > 1) {
+            // console.log("Largest Card: Player " + cardMap[0].player);
+        } else {
             let biggest = 0;
-            for(let j = 0; j < cardMap.length; j++){
+            for (let j = 0; j < cardMap.length; j++) {
                 cardMap[j].card = cardValue.get(cardMap[j].card.substr(1, cardMap[j].card.length));
-                if(cardMap[j].card > biggest){
+                if (cardMap[j].card > biggest) {
                     biggest = cardMap[j].card;
                 }
             }
-            for(let j = 0; j < cardMap.length; j++){
-                if(cardMap[j].card == biggest){
-                    console.log("Largest Card: Player " + cardMap[j].player);
+            for (let j = 0; j < cardMap.length; j++) {
+                if (cardMap[j].card == biggest) {
+                    // console.log("Largest Card: Player " + cardMap[j].player);
                     break;
                 }
             }
         }
-    }else{ //if no zhupai is present
+    } else { //if no zhupai is present
         let currSuit = cardMap[0].card.charAt(0);
-        for(let i = 0; i < cardMap.length; i++){
-            if(!cardMap[i].card.includes(currSuit)){
+        for (let i = 0; i < cardMap.length; i++) {
+            if (!cardMap[i].card.includes(currSuit)) {
                 cardMap.splice(i, 1);
-                i --;
+                i--;
             }
         }
         let biggest = 0;
-        for(let j = 0; j < cardMap.length; j++){
+        for (let j = 0; j < cardMap.length; j++) {
             cardMap[j].card = cardValue.get(cardMap[j].card.substr(1, cardMap[j].card.length));
-            if(cardMap[j].card > biggest){
-            biggest = cardMap[j].card;
+            if (cardMap[j].card > biggest) {
+                biggest = cardMap[j].card;
             }
         }
-        for(let j = 0; j < cardMap.length; j++){
-            if(cardMap[j].card == biggest){
-                console.log("Largest Card: Player " + cardMap[j].player);
+        for (let j = 0; j < cardMap.length; j++) {
+            if (cardMap[j].card == biggest) {
+                // console.log("Largest Card: Player " + cardMap[j].player);
                 break;
             }
         }

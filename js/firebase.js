@@ -1,7 +1,7 @@
 // functions import
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-analytics.js";
-import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js";
+import { getDatabase, get, set, ref, child, push, update } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-database.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js";
 
 //URL you change change the thingy before .js
@@ -23,21 +23,45 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
-const db = getFirestore(app);
+const db = getDatabase(); //database
+const dbRef = ref(getDatabase()); //database reference
 
-function writeGameData() {
-    const game = currentGame;
-    const games = doc(db, 'games/' + game.gameId);
-    const data = {
+function writeGameData(game) { //!writes and updates
+    set(ref(db, `games/${game.gameId}`), {
         gameID: game.gameId,
-        playerDecks: game.playerDecks,
-        zhuSuit: game.zhuSuit,
-        zhuNumber: game.zhuNumber,
+        playerDecks: players,
+        zhuSuit: zhuSuit,
+        zhuNumber: zhuNumber,
         diPai: game.diPai,
         currentPoints: 0,
-        players: players
-    };
-    setDoc(games, data);
-    console.log("data saved");
+        players: ["hbl", "thun", "eemmaa", "avocado"]
+    }).then(() => {
+        console.log("data saved");
+    }).catch((e) => {
+        console.log(e);
+    })
 }
-writeGameData();
+
+// writeGameData(currentGame);
+// writeGameData(game2);
+
+
+function readGameData(game) {
+    get(child(dbRef, `games/${game.gameId}`)).then((snapshot) => {
+        if (snapshot.exists()) {
+            console.log(snapshot.val());
+        } else {
+            console.log("data not found");
+        }
+    }).catch((e) => {
+        console.log(e);
+    });
+}
+
+// readGameData(currentGame);
+
+function deleteGameData(game) {
+    set(ref(db, `games/${game.gameId}`), null);
+}
+
+// deleteGameData(currentGame);

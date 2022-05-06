@@ -141,7 +141,6 @@ function displayDecks(zhuSuit, zhuNumber) {
     let count = 0;
     deck.forEach(deckN => {
         if (count == 0) {
-            console.log(players[0]);
             deckN.innerHTML = '';
             let count = 0;
             players[0].forEach(cardN => {
