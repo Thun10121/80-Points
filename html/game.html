@@ -531,13 +531,14 @@
     <script src="../js/button.js"></script>
     <script src="../js/gameplay.js"></script>
     <script type="text/javascript">
-        let games = intialize();
-        const players = games.playerDecks;
-        const zhuSuit = games.zhuSuit;
-        const zhuNumber = games.zhuNumber;
+        let currentGame = intialize();
+        const players = currentGame.playerDecks;
+        const zhuSuit = currentGame.zhuSuit;
+        const zhuNumber = currentGame.zhuNumber;
         displayDecks(zhuSuit, zhuNumber);
         // reload();
     </script>
+    <script type="module" src= "../js/firebase.js"></script>
 </body>
 
 </html>

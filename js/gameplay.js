@@ -69,9 +69,7 @@ function intialize() { //the function that calls all functions to intialize
         cardExample.push(playerDecks[i][rand]);
     }
     findLargestCard(cardExample[0], cardExample[1], cardExample[2], cardExample[3], zhuSuit, zhuNumber);
-
     return game;
-    // writeData(game);
 }
 
 function putCards() {

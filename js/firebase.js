@@ -1,9 +1,8 @@
 // functions import
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-analytics.js";
-import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js";
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js";
-import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-database.js";
 
 //URL you change change the thingy before .js
 // TODO: Add SDKs for Firebase products that you want to use
@@ -26,16 +25,19 @@ const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// function writeUserData() {
-//     try {
-//         const docRef = await addDoc(collection(db, "games"), {
-//             gameID: 10121,
-//             points: 80,
-//             players: ["hbl", "thun", "eemmaa", "avocado"]
-//         });
-//         console.log("data saved");
-//     } catch (e) {
-//         console.error(e);
-//     }
-// }
-// writeUserData();
+function writeGameData() {
+    const game = currentGame;
+    const games = doc(db, 'games/' + game.gameId);
+    const data = {
+        gameID: game.gameId,
+        playerDecks: game.playerDecks,
+        zhuSuit: game.zhuSuit,
+        zhuNumber: game.zhuNumber,
+        diPai: game.diPai,
+        currentPoints: 0,
+        players: players
+    };
+    setDoc(games, data);
+    console.log("data saved");
+}
+writeGameData();
