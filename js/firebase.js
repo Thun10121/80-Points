@@ -42,7 +42,6 @@ function writeGameData(game) { //!writes and updates
     })
 }
 
-// writeGameData(currentGame);
 // writeGameData(game2);
 
 
@@ -65,3 +64,7 @@ function deleteGameData(game) {
 }
 
 // deleteGameData(currentGame);
+
+function test(){
+    console.log("test is successful");
+}

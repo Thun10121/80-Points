@@ -96,20 +96,9 @@
     color: red;
 }
 
-#Exitalert {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    justify-content: center;
-    flex-direction: column;
-    z-index: 10;
-}
-
 #exit-modal {
     transition: 750ms;
-    display: inherit;
+    /* display: inherit; */
     opacity: .5;
     height: 100vh;
     width: 100vw;
@@ -166,10 +155,12 @@
 
 #exit-no {
     background: rgb(182, 0, 0);
+    animation: none;
 }
 
 #exit-yes {
     background: #015f17;
+    animation: none;
 }
 
 .exit-button p {
