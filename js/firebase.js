@@ -42,8 +42,6 @@ function writeGameData(game) { //!writes and updates
     })
 }
 
-// writeGameData(game2);
-
 
 function readGameData(game) {
     get(child(dbRef, `games/${game.gameId}`)).then((snapshot) => {
