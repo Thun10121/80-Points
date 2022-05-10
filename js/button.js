@@ -1,10 +1,6 @@
 //!popups
 let modal = document.getElementById("modal");
 
-let exit = document.getElementById("Exitalert");
-let exitContent = document.getElementById("exit-content");
-let exitModal = document.getElementById("exit-modal");
-
 let createButton = document.getElementById("front-button-create");
 let joinButton = document.getElementById("front-button-join");
 let frontButtonDIV = document.getElementById("front-buttons-div");
@@ -18,8 +14,6 @@ let bottomBar = document.getElementById("bottom-bar-border");
 let frontIcon = document.getElementById("icons");
 
 let frontPage = document.getElementById("front-page");
-
-let exitStatus = false;
 
 function loading() {
     load.style.opacity = 0;
@@ -41,38 +35,13 @@ function loading() {
 function popup(div) {
     let content = document.getElementById(`${div}-page`);
     content.classList.toggle("popup-show");
-    // modal.classList.toggle("popup-show");
-    setTimeout(function () {
-        modal.classList.toggle("popup-show-opacity-modal");
-    }, 10);
-    setTimeout(function () {
-        content.classList.toggle("popup-show-opacity");
-    }, 100);
-    setTimeout(function () {
-        content.classList.toggle("popup-hide-opacity");
-        modal.classList.toggle("popup-hide-opacity");
-    }, 1000);
+    modal.classList.toggle("popup-show");
+    modal.classList.toggle("popup-show-opacity-modal");
+    content.classList.toggle("popup-show-opacity");
+    content.classList.toggle("popup-hide-opacity");
+    modal.classList.toggle("popup-hide-opacity");
     modal.classList.toggle("popup-hide");
     content.classList.toggle("popup-hide");
-}
-
-let exi = document.getElementById("exit-content"); 
-
-function exitAlert() {
-    exi.classList.toggle("popup-show");
-    modal.classList.toggle("popup-show");
-    setTimeout(function () {
-        modal.classList.toggle("popup-show-opacity-modal");
-    }, 10);
-    setTimeout(function () {
-        exi.classList.toggle("popup-show-opacity");
-    }, 10);
-    setTimeout(function () {
-        exi.classList.toggle("popup-hide-opacity");
-        modal.classList.toggle("popup-hide-opacity");
-    }, 10);
-    modal.classList.toggle("popup-hide");
-    exi.classList.toggle("popup-hide");
 }
 
 function join() {

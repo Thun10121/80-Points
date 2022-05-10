@@ -208,7 +208,7 @@
     <div id="sidebar-border" class="goldBK">
         <div class="ui" id="sidebar">
             <div id="sidebar-content">
-                <div id="svg-container" onclick="exitAlert()">
+                <div id="svg-container" onclick="popup('exit')">
                     <svg class="ui-button" id="home" xmlns="http://www.w3.org/2000/svg" height="24px"
                         viewBox="0 0 24 24" width="24px">
                         <linearGradient id="gold" x1="36.44" y1="51.18" x2="86.38" y2="30.25"
@@ -491,24 +491,23 @@
                                 </p> -->
         </div>
     </div>
-    <div  id="Exitalert">
-        <div class="popup-hide popup-hide-opacity" id="exit-content">
-            <h1 id="exit-text" class="goldText">
-                Are you sure you want to forfeit and exit this game?
-            </h1>
-            <div id="exit-button">
-                <div id="exit-no-border" class="exit-border">
-                    <div id="exit-no" class="exit-button goldText" onclick="exitAlert()">
-                        <p class="goldText">no</p>
-                    </div>
+    <div class="popup-hide popup-hide-opacity" id="exit-page">
+        <h1 id="exit-text" class="goldText">
+            Are you sure you want to forfeit and exit this game?
+        </h1>
+        <div id="exit-button">
+            <div id="exit-no-border" class="exit-border">
+                <div id="exit-no" class="exit-button goldText" onclick="popup('exit')">
+                    <p class="goldText">no</p>
                 </div>
-                <div id="exit-yes-border" class="exit-border">
-                    <div id="exit-yes" class="exit-button" onclick="home()">
-                        <p class="goldText">yes</p>
-                    </div>
+            </div>
+            <div id="exit-yes-border" class="exit-border">
+                <div id="exit-yes" class="exit-button" onclick="home()">
+                    <p class="goldText">yes</p>
                 </div>
             </div>
         </div>
+    </div>
     <div class="popup-content popup-hide popup-hide-opacity" id="history-page">
         <div class="popup-x-button" id="history-x-button">
             <svg class="popup-x-button-icon" id="x" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24"
@@ -547,7 +546,7 @@
         // });
 
     </script>
-    
+
 </body>
 
 </html>

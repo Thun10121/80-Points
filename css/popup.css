@@ -109,7 +109,7 @@
     transform: translate(-50%, -50%);
 }
 
-#exit-content {
+#exit-page {
     display: inherit;
     transition: 750ms;
     position: fixed;
