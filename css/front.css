@@ -222,8 +222,8 @@ p {
     letter-spacing: 2vw;
     font-weight: bold;
     font-family: 'Turret Road', cursive;
-    animation: 2s goldCycle linear infinite calc(.5s * var(--i)),
-        10s shine linear infinite 0s;
+    animation: 2s goldCycle linear infinite calc(.5s * var(--i));/*,*/
+        /* 10s shine linear infinite 0s; */
 }
 
 @keyframes goldCycle {
