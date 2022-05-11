@@ -4,7 +4,9 @@ const suitTypes = ["♠", "♥", "♣", "♦"];
 const cardValue = new Map();
 const maxRooms = 20;
 let activeRooms = []; //!add to firebase
+let roomType = ""; //TODO: waiting for custom function aded
 let roomID = "";
+let totalPoints = 0;
 // const fs = require('fs');
 
 function GenerateRoomNumber() {
@@ -50,12 +52,14 @@ function intialize() { //the function that calls all functions to intialize
     const diPai = distributeCardsOutput[1]; //!
     const playerDecks = sortPlayerDecks(playerDecksUnsorted, zhuSuit, zhuNumber); //!
     let game = {
-        gameId: roomID, //TODO This would subject to change
-        playerDecks: playerDecks,
+        gameId: roomID,
+        lobbyType: roomType,
         zhuSuit: zhuSuit,
         zhuNumber: zhuNumber,
+        playerDecks: playerDecks,
         diPai: diPai,
-        players: ["thun", "hbl", "eemmaa", "avocado"]
+        players: ["thun", "hbl", "eemmaa", "avocado"],
+        currentPoints: totalPoints //TODO: change when specific gameplay finalized
     }
 
     //debugging purposes

@@ -108,12 +108,14 @@ function randomZhu() {
     zhuNumber = cardTypes[rand];
     document.location = "/html/game.html";
     bottomBar.style.display = "flex";
+    roomType = "Random";
 }
 
 function inOrderZhu() {
     zhuNumber = "2";
     document.location = "/html/game.html";
     bottomBar.style.display = "flex";
+    roomType = "Order";
 }
 
 function home() {
