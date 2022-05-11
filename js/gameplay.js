@@ -2,12 +2,13 @@
 const cardTypes = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
 const suitTypes = ["♠", "♥", "♣", "♦"];
 const cardValue = new Map();
-const activeRooms = []; //!add to firebase
+const maxRooms = 20;
+let activeRooms = []; //!add to firebase
 let roomID = "";
 // const fs = require('fs');
 
 function GenerateRoomNumber() {
-    let room = Math.floor(Math.random() * 1).toString();
+    let room = Math.floor(Math.random() * 1000000).toString();
     while (room.length < 6) {
         room = "0" + room;
     }
@@ -15,60 +16,30 @@ function GenerateRoomNumber() {
 }
 
 function intialize() { //the function that calls all functions to intialize
-    // for (let i = 0; i < 2; i++) {
-    //     let room = GenerateRoomNumber();
-    //     let exists = false;
-    //     while (true) {
-    //         for (let i = 0; i < activeRooms.length; i++) {
-    //             if (room == activeRooms[i]) {
-    //                 exists = true
-    //             }
-    //         }
-    //         if (!exists) {
-    //             activeRooms.push(room);
-    //             roomID = room;
-    //             console.log("hello world");
-    //             break;
-    //         } else {
-    //             room = GenerateRoomNumber();
-    //         }
-    //     }
-
-        // while (true) {
-        //     exists = false;
-        //     for (let i = 0; i < activeRooms.length; i++) {
-        //         if (activeRooms[i] == room) {
-        //             exists = true;
-        //             break;
-        //         }
-        //     }
-        //     if (!exists) {
-        //         activeRooms.push(room);
-        //         roomID = room;
-        //         break;
-        //     }
-        // }
-    // }`
-    // console.log("room " + roomID);
-
-
-    // let room = "";
-    // let exists = false;
-    // while(true){
-    //     room = GenerateRoomNumber();
-    //     exists = false;
-    //     for(let i = 0; i < activeRooms.length; i++){
-    //         if(activeRooms[i] == room){
-    //             exists = true;
-    //             break;
-    //         }
-    //     }
-    //     if(!exists){
-    //         activeRooms.push(room);
-    //         roomID = room;
-    //         break;
-    //     }
-    // }
+    let exists = false;
+    let exceed = false;
+    while (true) {
+        if(activeRooms.length == maxRooms){
+            alert("all rooms are filled");
+            exceed = true;
+            break;
+        }
+        let room = GenerateRoomNumber();
+        exists = false;
+        for (let j = 0; j < activeRooms.length; j++) {
+            if (room == activeRooms[j]) {
+                exists = true
+            }
+        }
+        if (!exists) {
+            activeRooms.push(room);
+            roomID = room;
+            break;
+        } else {
+            room = GenerateRoomNumber();
+        }
+    }
+    console.log("room: " + roomID);
 
     let deck = putCards();
     deck = randomizeCards(deck);
@@ -79,7 +50,7 @@ function intialize() { //the function that calls all functions to intialize
     const diPai = distributeCardsOutput[1]; //!
     const playerDecks = sortPlayerDecks(playerDecksUnsorted, zhuSuit, zhuNumber); //!
     let game = {
-        gameId: "1", //TODO This would subject to change
+        gameId: roomID, //TODO This would subject to change
         playerDecks: playerDecks,
         zhuSuit: zhuSuit,
         zhuNumber: zhuNumber,
