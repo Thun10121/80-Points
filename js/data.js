@@ -62,7 +62,3 @@ function deleteGameData(game) {
 }
 
 // deleteGameData(currentGame);
-
-function test(){
-    console.log("test is successful");
-}

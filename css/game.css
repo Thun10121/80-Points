@@ -149,7 +149,6 @@ height 6vmin;
 
 .deck-card {
     width: var(--deckH);
-    /* margin: -4.125vmin; */
     --Omargin: -3.5vmin;
     --MOmargin: -2vmin;
     position: relative;
@@ -194,7 +193,7 @@ height 6vmin;
     transform: translateY(-50%);
 }
 
-#player-decks1-content{
+#player-decks1-content {
     object-fit: scale-down;
     margin: 0;
     height: 13vmin;
@@ -220,7 +219,7 @@ height 6vmin;
     margin-bottom: -3vmin;
 }
 
-#sidebar-border{
+#sidebar-border {
     position: absolute;
     left: 0;
     top: 50%;
@@ -234,24 +233,24 @@ height 6vmin;
     margin: 1vmin;
 }
 
-#sidebar{
+#sidebar {
     justify-content: center;
     background: var(--base4);
     border-radius: 2vmin;
 }
 
-#sidebar-content{
+#sidebar-content {
     display: flex;
     flex-direction: column;
 }
 
-#svg-container{
+#svg-container {
     margin: 3vmin 1vmin;
     height: fit-content;
     width: fit-content;
 }
 
-.ui-button{
+.ui-button {
     fill: url(#gold);
     transition: 200ms;
     height: 5vmin;
@@ -261,4 +260,89 @@ height 6vmin;
 .ui-button:hover {
     fill: var(--accent3);
     transform: scale(1.15);
+}
+
+#user-container-border{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: fit-content;
+    width: fit-content;
+    padding: .5vmin;
+    padding-right: 0;
+    border-radius: 1vmin 0 0 1vmin;
+}
+
+#user-container {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    background-color: var(--base6);
+    border-radius: 1vmin 0 0 1vmin;
+}
+
+.user-content {
+    position: relative;
+    padding: 1.5vmin;
+    display: flex;
+    flex-direction: row;
+    padding-right: 5vmin;
+}
+
+#user1, #user3{
+    background-color: #015f17;
+}
+
+#user2, #user4{
+    background-color: darkred;
+}
+
+.user-pfp {
+    height: fit-content;
+    width: fit-content;   
+}
+
+.user-pfp img {
+    position: relative;
+    height: 8vmin;
+    width: 8vmin;
+    object-fit: cover;
+    border-radius: 1vmin;
+}
+
+.username {
+    position: relative;
+    height: 8vmin;
+    display: flex;
+    justify-content: center;
+}
+
+.username p {
+    margin: auto 0 auto 2vmin;
+    padding: 0;
+}
+
+#user-container-pointer {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+}
+
+.user-pointer {
+    display: flex;
+    width: 28vmin;
+    height: 8vmin;
+    margin: 1.5vmin 1.5vmin 1.5vmin 20vmin;
+    justify-content: left;
+}
+
+#user-pointer-svg {
+    height: 5vmin;
+    width: 5vmin;
+    fill: url(#gold);
 }
