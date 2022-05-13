@@ -49,7 +49,7 @@ function join() {
     joinButton.style.display = "none";
     frontButtonDIV.innerHTML = `
     <div id="front-button-input-background-border" class="goldBK">
-        <input id="front-join-input" class="front-button" autocomplete="off" maxlength="10" placeholder="Room Code"></input>
+        <input id="front-join-input" class="front-button" autocomplete="off" maxlength="6" placeholder="Room Code"></input>
     </div>
     <div id="front-button-enter-background-border" class="goldBK">
         <button id="front-button-enter" class="front-button" onclick="enterCode()">

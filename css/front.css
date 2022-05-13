@@ -343,8 +343,12 @@ p {
     justify-content: center;
     margin-top: auto;
     margin-bottom: auto;
+    transition: 1s;
 }
 
+#front-button-input-background-border:hover{
+    transform: scale(1.05);
+}
 
 #front-join-input {
     height: 6vmin;
