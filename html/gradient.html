@@ -5,45 +5,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/template.css">
     <title>Document</title>
 </head>
 
 <style>
-    body {
-        background: linear-gradient(to left,
-                #d8d7d7,
-                #b1b1b1 20%,
-                #7e7e7e 40%,
-                #b9b9b9);
+    body{
+        overflow-y: hidden;
+        overflow-x: hidden;
+        margin: 0;
     }
 
-    div{
+    .full {
+        padding: 0;
+        margin: 0;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .full div {
         width: fit-content;
         height: fit-content;
-        padding: 2vmin;
+        /* padding: 2vmin; */
         background-color: black;
         position: absolute;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
         font-weight: bold;
+        font-size: 5vmin;
     }
 
     h1 {
         padding: 2vmin;
-        background: -webkit-gradient(linear, left top, right bottom,
-                from(#d8d7d7),
-                color-stop(20%, #b1b1b1),
-                color-stop(40%, #7e7e7e),
-                to(#b9b9b9));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
     }
 </style>
 
 <body>
-    <div>
-        <h1>THE EGG QUICKLY jumped over the wall</h1>
+    <div class="full silverBK">
+        <div>
+            <h1 class="silverText">THE EGG QUICKLY jumped over the wall</h1>
+        </div>
     </div>
 </body>
 
