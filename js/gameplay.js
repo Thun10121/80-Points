@@ -51,6 +51,7 @@ function intialize() { //the function that calls all functions to intialize
     let playerDecksUnsorted = distributeCardsOutput[0];
     const diPai = distributeCardsOutput[1]; //!
     const playerDecks = sortPlayerDecks(playerDecksUnsorted, zhuSuit, zhuNumber); //!
+    console.log(playerDecks);
     let game = {
         gameId: roomID,
         lobbyType: roomType,
@@ -147,8 +148,8 @@ function sortPlayerDecks(playerDecks, zhuSuit, zhuNumber) {
         });
         playerJoker = sortJoker(playerJoker);
         playerZhuNumber = sortZhuNumber(playerZhuNumber, zhuSuit);
-        playerZhuSuit = sortZhuSuit(playerZhuSuit);
-        playerFuSuit = sortFuSuit(playerFuSuit, zhuSuit);
+        playerZhuSuit = sortSuit(playerZhuSuit, zhuSuit, true);
+        playerFuSuit = sortSuit(playerFuSuit, zhuSuit, false);
         let output = playerJoker.concat(playerZhuNumber).concat(playerZhuSuit).concat(playerFuSuit);
         sortedPlayerDecks.push(output);
     });
@@ -192,7 +193,7 @@ function sortZhuNumber(deck, zhuSuit) {
     return sortedDeck;
 }
 
-function sortZhuSuit(deck) {
+function sortSuit(deck, zhuSuit, isZhuSuit) {
     for (let i = 0; i < deck.length; i++) {
         deck[i] = deck[i].replace("10", "v");
         deck[i] = deck[i].replace("J", "w");
@@ -209,27 +210,9 @@ function sortZhuSuit(deck) {
         deck[i] = deck[i].replace("z", "A");
     }
     deck.reverse();
-    return deck;
-}
-
-function sortFuSuit(deck, zhuSuit) {
-    for (let i = 0; i < deck.length; i++) {
-        deck[i] = deck[i].replace("10", "v");
-        deck[i] = deck[i].replace("J", "w");
-        deck[i] = deck[i].replace("Q", "x");
-        deck[i] = deck[i].replace("K", "y");
-        deck[i] = deck[i].replace("A", "z");
+    if(isZhuSuit){
+        return deck;
     }
-    deck.sort();
-    for (let i = 0; i < deck.length; i++) {
-        deck[i] = deck[i].replace("v", "10");
-        deck[i] = deck[i].replace("w", "J");
-        deck[i] = deck[i].replace("x", "Q");
-        deck[i] = deck[i].replace("y", "K");
-        deck[i] = deck[i].replace("z", "A");
-    }
-    deck.reverse();
-
     //sort by alternating color with ♠ ♥ ♣ ♦ precedence
     let corrOrder = ["♠", "♥", "♣", "♦"];
     let suitOrder = [["♥", "♣", "♦"], ["♠", "♦", "♣"], ["♥", "♠", "♦"], ["♠", "♥", "♣"]];
@@ -246,9 +229,7 @@ function sortFuSuit(deck, zhuSuit) {
             break;
         }
     }
-
     deck = sortedDeck[0].concat(sortedDeck[1]).concat(sortedDeck[2]);
-
     return deck;
 }
 
@@ -347,3 +328,6 @@ function findLargestCard(card1, card2, card3, card4, zhuSuit, zhuNumber) {
 function isZhuSuit() {
 
 }
+// window.addEventListener('beforeunload', function (e) {
+//         e.preventDefault();
+// });

@@ -206,7 +206,7 @@
         </div>
         <div id="user-container-border" class="goldBK">
             <div id="user-container">
-                <div id="user1" class="user-content">
+                <div id="user1" class="user-content grayscale">
                     <div class="pointer-div">
 
                     </div>
@@ -231,7 +231,7 @@
                         </p>
                     </div>
                 </div>
-                <div id="user3" class="user-content">
+                <div id="user3" class="user-content grayscale">
                     <div class="user-pfp">
                         <img
                             src="https://cdn.discordapp.com/attachments/491075385019072512/951345045179625482/720D91B8-3A5C-4CD5-9489-DC8B180110C5.jpg">
@@ -242,7 +242,7 @@
                         </p>
                     </div>
                 </div>
-                <div id="user4" class="user-content">
+                <div id="user4" class="user-content grayscale">
                     <div class="user-pfp">
                         <img
                             src="https://cdn.discordapp.com/attachments/900823684950941716/951340981561741343/f5a051d4ab407cc3e05174d544ed7116.png">
@@ -257,6 +257,7 @@
         </div>
         <div id="user-container-pointer">
             <div id="user1-pointer" class="user-pointer">
+                <!-- !add in js -->
                 <svg version="1.1" id="user-pointer-svg" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 88.3 70.7"
                     style="enable-background:new 0 0 88.3 70.7;" xml:space="preserve">
@@ -269,17 +270,10 @@
                     <path d="M20,0c0,0,0.3,17.1,7.1,28.7L0,20.3l9.6,15.1L0,50.4l27.1-8.3c-6.8,11.5-7,28.6-7,28.6c18.1-30.1,68.3-35.4,68.3-35.4
                     S38.2,30.1,20,0z" />
                 </svg>
-
             </div>
-            <div id="user2-pointer" class="user-pointer">
-
-            </div>
-            <div id="user3-pointer" class="user-pointer">
-
-            </div>
-            <div id="user4-pointer" class="user-pointer">
-
-            </div>
+            <div id="user2-pointer" class="user-pointer"></div>
+            <div id="user3-pointer" class="user-pointer"></div>
+            <div id="user4-pointer" class="user-pointer"></div>
 
         </div>
     </div>
@@ -613,17 +607,10 @@
         const players = currentGame.playerDecks;
         const zhuSuit = currentGame.zhuSuit;
         const zhuNumber = currentGame.zhuNumber;
+        console.log(zhuSuit + " " + zhuNumber);
 
         displayDecks(zhuSuit, zhuNumber);
-
-        // reload();
-
-        // jQuery.getScript("../firebase.js", function() {
-            // test();
-        // });
-
     </script>
-
 </body>
 
 </html>

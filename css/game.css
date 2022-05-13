@@ -291,6 +291,10 @@ height 6vmin;
     padding-right: 5vmin;
 }
 
+#user1{
+    border-radius: 1vmin 0 0 0;
+}
+
 #user1, #user3{
     background-color: #015f17;
 }
@@ -299,9 +303,14 @@ height 6vmin;
     background-color: darkred;
 }
 
+#user4{
+    border-radius: 0 0 0 1vmin;
+}
+
 .user-pfp {
     height: fit-content;
-    width: fit-content;   
+    width: fit-content; 
+    filter: inherit;
 }
 
 .user-pfp img {
@@ -310,6 +319,7 @@ height 6vmin;
     width: 8vmin;
     object-fit: cover;
     border-radius: 1vmin;
+    filter: inherit;
 }
 
 .username {
@@ -317,11 +327,13 @@ height 6vmin;
     height: 8vmin;
     display: flex;
     justify-content: center;
+    filter: inherit;
 }
 
 .username p {
     margin: auto 0 auto 2vmin;
     padding: 0;
+    filter: inherit;
 }
 
 #user-container-pointer {
@@ -345,4 +357,8 @@ height 6vmin;
     height: 5vmin;
     width: 5vmin;
     fill: url(#gold);
+}
+
+.grayscale{
+    filter: grayscale(70%);
 }
