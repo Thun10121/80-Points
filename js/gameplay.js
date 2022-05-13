@@ -193,7 +193,7 @@ function sortZhuNumber(deck, zhuSuit) {
     return sortedDeck;
 }
 
-function sortSuit(deck, zhuSuit, isZhuSuit) {
+function sortSuit(deck, zhuSuit, isZhu) {
     for (let i = 0; i < deck.length; i++) {
         deck[i] = deck[i].replace("10", "v");
         deck[i] = deck[i].replace("J", "w");
@@ -210,7 +210,7 @@ function sortSuit(deck, zhuSuit, isZhuSuit) {
         deck[i] = deck[i].replace("z", "A");
     }
     deck.reverse();
-    if(isZhuSuit){
+    if(isZhu){
         return deck;
     }
     //sort by alternating color with ♠ ♥ ♣ ♦ precedence
