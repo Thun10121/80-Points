@@ -53,7 +53,7 @@ function join() {
     </div>
     <div id="front-button-enter-background-border" class="goldBK">
         <button id="front-button-enter" class="front-button" onclick="enterCode()">
-            <p id="front-button-enter-text" class="front-button-text goldText">ENTER</p>
+            <p id="front-button-enter-text" class="front-button-text goldTxt">ENTER</p>
         </button>
     </div>
     <div id="front-button-home-background-border" class="goldBK">
@@ -88,12 +88,12 @@ function back() {
     frontButtonDIV.innerHTML = `
     <div id="front-button-background-border" class="goldBK">
         <button id="front-button-create" class="front-button" onclick="create()">
-        <p id="front-button-create-text" class="front-button-text goldText">CREATE</p>
+        <p id="front-button-create-text" class="front-button-text goldTxt">CREATE</p>
     </button>
     </div>
     <div id="front-button-background-border" class="goldBK">
         <button id="front-button-join" class="front-button" onclick="join()">
-            <p id="front-button-join-text" class="front-button-text goldText">JOIN</p>
+            <p id="front-button-join-text" class="front-button-text goldTxt">JOIN</p>
         </button>
     </div>
     `;
@@ -121,3 +121,12 @@ function inOrderZhu() {
 function home() {
     document.location = "../index.html";
 }
+
+console.log("hi");
+
+this.addEventListener('keypress', e =>{
+    console.log(e.keyCode);
+    if(e.keyCode == 13){
+        alert("key pressed");
+    }
+});
