@@ -153,7 +153,7 @@ function displayDecks(zhuSuit, zhuNumber) {
         } else {
             let cardHTML = `
             <img class="deck-card" src="../photos/card-back.svg">        
-        `;
+            `;
             if (count % 2 == 1) {
                 cardHTML = `
                 <img class="deck-card" src="../photos/Rcard-back.svg">        

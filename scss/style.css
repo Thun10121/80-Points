@@ -1,0 +1,208 @@
+/*
+---------------------------------
+!Table Of Contents
+---------------------------------
+
+ *1. Global Variables
+
+ *2.  Metalic Gradients Style
+
+ *3.  Typography
+
+ *4.  General Style
+
+ *5.  Front Page Style
+
+ *6.  Lobby Page Style
+
+*/
+/*
+---------------------------------
+*1. Global Variables
+---------------------------------
+*/
+/*?linear gradient*/
+/*
+?color schemes 
+*/
+/*
+? black theme
+*/
+/*
+? white theme
+*/
+/* --base4: rgb(235, 235, 235);
+   --base1: rgb(235, 235, 235); 
+*/
+/* 
+?green theme
+*/
+/* --base1: #217E18;
+   --base4: #015f17; 
+*/
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #232324;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-transition: 1s;
+  transition: 1s;
+  background: #FFFFFF;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A6A6A6;
+}
+
+/*
+---------------------------------
+*2. Metalic Gradients Style
+---------------------------------
+*/
+.goldBK {
+  background: linear-gradient(135deg, #e7cd3b, #e7cd3b 20%, #d9ad15 40%, #f0d750);
+  -webkit-animation: gradFlow 5s ease infinite;
+          animation: gradFlow 5s ease infinite;
+  background-size: 200% 200%;
+}
+
+.goldTxt {
+  background: -webkit-gradient(linear, left top, right bottom, from(#f0d750), color-stop(20%, #e7cd3b), color-stop(40%, #d9ad15), to(#fce186));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: gradFlow 5s ease infinite;
+          animation: gradFlow 5s ease infinite;
+  background-size: 200% 200%;
+}
+
+.silverText {
+  background: -webkit-gradient(linear, left top, right bottom, from(#d8d7d7), color-stop(20%, #b1b1b1), color-stop(40%, #7e7e7e), to(#b9b9b9));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: gradFlow 5s ease infinite;
+          animation: gradFlow 5s ease infinite;
+  background-size: 200% 200%;
+}
+
+.silverBK {
+  background: linear-gradient(135deg, #d8d7d7, #b1b1b1 20%, #7e7e7e 40%, #b9b9b9);
+  -webkit-animation: gradFlow 5s ease infinite;
+          animation: gradFlow 5s ease infinite;
+  background-size: 200% 200%;
+}
+
+.hoverGoldBK:hover {
+  background: linear-gradient(135deg, #e7cd3b, #e7cd3b 20%, #d9ad15 40%, #f0d750);
+  -webkit-animation: gradFlow 5s ease infinite;
+          animation: gradFlow 5s ease infinite;
+  background-size: 200% 200%;
+}
+
+.hoverGoldTxt:hover {
+  background: -webkit-gradient(linear, left top, right bottom, from(#f0d750), color-stop(20%, #e7cd3b), color-stop(40%, #d9ad15), to(#fce186));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: gradFlow 5s ease infinite;
+          animation: gradFlow 5s ease infinite;
+  background-size: 200% 200%;
+}
+
+.hoverSilverBK:hover {
+  background: linear-gradient(135deg, #d8d7d7, #b1b1b1 20%, #7e7e7e 40%, #b9b9b9);
+  -webkit-animation: gradFlow 5s ease infinite;
+          animation: gradFlow 5s ease infinite;
+  background-size: 200% 200%;
+}
+
+.hoverSilverTxt:hover {
+  background: -webkit-gradient(linear, left top, right bottom, from(#d8d7d7), color-stop(20%, #b1b1b1), color-stop(40%, #7e7e7e), to(#b9b9b9));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: gradFlow 5s ease infinite;
+          animation: gradFlow 5s ease infinite;
+  background-size: 200% 200%;
+}
+
+@-webkit-keyframes gradFlow {
+  0% {
+    background-position: 0% 20%;
+  }
+  50% {
+    background-position: 20% 100%;
+  }
+  100% {
+    background-position: 0% 20%;
+  }
+}
+
+@keyframes gradFlow {
+  0% {
+    background-position: 0% 20%;
+  }
+  50% {
+    background-position: 20% 100%;
+  }
+  100% {
+    background-position: 0% 20%;
+  }
+}
+
+/*
+---------------------------------
+*3. Typography
+---------------------------------
+*/
+.themeBK {
+  background: #191a19;
+}
+
+.themeTxt {
+  color: #191a19;
+}
+
+.hoverThemeBK:hover {
+  background: #191a19;
+}
+
+.hoverThemeTxt:hover {
+  background: #191a19;
+  -webkit-text-stroke: 0.0125vmin #191a19;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/*
+---------------------------------
+*4. General Styles
+---------------------------------
+*/
+body {
+  overflow: hidden;
+  background: #191a19;
+  user-drag: none;
+  -webkit-user-drag: none;
+  -ms-user-select: none;
+      user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+/*
+---------------------------------
+*5. Main Page Styles
+---------------------------------
+*/
+/*
+TODO Add stuff here later this is filler
+*/
+/*
+---------------------------------
+*6. Lobby Page Styles
+---------------------------------
+*/
+/*# sourceMappingURL=style.css.map */
