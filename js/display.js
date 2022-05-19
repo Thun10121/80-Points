@@ -10,6 +10,9 @@ let played2 = document.getElementById("playedcard2");
 let played3 = document.getElementById("playedcard3");
 let played4 = document.getElementById("playedcard4");
 
+let gamePoints = document.getElementById("game-points");
+let roundPoints = document.getElementById("round-points");
+
 let deck = [deck1, deck2, deck3, deck4];
 let played = [played1, played2, played3, played4];
 

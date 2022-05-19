@@ -362,3 +362,26 @@ height 6vmin;
 .grayscale{
     filter: grayscale(70%);
 }
+
+.point-counter{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 2vmin;
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+}
+
+.point-counter div{
+    display: flex;
+    flex-direction: row;
+    margin: 0 1vmin 0 1vmin;
+}
+
+.point-counter div :nth-child(2){
+    margin-left: .5vmin;
+    color: red;
+}
+
+
