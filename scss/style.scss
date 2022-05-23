@@ -10,6 +10,7 @@
  *3.  Typography
 
  *4.  General Style
+    4.1 Popup Styles
 
  *5.  Front Page Style
 
@@ -232,6 +233,7 @@ $base1: #191a19;
 */
 
 body {
+    margin: 0;
     overflow: hidden;
     background: $base1;
     user-drag: none;
@@ -240,6 +242,19 @@ body {
     -webkit-user-select: none;
     -moz-user-select: none;
 }
+
+.center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*
+    ---------------------------------
+    4.1 Popup Styles
+    ---------------------------------
+*/
+
 /*
 ---------------------------------
 *5. Main Page Styles
@@ -257,3 +272,48 @@ TODO Add stuff here later this is filler
 ---------------------------------
 */
 
+.game {
+    .background {
+        aspect-ratio: 1 / 1;
+        height: 100%;
+        position: absolute;
+    }
+
+    .content {
+        aspect-ratio: 1 / 1;
+        height: 100%;
+        position: absolute;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto;
+        background: #5c5c5c;
+
+        >div {
+            height: 50px;
+            width: 50px;
+            background-color: orange;
+        }
+
+        .spacer {
+            background: none;
+            width: 5px;
+            height: 5px;
+        }
+
+        #3 {
+            width: 100%;
+            background: red;
+        }
+
+        #2,
+        #4 {
+            background: green;
+        }
+
+        .table {
+            width: auto;
+
+            background: aqua;
+        }
+    }
+}
