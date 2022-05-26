@@ -122,7 +122,13 @@ function home() {
     document.location = "../index.html";
 }
 
-console.log("hi");
+function submitSelected(){
+
+}
+
+function resetSelected(){
+    
+}
 
 this.addEventListener('keypress', e =>{
     console.log(e.keyCode);
