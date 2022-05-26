@@ -262,7 +262,7 @@ height 6vmin;
     transform: scale(1.15);
 }
 
-#user-container-border{
+#user-container-border {
     position: absolute;
     right: 0;
     top: 50%;
@@ -291,25 +291,25 @@ height 6vmin;
     padding-right: 5vmin;
 }
 
-#user1{
+#user1 {
     border-radius: 1vmin 0 0 0;
 }
 
-#user1, #user3{
+#user1, #user3 {
     background-color: #015f17;
 }
 
-#user2, #user4{
+#user2, #user4 {
     background-color: darkred;
 }
 
-#user4{
+#user4 {
     border-radius: 0 0 0 1vmin;
 }
 
 .user-pfp {
     height: fit-content;
-    width: fit-content; 
+    width: fit-content;
     filter: inherit;
 }
 
@@ -359,11 +359,11 @@ height 6vmin;
     fill: url(#gold);
 }
 
-.grayscale{
+.grayscale {
     filter: grayscale(70%);
 }
 
-.point-counter{
+.point-counter {
     position: absolute;
     top: 0;
     left: 0;
@@ -373,15 +373,50 @@ height 6vmin;
     flex-direction: column;
 }
 
-.point-counter div{
+.point-counter div {
     display: flex;
     flex-direction: row;
     margin: 0 1vmin 0 1vmin;
 }
 
-.point-counter div :nth-child(2){
+.point-counter div :nth-child(2) {
     margin-left: .5vmin;
     color: red;
 }
 
+.playCard {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 7vw;
+    margin-bottom: 7vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 10;
+}
 
+.playCard .button {
+    height: 3vmin;
+    width: 10vmin;
+    margin: 1vmin;
+    justify-content: center;
+    display: flex;
+    padding: 1vmin;
+    color: white;
+    border-radius: .5vmin;
+    transition: 500ms
+}
+
+.playCard .button:hover {
+    transform: scale(1.1);
+}
+
+.playCard .submit {
+    background-color: #015f17;
+}
+
+.playCard .reset {
+    background-color: darkred;
+
+}
