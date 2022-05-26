@@ -122,6 +122,14 @@ function home() {
     document.location = "../index.html";
 }
 
+function submitSelected(){
+
+}
+
+function resetSelected(){
+    
+}
+
 console.log("hi");
 
 this.addEventListener('keypress', e =>{
