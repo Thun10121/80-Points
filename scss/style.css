@@ -227,41 +227,29 @@ TODO Add stuff here later this is filler
 
 .game .content {
   aspect-ratio: 1 / 1;
-  height: 100%;
+  height: 500px;
   position: absolute;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto auto auto;
-      grid-template-columns: auto auto auto;
-  -ms-grid-rows: auto auto;
-      grid-template-rows: auto auto;
-  background: #5c5c5c;
-}
-
-.game .content > div {
-  height: 50px;
-  width: 50px;
-  background-color: orange;
+  -ms-grid-columns: 5vmin auto 5vmin;
+      grid-template-columns: 5vmin auto 5vmin;
+  -ms-grid-rows: 5vmin auto 5vmin;
+      grid-template-rows: 5vmin auto 5vmin;
 }
 
 .game .content .spacer {
-  background: none;
-  width: 5px;
-  height: 5px;
+  background: transparent;
 }
 
-.game .content #3 {
-  width: 100%;
+.game .content #four, .game .content #two {
   background: red;
 }
 
-.game .content #2,
-.game .content #4 {
+.game .content #three {
   background: green;
 }
 
 .game .content .table {
-  width: auto;
   background: aqua;
 }
 /*# sourceMappingURL=style.css.map */
