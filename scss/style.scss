@@ -15,7 +15,10 @@
  *5.  Front Page Style
 
  *6.  Lobby Page Style
-
+    6.1 Main Content Styles
+    6.2 Your Cards Styles
+    6.3 Side Bar Styles
+    6.4 Player Bar Styles
 */
 
 
@@ -73,6 +76,9 @@ $base1: #191a19;
 /* --base1: #217E18;
    --base4: #015f17; 
 */
+
+$OTHER_PLAYER_CARDS: 10vmin;
+$PLAYER_CARDS: 13vmin;
 
 ::-webkit-scrollbar {
     width: 10px;
@@ -272,6 +278,12 @@ TODO Add stuff here later this is filler
 ---------------------------------
 */
 
+
+/*
+    ---------------------------------
+    6.1 Main Content Styles
+    ---------------------------------
+*/
 .game {
     .background {
         aspect-ratio: 1 / 1;
@@ -281,21 +293,22 @@ TODO Add stuff here later this is filler
 
     .content {
         aspect-ratio: 1 / 1;
-        height: 500px;
+        height: 100vmin;
         position: absolute;
         display: grid;
-        grid-template-columns: 5vmin auto 5vmin;
-        grid-template-rows: 5vmin auto 5vmin;
+        grid-template-columns: $OTHER_PLAYER_CARDS auto $OTHER_PLAYER_CARDS;
+        grid-template-rows: $OTHER_PLAYER_CARDS auto $OTHER_PLAYER_CARDS;
 
         .spacer {
             background: transparent;
         }
 
-        #four, #two{
+        #four,
+        #two {
             background: red;
         }
 
-        #three{
+        #three {
             background: green;
         }
 
@@ -304,3 +317,76 @@ TODO Add stuff here later this is filler
         }
     }
 }
+
+.playerbar {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto auto;
+
+    .arrow {
+        width: 50px;
+        background-color: #BC8C1F;
+    }
+
+    .profiles {
+        img {
+            aspect-ratio: 1 / 1;
+            height: 10vmin;
+        }
+
+        span{
+            background-color: #000;
+            position: absolute;
+            width: 10.125vmin;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            position: absolute;
+            margin-bottom: 1vmin;
+        }
+
+        p {
+            text-align: center;
+            font-weight: 1000;
+            font-size: 1rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .content {
+            margin: .5vmin;
+            padding: 1vmin;
+            position: relative;
+        }
+    }
+
+    .profiles#one div,
+    .profiles#three div {
+        background-color: #006400;
+    }
+
+    .profiles#two div,
+    .profiles#four div {
+        background-color: #8b0000;
+    }
+}
+
+/*
+    ---------------------------------
+    6.2 Your Cards Styles
+    ---------------------------------
+*/
+/*
+    ---------------------------------
+    6.3 Side Bar Styles
+    ---------------------------------
+*/
+/*
+    ---------------------------------
+    6.3 Player Bar Styles
+    ---------------------------------
+*/
