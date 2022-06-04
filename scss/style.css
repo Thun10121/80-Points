@@ -3,7 +3,7 @@
 !Table Of Contents
 ---------------------------------
 
- *1. Global Variables
+ *1. Global Variables / Imports
 
  *2.  Metalic Gradients Style
 
@@ -22,8 +22,17 @@
 */
 /*
 ---------------------------------
-*1. Global Variables
+*1. Global Variables / Imports
 ---------------------------------
+*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gideon+Roman&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Luxurious+Roman&display=swap");
+/*
+    font-family: 'Gideon Roman', cursive;
+    font-family: 'Shippori Mincho B1', serif;
+    font-family: 'Luxurious Roman', cursive;
 */
 /*?linear gradient*/
 /*
@@ -175,7 +184,6 @@
 
 .hoverThemeTxt:hover {
   background: #191a19;
-  -webkit-text-stroke: 0.0125vmin #191a19;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -195,6 +203,14 @@ body {
       user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
+}
+
+h1 {
+  font-family: 'Gideon Roman', cursive;
+}
+
+p {
+  font-family: 'Luxurious Roman', cursive;
 }
 
 .center {
@@ -222,15 +238,63 @@ TODO Add stuff here later this is filler
 *6. Lobby Page Styles
 ---------------------------------
 */
+.room {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: .25vmin;
+  border-radius: .5vmin;
+  margin: 2vmin;
+}
+
+.room .content {
+  padding: 1vmin;
+}
+
+.room h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
 /*
     ---------------------------------
     6.1 Main Content Styles
     ---------------------------------
 */
+.game {
+  aspect-ratio: 1 / 1;
+  height: 100%;
+}
+
 .game .background {
   aspect-ratio: 1 / 1;
   height: 100%;
   position: absolute;
+  border-radius: 50%;
+}
+
+.game .background .inner {
+  border: solid #191a19 2vmin;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  height: 90%;
+  aspect-ratio: 1 / 1;
+}
+
+.game .background .inner .center {
+  height: 98%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .game .content {
@@ -262,6 +326,61 @@ TODO Add stuff here later this is filler
   background: aqua;
 }
 
+/*
+    ---------------------------------
+    6.2 Your Cards Styles
+    ---------------------------------
+*/
+.yourcards {
+  position: absolute;
+  background: yellow;
+  height: 13vmin;
+  width: 80vw;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin-bottom: 2vmin;
+}
+
+/*
+    ---------------------------------
+    6.3 Side Bar Styles
+    ---------------------------------
+*/
+.sidebar {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  margin-left: 2vmin;
+  border-radius: 1vmin;
+  padding: .5vmin;
+}
+
+.sidebar .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.sidebar .content svg {
+  fill: red;
+  margin: 2vmin 1vmin;
+  width: 5vmin;
+  height: 5vmin;
+}
+
+/*
+    ---------------------------------
+    6.3 Player Bar Styles
+    ---------------------------------
+*/
 .playerbar {
   position: absolute;
   right: 0;
@@ -307,20 +426,4 @@ TODO Add stuff here later this is filler
 .playerbar .profiles#four div {
   background-color: #8b0000;
 }
-
-/*
-    ---------------------------------
-    6.2 Your Cards Styles
-    ---------------------------------
-*/
-/*
-    ---------------------------------
-    6.3 Side Bar Styles
-    ---------------------------------
-*/
-/*
-    ---------------------------------
-    6.3 Player Bar Styles
-    ---------------------------------
-*/
 /*# sourceMappingURL=style.css.map */

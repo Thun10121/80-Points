@@ -3,7 +3,7 @@
 !Table Of Contents
 ---------------------------------
 
- *1. Global Variables
+ *1. Global Variables / Imports
 
  *2.  Metalic Gradients Style
 
@@ -24,8 +24,18 @@
 
 /*
 ---------------------------------
-*1. Global Variables
+*1. Global Variables / Imports
 ---------------------------------
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luxurious+Roman&display=swap');
+/*
+    font-family: 'Gideon Roman', cursive;
+    font-family: 'Shippori Mincho B1', serif;
+    font-family: 'Luxurious Roman', cursive;
 */
 
 $base2: #A6A6A6;
@@ -60,7 +70,6 @@ $grad5: #FCE186;
 /*
 ? black theme
 */
-$base4: #191a19;
 $base1: #191a19;
 
 /*
@@ -214,20 +223,19 @@ $PLAYER_CARDS: 13vmin;
 */
 
 .themeBK {
-    background: $base4;
+    background: $base1;
 }
 
 .themeTxt {
-    color: $base4;
+    color: $base1;
 }
 
 .hoverThemeBK:hover {
-    background: $base4;
+    background: $base1;
 }
 
 .hoverThemeTxt:hover {
-    background: $base4;
-    -webkit-text-stroke: .0125vmin $base4;
+    background: $base1;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -247,6 +255,14 @@ body {
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
+}
+
+h1 {
+    font-family: 'Gideon Roman', cursive;
+}
+
+p {
+    font-family: 'Luxurious Roman', cursive;
 }
 
 .center {
@@ -277,7 +293,22 @@ TODO Add stuff here later this is filler
 *6. Lobby Page Styles
 ---------------------------------
 */
+.room {
+    width: fit-content;
+    padding: .25vmin;
+    border-radius: .5vmin;
+    margin: 2vmin;
 
+    .content {
+        padding: 1vmin;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin: 0;
+        padding: 0;
+    }
+}
 
 /*
     ---------------------------------
@@ -285,10 +316,35 @@ TODO Add stuff here later this is filler
     ---------------------------------
 */
 .game {
+    aspect-ratio: 1 / 1;
+    height: 100%;
+
     .background {
         aspect-ratio: 1 / 1;
         height: 100%;
         position: absolute;
+        border-radius: 50%;
+
+        .inner {
+            border: solid $base1 2vmin;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 90%;
+            aspect-ratio: 1 / 1;
+
+            .center {
+                height: 98%;
+                aspect-ratio: 1/1;
+                border-radius: 50%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
     }
 
     .content {
@@ -317,6 +373,55 @@ TODO Add stuff here later this is filler
         }
     }
 }
+
+/*
+    ---------------------------------
+    6.2 Your Cards Styles
+    ---------------------------------
+*/
+.yourcards {
+    position: absolute;
+    background: yellow;
+    height: $PLAYER_CARDS;
+    width: 80vw;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 2vmin;
+}
+
+/*
+    ---------------------------------
+    6.3 Side Bar Styles
+    ---------------------------------
+*/
+.sidebar {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 2vmin;
+    border-radius: 1vmin;
+    padding: .5vmin;
+
+    .content {
+        display: flex;
+        flex-direction: column;
+
+        svg {
+            fill: red;
+            margin: 2vmin 1vmin;
+            width: 5vmin;
+            height: 5vmin;
+        }
+    }
+}
+
+/*
+    ---------------------------------
+    6.3 Player Bar Styles
+    ---------------------------------
+*/
 
 .playerbar {
     position: absolute;
@@ -361,19 +466,3 @@ TODO Add stuff here later this is filler
         background-color: #8b0000;
     }
 }
-
-/*
-    ---------------------------------
-    6.2 Your Cards Styles
-    ---------------------------------
-*/
-/*
-    ---------------------------------
-    6.3 Side Bar Styles
-    ---------------------------------
-*/
-/*
-    ---------------------------------
-    6.3 Player Bar Styles
-    ---------------------------------
-*/
