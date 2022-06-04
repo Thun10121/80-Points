@@ -270,32 +270,17 @@ TODO Add stuff here later this is filler
           transform: translateY(-50%);
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto auto;
-      grid-template-columns: auto auto;
-  -ms-grid-rows: auto auto auto auto;
-      grid-template-rows: auto auto auto auto;
+  margin-right: 5vmin;
 }
 
-.playerbar .arrow {
-  width: 50px;
-  background-color: #BC8C1F;
+.playerbar .profiles {
+  margin: 1vmin;
+  border-radius: .5vmin;
 }
 
 .playerbar .profiles img {
   aspect-ratio: 1 / 1;
   height: 10vmin;
-}
-
-.playerbar .profiles span {
-  background-color: #000;
-  position: absolute;
-  width: 10.125vmin;
-  bottom: 0;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  position: absolute;
-  margin-bottom: 1vmin;
 }
 
 .playerbar .profiles p {
@@ -304,6 +289,7 @@ TODO Add stuff here later this is filler
   font-size: 1rem;
   margin: 0;
   padding: 0;
+  bottom: 0;
 }
 
 .playerbar .profiles .content {
