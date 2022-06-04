@@ -296,11 +296,12 @@ TODO Add stuff here later this is filler
 .room {
     width: fit-content;
     padding: .25vmin;
-    border-radius: .5vmin;
+    border-radius: 1vmin;
     margin: 2vmin;
 
     .content {
         padding: 1vmin;
+        border-radius: 1vmin;
     }
 
     h1 {
@@ -355,6 +356,7 @@ TODO Add stuff here later this is filler
         grid-template-columns: $OTHER_PLAYER_CARDS auto $OTHER_PLAYER_CARDS;
         grid-template-rows: $OTHER_PLAYER_CARDS auto $OTHER_PLAYER_CARDS;
 
+
         .spacer {
             background: transparent;
         }
@@ -407,6 +409,7 @@ TODO Add stuff here later this is filler
     .content {
         display: flex;
         flex-direction: column;
+        border-radius: 1vmin;
 
         svg {
             fill: red;
@@ -453,6 +456,7 @@ TODO Add stuff here later this is filler
             margin: .5vmin;
             padding: 1vmin;
             position: relative;
+            border-radius: .5vmin;
         }
     }
 

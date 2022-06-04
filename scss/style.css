@@ -243,12 +243,13 @@ TODO Add stuff here later this is filler
   width: -moz-fit-content;
   width: fit-content;
   padding: .25vmin;
-  border-radius: .5vmin;
+  border-radius: 1vmin;
   margin: 2vmin;
 }
 
 .room .content {
   padding: 1vmin;
+  border-radius: 1vmin;
 }
 
 .room h1 {
@@ -367,6 +368,7 @@ TODO Add stuff here later this is filler
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  border-radius: 1vmin;
 }
 
 .sidebar .content svg {
@@ -415,6 +417,7 @@ TODO Add stuff here later this is filler
   margin: .5vmin;
   padding: 1vmin;
   position: relative;
+  border-radius: .5vmin;
 }
 
 .playerbar .profiles#one div,
