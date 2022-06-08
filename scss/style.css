@@ -110,7 +110,7 @@
 }
 
 .hoverGoldBK:hover {
-  background: linear-gradient(135deg, #e7cd3b, #e7cd3b 20%, #d9ad15 40%, #f0d750);
+  background: linear-gradient(135deg, #f0d750, #e7cd3b 20%, #d9ad15 40%, #fce186);
   -webkit-animation: gradFlow 5s ease infinite;
           animation: gradFlow 5s ease infinite;
   background-size: 200% 200%;
@@ -373,11 +373,8 @@ TODO Add stuff here later this is filler
 
 .sidebar .content svg {
   margin: 2vmin 1vmin;
-  width: 10vmin;
-  height: 10vmin;
-  background-size: 200% 200%;
-  -webkit-animation: gradFlow 5s ease infinite;
-          animation: gradFlow 5s ease infinite;
+  width: 8vmin;
+  height: 8vmin;
 }
 
 /*
