@@ -600,7 +600,7 @@ function popup(div) {
     content.classList.toggle("popup-hide");
 }
 
-function join() {
+function join() { //!edit
     createButton.style.display = "none";
     joinButton.style.display = "none";
     frontButtonDIV.innerHTML = `
