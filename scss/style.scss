@@ -119,7 +119,7 @@ $PLAYER_CARDS: 13vmin;
             #e7cd3b 20%,
             #d9ad15 40%,
             #fce186);
-    animation: gradFlow 5s ease infinite;
+    animation: gradFlow 3s ease infinite;
     background-size: 200% 200%;
 }
 
@@ -197,10 +197,9 @@ $PLAYER_CARDS: 13vmin;
             to(#b9b9b9));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gradFlow 5s ease infinite;
+    animation: gradFlow 4s ease infinite;
     background-size: 200% 200%;
 }
-
 
 @keyframes gradFlow {
     0% {

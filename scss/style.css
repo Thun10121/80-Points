@@ -79,8 +79,8 @@
 */
 .goldBK {
   background: linear-gradient(135deg, #f0d750, #e7cd3b 20%, #d9ad15 40%, #fce186);
-  -webkit-animation: gradFlow 5s ease infinite;
-          animation: gradFlow 5s ease infinite;
+  -webkit-animation: gradFlow 3s ease infinite;
+          animation: gradFlow 3s ease infinite;
   background-size: 200% 200%;
 }
 
@@ -136,8 +136,8 @@
   background: -webkit-gradient(linear, left top, right bottom, from(#d8d7d7), color-stop(20%, #b1b1b1), color-stop(40%, #7e7e7e), to(#b9b9b9));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  -webkit-animation: gradFlow 5s ease infinite;
-          animation: gradFlow 5s ease infinite;
+  -webkit-animation: gradFlow 4s ease infinite;
+          animation: gradFlow 4s ease infinite;
   background-size: 200% 200%;
 }
 
