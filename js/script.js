@@ -125,8 +125,6 @@ function intialize() { //the function that calls all functions to intialize
         currentPoints: totalPoints //TODO: change when specific gameplay finalized
     }
 
-    //debugging purposes
-
     for (let i = 0; i < cardTypes.length; i++) {
         if (cardTypes[i] != zhuNumber) {
             cardValue.set(cardTypes[i], cardValue.size + 1);

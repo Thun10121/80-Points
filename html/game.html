@@ -11,11 +11,18 @@
 </head>
 
 <body>
-    <div class="room goldBK">
+    <div class="info goldBK">
         <div class="content themeBK">
             <h1 class="goldTxt">
                 Room Number: 10121
             </h1>
+            <h2 class="goldTxt ">
+                Main Suit: ♥
+            </h2>
+            <div class="goldBK divider"></div>
+            <h2 class="goldTxt">
+                Main Card: A
+            </h2>
         </div>
     </div>
     <div class="game">
@@ -30,10 +37,10 @@
             <div class="spacer"></div>
             <div class="deck" id="two"></div>
             <div class="table">
-                <div class="played" id="one"></div>
-                <div class="played" id="two"></div>
-                <div class="played" id="three"></div>
-                <div class="played" id="four"></div>
+                <div class="play" id="one"></div>
+                <div class="play" id="two"></div>
+                <div class="play" id="three"></div>
+                <div class="play" id="four"></div>
             </div>
             <div class="deck" id="four"></div>
             <div class="spacer"></div>
@@ -51,15 +58,15 @@
                     <linearGradient id="goldfill">
                         <stop offset="0%" stop-color="#f0d750">
                             <animate attributeName="stop-color" values="#f0d750;#e7cd3b;#d9ad15;#e7cd3b;#f0d750"
-                                dur="5s" repeatCount="indefinite" />
+                                dur="4s" repeatCount="indefinite" />
                         </stop>
                         <stop offset="50%" stop-color="#e7cd3b">
                             <animate attributeName="stop-color" values="#e7cd3b;#d9ad15;#fce186;#d9ad15;#e7cd3b"
-                                dur="5s" repeatCount="indefinite" />
+                                dur="4s" repeatCount="indefinite" />
                         </stop>
                         <stop offset="100%" stop-color="#d9ad15">
                             <animate attributeName="stop-color" values="#d9ad15;#fce186;#f0d750;#fce186;#d9ad15"
-                                dur="5s" repeatCount="indefinite" />
+                                dur="4s" repeatCount="indefinite" />
                         </stop>
                     </linearGradient>
                 </defs>
@@ -121,6 +128,11 @@
     <div class="instructions popup"></div>
     <div class="history popup"></div>
     <div class="modal"></div>
+
+    <script src="../scriptV2.js"></script>
+    <script type="text/javascript">
+        intialize();
+    </script>
 </body>
 
 </html>
