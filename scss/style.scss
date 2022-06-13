@@ -118,7 +118,8 @@ $PLAYER_CARDS: 13vmin;
             #f0d750,
             #e7cd3b 20%,
             #d9ad15 40%,
-            #fce186);
+            #015f17);
+    /*#fce186);*/
     animation: gradFlow 3s ease infinite;
     background-size: 200% 200%;
 }
@@ -128,7 +129,9 @@ $PLAYER_CARDS: 13vmin;
             from(#f0d750),
             color-stop(20%, #e7cd3b),
             color-stop(40%, #d9ad15),
-            to(#fce186));
+            to(#00ad11));
+    /*to(#fce186));*/
+
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: gradFlow 5s ease infinite;
@@ -203,15 +206,15 @@ $PLAYER_CARDS: 13vmin;
 
 @keyframes gradFlow {
     0% {
-        background-position: 0% 20%
+        background-position: 0% 50%
     }
 
     50% {
-        background-position: 20% 100%
+        background-position: 50% 100%
     }
 
     100% {
-        background-position: 0% 20%
+        background-position: 0% 50%
     }
 }
 
@@ -318,7 +321,8 @@ TODO Add stuff here later this is filler
         font-size: 1rem;
         width: auto;
     }
-    .divider{
+
+    .divider {
         height: auto;
         width: .25vmin;
         border-radius: .125vmin;
@@ -341,7 +345,7 @@ TODO Add stuff here later this is filler
         border-radius: 50%;
 
         .inner {
-            border: solid $base1 2vmin;
+            border: solid $base1 1vmin;
             border-radius: 50%;
             position: absolute;
             top: 50%;
@@ -417,7 +421,7 @@ TODO Add stuff here later this is filler
     transform: translateY(-50%);
     margin-left: 2vmin;
     border-radius: 1vmin;
-    padding: .5vmin;
+    padding: .25vmin;
 
     .content {
         display: flex;
@@ -465,7 +469,7 @@ TODO Add stuff here later this is filler
         }
 
         .content {
-            margin: .5vmin;
+            margin: .375vmin;
             padding: 1vmin;
             position: relative;
             border-radius: .5vmin;
