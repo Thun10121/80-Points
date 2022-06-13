@@ -78,16 +78,14 @@
 ---------------------------------
 */
 .goldBK {
-  background: linear-gradient(135deg, #f0d750, #e7cd3b 20%, #d9ad15 40%, #015f17);
-  /*#fce186);*/
+  background: linear-gradient(135deg, #f0d750, #e7cd3b 20%, #d9ad15 40%, #fce186);
   -webkit-animation: gradFlow 3s ease infinite;
           animation: gradFlow 3s ease infinite;
   background-size: 200% 200%;
 }
 
 .goldTxt {
-  background: -webkit-gradient(linear, left top, right bottom, from(#f0d750), color-stop(20%, #e7cd3b), color-stop(40%, #d9ad15), to(#00ad11));
-  /*to(#fce186));*/
+  background: -webkit-gradient(linear, left top, right bottom, from(#f0d750), color-stop(20%, #e7cd3b), color-stop(40%, #d9ad15), to(#fce186));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-animation: gradFlow 5s ease infinite;
@@ -145,25 +143,25 @@
 
 @-webkit-keyframes gradFlow {
   0% {
-    background-position: 0% 50%;
+    background-position: 0% 20%;
   }
   50% {
-    background-position: 50% 100%;
+    background-position: 20% 100%;
   }
   100% {
-    background-position: 0% 50%;
+    background-position: 0% 20%;
   }
 }
 
 @keyframes gradFlow {
   0% {
-    background-position: 0% 50%;
+    background-position: 0% 20%;
   }
   50% {
-    background-position: 50% 100%;
+    background-position: 20% 100%;
   }
   100% {
-    background-position: 0% 50%;
+    background-position: 0% 20%;
   }
 }
 
@@ -298,7 +296,7 @@ TODO Add stuff here later this is filler
 }
 
 .game .background .inner {
-  border: solid #191a19 1vmin;
+  border: solid #191a19 2vmin;
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -379,7 +377,7 @@ TODO Add stuff here later this is filler
           transform: translateY(-50%);
   margin-left: 2vmin;
   border-radius: 1vmin;
-  padding: .25vmin;
+  padding: .5vmin;
 }
 
 .sidebar .content {
@@ -435,7 +433,7 @@ TODO Add stuff here later this is filler
 }
 
 .playerbar .profiles .content {
-  margin: .375vmin;
+  margin: .5vmin;
   padding: 1vmin;
   position: relative;
   border-radius: .5vmin;
