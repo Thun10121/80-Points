@@ -175,7 +175,7 @@ function putCards() {
     for (let i = 0; i < 2; i++) {
         for (let suitN in SUIT_TYPES) {
             for (let cardN in CARD_TYPES) {
-                cards.push(suitN + cardN);
+                cards.push(SUIT_TYPES[suitN] + CARD_TYPES[cardN]);
             }
         }
     }
@@ -221,7 +221,6 @@ function distributeCards(deck) { //distribute cards to players
 
 function sortPlayerDecks(playerDecks, zhuSuit, zhuNumber) {
     let sortedPlayerDecks = [];
-    console.log(playerDecks);
     for (let deckN in playerDecks) {
         let playerJoker = [];
         let playerZhuSuit = [];
@@ -229,15 +228,13 @@ function sortPlayerDecks(playerDecks, zhuSuit, zhuNumber) {
         let playerFuSuit = [];
         for (let cardN in playerDecks[deckN]) {
             let temp = playerDecks[deckN][cardN];
-            console.log(cardN);
             if (substring(temp, 1, length(temp)) == "Joker") {
                 playerJoker.push(temp);
             } else if (substring(temp, 1, length(temp)) == zhuNumber) {
                 playerZhuNumber.push(temp);
             } else if (charAt(temp, 0) == zhuSuit) {
                 playerZhuSuit.push(temp);
-            }
-            else {
+            } else {
                 playerFuSuit.push(temp);
             }
         }
