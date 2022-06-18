@@ -683,10 +683,3 @@ function submitSelected(){
 function resetSelected(){
     
 }
-
-this.addEventListener('keypress', e =>{
-    console.log(e.keyCode);
-    if(e.keyCode == 13){
-        alert("key pressed");
-    }
-});
