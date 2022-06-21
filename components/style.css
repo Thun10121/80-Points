@@ -164,6 +164,21 @@
     background-position: 0% 20%;
   }
 }
+.red {
+  color: red;
+}
+
+.black {
+  color: black;
+}
+
+.redBK {
+  border: 0.625vmin solid red;
+}
+
+.blackBK {
+  border: 0.625vmin solid black;
+}
 
 /*
 ---------------------------------
@@ -206,18 +221,17 @@ body {
 }
 
 h1 {
-  font-family: 'Gideon Roman', cursive;
+  font-family: "Gideon Roman", cursive;
 }
 
 p {
-  font-family: 'Luxurious Roman', cursive;
+  font-family: "Luxurious Roman", cursive;
 }
 
 .center {
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 /*
@@ -242,40 +256,32 @@ TODO Add stuff here later this is filler
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  padding: .25vmin;
+  padding: 0.25vmin;
   border-radius: 1vmin;
   margin: 2vmin;
 }
-
 .info .content {
   padding: 1vmin;
   border-radius: 1vmin;
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto auto auto;
-      grid-template-columns: auto auto auto;
-  -ms-grid-rows: auto auto;
-      grid-template-rows: auto auto;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto;
 }
-
 .info h1 {
-  -ms-grid-column: 1;
-      grid-column-start: 1;
+  grid-column-start: 1;
   grid-column-end: 4;
   font-size: 1.5rem;
   margin: 0;
   padding: 0;
 }
-
 .info h2 {
   font-size: 1rem;
   width: auto;
 }
-
 .info .divider {
   height: auto;
-  width: .25vmin;
-  border-radius: .125vmin;
+  width: 0.25vmin;
+  border-radius: 0.125vmin;
 }
 
 /*
@@ -284,29 +290,25 @@ TODO Add stuff here later this is filler
     ---------------------------------
 */
 .game {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1/1;
   height: 100%;
 }
-
 .game .background {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1/1;
   height: 100%;
   position: absolute;
   border-radius: 50%;
 }
-
 .game .background .inner {
   border: solid #191a19 2vmin;
   border-radius: 50%;
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   height: 90%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1/1;
 }
-
 .game .background .inner .center {
   height: 98%;
   aspect-ratio: 1/1;
@@ -314,35 +316,26 @@ TODO Add stuff here later this is filler
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
-
 .game .content {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1/1;
   height: 100vmin;
   position: absolute;
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 10vmin auto 10vmin;
-      grid-template-columns: 10vmin auto 10vmin;
-  -ms-grid-rows: 10vmin auto 10vmin;
-      grid-template-rows: 10vmin auto 10vmin;
+  grid-template-columns: 4vmax auto 4vmax;
+  grid-template-rows: 4vmax auto 4vmax;
 }
-
 .game .content .spacer {
   background: transparent;
 }
-
 .game .content #four,
 .game .content #two {
   background: red;
 }
-
 .game .content #three {
   background: green;
 }
-
 .game .content .table {
   background: aqua;
 }
@@ -354,54 +347,51 @@ TODO Add stuff here later this is filler
 */
 .yourcards {
   position: absolute;
-  height: 13vmin;
-  width: 80vw;
+  height: 6vmax;
+  width: 100vmax;
   bottom: 0;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  margin-bottom: 2vmin;
+  transform: translateX(-50%);
+  margin-bottom: 6vmax;
+  display: flex;
+  flex: column;
 }
 
 .card {
-  width: 13vmin;
-  aspect-ratio: 216 / 336;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  border-radius: .5vmin;
-  border: .625vmin solid red;
+  width: 6vmax;
+  aspect-ratio: 216/336;
+  transform: translate(-50%, -50%);
   background: white;
-  border-radius: .5vmin;
-  padding: .5vmin;
+  border-radius: 1vmin;
+  padding: 0.5vmin;
+  position: absolute;
 }
-
 .card .type {
   position: relative;
   left: 0;
   top: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  margin: .5vmin;
+  flex-direction: row;
+  margin: 0.5vmin;
 }
-
 .card .type p {
   margin: 0;
-  font-family: 'Luxurious Roman', cursive;
-  font-size: 2vmax;
+  font-family: "Luxurious Roman", cursive;
+  font-size: 1.5vmax;
+  font-weight: 900;
 }
-
 .card .dragon {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 13vmin;
+  transform: translate(-50%, -50%);
+  width: 6vmax;
+}
+
+.label {
+  left: 0;
+  bottom: 0;
+  height: 2vmin;
 }
 
 /*
@@ -413,24 +403,16 @@ TODO Add stuff here later this is filler
   position: absolute;
   left: 0;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   margin-left: 2vmin;
   border-radius: 1vmin;
-  padding: .5vmin;
+  padding: 0.5vmin;
 }
-
 .sidebar .content {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   border-radius: 1vmin;
 }
-
 .sidebar .content svg {
   margin: 2vmin 1vmin;
   width: 6vmin;
@@ -446,23 +428,18 @@ TODO Add stuff here later this is filler
   position: absolute;
   right: 0;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  display: -ms-grid;
+  transform: translateY(-50%);
   display: grid;
   margin-right: 5vmin;
 }
-
 .playerbar .profiles {
   margin: 1vmin;
-  border-radius: .5vmin;
+  border-radius: 0.5vmin;
 }
-
 .playerbar .profiles img {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1/1;
   height: 10vmin;
 }
-
 .playerbar .profiles p {
   text-align: center;
   font-weight: 1000;
@@ -471,21 +448,17 @@ TODO Add stuff here later this is filler
   padding: 0;
   bottom: 0;
 }
-
 .playerbar .profiles .content {
-  margin: .5vmin;
+  margin: 0.5vmin;
   padding: 1vmin;
   position: relative;
-  border-radius: .5vmin;
+  border-radius: 0.5vmin;
 }
-
 .playerbar .profiles#one div,
 .playerbar .profiles#three div {
   background-color: #006400;
 }
-
 .playerbar .profiles#two div,
 .playerbar .profiles#four div {
   background-color: #8b0000;
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

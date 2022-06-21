@@ -86,8 +86,8 @@ $base1: #191a19;
    --base4: #015f17; 
 */
 
-$OTHER_PLAYER_CARDS: 10vmin;
-$PLAYER_CARDS: 13vmin;
+$OTHER_PLAYER_CARDS: 4vmax;
+$PLAYER_CARDS: 6vmax;
 
 ::-webkit-scrollbar {
     width: 10px;
@@ -213,6 +213,22 @@ $PLAYER_CARDS: 13vmin;
     100% {
         background-position: 0% 20%
     }
+}
+
+.red {
+    color: red;
+}
+
+.black {
+    color: black;
+}
+
+.redBK {
+    border: .625vmin solid red;
+}
+
+.blackBK {
+    border: .625vmin solid black;
 }
 
 /*
@@ -398,22 +414,23 @@ TODO Add stuff here later this is filler
 .yourcards {
     position: absolute;
     height: $PLAYER_CARDS;
-    width: 80vw;
+    width: 100vmax;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    margin-bottom: 2vmin;
+    margin-bottom: $PLAYER_CARDS;
+    display: flex;
+    flex: column;
 }
 
 .card {
     width: $PLAYER_CARDS;
     aspect-ratio: 216 / 336;
     transform: translate(-50%, -50%);
-    border-radius: .5vmin;
-    border: .625vmin solid red;
     background: white;
-    border-radius: .5vmin;
+    border-radius: 1vmin;
     padding: .5vmin;
+    position: absolute;
 
     .type {
         position: relative;
@@ -426,7 +443,8 @@ TODO Add stuff here later this is filler
         p {
             margin: 0;
             font-family: 'Luxurious Roman', cursive;
-            font-size: 2vmax;
+            font-size: 1.5vmax;
+            font-weight: 900;
         }
     }
 
@@ -437,6 +455,12 @@ TODO Add stuff here later this is filler
         transform: translate(-50%, -50%);
         width: $PLAYER_CARDS;
     }
+}
+
+.label{
+    left: 0;
+    bottom: 0;
+    height: 2vmin;
 }
 
 /*

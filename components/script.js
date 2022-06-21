@@ -53,8 +53,10 @@ const MAX_ROOMS = 20;
 let ACTIVE_ROOMS = []; //!add to firebase
 let ROOM_ID = "";
 let ROOM_TYPE = ""; //TODO: waiting for custom function added
+let OPEN = true;
 
 let TOTAL_POINTS = 0;
+
 
 /*
     ------------------------------------------------------------------
@@ -115,7 +117,7 @@ function intialize() {
     const PLAYERDECK_UNSORTED = DISTRIBUTE_CARDS[0];
     const DI_PAI = DISTRIBUTE_CARDS[1];
     const PLAYERDECKS = sortPlayerDecks(PLAYERDECK_UNSORTED, ZHU_SUIT, ZHU_NUMBER);
-    renderDeck(PLAYERDECKS[0]);
+    renderDeck(PLAYERDECKS[0], ZHU_NUMBER, ZHU_SUIT);
 }
 
 /*
@@ -347,21 +349,60 @@ function sortSuit(deck, zhuSuit, isZhu) {
     1.8 DIV Generator Functions
     ------------------------------------------------------------------
 */
-function renderDeck(deck) {
+function renderDeck(deck, ZHU_NUMBER, ZHU_SUIT) {
+    let cards = [];
     for (let i in deck) {
         let card = deck[i];
-        Card(i, card);
+        let suit = charAt(card, 0);
+        let number = substring(card, 1, length(card));
+        cards.push(Card(i, number, suit));
     }
+    const root = ReactDOM.createRoot(
+        document.querySelector(".yourcards")
+    );
+    root.render(cards);
+
+    setTimeout(() => {
+        for (let i in cards) {
+            let card = deck[i];
+            let suit = charAt(card, 0);
+            let number = substring(card, 1, length(card));
+            let joker = (number == "Joker");
+            let zhuNumber = (number == ZHU_NUMBER);
+            let zhuSuit = (suit == ZHU_SUIT);
+
+            let labelHTML;
+            if (joker) {
+                console.log("joker");
+                labelHTML = <jokerLabel />;
+            } else if (zhuNumber && zhuSuit) {
+                console.log("number + suit");
+                labelHTML = <zhuSuitNumberLabel />;
+            } else if (zhuNumber) {
+                console.log("number");
+                labelHTML = <zhuNumberLabel />;
+            } else if (zhuSuit) {
+                console.log("suit");
+                labelHTML = <zhuSuitLabel />;
+            }
+
+            const label = ReactDOM.createRoot(
+                document.getElementsByClassName("label")[i]
+            )
+            label.render(labelHTML);
+        }
+    }, 1);
+
 }
 
-function Card(identification, card) {
-    let suit = charAt(card, 0);
-    let number = substring(card, 1, length(card));
+function Card(identification, number, suit) {
+    let color = (suit == '♥' || suit == '♦' || suit == 'R') ? "red" : "black";
+    let offset = parseInt(identification) * 3;
     const element = (
-        <div class='card' data-number={identification}>
+        <div class={`card ${color}BK`} data-number={identification} style={{ transform: `translateX(${offset}vmax)` }}>
             <div class="type">
-                <p class="suit goldTxt">{suit}</p>
-                <p class="number goldTxt">{number}</p>
+                <p class={`suit ${color}`}>{suit}</p>
+                <p class={`number ${color}`}>{number}</p>
             </div>
             <svg class="dragon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.91 59.66" fill="url(#goldfill)">
                 <linearGradient id="goldfill">
@@ -380,14 +421,43 @@ function Card(identification, card) {
                     d="M54.26,16.17a3.65,3.65,0,0,1-1.14-.07c.67-.1,1.7-.41,1.85-1.35L55,14.3l-.34.31s-.65.58-1.23.25l.92-.67-1-.07.58-.41-.68-.42a2.39,2.39,0,0,0,.68-2.2l-.05-.46-.24.4s-1,1.69-2.22,1.27c-.2-.07-.32-.16-.32-.23,0-.22.61-.63,1.2-.88l.41-.18-.43-.12a2.68,2.68,0,0,0-1.67.12c-.07-.42-.15-1.37.5-1.74l.4-.22L51.09,9a3.07,3.07,0,0,0-.91,0A2.8,2.8,0,0,0,48.6,6.36l-.28-.16,0,.31a2.6,2.6,0,0,1-.54,1.82,2.64,2.64,0,0,1-1.92.81c.17-.83,1-4.08,3.73-4.7l.59-.13-.58-.18S48.4,3.8,46.09,5.5A15.14,15.14,0,0,0,44.8,6.59c-.28.26-.56.52-.86.77a3.36,3.36,0,0,0-.43-2.88l-.23-.39-.06.45a9.56,9.56,0,0,1-.38,1.73,4.51,4.51,0,0,1-2,2.11l-.48.34a8.2,8.2,0,0,0,.52-6.83L40.58,1l0,1a9.21,9.21,0,0,1-3.4,7A6.26,6.26,0,0,0,38,7l.28-1.35L37.67,6.9a8,8,0,0,1-.83,1.27l0,0a12,12,0,0,1-1.45,1.54,24.85,24.85,0,0,0-3.1,3.3,1,1,0,0,1-.07-.3c0-.46.21-1.3,1.47-2.68l.27-.28-.39,0c-.09,0-2.2.16-4.08,4.76a6.63,6.63,0,0,1-3.25,3.52,6.78,6.78,0,0,1-1.71.58l-.13,0a6.41,6.41,0,0,1-1.05.13h-.4a4.79,4.79,0,0,0-2.82.54c-1.62,1-2.34,1.94-2.49,3.33-.05.51-.07.92-.09,1.24a2.14,2.14,0,0,1-.17,1l-.11.12.13.1a.56.56,0,0,0,.7,0l.13-.12a.81.81,0,0,1,.6-.33c.28,0,.6.26,1,.73l.2.25.25-.91.37.46.29-.65a4.28,4.28,0,0,0,2.25.25,12.36,12.36,0,0,0,4-1.58l.93-.49a9.79,9.79,0,0,1-3.37,3.51,10.45,10.45,0,0,1-.95.56l-.21.12a3,3,0,0,1-1.74.55.65.65,0,0,1-.4-.22l-.09-.08-.09,0c-.21.06-.39.62-.39.63a1.62,1.62,0,0,0,.06.62,1.47,1.47,0,0,0,1.07,1,3,3,0,0,0,1.74-.25,18.38,18.38,0,0,0,2.9-1.56,12.63,12.63,0,0,1,4-1.87c.56-.13,1.14-.22,1.69-.3a16.32,16.32,0,0,0,3.07-.69A10.09,10.09,0,0,0,37,23.93a20.15,20.15,0,0,1,.29,3.77,7.11,7.11,0,0,1-1,3.46c-2.41,4.1-6.29,6.94-10,9.69l-1.93,1.42a18.1,18.1,0,0,0-5.9,6.58,9.54,9.54,0,0,0-.61,6.48A7.51,7.51,0,0,0,22,60.2a6.21,6.21,0,0,0,2.35.45,5.92,5.92,0,0,0,3.94-1.44l.88-.8L28.15,59c-2,1-4,1-5.29.08a5.59,5.59,0,0,1-2.43-4.75c0-3.33,2.44-6.82,4.84-8.54,4.87-3.5,10.39-7.47,14.36-12.82l.28-.38a12.5,12.5,0,0,0,1.81-2.93A5.25,5.25,0,0,1,41,31.9L40.3,33l.91-.87c.15-.15,3.79-3.72,3.45-7.76a17.06,17.06,0,0,0-2.15-6.93s-1-2.08,0-3.32a8.09,8.09,0,0,1,3.18-2,5.09,5.09,0,0,0,2.08-.85,5.3,5.3,0,0,0,.09.79l0,.12a2.43,2.43,0,0,0,1.86,2.18,3.85,3.85,0,0,0,1.13-.05l.24,0c-.12.44-.73.83-1.05,1l-.15.1.12.14s2,2.29,4.34,1l.69-.39Zm-26,3.72a8.37,8.37,0,0,1-1.8.15c.1,0,.3-.15.39-.2.33-.18.67-.37,1-.58,1.37-.86,3-2,3.55-3.58A3.65,3.65,0,0,1,28.26,19.89Zm14.58-7.84a25.45,25.45,0,0,1-3.35,1.79,4.35,4.35,0,0,1,1.79-.11,4.44,4.44,0,0,0-2.4,1.6c.25-.31,1,.41,1.16.76-.2,0-.52-.12-.69,0s.13.81.18,1a4.17,4.17,0,0,1,.13,1.53c-.15-.21-.29-.43-.43-.64a5.76,5.76,0,0,1-.56,2.38,3.29,3.29,0,0,0-.26-1.23,4.26,4.26,0,0,1-.67,2.3,1.53,1.53,0,0,0,.13-.64c0-.17-.14-.52-.1-.65-.13.44-.83.91-1.07,1.29a8.16,8.16,0,0,0,.74-4.66,3.93,3.93,0,0,1,.37-2.74,4.83,4.83,0,0,1,2.69-1.86,9.71,9.71,0,0,0,3.8-2C44.33,11,43.22,11.64,42.84,12.05Z"
                     transform="translate(-7.55 -0.99)" />
             </svg>
-            <div id="card-label"></div>
+            <div class="label"></div>
         </div>
     );
-    const root = ReactDOM.createRoot(
-        document.querySelector(".yourcards")
-    );
-    root.render(element);
+    return element;
 }
+
+// function labeler(joker, number, suit) {
+//     if (joker) {
+//         console.log("joker");
+//         return jokerLabel();
+//     } else if (number && suit) {
+//         console.log("number + suit");
+//         return { __html: <zhuSuitNumberLabel /> };
+//     } else if (number) {
+//         console.log("number");
+//         return { __html: <zhuNumberLabel /> };
+//     } else if (suit) {
+//         console.log("suit");
+//         return { __html: <zhuSuitLabel /> };
+//     } else {
+//         return;
+//     }
+// }
+
+// function jokerLabel() {
+//     return (
+//         <>
+//             <svg id="zhuJokerStar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65.68 65.68"
+//                 fill="#00ad11">
+//                 <path class="cls-joker" d="M154.27,132.13" transform="translate(-121.42 -99.29)" />
+//                 <path
+//                     d="M154.27,99.29a32.84,32.84,0,1,0,32.84,32.84A32.84,32.84,0,0,0,154.27,99.29Zm23,28.09-9.95,7.89a2.18,2.18,0,0,0-.74,2.29L170,149.85a2.69,2.69,0,0,1-.32,2.19,2.66,2.66,0,0,1-3.68.81l-10.5-7.13a2.15,2.15,0,0,0-2.38,0l-10.5,7.13a2.63,2.63,0,0,1-2.29.34,2.66,2.66,0,0,1-1.76-3.34L142,137.56a2.18,2.18,0,0,0-.73-2.29l-10-7.89a2.7,2.7,0,0,1,1.55-4.81l12.64-.47a2.11,2.11,0,0,0,1.92-1.41l4.35-12a2.66,2.66,0,0,1,5,0l4.35,12A2.11,2.11,0,0,0,163,122.1l12.64.47a2.7,2.7,0,0,1,1.55,4.81Z"
+//                     transform="translate(-121.42 -99.29)" />
+//             </svg>
+//         </>
+//     )
+// }
 
 class jokerLabel extends React.Componenet {
     render() {
