@@ -388,10 +388,13 @@ TODO Add stuff here later this is filler
   width: 6vmax;
 }
 
-.label {
+.label svg {
+  position: absolute;
   left: 0;
   bottom: 0;
-  height: 2vmin;
+  height: 1.75vmax;
+  width: 1.75vmax;
+  margin: 0.5vmin;
 }
 
 /*
