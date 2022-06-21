@@ -347,20 +347,29 @@ TODO Add stuff here later this is filler
 */
 .yourcards {
   position: absolute;
-  height: 6vmax;
-  width: 100vmax;
+  height: 5.5vmax;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  margin-bottom: 6vmax;
+  margin-bottom: 5.5vmax;
   display: flex;
   flex: column;
 }
 
+.card-container {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  transition: 500ms;
+  transform-origin: bottom left;
+}
+
 .card {
-  width: 6vmax;
+  width: 5.5vmax;
   aspect-ratio: 216/336;
-  transform: translate(-50%, -50%);
   background: white;
   border-radius: 1vmin;
   padding: 0.5vmin;
@@ -385,7 +394,12 @@ TODO Add stuff here later this is filler
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 6vmax;
+  width: 5.5vmax;
+}
+
+.card-container:hover {
+  transform: translateY(-5vmin);
+  z-index: 1;
 }
 
 .label svg {
@@ -395,6 +409,15 @@ TODO Add stuff here later this is filler
   height: 1.75vmax;
   width: 1.75vmax;
   margin: 0.5vmin;
+}
+
+.blocker {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 10vmin;
+  width: 100vw;
+  z-index: 1;
 }
 
 /*
