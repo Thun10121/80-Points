@@ -345,6 +345,10 @@ function clear() { //clears selection
 
 }
 
+function largestCard(){
+    
+}
+
 /*
     ------------------------------------------------------------------
     1.8 DIV Generator Functions
