@@ -86,8 +86,9 @@ $base1: #191a19;
    --base4: #015f17; 
 */
 
-$OTHER_PLAYER_CARDS: 4vmax;
+$OTHER_PLAYER_CARDS: 5.5vmax;
 $PLAYER_CARDS: 5.5vmax;
+$PLAYED_CARDS: 6vmax;
 
 ::-webkit-scrollbar {
     width: 10px;
@@ -397,10 +398,6 @@ TODO Add stuff here later this is filler
         grid-template-columns: $OTHER_PLAYER_CARDS auto $OTHER_PLAYER_CARDS;
         grid-template-rows: $OTHER_PLAYER_CARDS auto $OTHER_PLAYER_CARDS;
 
-        .spacer {
-            background: transparent;
-        }
-
         #four,
         #two {
             background: red;
@@ -410,7 +407,30 @@ TODO Add stuff here later this is filler
             background: green;
         }
 
-        .table {}
+        .table {
+            display: flex;
+            justify-content: center;
+
+            #one,
+            #two,
+            #three,
+            #four {
+                background: red;
+            }
+
+        }
+
+        .table>div:first-child {
+            display: grid;
+            grid-template-columns: $PLAYED_CARDS auto $PLAYED_CARDS;
+            grid-template-rows: $PLAYED_CARDS auto $PLAYED_CARDS;
+            height: 50vmin;
+            width: 50vmin;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
     }
 }
 

@@ -107,11 +107,16 @@ function length(string) {
 
 function intialize() {
     roomGenerator();
+
     const DECK_ORDERED = putCards();
     const DECK = randomizeCards(DECK_ORDERED);
 
     const ZHU_SUIT = randomizeSuit();
     const ZHU_NUMBER = randomizeNumber();
+
+    let infoRender = renderInfo(ROOM_ID, ZHU_SUIT, ZHU_NUMBER);
+
+    ReactDOM.render(infoRender, document.getElementById("info"));
 
     const DISTRIBUTE_CARDS = distributeCards(DECK);
     const PLAYERDECK_UNSORTED = DISTRIBUTE_CARDS[0];
@@ -244,6 +249,7 @@ function sortPlayerDecks(playerDecks, zhuSuit, zhuNumber) {
         playerZhuNumber = sortZhuNumber(playerZhuNumber, zhuSuit);
         playerZhuSuit = sortSuit(playerZhuSuit, zhuSuit, true);
         playerFuSuit = sortSuit(playerFuSuit, zhuSuit, false);
+
         let output = playerJoker.concat(playerZhuNumber).concat(playerZhuSuit).concat(playerFuSuit);
         sortedPlayerDecks.push(output);
     }
@@ -345,15 +351,28 @@ function clear() { //clears selection
 
 }
 
-function largestCard(){
-    
+function largestCard() {
+
 }
 
 /*
     ------------------------------------------------------------------
-    1.8 DIV Generator Functions
+    1.8 Render Functions
     ------------------------------------------------------------------
 */
+
+function renderInfo(room, suit, number) {
+    let element = (
+        <>
+            <h1 class="goldTxt">Room Number: {room}</h1>
+            <h2 class="goldTxt">Main Suit: {suit}</h2>
+            <div class="goldBK divider"></div>
+            <h2 class="goldTxt">Main Card: {number}</h2>
+        </>
+    );
+    return element;
+}
+
 function renderDeck(deck, ZHU_NUMBER, ZHU_SUIT) {
     let cards = [];
     for (let i in deck) {
@@ -389,13 +408,11 @@ function renderDeck(deck, ZHU_NUMBER, ZHU_SUIT) {
             ReactDOM.render(label, document.getElementsByClassName("label")[i]);
         }
     }, 1);
-
 }
 
 function Card(identification, number, suit, length) {
-    console.log("l " + length);
     let color = (suit == '♥' || suit == '♦' || suit == 'R') ? "red" : "black";
-    let offset = parseInt(identification - length/2-1) * 3;
+    let offset = parseInt(identification - length / 2 - 1) * 3;
     const element = (
         <div class="card-container">
             <div class={`card ${color}BK`} data-number={identification} style={{ transform: `translateX(${offset}vmax)` }}>

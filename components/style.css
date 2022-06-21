@@ -333,11 +333,8 @@ TODO Add stuff here later this is filler
   height: 100vmin;
   position: absolute;
   display: grid;
-  grid-template-columns: 4vmax auto 4vmax;
-  grid-template-rows: 4vmax auto 4vmax;
-}
-.game .content .spacer {
-  background: transparent;
+  grid-template-columns: 5.5vmax auto 5.5vmax;
+  grid-template-rows: 5.5vmax auto 5.5vmax;
 }
 .game .content #four,
 .game .content #two {
@@ -346,6 +343,28 @@ TODO Add stuff here later this is filler
 .game .content #three {
   background: green;
 }
+.game .content .table {
+  display: flex;
+  justify-content: center;
+}
+.game .content .table #one,
+.game .content .table #two,
+.game .content .table #three,
+.game .content .table #four {
+  background: red;
+}
+.game .content .table > div:first-child {
+  display: grid;
+  grid-template-columns: 6vmax auto 6vmax;
+  grid-template-rows: 6vmax auto 6vmax;
+  height: 50vmin;
+  width: 50vmin;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 /*
     ---------------------------------
     6.2 Your Cards Styles
