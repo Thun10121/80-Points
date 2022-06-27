@@ -169,7 +169,7 @@
 }
 
 .black {
-  color: black;
+  color: #434343;
 }
 
 .redBK {
@@ -177,7 +177,7 @@
 }
 
 .blackBK {
-  border: 0.625vmin solid black;
+  border: 0.625vmin solid #434343;
 }
 
 /*
@@ -379,6 +379,7 @@ TODO Add stuff here later this is filler
   margin-bottom: 5.5vmax;
   display: flex;
   flex: column;
+  z-index: 2;
 }
 
 .card-container {
@@ -390,6 +391,9 @@ TODO Add stuff here later this is filler
   height: fit-content;
   transition: 500ms;
   transform-origin: bottom left;
+  outline: none;
+  border: 0;
+  padding: 0;
 }
 
 .card {
@@ -406,13 +410,13 @@ TODO Add stuff here later this is filler
   top: 0;
   display: flex;
   flex-direction: row;
-  margin: 0.5vmin;
+  margin: 0vmin;
 }
 .card .type p {
   margin: 0;
   font-family: "Luxurious Roman", cursive;
   font-size: 1.5vmax;
-  font-weight: 900;
+  font-weight: 500;
 }
 .card .dragon {
   position: absolute;
@@ -420,11 +424,11 @@ TODO Add stuff here later this is filler
   left: 50%;
   transform: translate(-50%, -50%);
   width: 5.5vmax;
+  z-index: -1;
 }
 
 .card-container:hover {
-  transform: translateY(-5vmin);
-  z-index: 1;
+  transform: translateY(-4.5vmin);
 }
 
 .label svg {
@@ -443,6 +447,10 @@ TODO Add stuff here later this is filler
   height: 10vmin;
   width: 100vw;
   z-index: 1;
+}
+
+.selected {
+  background-color: #006400;
 }
 
 /*
@@ -480,8 +488,17 @@ TODO Add stuff here later this is filler
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  display: grid;
-  margin-right: 5vmin;
+  display: flex;
+  margin-right: 10vmax;
+  flex-direction: row;
+}
+.playerbar .container {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 .playerbar .profiles {
   margin: 1vmin;
@@ -500,7 +517,6 @@ TODO Add stuff here later this is filler
   bottom: 0;
 }
 .playerbar .profiles .content {
-  margin: 0.5vmin;
   padding: 1vmin;
   position: relative;
   border-radius: 0.5vmin;
@@ -512,4 +528,18 @@ TODO Add stuff here later this is filler
 .playerbar .profiles#two div,
 .playerbar .profiles#four div {
   background-color: #8b0000;
+}
+
+/*
+    ---------------------------------
+    6.5 Bottom Bar Styles
+    ---------------------------------
+*/
+.bottombar {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100vmax;
+  height: 3vmin;
+  background: black;
 }/*# sourceMappingURL=style.css.map */

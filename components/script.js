@@ -340,7 +340,9 @@ function sortSuit(deck, zhuSuit, isZhu) {
 */
 
 function selectCard() {
-
+    console.log("card selected");
+    // const card = document.getElementsByClassName("card")[id];
+    // card.classList.add("selected");
 }
 
 function submit() { //submit selection
@@ -412,9 +414,9 @@ function renderDeck(deck, ZHU_NUMBER, ZHU_SUIT) {
 
 function Card(identification, number, suit, length) {
     let color = (suit == '♥' || suit == '♦' || suit == 'R') ? "red" : "black";
-    let offset = parseInt(identification - length / 2 - 1) * 3;
+    let offset = parseInt(identification - length / 2) * 3;
     const element = (
-        <div class="card-container">
+        <button class="card-container" onclick={selectCard}>
             <div class={`card ${color}BK`} data-number={identification} style={{ transform: `translateX(${offset}vmax)` }}>
                 <div class="type">
                     <p class={`suit ${color}`}>{suit}</p>
@@ -439,7 +441,7 @@ function Card(identification, number, suit, length) {
                 </svg>
                 <div class="label"></div>
             </div>
-        </div>
+        </button>
     );
     return element;
 }
