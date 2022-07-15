@@ -44,6 +44,7 @@ $base5: #232324;
 $base6: #015f17;
 $base7: #17871f;
 
+
 $accent0: #FFFFFF;
 $accent1: #FFDF01;
 $accent2: #E6E6E6;
@@ -71,6 +72,7 @@ $grad5: #FCE186;
 ? black theme
 */
 $base1: #191a19;
+$INbase1: inverse($base1);
 
 /*
 ? white theme
@@ -360,11 +362,11 @@ TODO Add stuff here later this is filler
 */
 .game {
     aspect-ratio: 1 / 1;
-    height: 100%;
+    height: 90%;
 
     .background {
         aspect-ratio: 1 / 1;
-        height: 100%;
+        height: 90%;
         position: absolute;
         border-radius: 50%;
 
@@ -400,11 +402,11 @@ TODO Add stuff here later this is filler
 
         #four,
         #two {
-            background: red;
+            background: #ff0000;
         }
 
         #three {
-            background: green;
+            background: #008000;
         }
 
         .table {
@@ -415,7 +417,7 @@ TODO Add stuff here later this is filler
             #two,
             #three,
             #four {
-                background: red;
+                background: #ff0000;
             }
 
         }
@@ -430,6 +432,23 @@ TODO Add stuff here later this is filler
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+        }
+    }
+}
+
+.fan-card-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .fan-card {
+        aspect-ratio: 216 / 336;
+        width: 4vmax;
+
+        .content {
+            width: auto;
+            height: auto;
         }
     }
 }
@@ -464,7 +483,7 @@ TODO Add stuff here later this is filler
 .card {
     width: $PLAYER_CARDS;
     aspect-ratio: 216 / 336;
-    background: white;
+    background: #fff;
     border-radius: 1vmin;
     padding: .5vmin;
     position: absolute;
@@ -503,8 +522,8 @@ TODO Add stuff here later this is filler
     position: absolute;
     left: 0;
     bottom: 0;
-    height: 1.75vmax;
-    width: 1.75vmax;
+    height: 1.5vmax;
+    width: 1.5vmax;
     margin: .5vmin;
 }
 
@@ -517,7 +536,7 @@ TODO Add stuff here later this is filler
     z-index: 1;
 }
 
-.selected{
+.selected {
     background-color: #006400;
 }
 
@@ -610,14 +629,72 @@ TODO Add stuff here later this is filler
 
 /*
     ---------------------------------
-    6.5 Bottom Bar Styles
+    6.5 Top Bar Styles
     ---------------------------------
 */
-.bottombar{
+
+.topbar {
+    $fanSize: 10rem;
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translateX(-50%);
+    height: 2rem;
+    width: auto;
+    z-index: 2;
+    border-radius: .5vmax;
+
+    .content {
+        position: relative;
+        display: grid;
+        grid-template-columns: auto auto $fanSize auto auto;
+        grid-template-rows: 2rem;
+        border-radius: .5vmax;
+        padding-left: 1vmax;
+        padding-right: 1vmax;
+        background-color: $base1;
+        padding: 1vmax;
+        border: .25vmax solid white;
+
+        .horizontal-line {
+            height: 4px;
+            width: 75px;
+            margin-top: auto;
+            margin-bottom: auto;
+            margin: auto 1vmax auto 1vmax;
+            background-color: invert($base1);
+        }
+
+        svg {
+            position: relative;
+            height: $fanSize;
+            aspect-ratio: 1 / 1;
+            top: 50%;
+            transform: translateY(-50%);
+            // fill: invert($base1);
+            fill: #be1220;
+        }
+
+        p {
+            font-size: 2rem;
+            font-weight: 1000;
+            color: invert($base1);
+            letter-spacing: 1vmin;
+            margin: auto 2vmax auto 2vmax;
+        }
+    }
+}
+
+/*
+    ---------------------------------
+    6.6 Bottom Bar Styles
+    ---------------------------------
+*/
+.bottombar {
     position: absolute;
     bottom: 0;
     right: 0;
     width: 100vmax;
     height: 3vmin;
-    background: black;
+    background: none;
 }

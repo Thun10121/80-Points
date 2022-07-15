@@ -301,11 +301,11 @@ TODO Add stuff here later this is filler
 */
 .game {
   aspect-ratio: 1/1;
-  height: 100%;
+  height: 90%;
 }
 .game .background {
   aspect-ratio: 1/1;
-  height: 100%;
+  height: 90%;
   position: absolute;
   border-radius: 50%;
 }
@@ -338,10 +338,10 @@ TODO Add stuff here later this is filler
 }
 .game .content #four,
 .game .content #two {
-  background: red;
+  background: #ff0000;
 }
 .game .content #three {
-  background: green;
+  background: #008000;
 }
 .game .content .table {
   display: flex;
@@ -351,7 +351,7 @@ TODO Add stuff here later this is filler
 .game .content .table #two,
 .game .content .table #three,
 .game .content .table #four {
-  background: red;
+  background: #ff0000;
 }
 .game .content .table > div:first-child {
   display: grid;
@@ -363,6 +363,21 @@ TODO Add stuff here later this is filler
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.fan-card-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.fan-card-container .fan-card {
+  aspect-ratio: 216/336;
+  width: 4vmax;
+}
+.fan-card-container .fan-card .content {
+  width: auto;
+  height: auto;
 }
 
 /*
@@ -399,7 +414,7 @@ TODO Add stuff here later this is filler
 .card {
   width: 5.5vmax;
   aspect-ratio: 216/336;
-  background: white;
+  background: #fff;
   border-radius: 1vmin;
   padding: 0.5vmin;
   position: absolute;
@@ -435,8 +450,8 @@ TODO Add stuff here later this is filler
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 1.75vmax;
-  width: 1.75vmax;
+  height: 1.5vmax;
+  width: 1.5vmax;
   margin: 0.5vmin;
 }
 
@@ -532,7 +547,58 @@ TODO Add stuff here later this is filler
 
 /*
     ---------------------------------
-    6.5 Bottom Bar Styles
+    6.5 Top Bar Styles
+    ---------------------------------
+*/
+.topbar {
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  transform: translateX(-50%);
+  height: 2rem;
+  width: auto;
+  z-index: 2;
+  border-radius: 0.5vmax;
+}
+.topbar .content {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto auto 10rem auto auto;
+  grid-template-rows: 2rem;
+  border-radius: 0.5vmax;
+  padding-left: 1vmax;
+  padding-right: 1vmax;
+  background-color: #191a19;
+  padding: 1vmax;
+  border: 0.25vmax solid white;
+}
+.topbar .content .horizontal-line {
+  height: 4px;
+  width: 75px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin: auto 1vmax auto 1vmax;
+  background-color: #e6e5e6;
+}
+.topbar .content svg {
+  position: relative;
+  height: 10rem;
+  aspect-ratio: 1/1;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: #be1220;
+}
+.topbar .content p {
+  font-size: 2rem;
+  font-weight: 1000;
+  color: #e6e5e6;
+  letter-spacing: 1vmin;
+  margin: auto 2vmax auto 2vmax;
+}
+
+/*
+    ---------------------------------
+    6.6 Bottom Bar Styles
     ---------------------------------
 */
 .bottombar {
@@ -541,5 +607,5 @@ TODO Add stuff here later this is filler
   right: 0;
   width: 100vmax;
   height: 3vmin;
-  background: black;
+  background: none;
 }/*# sourceMappingURL=style.css.map */
