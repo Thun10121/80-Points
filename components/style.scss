@@ -50,12 +50,6 @@ $accent1: #FFDF01;
 $accent2: #E6E6E6;
 $accent3: #00AD11;
 
-$icon-h: 5vmin;
-$icon-w: 5vmin;
-$icon-switch-w: 6vmin;
-$card-height: 60vmin;
-$card-width: 40vmin;
-
 /*?linear gradient*/
 $grad1: #F0D750;
 $grad2: #E7CD3B;
@@ -88,9 +82,9 @@ $INbase1: inverse($base1);
    --base4: #015f17; 
 */
 
-$OTHER_PLAYER_CARDS: 5.5vmax;
-$PLAYER_CARDS: 5.5vmax;
-$PLAYED_CARDS: 6vmax;
+$OTHER_PLAYER_CARDS: 70px;
+$PLAYER_CARDS: 90px;
+$PLAYED_CARDS: 75px;
 
 ::-webkit-scrollbar {
     width: 10px;
@@ -227,11 +221,11 @@ $PLAYED_CARDS: 6vmax;
 }
 
 .redBK {
-    border: .625vmin solid red;
+    border: 5px solid red;
 }
 
 .blackBK {
-    border: .625vmin solid #434343;
+    border: 5px solid #434343;
 }
 
 /*
@@ -311,6 +305,7 @@ TODO Add stuff here later this is filler
 *6. Lobby Page Styles
 ---------------------------------
 */
+
 .info {
     position: absolute;
     width: fit-content;
@@ -484,8 +479,8 @@ TODO Add stuff here later this is filler
     width: $PLAYER_CARDS;
     aspect-ratio: 216 / 336;
     background: #fff;
-    border-radius: 1vmin;
-    padding: .5vmin;
+    border-radius: 2px;
+    padding: 2px;
     position: absolute;
 
     .type {
@@ -494,12 +489,12 @@ TODO Add stuff here later this is filler
         top: 0;
         display: flex;
         flex-direction: row;
-        margin: .0vmin;
+        margin: 0;
 
         p {
             margin: 0;
             font-family: 'Luxurious Roman', cursive;
-            font-size: 1.5vmax;
+            font-size: 1.5rem;
             font-weight: 500;
         }
     }
@@ -522,18 +517,18 @@ TODO Add stuff here later this is filler
     position: absolute;
     left: 0;
     bottom: 0;
-    height: 1.5vmax;
-    width: 1.5vmax;
-    margin: .5vmin;
+    height: 1.5rem;
+    width: 1.5rem;
+    margin: 5px;
 }
 
 .blocker {
     position: absolute;
     left: 0;
     bottom: 0;
-    height: 10vmin;
+    height: 70px;
     width: 100vw;
-    z-index: 1;
+    z-index: 2;
 }
 
 .selected {
@@ -634,27 +629,20 @@ TODO Add stuff here later this is filler
 */
 
 .topbar {
-    $fanSize: 10rem;
+    $fanSize: 150px;
     position: absolute;
     left: 50%;
-    top: 5%;
     transform: translateX(-50%);
-    height: 2rem;
     width: auto;
     z-index: 2;
-    border-radius: .5vmax;
 
     .content {
         position: relative;
         display: grid;
         grid-template-columns: auto auto $fanSize auto auto;
         grid-template-rows: 2rem;
-        border-radius: .5vmax;
-        padding-left: 1vmax;
-        padding-right: 1vmax;
-        background-color: $base1;
         padding: 1vmax;
-        border: .25vmax solid white;
+        margin-top: 45px;
 
         .horizontal-line {
             height: 4px;
@@ -682,6 +670,15 @@ TODO Add stuff here later this is filler
             letter-spacing: 1vmin;
             margin: auto 2vmax auto 2vmax;
         }
+    }
+
+    .background {
+        position: relative;
+        width: auto;
+        height: 2rem;
+        padding: 5px;
+        z-index: 2;
+        background: aqua;
     }
 }
 

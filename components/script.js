@@ -114,9 +114,9 @@ function intialize() {
     const ZHU_SUIT = randomizeSuit();
     const ZHU_NUMBER = randomizeNumber();
 
-    let infoRender = renderInfo(ROOM_ID, ZHU_SUIT, ZHU_NUMBER);
+    // let infoRender = renderInfo(ROOM_ID, ZHU_SUIT, ZHU_NUMBER);
 
-    ReactDOM.render(infoRender, document.getElementById("info"));
+    // ReactDOM.render(infoRender, document.getElementById("info"));
 
     const DISTRIBUTE_CARDS = distributeCards(DECK);
     const PLAYERDECK_UNSORTED = DISTRIBUTE_CARDS[0];
@@ -414,10 +414,10 @@ function renderDeck(deck, ZHU_NUMBER, ZHU_SUIT) {
 
 function Card(identification, number, suit, length) {
     let color = (suit == '♥' || suit == '♦' || suit == 'R') ? "red" : "black";
-    let offset = parseInt(identification - length / 2) * 3;
+    let offset = parseInt(identification - length / 2) * 45;
     const element = (
         <button class="card-container" onclick={selectCard}>
-            <div class={`card ${color}BK`} data-number={identification} style={{ transform: `translateX(${offset}vmax)` }}>
+            <div class={`card ${color}BK`} data-number={identification} style={{ transform: `translateX(${offset}px)` }}>
                 <div class="type">
                     <p class={`suit ${color}`}>{suit}</p>
                     <p class={`number ${color}`}>{number}</p>
@@ -465,7 +465,7 @@ function zhuSuitNumberLabel() {
         <>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.98 46.37" fill="#00ad11">
                 <path d="M123.36,104.61" transform="translate(-118.81 -103.63)" />
-                <path
+                <path   
                     d="M164.21,119.28l-12.64-.47a2.14,2.14,0,0,1-1.92-1.41l-4.35-12a2.66,2.66,0,0,0-5,0l-4.35,12a2.11,2.11,0,0,1-1.92,1.41l-12.64.47a2.7,2.7,0,0,0-1.55,4.81l10,7.89a2.17,2.17,0,0,1,.73,2.29l-3.46,12.29a2.67,2.67,0,0,0,4.05,3l10.5-7.13a2.15,2.15,0,0,1,2.38,0l10.5,7.13a2.67,2.67,0,0,0,4-3l-3.47-12.29a2.19,2.19,0,0,1,.74-2.29l9.95-7.89A2.7,2.7,0,0,0,164.21,119.28Z"
                     transform="translate(-118.81 -103.63)" />
             </svg>

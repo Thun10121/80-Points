@@ -173,11 +173,11 @@
 }
 
 .redBK {
-  border: 0.625vmin solid red;
+  border: 5px solid red;
 }
 
 .blackBK {
-  border: 0.625vmin solid #434343;
+  border: 5px solid #434343;
 }
 
 /*
@@ -333,8 +333,8 @@ TODO Add stuff here later this is filler
   height: 100vmin;
   position: absolute;
   display: grid;
-  grid-template-columns: 5.5vmax auto 5.5vmax;
-  grid-template-rows: 5.5vmax auto 5.5vmax;
+  grid-template-columns: 70px auto 70px;
+  grid-template-rows: 70px auto 70px;
 }
 .game .content #four,
 .game .content #two {
@@ -355,8 +355,8 @@ TODO Add stuff here later this is filler
 }
 .game .content .table > div:first-child {
   display: grid;
-  grid-template-columns: 6vmax auto 6vmax;
-  grid-template-rows: 6vmax auto 6vmax;
+  grid-template-columns: 75px auto 75px;
+  grid-template-rows: 75px auto 75px;
   height: 50vmin;
   width: 50vmin;
   position: absolute;
@@ -387,11 +387,11 @@ TODO Add stuff here later this is filler
 */
 .yourcards {
   position: absolute;
-  height: 5.5vmax;
+  height: 90px;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  margin-bottom: 5.5vmax;
+  margin-bottom: 90px;
   display: flex;
   flex: column;
   z-index: 2;
@@ -412,11 +412,11 @@ TODO Add stuff here later this is filler
 }
 
 .card {
-  width: 5.5vmax;
+  width: 90px;
   aspect-ratio: 216/336;
   background: #fff;
-  border-radius: 1vmin;
-  padding: 0.5vmin;
+  border-radius: 2px;
+  padding: 2px;
   position: absolute;
 }
 .card .type {
@@ -425,12 +425,12 @@ TODO Add stuff here later this is filler
   top: 0;
   display: flex;
   flex-direction: row;
-  margin: 0vmin;
+  margin: 0;
 }
 .card .type p {
   margin: 0;
   font-family: "Luxurious Roman", cursive;
-  font-size: 1.5vmax;
+  font-size: 1.5rem;
   font-weight: 500;
 }
 .card .dragon {
@@ -438,7 +438,7 @@ TODO Add stuff here later this is filler
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 5.5vmax;
+  width: 90px;
   z-index: -1;
 }
 
@@ -450,18 +450,18 @@ TODO Add stuff here later this is filler
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 1.5vmax;
-  width: 1.5vmax;
-  margin: 0.5vmin;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin: 5px;
 }
 
 .blocker {
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 10vmin;
+  height: 70px;
   width: 100vw;
-  z-index: 1;
+  z-index: 2;
 }
 
 .selected {
@@ -553,24 +553,17 @@ TODO Add stuff here later this is filler
 .topbar {
   position: absolute;
   left: 50%;
-  top: 5%;
   transform: translateX(-50%);
-  height: 2rem;
   width: auto;
   z-index: 2;
-  border-radius: 0.5vmax;
 }
 .topbar .content {
   position: relative;
   display: grid;
-  grid-template-columns: auto auto 10rem auto auto;
+  grid-template-columns: auto auto 150px auto auto;
   grid-template-rows: 2rem;
-  border-radius: 0.5vmax;
-  padding-left: 1vmax;
-  padding-right: 1vmax;
-  background-color: #191a19;
   padding: 1vmax;
-  border: 0.25vmax solid white;
+  margin-top: 45px;
 }
 .topbar .content .horizontal-line {
   height: 4px;
@@ -582,7 +575,7 @@ TODO Add stuff here later this is filler
 }
 .topbar .content svg {
   position: relative;
-  height: 10rem;
+  height: 150px;
   aspect-ratio: 1/1;
   top: 50%;
   transform: translateY(-50%);
@@ -594,6 +587,14 @@ TODO Add stuff here later this is filler
   color: #e6e5e6;
   letter-spacing: 1vmin;
   margin: auto 2vmax auto 2vmax;
+}
+.topbar .background {
+  position: relative;
+  width: auto;
+  height: 2rem;
+  padding: 5px;
+  z-index: 2;
+  background: aqua;
 }
 
 /*
